@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=75"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "chronoshft-docs"
+version = "0.1.0"
+description = "ChronosHFT research and engineering documentation"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = []
+
+[project.optional-dependencies]
+docs = [
+    "mkdocs>=1.6,<2",
+    "mkdocs-material>=9.6,<10",
+    "pymdown-extensions>=10.14,<11",
+]
+
+[tool.setuptools]
+packages = []

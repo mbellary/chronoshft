@@ -1,0 +1,120 @@
+site_name: ChronosHFT
+site_description: Research, architecture and engineering documentation for a financial time-series database and analytics engine.
+site_url: https://mbellary.github.io/chronoshft/
+repo_url: https://github.com/mbellary/chronoshft
+repo_name: mbellary/chronoshft
+edit_uri: edit/main/docs/
+strict: true
+
+theme:
+  name: material
+  language: en
+  font: false
+  icon:
+    logo: material/chart-timeline-variant
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: custom
+      accent: teal
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: custom
+      accent: teal
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.top
+    - navigation.footer
+    - navigation.tracking
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+    - content.action.edit
+    - content.action.view
+
+plugins:
+  - search
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.details
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+
+extra_css:
+  - assets/stylesheets/extra.css
+
+nav:
+  - Home: index.md
+  - Research & governance:
+      - "Research baseline": 00-governance/research-baseline.md
+      - "Research assessment": 00-governance/research-assessment.md
+      - "Assumptions & gaps": 00-governance/assumptions-and-gaps.md
+      - "Decision register": 00-governance/decision-register.md
+      - "Traceability": 00-governance/traceability.md
+  - Product:
+      - "Product requirements": 01-product/product-requirements.md
+      - "Product architecture": 01-product/product-architecture.md
+      - "Scope & MVP": 01-product/scope-and-mvp.md
+  - Architecture:
+      - "System architecture": 02-architecture/system-architecture.md
+      - "Platform design": 02-architecture/platform-design.md
+      - "Component contracts": 02-architecture/component-contracts.md
+      - "Data flow": 02-architecture/data-flow.md
+  - Engineering:
+      - "Engineering requirements": 03-engineering/engineering-requirements.md
+      - "Engineering design": 03-engineering/engineering-design.md
+      - "Ingestion engine": 03-engineering/ingestion-engine.md
+      - "Active memory lifecycle": 03-engineering/active-memory-lifecycle.md
+      - "Query engine": 03-engineering/query-engine.md
+      - "Persistence engine": 03-engineering/persistence-engine.md
+  - Rust reference:
+      - "Fundamentals": 04-rust/fundamentals.md
+      - "Ownership & lifetimes": 04-rust/ownership-and-lifetimes.md
+      - "Atomics & memory ordering": 04-rust/atomics-and-memory-ordering.md
+      - "Lock-free patterns": 04-rust/lock-free-patterns.md
+      - "Concurrency patterns": 04-rust/concurrency-patterns.md
+      - "Memory management": 04-rust/memory-management.md
+      - "Reference exercises": 04-rust/reference-exercises.md
+  - Financial domain:
+      - "Market data protocols": 05-financial-domain/market-data-protocols.md
+      - "Timestamps & sequencing": 05-financial-domain/timestamps-and-sequencing.md
+      - "Order book reconstruction": 05-financial-domain/order-book-reconstruction.md
+      - "Financial query semantics": 05-financial-domain/financial-query-semantics.md
+  - Benchmarking & validation:
+      - "Benchmark methodology": 06-benchmarking/benchmark-methodology.md
+      - "Workload definitions": 06-benchmarking/workload-definitions.md
+      - "Test strategy": 06-benchmarking/test-strategy.md
+      - "Hardware setup": 06-benchmarking/hardware-setup.md
+      - "Acceptance criteria": 06-benchmarking/acceptance-criteria.md
+  - Operations:
+      - "Deployment": 07-operations/deployment.md
+      - "Observability": 07-operations/observability.md
+      - "Security": 07-operations/security.md
+      - "Recovery": 07-operations/recovery.md
+  - Architecture decisions:
+      - "ADR-0001: Product boundary": 08-decisions/ADR-0001-product-boundary.md
+  - Roadmap:
+      - "Implementation roadmap": 09-roadmap/implementation-roadmap.md
+      - "Milestone register": 09-roadmap/milestone-register.md

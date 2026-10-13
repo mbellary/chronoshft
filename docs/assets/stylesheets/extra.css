@@ -1,0 +1,23 @@
+:root {
+  --md-primary-fg-color: #133a43;
+  --md-primary-fg-color--light: #245661;
+  --md-primary-fg-color--dark: #09282e;
+}
+body { font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+.md-typeset code { font-family: ui-monospace, "SFMono-Regular", Consolas, monospace; }
+.chronos-hero {
+  margin: 1.2rem 0;
+  padding: 1.6rem;
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-left: 4px solid #00a896;
+  border-radius: .5rem;
+  background: linear-gradient(125deg, rgba(0, 168, 150, .10), transparent 75%);
+}
+.chronos-eyebrow { font-size: .65rem; font-weight: 700; letter-spacing: .12em; color: var(--md-default-fg-color--light); }
+.md-typeset .chronos-hero h2 { margin-top: .65rem; font-weight: 700; letter-spacing: -.025em; }
+.md-typeset .chronos-hero .md-button { margin: .35rem .35rem 0 0; }
+.md-typeset .grid.cards > ul > li { border-radius: .5rem; }
+@media (max-width: 600px) {
+  .chronos-hero { padding: 1rem; }
+  .md-typeset .chronos-hero .md-button { display: block; text-align: center; margin-right: 0; }
+}
