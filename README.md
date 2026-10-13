@@ -25,24 +25,24 @@ The documentation follows the repository and document layout in [the research re
 
 ## Local preview
 
-Use Python 3.11 or newer (GitHub Actions uses Python 3.12):
+Install [uv](https://docs.astral.sh/uv/getting-started/installation/). The project pins Python 3.12 in `.python-version`; uv manages Python and the local `.venv` automatically:
 
 ```bash
-python3 -m venv .venv
-source .venv/bin/activate
-python -m pip install '.[docs]'
-python -m mkdocs serve
+uv sync --locked --extra docs
+uv run --locked --extra docs mkdocs serve
 ```
+
+On Linux, if `uv` is installed in `~/.local/bin` and your shell cannot find it, run `export PATH="$HOME/.local/bin:$PATH"` (and add it to your shell configuration for future sessions).
 
 Open <http://127.0.0.1:8000>. The local server reloads when documentation changes.
 
 Build with the same strict validation used in CI:
 
 ```bash
-python -m mkdocs build --strict
+uv run --locked --extra docs mkdocs build --strict
 ```
 
-Generated output goes to `site/`, which is ignored by Git.
+Generated output goes to `site/`, which is ignored by Git. Commit `uv.lock` so local builds and GitHub Actions use the same dependency versions. After editing dependencies in `pyproject.toml`, run `uv lock` and `uv sync --locked --extra docs`.
 
 ## GitHub Pages publication
 
