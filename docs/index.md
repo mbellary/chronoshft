@@ -29,7 +29,7 @@ The documentation workspace for a proposed Rust financial time-series database a
 
     ---
 
-    Preserve sources, assess claims, record decisions and follow the evidence.
+    Explore the completed Phase 0 extraction, validation, open gaps, pending decisions and readiness gates.
 
     [Research baseline](00-governance/research-baseline.md) · [Assessment](00-governance/research-assessment.md) · [Traceability](00-governance/traceability.md)
 
@@ -97,6 +97,6 @@ This is the proposed documentation authority hierarchy. Each stage needs explici
 
 ## Read and contribute
 
-Begin with the [research assessment](00-governance/research-assessment.md), then follow product definition, architecture, engineering design and validation. Keep source claims, proposed improvements and approved decisions distinct. See the [decision register](00-governance/decision-register.md) and [traceability](00-governance/traceability.md) for their planned records.
+Begin with the [research assessment](00-governance/research-assessment.md), then follow product definition, architecture, engineering design and validation. Keep source claims, proposed improvements and approved decisions distinct. See the [decision register](00-governance/decision-register.md) and [traceability](00-governance/traceability.md) for the populated Phase 0 records.
 
 The source plan is preserved in the [research directory](https://github.com/mbellary/chronoshft/tree/main/research). The [repository README](https://github.com/mbellary/chronoshft#readme) explains local preview and publication.

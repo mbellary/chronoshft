@@ -70,9 +70,13 @@ nav:
   - Research & governance:
       - "Research baseline": 00-governance/research-baseline.md
       - "Research assessment": 00-governance/research-assessment.md
+      - "Research extraction matrix": 00-governance/research-extraction.md
+      - "Technical validation": 00-governance/technical-validation.md
+      - "Performance profiles": 00-governance/performance-profiles.md
       - "Assumptions & gaps": 00-governance/assumptions-and-gaps.md
       - "Decision register": 00-governance/decision-register.md
       - "Traceability": 00-governance/traceability.md
+      - "Readiness & handoff": 00-governance/readiness-and-handoff.md
   - Product:
       - "Product requirements": 01-product/product-requirements.md
       - "Product architecture": 01-product/product-architecture.md

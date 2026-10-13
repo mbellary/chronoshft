@@ -4,7 +4,7 @@ Research, architecture and engineering documentation for a proposed Rust financi
 
 The documentation follows the repository and document layout in [the research review and documentation development plan](research/ChronosHFT-Research_Review_and_Documentation.md). Apache Arrow Flight, DataFusion, Arrow and Parquet are the proposed architectural foundation.
 
-**Status:** documentation foundation. Topic pages contain draft outlines, not approved specifications. `research/HFT-Research-Notes.pdf` is still an empty placeholder and must be replaced before original PDF claims or citations can be verified.
+**Status:** Research & governance is populated from the [unified Phase 0 assessment](research/ChronosHFT-Phase-0-Research-Baseline-Assessment.md), with extraction, validation, gaps, conflicts, decisions, performance profiles and readiness gates. Other topic pages remain draft outlines, not approved specifications. `research/HFT-Research-Notes.pdf` is still an empty placeholder and must be replaced before original PDF claims or citations can be verified.
 
 ## Documentation layout
 
