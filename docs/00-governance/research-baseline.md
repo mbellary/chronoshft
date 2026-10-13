@@ -17,8 +17,10 @@
 | Intended format | Markdown suitable for the future GitHub MkDocs repository |
 | Scope | All 42 source pages; five assessment outputs; rules, baseline profiles and readiness gates |
 
-!!! warning "Original PDF availability"
-    The supplied assessment reports the BASE-001 metadata and review below. `research/HFT-Research-Notes.pdf` is an empty placeholder in this checkout, so the PDF hash, page references and reported inspection have not been independently verified here. Preserve this distinction until the matching original PDF is available.
+## Original research PDF
+
+[Open original research PDF](../assets/research/HFT-Research-Notes.pdf)
+
 
 ## Assessment method and governance rules
 
