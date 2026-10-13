@@ -19,7 +19,7 @@ The documentation workspace for a proposed Rust financial time-series database a
 </div>
 
 !!! info "Documentation foundation"
-    The site layout is ready for authoring. Topic pages are drafts; architectural proposals and performance targets are not approved specifications or verified results. The original research PDF still needs to replace its empty placeholder.
+    Research & governance and Product contain substantive drafts. Other topic pages remain outlines; architectural proposals and performance targets are not approved specifications or verified results. The original research PDF still needs to replace its empty placeholder.
 
 ## Explore the documentation
 
@@ -37,9 +37,9 @@ The documentation workspace for a proposed Rust financial time-series database a
 
     ---
 
-    Define the users, capabilities, product boundary and MVP.
+    Explore the market context, users, capabilities, proposed MVP and Phase 2 handoff.
 
-    [Requirements](01-product/product-requirements.md) · [Product architecture](01-product/product-architecture.md) · [Scope & MVP](01-product/scope-and-mvp.md)
+    [Phase 2 overview](01-product/phase-2-definition.md) · [Market & FDAP](01-product/market-landscape-and-fdap.md) · [Requirements](01-product/product-requirements.md) · [Product architecture](01-product/product-architecture.md) · [Scope & MVP](01-product/scope-and-mvp.md)
 
 -   **C · Architecture & engineering**
 

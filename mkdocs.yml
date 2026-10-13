@@ -78,9 +78,14 @@ nav:
       - "Traceability": 00-governance/traceability.md
       - "Readiness & handoff": 00-governance/readiness-and-handoff.md
   - Product:
+      - "Phase 2 overview": 01-product/phase-2-definition.md
+      - "Market landscape & FDAP": 01-product/market-landscape-and-fdap.md
       - "Product requirements": 01-product/product-requirements.md
       - "Product architecture": 01-product/product-architecture.md
       - "Scope & MVP": 01-product/scope-and-mvp.md
+      - "Source-to-product traceability": 01-product/product-traceability.md
+      - "Open-decision handoff": 01-product/product-decision-handoff.md
+      - "Exit assessment & readiness": 01-product/product-readiness.md
   - Architecture:
       - "System architecture": 02-architecture/system-architecture.md
       - "Platform design": 02-architecture/platform-design.md
