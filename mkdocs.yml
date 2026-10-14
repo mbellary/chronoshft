@@ -109,10 +109,13 @@ nav:
   - Rust reference:
       - "Fundamentals": 04-rust/fundamentals.md
       - "Ownership & lifetimes": 04-rust/ownership-and-lifetimes.md
+      - "Idioms & error handling": 04-rust/idioms-and-errors.md
+      - "Engine design patterns": 04-rust/engine-design-patterns.md
       - "Atomics & memory ordering": 04-rust/atomics-and-memory-ordering.md
       - "Lock-free patterns": 04-rust/lock-free-patterns.md
       - "Concurrency patterns": 04-rust/concurrency-patterns.md
       - "Memory management": 04-rust/memory-management.md
+      - "FDAP integration": 04-rust/fdap-integration.md
       - "Reference exercises": 04-rust/reference-exercises.md
   - Financial domain:
       - "Market data protocols": 05-financial-domain/market-data-protocols.md
