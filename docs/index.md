@@ -19,7 +19,7 @@ The documentation workspace for a proposed Rust financial time-series database a
 </div>
 
 !!! info "Documentation foundation"
-    Research & governance, Product, Architecture and Engineering contain substantive drafts. Engineering includes subsystem contracts, schemas, financial semantics, client integration and validation traceability extracted from the supplied research PDF and companion docs. Other topic pages remain outlines; design proposals and performance targets are not approved specifications or verified results.
+    Research & governance, Product, Architecture, Engineering, Rust reference, Benchmarking & validation and Operations contain substantive drafts and learning references grounded in the supplied research and companion documents. Financial domain, Architecture decisions and Roadmap remain draft outlines. Design proposals, operational procedures and performance targets require review and evidence; they are not approved specifications or verified results.
 
 ## Explore the documentation
 
@@ -29,41 +29,81 @@ The documentation workspace for a proposed Rust financial time-series database a
 
     ---
 
-    Explore the completed Phase 0 extraction, validation, open gaps, pending decisions and readiness gates.
+    Explore the Phase 0 sources, extraction, technical validation, performance profiles, open gaps, decisions and readiness gates.
 
-    [Research baseline](00-governance/research-baseline.md) · [Assessment](00-governance/research-assessment.md) · [Traceability](00-governance/traceability.md)
+    [Research baseline](00-governance/research-baseline.md) · [Research assessment](00-governance/research-assessment.md) · [Research extraction matrix](00-governance/research-extraction.md) · [Technical validation](00-governance/technical-validation.md) · [Performance profiles](00-governance/performance-profiles.md) · [Assumptions & gaps](00-governance/assumptions-and-gaps.md) · [Decision register](00-governance/decision-register.md) · [Traceability](00-governance/traceability.md) · [Readiness & handoff](00-governance/readiness-and-handoff.md)
 
--   **B · Product definition**
-
-    ---
-
-    Explore the market context, users, capabilities, proposed MVP and Phase 2 handoff.
-
-    [Phase 2 overview](01-product/phase-2-definition.md) · [Market & FDAP](01-product/market-landscape-and-fdap.md) · [Requirements](01-product/product-requirements.md) · [Product architecture](01-product/product-architecture.md) · [Scope & MVP](01-product/scope-and-mvp.md)
-
--   **C · Architecture & engineering**
+-   **B · Product**
 
     ---
 
-    Follow the runtime topology, component interfaces and subsystem contracts.
+    Explore market context, requirements, product architecture, MVP scope, benchmark targets and the Phase 2 handoff.
 
-    [System architecture](02-architecture/system-architecture.md) · [Engineering design](03-engineering/engineering-design.md) · [Memory lifecycle](03-engineering/active-memory-lifecycle.md)
+    [Phase 2 overview](01-product/phase-2-definition.md) · [Market landscape & FDAP](01-product/market-landscape-and-fdap.md) · [Product requirements](01-product/product-requirements.md) · [Product architecture](01-product/product-architecture.md) · [Scope & MVP](01-product/scope-and-mvp.md) · [Benchmark targets](01-product/benchmark-targets.md) · [Source-to-product traceability](01-product/product-traceability.md) · [Open-decision handoff](01-product/product-decision-handoff.md) · [Exit assessment & readiness](01-product/product-readiness.md)
 
--   **D · Rust engineering knowledge**
-
-    ---
-
-    Connect ownership, concurrency and memory management to implementation problems.
-
-    [Fundamentals](04-rust/fundamentals.md) · [Concurrency](04-rust/concurrency-patterns.md) · [Exercises](04-rust/reference-exercises.md)
-
--   **E · Validation, operations & delivery**
+-   **C · Architecture**
 
     ---
 
-    Establish reproducible evidence, operational contracts and readiness gates.
+    Follow the system and platform design, component contracts, data flow, active memory, query integration and deployment topology.
 
-    [Benchmarks](06-benchmarking/benchmark-methodology.md) · [Operations](07-operations/deployment.md) · [Roadmap](09-roadmap/implementation-roadmap.md)
+    [System architecture](02-architecture/system-architecture.md) · [Platform design](02-architecture/platform-design.md) · [Component contracts](02-architecture/component-contracts.md) · [Data flow](02-architecture/data-flow.md) · [Active memory & concurrency](02-architecture/active-memory.md) · [Query & storage integration](02-architecture/query-and-storage.md) · [Deployment topology](02-architecture/deployment-topology.md)
+
+-   **D · Engineering**
+
+    ---
+
+    Examine engineering requirements, subsystem designs, event schemas, financial semantics, client integration and validation traceability.
+
+    [Engineering requirements](03-engineering/engineering-requirements.md) · [Engineering design](03-engineering/engineering-design.md) · [Ingestion engine](03-engineering/ingestion-engine.md) · [Active memory lifecycle](03-engineering/active-memory-lifecycle.md) · [Query engine](03-engineering/query-engine.md) · [Persistence engine](03-engineering/persistence-engine.md) · [Event schema & sequencing](03-engineering/event-schema-and-sequencing.md) · [Financial query semantics](03-engineering/financial-query-semantics.md) · [Flight & Python integration](03-engineering/flight-and-python.md) · [Validation & traceability](03-engineering/validation-and-traceability.md)
+
+-   **E · Rust reference**
+
+    ---
+
+    Connect Rust fundamentals, ownership, error handling, engine patterns, atomics, concurrency, memory management and FDAP integration to practical exercises.
+
+    [Fundamentals](04-rust/fundamentals.md) · [Ownership & lifetimes](04-rust/ownership-and-lifetimes.md) · [Idioms & error handling](04-rust/idioms-and-errors.md) · [Engine design patterns](04-rust/engine-design-patterns.md) · [Atomics & memory ordering](04-rust/atomics-and-memory-ordering.md) · [Lock-free patterns](04-rust/lock-free-patterns.md) · [Concurrency patterns](04-rust/concurrency-patterns.md) · [Memory management](04-rust/memory-management.md) · [FDAP integration](04-rust/fdap-integration.md) · [Reference exercises](04-rust/reference-exercises.md)
+
+-   **F · Financial domain**
+
+    ---
+
+    Understand market data protocols, timestamps, sequencing, order book reconstruction and financial query semantics.
+
+    [Market data protocols](05-financial-domain/market-data-protocols.md) · [Timestamps & sequencing](05-financial-domain/timestamps-and-sequencing.md) · [Order book reconstruction](05-financial-domain/order-book-reconstruction.md) · [Financial query semantics](05-financial-domain/financial-query-semantics.md)
+
+-   **G · Benchmarking & validation**
+
+    ---
+
+    Define reproducible benchmarks, workloads, test strategies, hardware manifests, acceptance criteria and evidence traceability.
+
+    [Benchmark methodology](06-benchmarking/benchmark-methodology.md) · [Workload definitions](06-benchmarking/workload-definitions.md) · [Test strategy](06-benchmarking/test-strategy.md) · [Hardware setup](06-benchmarking/hardware-setup.md) · [Acceptance criteria](06-benchmarking/acceptance-criteria.md) · [Evidence & traceability](06-benchmarking/evidence-and-traceability.md)
+
+-   **H · Operations**
+
+    ---
+
+    Review deployment, observability, security, recovery, capacity planning and operational readiness.
+
+    [Deployment](07-operations/deployment.md) · [Observability](07-operations/observability.md) · [Security](07-operations/security.md) · [Recovery](07-operations/recovery.md) · [Capacity & overload planning](07-operations/capacity-planning.md) · [Readiness & traceability](07-operations/readiness-and-traceability.md)
+
+-   **I · Architecture decisions**
+
+    ---
+
+    Review architecture decision records and the proposed product boundary.
+
+    [ADR-0001: Product boundary](08-decisions/ADR-0001-product-boundary.md)
+
+-   **J · Roadmap**
+
+    ---
+
+    Follow implementation dependencies, delivery milestones and readiness gates.
+
+    [Implementation roadmap](09-roadmap/implementation-roadmap.md) · [Milestone register](09-roadmap/milestone-register.md)
 
 </div>
 
