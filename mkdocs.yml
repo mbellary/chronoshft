@@ -128,6 +128,7 @@ nav:
       - "Test strategy": 06-benchmarking/test-strategy.md
       - "Hardware setup": 06-benchmarking/hardware-setup.md
       - "Acceptance criteria": 06-benchmarking/acceptance-criteria.md
+      - "Evidence & traceability": 06-benchmarking/evidence-and-traceability.md
   - Operations:
       - "Deployment": 07-operations/deployment.md
       - "Observability": 07-operations/observability.md
