@@ -92,6 +92,9 @@ nav:
       - "Platform design": 02-architecture/platform-design.md
       - "Component contracts": 02-architecture/component-contracts.md
       - "Data flow": 02-architecture/data-flow.md
+      - "Active memory & concurrency": 02-architecture/active-memory.md
+      - "Query & storage integration": 02-architecture/query-and-storage.md
+      - "Deployment topology": 02-architecture/deployment-topology.md
   - Engineering:
       - "Engineering requirements": 03-engineering/engineering-requirements.md
       - "Engineering design": 03-engineering/engineering-design.md
@@ -99,6 +102,10 @@ nav:
       - "Active memory lifecycle": 03-engineering/active-memory-lifecycle.md
       - "Query engine": 03-engineering/query-engine.md
       - "Persistence engine": 03-engineering/persistence-engine.md
+      - "Event schema & sequencing": 03-engineering/event-schema-and-sequencing.md
+      - "Financial query semantics": 03-engineering/financial-query-semantics.md
+      - "Flight & Python integration": 03-engineering/flight-and-python.md
+      - "Validation & traceability": 03-engineering/validation-and-traceability.md
   - Rust reference:
       - "Fundamentals": 04-rust/fundamentals.md
       - "Ownership & lifetimes": 04-rust/ownership-and-lifetimes.md

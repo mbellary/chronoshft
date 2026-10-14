@@ -19,7 +19,7 @@ The documentation workspace for a proposed Rust financial time-series database a
 </div>
 
 !!! info "Documentation foundation"
-    Research & governance and Product contain substantive drafts. Other topic pages remain outlines; architectural proposals and performance targets are not approved specifications or verified results. The original research PDF still needs to replace its empty placeholder.
+    Research & governance, Product, Architecture and Engineering contain substantive drafts. Engineering includes subsystem contracts, schemas, financial semantics, client integration and validation traceability extracted from the supplied research PDF and companion docs. Other topic pages remain outlines; design proposals and performance targets are not approved specifications or verified results.
 
 ## Explore the documentation
 
