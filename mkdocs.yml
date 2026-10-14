@@ -134,6 +134,8 @@ nav:
       - "Observability": 07-operations/observability.md
       - "Security": 07-operations/security.md
       - "Recovery": 07-operations/recovery.md
+      - "Capacity & overload planning": 07-operations/capacity-planning.md
+      - "Readiness & traceability": 07-operations/readiness-and-traceability.md
   - Architecture decisions:
       - "ADR-0001: Product boundary": 08-decisions/ADR-0001-product-boundary.md
   - Roadmap:
