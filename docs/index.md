@@ -19,7 +19,7 @@ The documentation workspace for a proposed Rust financial time-series database a
 </div>
 
 !!! info "Documentation foundation"
-    Research & governance, Product, Architecture, Engineering, Rust reference, Benchmarking & validation and Operations contain substantive drafts and learning references grounded in the supplied research and companion documents. Financial domain, Architecture decisions and Roadmap remain draft outlines. Design proposals, operational procedures and performance targets require review and evidence; they are not approved specifications or verified results.
+    Research & governance, Product, Architecture, Engineering, Rust reference, Benchmarking & validation and Operations contain substantive drafts and learning references grounded in the supplied research and companion documents. Roadmap contains a proposed implementation plan, MVP delivery gates and milestone registry. Financial domain and Architecture decisions remain draft outlines. Design proposals, operational procedures and performance targets require review and evidence; they are not approved specifications or verified results.
 
 ## Explore the documentation
 
@@ -103,7 +103,7 @@ The documentation workspace for a proposed Rust financial time-series database a
 
     Follow implementation dependencies, delivery milestones and readiness gates.
 
-    [Implementation roadmap](09-roadmap/implementation-roadmap.md) · [Milestone register](09-roadmap/milestone-register.md)
+    [Implementation roadmap](09-roadmap/implementation-roadmap.md) · [MVP delivery plan](09-roadmap/mvp.md) · [Milestone registry](09-roadmap/milestone-register.md)
 
 </div>
 

@@ -4,7 +4,7 @@ Research, architecture and engineering documentation for a proposed Rust financi
 
 The documentation follows the repository and document layout in [the research review and documentation development plan](research/ChronosHFT-Research_Review_and_Documentation.md). Apache Arrow Flight, DataFusion, Arrow and Parquet are the proposed architectural foundation.
 
-**Status:** Research & governance is populated from the [unified Phase 0 assessment](research/ChronosHFT-Phase-0-Research-Baseline-Assessment.md), with extraction, validation, gaps, conflicts, decisions, performance profiles and readiness gates. Product is populated from the supplied Phase 2 drafts, including market/FDAP context, requirements, architecture, MVP scope, traceability, decision handoff and readiness. Architecture and Engineering are populated from the supplied [42-page research PDF](docs/assets/research/HFT-Research-Notes.pdf) and companion Product/Architecture docs, including subsystem contracts, schemas, financial semantics, client integration and validation traceability. Product and engineering approval remain pending; proposals and performance targets are not verified results. Other topic pages remain draft outlines.
+**Status:** Research & governance is populated from the [unified Phase 0 assessment](research/ChronosHFT-Phase-0-Research-Baseline-Assessment.md), with extraction, validation, gaps, conflicts, decisions, performance profiles and readiness gates. Product is populated from the supplied Phase 2 drafts, including market/FDAP context, requirements, architecture, MVP scope, traceability, decision handoff and readiness. Architecture and Engineering are populated from the supplied [42-page research PDF](docs/assets/research/HFT-Research-Notes.pdf) and companion Product/Architecture docs, including subsystem contracts, schemas, financial semantics, client integration and validation traceability. Product and engineering approval remain pending; proposals and performance targets are not verified results. Roadmap now contains a proposed implementation plan, MVP delivery gates and milestone registry. Other topic pages remain draft outlines.
 
 ## Documentation layout
 
@@ -19,7 +19,7 @@ The documentation follows the repository and document layout in [the research re
 | `docs/06-benchmarking/` | Methodology, workloads, tests, hardware and acceptance criteria |
 | `docs/07-operations/` | Deployment, observability, security and recovery |
 | `docs/08-decisions/` | Architecture decision records |
-| `docs/09-roadmap/` | Implementation roadmap and milestone register |
+| `docs/09-roadmap/` | Implementation roadmap, MVP delivery plan and milestone registry |
 
 `schemas/`, `examples/`, `benchmarks/` and `tests/` are reserved for later engineering work.
 

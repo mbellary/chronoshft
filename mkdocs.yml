@@ -140,4 +140,5 @@ nav:
       - "ADR-0001: Product boundary": 08-decisions/ADR-0001-product-boundary.md
   - Roadmap:
       - "Implementation roadmap": 09-roadmap/implementation-roadmap.md
-      - "Milestone register": 09-roadmap/milestone-register.md
+      - "MVP delivery plan": 09-roadmap/mvp.md
+      - "Milestone registry": 09-roadmap/milestone-register.md
