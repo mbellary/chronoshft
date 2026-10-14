@@ -42,3 +42,28 @@ Arrow Flight is the source's Python result boundary, with Polars/Pandas/Jupyter 
 Verify repeated and concurrent scans, projections, supported filters, snapshot cutoff, hot/cold handoff under ongoing ingest, corrections and timestamp round trips. Inject incomplete writes and restart failures once a commit protocol is selected. Measure hot-only, cold-only, hybrid and remote result workloads separately; the source's latency/throughput figures are targets (see [performance profiles](../00-governance/performance-profiles.md)).
 
 Related: [data flow](data-flow.md), [component contracts](component-contracts.md), [technical validation](../00-governance/technical-validation.md), [financial query semantics](../05-financial-domain/financial-query-semantics.md).
+
+## Micro-Parquet layout and pruning contract
+
+The proposed DEC-009 storage layout uses **one instrument per file**, UTC event-time minute buckets and bounded slices. This favors precise single-instrument pruning; low-volume small-file overhead is handled by compaction rather than mixing instruments silently.
+
+```text
+symbol_id=<numeric-id>/event_minute=<UTC-YYYYMMDDTHHMMZ>/
+  part-<min_timestamp_ns>-<max_timestamp_ns>-<commit_id>-<slice_id>.parquet
+```
+
+`Symbol_ID` is the stable numeric instrument key; display symbols are not path identities. Minute buckets cover half-open intervals `[minute_start, minute_start + 60s)`. Within a bucket, sort ascending by `(Symbol_ID, Timestamp_ns, venue_partition, sequence, version_id)` before slicing. Equal timestamps are legal; tie-break fields provide deterministic order. Close a slice at the first of 64 MiB uncompressed column bytes or 262,144 rows; use row groups capped at 65,536 rows. These are initial layout parameters to benchmark, not measured optimal values. Late ticks create additional sorted slices in their original event-time bucket; correction/version semantics remain governed by DEC-007/009.
+
+The catalog is authoritative. Each committed file records symbol, bucket interval, actual inclusive timestamp min/max, row count, per-row-group statistics, schema/version, commit identity and checksum. Names aid inspection and never substitute for validated metadata. Emit usable min/max statistics for non-null `Symbol_ID` and `Timestamp_ns` in every row group, preserving nanosecond precision.
+
+| Pruning stage | Safe exclusion rule |
+| --- | --- |
+| Catalog instrument | Exclude a file whose symbol is outside a proven equality/IN predicate |
+| Time bucket | Exclude buckets disjoint from the normalized query interval |
+| File statistics | For `[start,end)`, exclude when `max_timestamp_ns < start` or `min_timestamp_ns >= end` |
+| Row-group statistics | Apply the same disjointness rules to supported symbol/time statistics through the pinned DataFusion/Parquet reader |
+| Residual filtering | Evaluate the original predicate for rows surviving pruning; sorting/statistics do not establish exact filter pushdown |
+
+Missing, invalid or unsupported statistics and predicates retain the file/group conservatively. Do not prune from an unverified cast, UDF, timezone conversion or disjunct alone. Queries without an instrument predicate may legitimately scan multiple partitions. Projection pushdown reads only required columns. Sorting primarily tightens timestamp statistics within each instrument; instrument isolation prevents unrelated instruments from widening file statistics.
+
+Compaction merges adjacent slices of the same symbol and compatible schema/version, preserves ordering and statistics, and atomically replaces their catalog entries. Query snapshots retain old files until all readers release them; failed/uncommitted writes stay outside the catalog. Record candidate/selected files, selected row groups, bytes read and bytes relevant to the requested instrument/time range. A pruning integration test must compare results against an unpruned oracle and verify zero unrelated-symbol files selected for equality queries, including late data, boundary timestamps and missing statistics (VAL-016/023/024).

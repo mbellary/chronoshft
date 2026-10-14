@@ -71,3 +71,20 @@ A ring needs full/empty discrimination and a reviewed wraparound rule. Subtracti
 What data precedes publication? Which load observes it? Who owns append/flip? What prevents two callers from entering the same slot? What stops reuse during a delayed read? Which generation is observed? What happens on full capacity, shutdown or failure?
 
 Use the [lock-free review](lock-free-patterns.md) and [active-memory lifecycle](../03-engineering/active-memory-lifecycle.md). Appropriate tools can explore interleavings, but neither stronger orderings nor a passing stress test proves the whole protocol. DEC-003 and VAL-012/013/019–021 require closure.
+
+## Ring-buffer ordering contract
+
+For the proposed single-producer/single-consumer ring, the synchronization points are mandatory:
+
+| Operation | Required ordering | Protected boundary |
+| --- | --- | --- |
+| Producer checks consumer reclamation sequence before claiming/reusing a slot | `load(Ordering::Acquire)` | Prior consumer payload access has finished |
+| Producer publishes the sequence after initializing the entire event payload | `store(Ordering::Release)` | All payload writes precede visibility of readiness |
+| Consumer checks the producer sequence before touching the payload | `load(Ordering::Acquire)` | Observing that publication makes the initialized payload visible |
+| Consumer advances reclamation sequence after moving the owned batch and finishing slot access | `store(Ordering::Release)` | Slot access completes before producer reuse |
+
+These Acquire/Release operations are the memory-ordering barriers; no separate `atomic::fence` is required for this handshake. A `Relaxed` readiness/reclamation cursor is forbidden. A standalone fence, `SeqCst`, volatile access or cache alignment does not replace the ownership protocol. Observe the matching generation, not just a reused slot index. Multi-consumer reuse waits for every relevant gating sequence.
+
+When using `disruptor-rs`, its pinned implementation must provide equivalent publication/consumer/gating relations; audit the actual crate source and retain the version and review before accepting the adapter. Do not claim these custom cursor calls exist inside an unaudited dependency. Registry publication subsequently uses the safe `ArcSwap` API; do not build a raw-pointer substitute. Queries acquire an owned immutable snapshot, never ring payload references after reclamation. See the [visibility boundary](../02-architecture/active-memory.md#memory-visibility-boundary).
+
+Required verification includes modeled interleavings for publication/reuse and stress tests on weakly ordered hardware where available. Validate complete columns, generation identity and delayed readers across wraparound. An x86-only stress pass cannot establish the protocol's correctness (VAL-013/019/021).

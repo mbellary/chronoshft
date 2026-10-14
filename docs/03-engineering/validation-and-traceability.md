@@ -65,3 +65,18 @@ Roles are proposed; named owners, approval dates and evidence remain unassigned.
 Follow source slices: recent-data capture/SQL → historical continuity → Flight/financial workflow (pp. 26–28). The source month 1–9 estimates are not commitments, and a hot-path demonstration alone is not the complete proposed MVP. Keep bitemporality/ASOF disposition explicit when staging delivery ([Scope and MVP](../01-product/scope-and-mvp.md)).
 
 Documentation completion means substantive pages, source/requirement links and a navigable strict build. Engineering baseline approval additionally needs ratified contracts/decisions; release acceptance needs compiling implementation and retained safety, correctness, recovery and qualified benchmark evidence. Documentation integration passes do not close those gates.
+
+## Requirement-to-executable evidence contract
+
+The [Product claim map](../01-product/product-traceability.md#product-to-engineering-evidence-map) links directly to this canonical engineering map. Planned file paths below are destinations, not existing executable tests; there is no Rust crate or retained benchmark output in this repository. Do not render nonexistent files as successful evidence links.
+
+| Product requirement / claim | Engineering gate and planned Rust integration file | Required benchmark/evidence output |
+| --- | --- | --- |
+| F03 / N08: stable active-memory query snapshot | ENG-003/005; `tests/active_memory_isolation.rs`; delayed-reader, cancellation, wraparound and reclamation assertions | `active-memory-isolation/test-results.json`, lifetime/model logs |
+| F08: instrument/time pruning with correct results | ENG-008/010/012; `tests/parquet_pruning.rs`; unpruned oracle, unrelated-symbol exclusion, boundary/late-data assertions | `parquet-pruning/summary.json`, scan counters and fixture hashes |
+| N03: scoped zero-allocation ingestion | ENG-003/004/014; `tests/ingestion_zero_alloc.rs`; allocator counters and negative control | `ingestion-zero-alloc/allocator.json`, CI test log |
+| N01/N06: 0% drops at 5,000,000 ticks/sec | ENG-006/014; `tests/ingestion_loss_5m.rs`; unique identity/count reconciliation under specified duration and concurrent query/flush load | `ingestion-loss-5m/summary.json`, raw counts/rate samples and queue high-water/drain records |
+
+The 5M/s case is a requested additional verification profile, not a measured result or replacement for the existing 1–2M sustained, 2.5M reference and 8M burst profiles. Duration, fixture, repetition count, admission and durability boundaries must be fixed before accepting it. Verify the generator actually offered 5M eligible events/sec; do not substitute achieved throughput after silently rejecting events. Reconcile offered eligible unique identities with accepted and visible identities after drain, and durable identities if durability is within scope. Require zero rejected/dropped eligible events, no unexplained sequence gaps, duplicates or missing IDs, plus bounded backlog. A rounded displayed percentage cannot pass a nonzero loss count.
+
+Each output lives under `evidence/<run-id>/`, accompanied by `hardware-manifest.json`, `inputs.json`, raw data and test logs. `summary.json` records product/ENG/VAL IDs, workload profile, test file and test name, source commit, harness command, manifest/input hashes, timing/count boundaries and pass/fail. The evidence index must expose immutable repository URLs pinned to the tested commit for Rust files and retained artifact URLs for outputs, with reciprocal requirement IDs. CI checks link existence, commit/hash agreement and the gate result before any claim is marked verified. Until artifacts exist, status stays **planned / unverified**; no VAL or DEC closes automatically.

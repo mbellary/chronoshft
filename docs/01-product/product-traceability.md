@@ -23,3 +23,16 @@ Part of [Phase 2 product definition](phase-2-definition.md) (CHRONOS-P2-001). Pr
 | RES-051–062, pp. 29–42 | Engineering handoff only | Code/concurrency proposals not product approvals |
 
 PRD IDs are new Phase 2 identifiers and do not replace Phase 0 IDs. A future design/test must refer to the PRD requirement plus its originating RES/pages. Rejected or superseded items retain their historical identifiers.
+
+## Product-to-engineering evidence map
+
+Reviewers can follow each requirement into the [canonical executable evidence contract](../03-engineering/validation-and-traceability.md#requirement-to-executable-evidence-contract), which defines the exact Rust test destination, assertions and corresponding benchmark output. Product evidence status must match that engineering record.
+
+| Product requirement / claim | Direct engineering trace | Evidence status |
+| --- | --- | --- |
+| F03 / N08: stable query snapshots during ingestion | [Isolation test and reclamation evidence](../03-engineering/validation-and-traceability.md#requirement-to-executable-evidence-contract): `tests/active_memory_isolation.rs` | Planned; no executable/result yet |
+| F08: single-instrument Parquet pruning | [Pruning test and scan counters](../03-engineering/validation-and-traceability.md#requirement-to-executable-evidence-contract): `tests/parquet_pruning.rs` | Planned; no executable/result yet |
+| N03: zero allocations within the declared ingestion hot path | [Allocator integration gate](../03-engineering/validation-and-traceability.md#requirement-to-executable-evidence-contract): `tests/ingestion_zero_alloc.rs` | Planned; no executable/result yet |
+| N01/N06: 0% drop rate at 5,000,000 ticks/sec in a defined workload | [Loss reconciliation test and 5M benchmark output](../03-engineering/validation-and-traceability.md#requirement-to-executable-evidence-contract): `tests/ingestion_loss_5m.rs` | Additional requested profile; unverified |
+
+Once implementation exists, each engineering row must link the specific Rust test at its tested commit and the corresponding retained `evidence/<run-id>/` output. A product claim is publishable as verified only when both links resolve and the output matches its exact workload and [physical manifest](../06-benchmarking/hardware-setup.md#physical-reference-profile-and-publication-gate). Documentation links alone cannot verify a throughput or safety claim.
