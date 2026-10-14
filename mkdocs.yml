@@ -83,6 +83,7 @@ nav:
       - "Product requirements": 01-product/product-requirements.md
       - "Product architecture": 01-product/product-architecture.md
       - "Scope & MVP": 01-product/scope-and-mvp.md
+      - "Benchmark targets": 01-product/benchmark-targets.md
       - "Source-to-product traceability": 01-product/product-traceability.md
       - "Open-decision handoff": 01-product/product-decision-handoff.md
       - "Exit assessment & readiness": 01-product/product-readiness.md

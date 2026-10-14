@@ -24,6 +24,8 @@ Phase 2 separates product outcomes and capabilities from proposed engineering me
 
 ## Phase 2 sections
 
+- [Benchmark targets](benchmark-targets.md): proposed ingestion, latency, research egress and storage profiles.
+
 - [Source-to-product traceability](product-traceability.md): baseline mappings and requirement provenance.
 - [Open-decision handoff](product-decision-handoff.md): unresolved product questions, proposed roles and next artifacts.
 - [Exit assessment and readiness](product-readiness.md): documentation gates, approval limits and repository integration.
