@@ -1,0 +1,2 @@
+[alias]
+lab = "run --offline --locked -p chronoshft-lab --"

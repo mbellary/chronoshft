@@ -1,0 +1,190 @@
+site_name: ChronosHFT
+site_description: Research, architecture and engineering documentation for a financial time-series database and analytics engine.
+site_url: https://mbellary.github.io/chronoshft/
+repo_url: https://github.com/mbellary/chronoshft
+repo_name: mbellary/chronoshft
+edit_uri: edit/main/docs/
+strict: true
+
+theme:
+  name: material
+  language: en
+  font: false
+  icon:
+    logo: material/chart-timeline-variant
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: custom
+      accent: teal
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: custom
+      accent: teal
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.top
+    - navigation.footer
+    - navigation.tracking
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+    - content.action.edit
+    - content.action.view
+
+plugins:
+  - search
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.details
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+
+extra_css:
+  - assets/stylesheets/extra.css
+
+nav:
+  - Home: index.md
+  - Research & governance:
+      - "Research baseline": 00-governance/research-baseline.md
+      - "Research assessment": 00-governance/research-assessment.md
+      - "Research extraction matrix": 00-governance/research-extraction.md
+      - "Technical validation": 00-governance/technical-validation.md
+      - "Validation framework": 00-governance/validation-framework.md
+      - "Validation registry & migration": 00-governance/validation-registry.md
+      - "Performance profiles": 00-governance/performance-profiles.md
+      - "Assumptions & gaps": 00-governance/assumptions-and-gaps.md
+      - "Decision register": 00-governance/decision-register.md
+      - "Traceability": 00-governance/traceability.md
+      - "Readiness & handoff": 00-governance/readiness-and-handoff.md
+  - Product:
+      - "Phase 2 overview": 01-product/phase-2-definition.md
+      - "Market landscape & FDAP": 01-product/market-landscape-and-fdap.md
+      - "Product requirements": 01-product/product-requirements.md
+      - "Product architecture": 01-product/product-architecture.md
+      - "Scope & MVP": 01-product/scope-and-mvp.md
+      - "Benchmark targets": 01-product/benchmark-targets.md
+      - "Source-to-product traceability": 01-product/product-traceability.md
+      - "Open-decision handoff": 01-product/product-decision-handoff.md
+      - "Exit assessment & readiness": 01-product/product-readiness.md
+  - Architecture:
+      - "System architecture": 02-architecture/system-architecture.md
+      - "Platform design": 02-architecture/platform-design.md
+      - "Component contracts": 02-architecture/component-contracts.md
+      - "Data flow": 02-architecture/data-flow.md
+      - "Active memory & concurrency": 02-architecture/active-memory.md
+      - "Query & storage integration": 02-architecture/query-and-storage.md
+      - "Deployment topology": 02-architecture/deployment-topology.md
+  - Engineering:
+      - "Engineering requirements": 03-engineering/engineering-requirements.md
+      - "Engineering design": 03-engineering/engineering-design.md
+      - "Ingestion engine": 03-engineering/ingestion-engine.md
+      - "Active memory lifecycle": 03-engineering/active-memory-lifecycle.md
+      - "Query engine": 03-engineering/query-engine.md
+      - "Persistence engine": 03-engineering/persistence-engine.md
+      - "Event schema & sequencing": 03-engineering/event-schema-and-sequencing.md
+      - "Financial query semantics": 03-engineering/financial-query-semantics.md
+      - "Flight & Python integration": 03-engineering/flight-and-python.md
+      - "Validation & traceability": 03-engineering/validation-and-traceability.md
+  - Rust reference:
+      - "Fundamentals": 04-rust/fundamentals.md
+      - "Ownership & lifetimes": 04-rust/ownership-and-lifetimes.md
+      - "Idioms & error handling": 04-rust/idioms-and-errors.md
+      - "Engine design patterns": 04-rust/engine-design-patterns.md
+      - "Atomics & memory ordering": 04-rust/atomics-and-memory-ordering.md
+      - "Lock-free patterns": 04-rust/lock-free-patterns.md
+      - "Concurrency patterns": 04-rust/concurrency-patterns.md
+      - "Memory management": 04-rust/memory-management.md
+      - "FDAP integration": 04-rust/fdap-integration.md
+      - "Reference exercises": 04-rust/reference-exercises.md
+  # BEGIN GENERATED VALIDATION LAB NAV
+  - Technical Validation Lab:
+      - Overview: 10-validation-lab/index.md
+      - Methodology: 10-validation-lab/methodology.md
+      - Validation coverage: 10-validation-lab/validation-coverage.md
+      - Experiment register: 10-validation-lab/experiment-register.md
+      - Test register: 10-validation-lab/test-register.md
+      - Execution register: 10-validation-lab/execution-register.md
+      - Evidence register: 10-validation-lab/evidence-register.md
+      - Validation results: 10-validation-lab/validation-results.md
+      - Environment profiles: 10-validation-lab/environment-profiles.md
+      - Automation and CI: 10-validation-lab/automation-and-ci.md
+      - Execution and evidence: 10-validation-lab/execution-and-evidence.md
+      - Experiments:
+          - "EXP-001 — Bounded SPSC queue": 10-validation-lab/experiments/EXP-001.md
+          - "EXP-002 — Queue overload policy": 10-validation-lab/experiments/EXP-002.md
+          - "EXP-003 — SPSC ownership and publication protocol": 10-validation-lab/experiments/EXP-003.md
+          - "EXP-005 — Production-readiness claim audit": 10-validation-lab/experiments/EXP-005.md
+          - "EXP-006 — FDAP compatibility integration": 10-validation-lab/experiments/EXP-006.md
+          - "EXP-007 — Encoding and compression evaluation": 10-validation-lab/experiments/EXP-007.md
+          - "EXP-008 — Flight boundary-cost analysis": 10-validation-lab/experiments/EXP-008.md
+          - "EXP-009 — Competitor claim verification": 10-validation-lab/experiments/EXP-009.md
+          - "EXP-010 — Compilation compatibility matrix": 10-validation-lab/experiments/EXP-010.md
+          - "EXP-011 — Bibliography reconciliation": 10-validation-lab/experiments/EXP-011.md
+          - "EXP-012 — Hot-path allocation and latency budget": 10-validation-lab/experiments/EXP-012.md
+          - "EXP-013 — Reproducible benchmark harness": 10-validation-lab/experiments/EXP-013.md
+          - "EXP-014 — Hardware topology verification": 10-validation-lab/experiments/EXP-014.md
+          - "EXP-015 — NUMA and interference evaluation": 10-validation-lab/experiments/EXP-015.md
+          - "EXP-016 — Disruptor signaling evaluation": 10-validation-lab/experiments/EXP-016.md
+          - "EXP-017 — Ingress adapter boundary evaluation": 10-validation-lab/experiments/EXP-017.md
+          - "EXP-018 — Timestamp correctness": 10-validation-lab/experiments/EXP-018.md
+          - "EXP-019 — Sequence and ordering semantics": 10-validation-lab/experiments/EXP-019.md
+          - "EXP-020 — Canonical Arrow event schema": 10-validation-lab/experiments/EXP-020.md
+          - "EXP-021 — Arrow builder allocation lifecycle": 10-validation-lab/experiments/EXP-021.md
+          - "EXP-022 — Non-destructive TableProvider": 10-validation-lab/experiments/EXP-022.md
+          - "EXP-023 — DataFusion projection semantics": 10-validation-lab/experiments/EXP-023.md
+          - "EXP-024 — Exclusive buffer publication": 10-validation-lab/experiments/EXP-024.md
+          - "EXP-025 — Builder transfer and buffer reclamation": 10-validation-lab/experiments/EXP-025.md
+          - "EXP-026 — Asynchronous query lifetime": 10-validation-lab/experiments/EXP-026.md
+          - "EXP-027 — Hot/cold visibility and corrections": 10-validation-lab/experiments/EXP-027.md
+          - "EXP-028 — Durable commit and recovery": 10-validation-lab/experiments/EXP-028.md
+          - "EXP-029 — Financial SQL conformance": 10-validation-lab/experiments/EXP-029.md
+          - "EXP-030 — Order-book reconstruction": 10-validation-lab/experiments/EXP-030.md
+  # END GENERATED VALIDATION LAB NAV
+  - Financial domain:
+      - "Market data protocols": 05-financial-domain/market-data-protocols.md
+      - "Timestamps & sequencing": 05-financial-domain/timestamps-and-sequencing.md
+      - "Order book reconstruction": 05-financial-domain/order-book-reconstruction.md
+      - "Financial query semantics": 05-financial-domain/financial-query-semantics.md
+  - Benchmarking & validation:
+      - "Benchmark methodology": 06-benchmarking/benchmark-methodology.md
+      - "Workload definitions": 06-benchmarking/workload-definitions.md
+      - "Test strategy": 06-benchmarking/test-strategy.md
+      - "Hardware setup": 06-benchmarking/hardware-setup.md
+      - "Acceptance criteria": 06-benchmarking/acceptance-criteria.md
+      - "Evidence & traceability": 06-benchmarking/evidence-and-traceability.md
+  - Operations:
+      - "Deployment": 07-operations/deployment.md
+      - "Observability": 07-operations/observability.md
+      - "Security": 07-operations/security.md
+      - "Recovery": 07-operations/recovery.md
+      - "Capacity & overload planning": 07-operations/capacity-planning.md
+      - "Readiness & traceability": 07-operations/readiness-and-traceability.md
+  - Architecture decisions:
+      - "ADR-0001: Product boundary": 08-decisions/ADR-0001-product-boundary.md
+  - Roadmap:
+      - "Implementation roadmap": 09-roadmap/implementation-roadmap.md
+      - "MVP delivery plan": 09-roadmap/mvp.md
+      - "Milestone registry": 09-roadmap/milestone-register.md

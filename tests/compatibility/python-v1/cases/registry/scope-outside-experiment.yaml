@@ -1,0 +1,54 @@
+schema_version: 1
+id: TST-001
+revision: 2
+title: FIFO and exactly-once delivery
+experiment:
+  id: EXP-001
+  revision: 3
+validations:
+- id: VAL-001
+  revision: 3
+hypothesis_ids:
+- HYP-002
+classification: correctness
+execution_type: automated
+mandatory: true
+preconditions:
+- Usable N=7 events, identities 0..191, 64 deterministic empty/nonempty rounds; all identities unique.
+- Use committed source, Cargo.lock, prototype contract, tests and capture plan; capture native index width
+  and actual compiler/package-manager versions. No production policy approval or concurrency conclusion
+  is asserted.
+procedure:
+- Alternate accepted inserts and consumes below capacity, including empty-to-nonempty transitions.
+- Drain the queue and compare the complete identity sequence with the accepted-input ledger.
+expected:
+- Consumed identities equal the accepted sequence exactly, with no missing, repeated or reordered entries.
+- Polling after drain reports empty and does not advance accounting.
+oracle:
+  kind: independent_reference_comparison
+  description: A separate list/deque model records accepted identities without using queue indexes or
+    queue helper functions.
+execution_method: Execute the exact bound Rust integration test from the repository root; CHRONOSHFT_REPORT_DIR=target/validation-reports
+  is resolved from that root by the test harness. Retain stdout, stderr and the corresponding TST report.
+execution_binding:
+  state: bound
+  implementation_path: experiments/exp-001-spsc-queue/tests/queue_contracts.rs
+  entrypoint: python3 scripts/run_exp001_test.py fifo_exactly_once
+required_evidence:
+- Per-case test outcomes including failures, skips and tool errors
+- Registry/test revision and implementation or documentary source revision
+- Exact execution command or review procedure; input/configuration hashes and applicable environment/toolchain
+- Retained artifact references with SHA-256 digests
+- Accepted and consumed identity ledgers
+- Empty-result assertions
+revision_history:
+- revision: 1
+  date: '2026-10-15'
+  actor: codex
+  reason: Stage 5 pre-execution test specification; execution binding, implementation, inputs and approvals
+    remain pending.
+- revision: 2
+  date: '2026-10-15'
+  actor: codex
+  reason: Stage 9 binds the isolated EXP-001 prototype and preserves reciprocal revision-pinned coverage;
+    other investigations remain pending.

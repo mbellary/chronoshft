@@ -26,12 +26,35 @@ The Technical Validation Lab presents generated experiment/test registers, indiv
 
 `examples/` and `benchmarks/` remain reserved for later engineering work. Validation schemas live under `validation/schemas/`; `tests/` contains registry and documentation regression checks.
 
+## Rust validation tooling migration
+
+Stages 1–8 deliver a root Cargo workspace, the `chronoshft-lab` CLI and native
+registry, Git-history and evidence verification, Markdown/navigation generation and
+rendered-link checks, execution capture/import, experiment helpers and reviewer workflows. After `cargo fetch --locked`, run
+`cargo lab registry check --require-tests`, `cargo lab history check`,
+`cargo lab evidence verify`, `cargo lab docs generate --check`,
+`cargo lab docs links` (after the MkDocs build), `cargo lab --help` or
+`cargo lab migration status` from the repository root.
+Native experiment helpers are available through `cargo lab experiment run-case CASE`
+and `cargo lab toolchain show`; use `cargo lab execution capture --help` or
+`cargo lab execution import --help` for the native observation workflow.
+Use `cargo lab review prepare --help` and `cargo lab review check --help` for
+unapproved packages, read-only decision checks and explicit human-review attestation.
+The shared `cargo lab check` gate is used locally and in CI. Custom Python validation
+tools are retired; the experiment and tooling share the root Cargo workspace and lockfile. MkDocs, Material, `uv`, local preview and Pages
+publication continue to work.
+
+See the [migration contract](docs/10-validation-lab/rust-migration.md) for the
+compatibility baseline, frozen fixtures, command mapping and staged activation.
+The experiment workspace stays independent until its capture inputs and bindings
+migrate together; root `--workspace` commands currently check the tooling only.
+
 ## Local preview
 
 Install [uv](https://docs.astral.sh/uv/getting-started/installation/). The project pins Python 3.12 in `.python-version`; uv manages Python and the local `.venv` automatically:
 
 ```bash
-uv sync --locked --extra docs --extra validation
+uv sync --locked --extra docs
 uv run --locked --extra docs mkdocs serve
 ```
 
@@ -39,10 +62,11 @@ On Linux, if `uv` is installed in `~/.local/bin` and your shell cannot find it, 
 
 Open <http://127.0.0.1:8000>. The local server reloads when documentation changes.
 
-Run the same complete gate used in CI:
+Run the same complete gate used in CI (Rust/Cargo and `uv` must be on PATH):
 
 ```bash
-uv run --locked --extra docs --extra validation python scripts/check_documentation.py
+cargo fetch --locked
+cargo lab check
 ```
 
 Generated output goes to `site/`, which is ignored by Git. Commit `uv.lock` so local builds and GitHub Actions use the same dependency versions. After editing dependencies in `pyproject.toml`, run `uv lock` and `uv sync --locked --extra docs`.
@@ -64,7 +88,7 @@ If Pages has not been enabled, or environment protection requires approval, the 
 
 Validation metadata and schema checks are documented in [the validation registry guide](validation/README.md). Run those checks when editing `validation/` or the historical research register; a successful documentation build alone does not verify registry consistency.
 
-After changing registry metadata, regenerate with `uv run --locked --extra docs --extra validation python scripts/generate_validation_docs.py`, review the output and run the complete gate. The [automation guide](docs/10-validation-lab/automation-and-ci.md) describes the checks and their publication boundary. Documentation regression checks are separate from the planned experiment tests and create no validation approval.
+After changing registry metadata, regenerate with `cargo lab docs generate`, review the output and run the complete gate. The [automation guide](docs/10-validation-lab/automation-and-ci.md) describes the checks and their publication boundary. Documentation regression checks are separate from the planned experiment tests and create no validation approval.
 
 The [execution and evidence guide](docs/10-validation-lab/execution-and-evidence.md) covers pinned capture, manual import/recovery, retained artifacts and human decision registration. The gate verifies Git-baseline immutability, artifact integrity and recorded decision coverage. The manually dispatched capture workflow retains failures without pushing records or granting approval; EXP-001 now has a ready plan at `validation/execution-plans/EXP-001.yaml` and an isolated Rust prototype under `experiments/exp-001-spsc-queue/`. See its README for the capacity contract and local test command.
 

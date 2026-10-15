@@ -1,0 +1,69 @@
+schema_version: 1
+id: EXP-002
+revision: 3
+title: Queue overload policy
+validates:
+- id: VAL-012
+  revision: 4
+objective: Establish that saturation follows the approved policy and preserves complete event accounting
+  through recovery.
+hypotheses:
+- id: HYP-001
+  statement: Under the approved saturation policy, every offered event is classified as accepted, explicitly
+    rejected, retried or otherwise accounted for without silent overwrite.
+- id: HYP-002
+  statement: After a stalled consumer resumes, accepted events drain in order within the declared resource
+    and recovery bounds.
+scope: 'VAL-012: full-queue action, bounded backlog, retry/rejection semantics, accounting and recovery;
+  policy choice requires its own decision.'
+exclusions:
+- No universal zero-loss promise for arbitrary offered load.
+- No product throughput acceptance.
+method:
+  kind: mixed
+  procedure: Review the policy against DEC-006, then drive deterministic saturation, stalled-consumer
+    and drain/recovery schedules using an identity ledger and declared bounds.
+  implementation_path: null
+dependencies:
+- Choose overload and retry/replay policy (DEC-006).
+- EXP-001 capacity contract and implementation boundary.
+tests:
+- id: TST-005
+  revision: 2
+- id: TST-006
+  revision: 2
+- id: TST-007
+  revision: 2
+- id: TST-008
+  revision: 2
+completion_criteria:
+- Define versioned test specifications with independent oracles and predeclared acceptance criteria before
+  execution.
+- Execute the defined mandatory investigation and retain outcomes, provenance and integrity-checked evidence,
+  including negative and inconclusive results.
+- Review hypothesis conclusions and coverage limitations; link a separate validation decision without
+  inferring acceptance from experiment completion.
+lifecycle:
+  state: proposed
+  history:
+  - from: null
+    to: proposed
+    date: '2026-10-15'
+    actor: codex
+    reason: Stage 4 investigation definition; test decomposition, prerequisites and execution remain pending.
+revision_history:
+- revision: 1
+  date: '2026-10-15'
+  actor: codex
+  reason: Stage 4 initial experiment definition and validation coverage assignment; no implementation
+    or approval asserted.
+- revision: 2
+  date: '2026-10-15'
+  actor: codex
+  reason: Stage 5 declares hypothesis-linked test specifications; experiment remains proposed until bindings
+    and prerequisites are ready.
+- revision: 3
+  date: '2026-10-15'
+  actor: codex
+  reason: Stage 9 binds the isolated EXP-001 prototype and preserves reciprocal revision-pinned coverage;
+    other investigations remain pending.

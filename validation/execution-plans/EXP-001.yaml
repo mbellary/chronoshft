@@ -1,17 +1,24 @@
 schema_version: 1
-run_id: RUN-exp001-local-001
+run_id: RUN-exp001-rust-001
 experiment:
   id: EXP-001
-  revision: 3
+  revision: 4
   registry_commit: HEAD
 implementation_commit: HEAD
 working_directory: .
 toolchain_command:
-- python3
-- scripts/rust_toolchain_manifest.py
-configuration: Sequential debug-profile prototype. Capacities 1..4096 events; mutex-backed ring; no external
-  Rust dependencies; offline locked Cargo. No performance acceptance. Reports include operation traces,
-  constructor matrix and native index width.
+- cargo
+- run
+- --offline
+- --locked
+- -p
+- chronoshft-lab
+- --
+- toolchain
+- show
+configuration: Sequential debug-profile prototype. Capacities 1..4096 events; mutex-backed ring; prototype
+  has no external Rust dependencies; tooling dependencies locked in root Cargo.lock; offline locked Cargo.
+  No performance acceptance. Reports include operation traces, constructor matrix and native index width.
 deviations: []
 inputs:
 - name: prototype contract
@@ -19,22 +26,29 @@ inputs:
 - name: independent model and schedules
   path: experiments/exp-001-spsc-queue/tests/queue_contracts.rs
 - name: build and single-case runner
-  path: scripts/run_exp001_test.py
+  path: crates/chronoshft-lab/src/experiment.rs
 dependency_lockfiles:
-- experiments/Cargo.lock
+- Cargo.lock
 random_seeds:
 - '24301'
 instrumentation: Rust assertions, independent VecDeque/identity ledgers, per-operation text reports, captured
   stdout/stderr and actual rustc/cargo versions.
-timeout_seconds: 120
+timeout_seconds: 180
 retention: repository
 max_repository_artifact_bytes: 2000000
 tests:
 - id: TST-001
-  revision: 2
+  revision: 3
   command:
-  - python3
-  - scripts/run_exp001_test.py
+  - cargo
+  - run
+  - --offline
+  - --locked
+  - -p
+  - chronoshft-lab
+  - --
+  - experiment
+  - run-case
   - fifo_exactly_once
   failure_exit_codes:
   - 101
@@ -42,10 +56,17 @@ tests:
   - path: target/validation-reports/TST-001.txt
     kind: test_report
 - id: TST-002
-  revision: 2
+  revision: 3
   command:
-  - python3
-  - scripts/run_exp001_test.py
+  - cargo
+  - run
+  - --offline
+  - --locked
+  - -p
+  - chronoshft-lab
+  - --
+  - experiment
+  - run-case
   - capacity_before_write
   failure_exit_codes:
   - 101
@@ -53,10 +74,17 @@ tests:
   - path: target/validation-reports/TST-002.txt
     kind: test_report
 - id: TST-003
-  revision: 2
+  revision: 3
   command:
-  - python3
-  - scripts/run_exp001_test.py
+  - cargo
+  - run
+  - --offline
+  - --locked
+  - -p
+  - chronoshft-lab
+  - --
+  - experiment
+  - run-case
   - wraparound_partial_drains
   failure_exit_codes:
   - 101
@@ -64,10 +92,17 @@ tests:
   - path: target/validation-reports/TST-003.txt
     kind: test_report
 - id: TST-004
-  revision: 2
+  revision: 3
   command:
-  - python3
-  - scripts/run_exp001_test.py
+  - cargo
+  - run
+  - --offline
+  - --locked
+  - -p
+  - chronoshft-lab
+  - --
+  - experiment
+  - run-case
   - capacity_configuration
   failure_exit_codes:
   - 101

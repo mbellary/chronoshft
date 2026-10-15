@@ -1,0 +1,56 @@
+schema_version: 1
+id: TST-006
+revision: 2
+title: Offer retry and event accounting
+experiment:
+  id: EXP-002
+  revision: 3
+validations:
+- id: VAL-012
+  revision: 4
+hypothesis_ids:
+- HYP-001
+classification: correctness
+execution_type: automated
+mandatory: true
+preconditions:
+- Logical-event and offer-attempt identities are distinct; retry, duplicate and drop classifications are
+  specified.
+- Bind the exact input/source/configuration revisions and execution or review method before running; unresolved
+  prerequisites are not a pass.
+procedure:
+- Offer numbered events across saturation, explicit rejections and retries; include repeated attempts
+  of the same logical event.
+- Reconcile attempts and logical identities after drain against caller results and visible output.
+expected:
+- Every offer attempt has exactly one declared outcome; accepted attempts are not counted again as rejected.
+- Every eligible logical identity is delivered exactly as the policy requires or has an explicit rejection/drop
+  disposition; no unexplained gap remains.
+oracle:
+  kind: independent_reference_comparison
+  description: An independent identity ledger separates offer attempts from logical events and applies
+    the approved retry/deduplication rules.
+execution_method: Planned automated procedure for Offer retry and event accounting; bind the exact command
+  or review checklist and applicable source/fixture revisions before execution.
+execution_binding:
+  state: unbound
+  implementation_path: null
+  entrypoint: null
+required_evidence:
+- Per-case test outcomes including failures, skips and tool errors
+- Registry/test revision and implementation or documentary source revision
+- Exact execution command or review procedure; input/configuration hashes and applicable environment/toolchain
+- Retained artifact references with SHA-256 digests
+- Attempt and logical-event ledgers
+- Accepted/rejected/retried/visible reconciliation
+revision_history:
+- revision: 1
+  date: '2026-10-15'
+  actor: codex
+  reason: Stage 5 pre-execution test specification; execution binding, implementation, inputs and approvals
+    remain pending.
+- revision: 2
+  date: '2026-10-15'
+  actor: codex
+  reason: Stage 9 binds the isolated EXP-001 prototype and preserves reciprocal revision-pinned coverage;
+    other investigations remain pending.

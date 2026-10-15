@@ -1,6 +1,6 @@
 schema_version: 1
 id: VAL-012
-revision: 4
+revision: 5
 title: Bounded ring capacity and overflow
 origin:
   assessment_id: CHRONOS-P0-001
@@ -22,47 +22,47 @@ coverage:
   status: mapped
   experiments:
   - id: EXP-001
-    revision: 3
+    revision: 4
     mandatory: true
   - id: EXP-002
-    revision: 3
+    revision: 4
     mandatory: true
   - id: EXP-003
-    revision: 3
+    revision: 4
     mandatory: true
   tests:
   - id: TST-001
-    revision: 2
+    revision: 3
     mandatory: true
   - id: TST-002
-    revision: 2
+    revision: 3
     mandatory: true
   - id: TST-003
-    revision: 2
+    revision: 3
     mandatory: true
   - id: TST-004
-    revision: 2
+    revision: 3
     mandatory: true
   - id: TST-005
-    revision: 2
+    revision: 3
     mandatory: true
   - id: TST-006
-    revision: 2
+    revision: 3
     mandatory: true
   - id: TST-007
-    revision: 2
+    revision: 3
     mandatory: true
   - id: TST-008
-    revision: 2
+    revision: 3
     mandatory: true
   - id: TST-010
-    revision: 2
+    revision: 3
     mandatory: true
   - id: TST-011
-    revision: 2
+    revision: 3
     mandatory: true
   - id: TST-012
-    revision: 2
+    revision: 3
     mandatory: true
 lifecycle:
   state: planned
@@ -101,3 +101,8 @@ revision_history:
   actor: codex
   reason: Stage 9 binds the isolated EXP-001 prototype and preserves reciprocal revision-pinned coverage;
     other investigations remain pending.
+- revision: 5
+  date: '2026-10-15'
+  actor: codex
+  reason: Rust migration Stage 8 versions native EXP-001 command bindings and the consolidated Cargo workspace;
+    preserves reciprocal planning references and existing scope.

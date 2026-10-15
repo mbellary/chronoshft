@@ -1,13 +1,13 @@
 schema_version: 1
 id: TST-002
-revision: 2
+revision: 3
 title: Capacity enforcement before writes
 experiment:
   id: EXP-001
-  revision: 3
+  revision: 4
 validations:
 - id: VAL-012
-  revision: 4
+  revision: 5
 hypothesis_ids:
 - HYP-001
 - HYP-002
@@ -35,7 +35,7 @@ execution_method: Execute the exact bound Rust integration test from the reposit
 execution_binding:
   state: bound
   implementation_path: experiments/exp-001-spsc-queue/tests/queue_contracts.rs
-  entrypoint: python3 scripts/run_exp001_test.py capacity_before_write
+  entrypoint: cargo run --offline --locked -p chronoshft-lab -- experiment run-case capacity_before_write
 required_evidence:
 - Per-case test outcomes including failures, skips and tool errors
 - Registry/test revision and implementation or documentary source revision
@@ -55,3 +55,8 @@ revision_history:
   actor: codex
   reason: Stage 9 binds the isolated EXP-001 prototype and preserves reciprocal revision-pinned coverage;
     other investigations remain pending.
+- revision: 3
+  date: '2026-10-15'
+  actor: codex
+  reason: Rust migration Stage 8 versions native EXP-001 command bindings and the consolidated Cargo workspace;
+    preserves reciprocal planning references and existing scope.

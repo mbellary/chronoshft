@@ -100,7 +100,7 @@ Record instrumentation overhead and controls where relevant. Preserve failed ass
 Use the project's locked documentation/validation environment. From the repository root:
 
 ```bash
-uv sync --locked --extra docs --extra validation
+uv sync --locked --extra docs
 ```
 
 Run the checks appropriate to the implementation language and investigation: formatting, compilation, static analysis, targeted correctness tests, model exploration or a trial of the review procedure. Consult the experiment's bound methods rather than assuming every experiment uses Cargo.
@@ -108,9 +108,9 @@ Run the checks appropriate to the implementation language and investigation: for
 For example, EXP-001's Rust development checks are:
 
 ```bash
-cargo fmt --manifest-path experiments/Cargo.toml --check
-cargo clippy --offline --locked --manifest-path experiments/Cargo.toml --all-targets -- -D warnings
-cargo test --offline --locked --manifest-path experiments/Cargo.toml -p exp-001-spsc-queue
+cargo fmt --all --check
+cargo clippy --offline --locked --workspace --all-targets -- -D warnings
+cargo test --offline --locked -p exp-001-spsc-queue
 ```
 
 Inspect the reports as well as the exit status. Check that intended cases actually ran and that the harness waits for work to finish. Where useful, exercise deliberate failures in disposable copies: a violated invariant should fail a test, a missing test name must not produce an empty pass, and a compiler or tool failure must be distinguishable from a hypothesis contradiction. Recreate report files on each invocation so stale output cannot masquerade as fresh evidence.
@@ -159,9 +159,9 @@ Use repository retention for suitably small artifacts. Large outputs remain in a
 Before the source checkpoint, validate records, inspect history changes and regenerate the Lab:
 
 ```bash
-uv run --locked --extra validation python scripts/validate_register.py --require-tests
-uv run --locked --extra validation python scripts/check_validation_history.py
-uv run --locked --extra validation python scripts/generate_validation_docs.py
+cargo lab registry check --require-tests
+cargo lab history check
+cargo lab docs generate
 ```
 
 Review and commit the intended source, fixtures, lockfiles, definitions, bindings, plan and generated views. Check the working tree with:
@@ -175,7 +175,7 @@ Real capture requires clean committed source. New ledger/artifact additions have
 The evidence verifier resolves capture-plan definitions from Git. A newly introduced revision or plan may therefore need this source commit before the complete gate can pass. Once committed, run the shared gate:
 
 ```bash
-uv run --locked --extra docs --extra validation python scripts/check_documentation.py
+cargo lab check
 ```
 
 Freeze source, definitions and inputs while capturing. A tracked-source or input mutation during execution prevents a positive result. Commit any intended lifecycle changes before the next capture rather than editing metadata during a run.
@@ -187,7 +187,7 @@ Freeze source, definitions and inputs while capturing. A tracked-source or input
 Choose a new, unused RUN identity for each execution. The following example uses the existing EXP-001 plan; substitute the prepared plan and a fresh run ID for your experiment:
 
 ```bash
-uv run --locked --extra validation python scripts/capture_execution.py \
+cargo lab execution capture \
   --plan validation/execution-plans/EXP-001.yaml \
   --committed-plan \
   --run-id RUN-exp001-manual-001
@@ -206,7 +206,7 @@ Do not reuse that example identity if it is already reserved or registered. Sele
 
 Capture returns nonzero for unsuccessful/incomplete outcomes while retaining finalized observations. Inspect the reserved bundle before retrying; use a new identity for a new execution. Forced termination or runner loss can leave only partial output. Do not reconstruct an all-pass result from absent observations. Use the [interrupted-publication procedure](execution-and-evidence.md#manual-observations-and-interrupted-publication) only with complete verified staged manifests.
 
-For documentary work, perform the bound checklist and prepare a schema-valid RUN plus EVD manifests and retained review artifacts. Record manual outcomes without fabricated commands or exit codes. Import them using `scripts/register_execution.py`, as documented in that same guide. The automated capture command is not a substitute for a manual review.
+For documentary work, perform the bound checklist and prepare a schema-valid RUN plus EVD manifests and retained review artifacts. Record manual outcomes without fabricated commands or exit codes. Import them using `cargo lab execution import`, as documented in that same guide. The automated capture command is not a substitute for a manual review.
 
 **Output:** a new immutable execution and retained evidence, including failures and limitations.
 
@@ -215,9 +215,9 @@ For documentary work, perform the bound checklist and prepare a schema-valid RUN
 Run:
 
 ```bash
-uv run --locked --extra validation python scripts/verify_evidence.py
-uv run --locked --extra validation python scripts/generate_validation_docs.py
-uv run --locked --extra docs --extra validation python scripts/check_documentation.py
+cargo lab evidence verify
+cargo lab docs generate
+cargo lab check
 ```
 
 Verification checks pinned definitions, artifact sizes/digests, input and lockfile hashes, command bindings, scope and outcome accounting. External/bundle artifacts require accessible content or an explicit local mirror; missing content must not be silently skipped.
@@ -245,7 +245,7 @@ An experiment can reach `completed` after its required investigation and conclus
 When a validation is ready for review, prepare a package. These IDs and the output filename are examples; choose unused identities and a new draft path:
 
 ```bash
-uv run --locked --extra validation python scripts/review_validation.py prepare \
+cargo lab review prepare \
   --validation VAL-012 --decision-id VDEC-001 --output /tmp/VAL-012-review.yaml
 ```
 
@@ -254,7 +254,7 @@ The package is an unapproved draft. The designated reviewer selects applicable r
 Check the completed candidate without registering it:
 
 ```bash
-uv run --locked --extra validation python scripts/review_validation.py check \
+cargo lab review check \
   --candidate /tmp/VAL-012-review.yaml
 ```
 
@@ -355,29 +355,29 @@ EXP-001 already has an implementation and a recorded run. The steps below explai
     ```bash
     cd /home/mbellary/work/projects/chronoshft
 
-    uv sync --locked --extra docs --extra validation
+    uv sync --locked --extra docs
 
     rustc --version
     cargo --version
 
-    cargo fmt --manifest-path experiments/Cargo.toml --check
+    cargo fmt --all --check
 
     cargo clippy --offline --locked \
-      --manifest-path experiments/Cargo.toml \
+      --workspace \
       --all-targets -- -D warnings
 
     cargo test --offline --locked \
-      --manifest-path experiments/Cargo.toml \
+      --workspace \
       -p exp-001-spsc-queue
     ```
 
-    To exercise one registered case through its bound runner:
+    To exercise one case through the native development helper:
 
     ```bash
-    python3 scripts/run_exp001_test.py capacity_before_write
+    cargo lab experiment run-case capacity_before_write
     ```
 
-    The runner distinguishes assertion failure from build/tool failure and checks that the requested test actually exists.
+    The runner distinguishes assertion failure from build/tool failure and checks that the requested test actually exists. The current capture plan records native Rust bindings and the root Cargo.lock; historical runs retain their original commands and source commits. Changing a binding requires its explicit versioned update, rather than substituting the development command during capture.
 
     At this point, you are developing and debugging. These commands alone do **not** create a registered RUN record.
 
@@ -399,12 +399,12 @@ EXP-001 already has an implementation and a recorded run. The steps below explai
     Check the definitions and regenerate their views:
 
     ```bash
-    uv run --locked --extra validation python scripts/validate_register.py \
+    cargo lab registry check \
       --require-tests
 
-    uv run --locked --extra validation python scripts/check_validation_history.py
+    cargo lab history check
 
-    uv run --locked --extra validation python scripts/generate_validation_docs.py
+    cargo lab docs generate
     ```
 
 8. **Commit the source, definitions and plan, then capture a real run.**
@@ -420,7 +420,7 @@ EXP-001 already has an implementation and a recorded run. The steps below explai
     Then run capture with a **new, unused RUN identity**:
 
     ```bash
-    uv run --locked --extra validation python scripts/capture_execution.py \
+    cargo lab execution capture \
       --plan validation/execution-plans/EXP-001.yaml \
       --committed-plan \
       --run-id RUN-exp001-manual-20261015-001
@@ -433,12 +433,11 @@ EXP-001 already has an implementation and a recorded run. The steps below explai
 9. **Verify the evidence and examine the results yourself.**
 
     ```bash
-    uv run --locked --extra validation python scripts/verify_evidence.py
+    cargo lab evidence verify
 
-    uv run --locked --extra validation python scripts/generate_validation_docs.py
+    cargo lab docs generate
 
-    uv run --locked --extra docs --extra validation \
-      python scripts/check_documentation.py
+    cargo lab check
     ```
 
     Then inspect the registered results and retained reports. Check that:
@@ -466,7 +465,7 @@ EXP-001 already has an implementation and a recorded run. The steps below explai
     When sufficient evidence is available, prepare a human review package:
 
     ```bash
-    uv run --locked --extra validation python scripts/review_validation.py prepare \
+    cargo lab review prepare \
       --validation VAL-012 \
       --decision-id VDEC-001 \
       --output /tmp/VAL-012-review.yaml
@@ -489,8 +488,19 @@ Before calling the investigation complete, confirm:
 - Required reviewer decisions, lifecycle changes and architecture actions are explicit and traceable.
 - Generated views, documentation and selected technical checks pass.
 
+## Rust tooling migration
+
+The investigation workflow above remains the same while repository-owned tooling
+moves from Python to Rust. The [migration contract](rust-migration.md) documents
+the compatibility fixtures, stage boundaries and CLI. Stages 2–7 supply native
+registry, history, evidence, generation, capture/import, experiment and reviewer
+commands, plus the shared `cargo lab check` gate used locally and in CI. Rust tests
+cover the frozen legacy regression inventory. Stage 8 retires custom Python tools
+and regression modules, versions native capture bindings, and consolidates the Cargo
+workspace. Original reference source and fixture hashes remain available in Git. MkDocs and Material continue to build and publish this site.
+
 ## Documentation workflow and ownership
 
-This methodology is authored Markdown; edit it directly. `scripts/generate_validation_docs.py` generates the Lab overview, coverage, registers, environment view and experiment pages, and updates the marked Lab navigation section in `mkdocs.yml`. It preserves this page. The old `scripts/generate_validation_coverage.py` remains a compatibility entrypoint.
+This methodology is authored Markdown; edit it directly. `cargo lab docs generate` generates the Lab overview, coverage, registers, environment view and experiment pages, and updates the marked Lab navigation section in `mkdocs.yml`. It preserves this page. Custom Python generators are retired; the governance compatibility pages keep their existing URLs and anchors.
 
 The shared gate checks registry/history/evidence consistency, generated views, regressions, the strict MkDocs build and rendered local links. It does not replace experiment-specific capture or human review. Some regressions exercise experiment code in disposable fixtures without producing registered observations. See [Automation and CI](automation-and-ci.md) for the publication boundary and [Execution and evidence](execution-and-evidence.md) for runtime details.

@@ -27,7 +27,7 @@ It is not an approved production queue or a resolution of DEC-003/DEC-006.
 From the repository root:
 
 ```sh
-cargo test --offline --locked --manifest-path experiments/Cargo.toml -p exp-001-spsc-queue
+cargo test --offline --locked -p exp-001-spsc-queue
 ```
 
 The four integration tests correspond to TST-001 through TST-004. They compare

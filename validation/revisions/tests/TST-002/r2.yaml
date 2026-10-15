@@ -1,0 +1,57 @@
+schema_version: 1
+id: TST-002
+revision: 2
+title: Capacity enforcement before writes
+experiment:
+  id: EXP-001
+  revision: 3
+validations:
+- id: VAL-012
+  revision: 4
+hypothesis_ids:
+- HYP-001
+- HYP-002
+classification: safety
+execution_type: automated
+mandatory: true
+preconditions:
+- Usable N in [1,2,3,7,32], five repeated rejected pushes while full, one-slot release/refill, drain and
+  complete reuse.
+- Use committed source, Cargo.lock, prototype contract, tests and capture plan; capture native index width
+  and actual compiler/package-manager versions. No production policy approval or concurrency conclusion
+  is asserted.
+procedure:
+- Insert N numbered events without consuming and attempt multiple additional inserts.
+- Drain N events, then insert and consume another event.
+expected:
+- Exactly N initial events are accepted; all extra attempts report full before modifying unread data.
+- Drained payloads and identities match the first N inputs; admission resumes after a slot is freed.
+oracle:
+  kind: independent_reference_comparison
+  description: Immutable expected payload fixtures and an external acceptance ledger detect overwritten
+    unread entries independently of the queue counters.
+execution_method: Execute the exact bound Rust integration test from the repository root; CHRONOSHFT_REPORT_DIR=target/validation-reports
+  is resolved from that root by the test harness. Retain stdout, stderr and the corresponding TST report.
+execution_binding:
+  state: bound
+  implementation_path: experiments/exp-001-spsc-queue/tests/queue_contracts.rs
+  entrypoint: python3 scripts/run_exp001_test.py capacity_before_write
+required_evidence:
+- Per-case test outcomes including failures, skips and tool errors
+- Registry/test revision and implementation or documentary source revision
+- Exact execution command or review procedure; input/configuration hashes and applicable environment/toolchain
+- Retained artifact references with SHA-256 digests
+- Full-attempt outcomes
+- Before/after payload comparison
+- Usable-capacity configuration
+revision_history:
+- revision: 1
+  date: '2026-10-15'
+  actor: codex
+  reason: Stage 5 pre-execution test specification; execution binding, implementation, inputs and approvals
+    remain pending.
+- revision: 2
+  date: '2026-10-15'
+  actor: codex
+  reason: Stage 9 binds the isolated EXP-001 prototype and preserves reciprocal revision-pinned coverage;
+    other investigations remain pending.

@@ -1,0 +1,1107 @@
+{
+  "version": 1,
+  "reference_commit": "2be4fa2af0f4cf50c94c3a6c7b0ff3e172e2a77c",
+  "purpose": "Trace each frozen Python regression to native assertions. Counts and mappings alone do not prove behavioral parity; native tests must pass. Python comparison passed before Stage 8 retirement; original source remains pinned in Git.",
+  "cases": [
+    {
+      "python_module": "tests/test_validation_ci.py",
+      "python_case": "test_failed_check_stops_before_build_or_publication",
+      "rust_cases": [
+        {
+          "target": "gate",
+          "case": "each_failed_stage_stops_every_later_stage_and_preserves_the_exit_code"
+        }
+      ]
+    },
+    {
+      "python_module": "tests/test_validation_ci.py",
+      "python_case": "test_full_gate_checks_generated_files_without_regenerating",
+      "rust_cases": [
+        {
+          "target": "gate",
+          "case": "plan_uses_native_checks_locked_regressions_strict_mkdocs_and_readonly_generation"
+        }
+      ]
+    },
+    {
+      "python_module": "tests/test_validation_ci.py",
+      "python_case": "test_unstartable_check_fails_closed",
+      "rust_cases": [
+        {
+          "target": "gate",
+          "case": "launch_failure_fails_closed_before_later_work"
+        }
+      ]
+    },
+    {
+      "python_module": "tests/test_validation_ci.py",
+      "python_case": "test_directory_fragment_query_and_encoded_file_links",
+      "rust_cases": [
+        {
+          "target": "docs",
+          "case": "directory_fragment_query_encoded_asset_and_entities_resolve"
+        }
+      ]
+    },
+    {
+      "python_module": "tests/test_validation_ci.py",
+      "python_case": "test_missing_local_file_is_a_failure",
+      "rust_cases": [
+        {
+          "target": "docs",
+          "case": "missing_files_anchors_and_both_traversal_forms_fail"
+        }
+      ]
+    },
+    {
+      "python_module": "tests/test_validation_ci.py",
+      "python_case": "test_missing_anchor_is_a_failure",
+      "rust_cases": [
+        {
+          "target": "docs",
+          "case": "missing_files_anchors_and_both_traversal_forms_fail"
+        }
+      ]
+    },
+    {
+      "python_module": "tests/test_validation_ci.py",
+      "python_case": "test_site_root_links_and_external_links",
+      "rust_cases": [
+        {
+          "target": "docs",
+          "case": "site_root_external_mail_and_raw_script_markup_are_handled_offline"
+        }
+      ]
+    },
+    {
+      "python_module": "tests/test_validation_ci.py",
+      "python_case": "test_relative_link_cannot_escape_project_prefix",
+      "rust_cases": [
+        {
+          "target": "docs",
+          "case": "missing_files_anchors_and_both_traversal_forms_fail"
+        }
+      ]
+    },
+    {
+      "python_module": "tests/test_validation_ci.py",
+      "python_case": "test_encoded_link_cannot_escape_rendered_directory",
+      "rust_cases": [
+        {
+          "target": "docs",
+          "case": "missing_files_anchors_and_both_traversal_forms_fail"
+        }
+      ]
+    },
+    {
+      "python_module": "tests/test_validation_ci.py",
+      "python_case": "test_empty_build_does_not_pass",
+      "rust_cases": [
+        {
+          "target": "docs",
+          "case": "empty_build_invalid_utf8_and_bad_config_fail_closed"
+        }
+      ]
+    },
+    {
+      "python_module": "tests/test_validation_ci.py",
+      "python_case": "test_all_gate_inputs_trigger_push_and_pull_request_checks",
+      "rust_cases": [
+        {
+          "target": "ci",
+          "case": "every_gate_input_triggers_push_and_pull_request_validation"
+        }
+      ]
+    },
+    {
+      "python_module": "tests/test_validation_ci.py",
+      "python_case": "test_ci_installs_locked_validation_dependencies_and_uses_local_gate",
+      "rust_cases": [
+        {
+          "target": "ci",
+          "case": "documentation_ci_uses_the_same_native_gate_locked_environment_and_reference_comparison"
+        }
+      ]
+    },
+    {
+      "python_module": "tests/test_validation_ci.py",
+      "python_case": "test_execution_capture_is_explicit_and_retains_failure_artifacts",
+      "rust_cases": [
+        {
+          "target": "ci",
+          "case": "capture_is_manual_native_committed_plan_only_and_retains_failure_artifacts"
+        }
+      ]
+    },
+    {
+      "python_module": "tests/test_validation_ci.py",
+      "python_case": "test_publication_depends_on_successful_full_gate_and_excludes_pull_requests",
+      "rust_cases": [
+        {
+          "target": "ci",
+          "case": "pages_publication_follows_successful_gates_and_excludes_pull_requests"
+        }
+      ]
+    },
+    {
+      "python_module": "tests/test_validation_docs.py",
+      "python_case": "test_every_experiment_has_a_generated_page_and_nav_entry",
+      "rust_cases": [
+        {
+          "target": "docs",
+          "case": "every_experiment_page_and_navigation_entry_is_unique_and_in_the_expected_section"
+        }
+      ]
+    },
+    {
+      "python_module": "tests/test_validation_docs.py",
+      "python_case": "test_nav_replacement_preserves_other_configuration",
+      "rust_cases": [
+        {
+          "target": "docs",
+          "case": "navigation_preserves_surrounding_config_and_rejects_marker_errors"
+        }
+      ]
+    },
+    {
+      "python_module": "tests/test_validation_docs.py",
+      "python_case": "test_missing_duplicate_or_reversed_nav_markers_are_rejected",
+      "rust_cases": [
+        {
+          "target": "docs",
+          "case": "navigation_preserves_surrounding_config_and_rejects_marker_errors"
+        }
+      ]
+    },
+    {
+      "python_module": "tests/test_validation_docs.py",
+      "python_case": "test_lab_follows_rust_and_precedes_financial_domain",
+      "rust_cases": [
+        {
+          "target": "docs",
+          "case": "every_experiment_page_and_navigation_entry_is_unique_and_in_the_expected_section"
+        }
+      ]
+    },
+    {
+      "python_module": "tests/test_validation_docs.py",
+      "python_case": "test_unexecuted_states_do_not_become_results",
+      "rust_cases": [
+        {
+          "target": "docs",
+          "case": "empty_observations_unbound_methods_and_shared_scope_remain_explicit"
+        }
+      ]
+    },
+    {
+      "python_module": "tests/test_validation_docs.py",
+      "python_case": "test_unbound_experiment_has_no_invented_runner",
+      "rust_cases": [
+        {
+          "target": "docs",
+          "case": "empty_observations_unbound_methods_and_shared_scope_remain_explicit"
+        }
+      ]
+    },
+    {
+      "python_module": "tests/test_validation_docs.py",
+      "python_case": "test_shared_experiment_preserves_narrow_test_applicability",
+      "rust_cases": [
+        {
+          "target": "docs",
+          "case": "empty_observations_unbound_methods_and_shared_scope_remain_explicit"
+        }
+      ]
+    },
+    {
+      "python_module": "tests/test_validation_docs.py",
+      "python_case": "test_legacy_test_anchors_link_to_owning_experiment",
+      "rust_cases": [
+        {
+          "target": "docs",
+          "case": "empty_observations_unbound_methods_and_shared_scope_remain_explicit"
+        }
+      ]
+    },
+    {
+      "python_module": "tests/test_validation_docs.py",
+      "python_case": "test_table_values_escape_html_and_pipe_characters",
+      "rust_cases": [
+        {
+          "target": "docs",
+          "case": "failed_runs_escaping_unicode_commands_and_recorded_decisions_render"
+        }
+      ]
+    },
+    {
+      "python_module": "tests/test_validation_docs.py",
+      "python_case": "test_failed_run_keeps_tested_revision_and_does_not_accept_validation",
+      "rust_cases": [
+        {
+          "target": "docs",
+          "case": "failed_runs_escaping_unicode_commands_and_recorded_decisions_render"
+        }
+      ]
+    },
+    {
+      "python_module": "tests/test_validation_exp001_runner.py",
+      "python_case": "test_all_declared_cases_pass_on_the_unmodified_prototype",
+      "rust_cases": [
+        {
+          "target": "experiment",
+          "case": "every_declared_case_passes_and_produces_a_fresh_report"
+        }
+      ]
+    },
+    {
+      "python_module": "tests/test_validation_exp001_runner.py",
+      "python_case": "test_compiler_failure_is_tool_error_and_removes_stale_report",
+      "rust_cases": [
+        {
+          "target": "experiment",
+          "case": "compiler_failure_is_tool_error_and_removes_the_stale_report"
+        }
+      ]
+    },
+    {
+      "python_module": "tests/test_validation_exp001_runner.py",
+      "python_case": "test_missing_exact_case_cannot_report_an_empty_pass",
+      "rust_cases": [
+        {
+          "target": "experiment",
+          "case": "a_missing_exact_case_cannot_be_reported_as_an_empty_pass"
+        }
+      ]
+    },
+    {
+      "python_module": "tests/test_validation_exp001_runner.py",
+      "python_case": "test_assertion_failure_retains_fresh_observation_prefix",
+      "rust_cases": [
+        {
+          "target": "experiment",
+          "case": "assertion_failure_keeps_a_fresh_report_and_returns_101"
+        }
+      ]
+    },
+    {
+      "python_module": "tests/test_validation_register.py",
+      "python_case": "test_complete_migration",
+      "rust_cases": [
+        {
+          "target": "registry",
+          "case": "live_baseline_counts_readiness_and_shared_scope_match_the_legacy_contract"
+        }
+      ]
+    },
+    {
+      "python_module": "tests/test_validation_register.py",
+      "python_case": "test_missing_historical_record",
+      "rust_cases": [
+        {
+          "target": "registry",
+          "case": "remaining_legacy_registry_mutations_are_rejected_natively"
+        }
+      ]
+    },
+    {
+      "python_module": "tests/test_validation_register.py",
+      "python_case": "test_changed_research_finding",
+      "rust_cases": [
+        {
+          "target": "registry",
+          "case": "research_provenance_and_original_source_are_preserved"
+        }
+      ]
+    },
+    {
+      "python_module": "tests/test_validation_register.py",
+      "python_case": "test_changed_closure_requirement",
+      "rust_cases": [
+        {
+          "target": "registry",
+          "case": "remaining_legacy_registry_mutations_are_rejected_natively"
+        }
+      ]
+    },
+    {
+      "python_module": "tests/test_validation_register.py",
+      "python_case": "test_coordinated_markdown_and_yaml_edit",
+      "rust_cases": [
+        {
+          "target": "registry",
+          "case": "remaining_legacy_registry_mutations_are_rejected_natively"
+        }
+      ]
+    },
+    {
+      "python_module": "tests/test_validation_register.py",
+      "python_case": "test_source_document_change",
+      "rust_cases": [
+        {
+          "target": "registry",
+          "case": "research_provenance_and_original_source_are_preserved"
+        }
+      ]
+    },
+    {
+      "python_module": "tests/test_validation_register.py",
+      "python_case": "test_duplicate_yaml_key",
+      "rust_cases": [
+        {
+          "target": "registry",
+          "case": "yaml_scalar_types_aliases_and_duplicate_keys_preserve_reference_semantics"
+        }
+      ]
+    },
+    {
+      "python_module": "tests/test_validation_register.py",
+      "python_case": "test_invalid_state",
+      "rust_cases": [
+        {
+          "target": "registry",
+          "case": "remaining_legacy_registry_mutations_are_rejected_natively"
+        }
+      ]
+    },
+    {
+      "python_module": "tests/test_validation_register.py",
+      "python_case": "test_unknown_field",
+      "rust_cases": [
+        {
+          "target": "registry",
+          "case": "frozen_python_reference_and_all_ten_registry_overlays_match"
+        }
+      ]
+    },
+    {
+      "python_module": "tests/test_validation_register.py",
+      "python_case": "test_invalid_date",
+      "rust_cases": [
+        {
+          "target": "registry",
+          "case": "frozen_python_reference_and_all_ten_registry_overlays_match"
+        }
+      ]
+    },
+    {
+      "python_module": "tests/test_validation_register.py",
+      "python_case": "test_dangling_experiment",
+      "rust_cases": [
+        {
+          "target": "registry",
+          "case": "malformed_schema_missing_directory_bad_filenames_and_missing_targets_fail_closed"
+        }
+      ]
+    },
+    {
+      "python_module": "tests/test_validation_register.py",
+      "python_case": "test_untracked_state_change",
+      "rust_cases": [
+        {
+          "target": "registry",
+          "case": "lifecycle_transition_continuity_dates_and_current_state_are_enforced"
+        }
+      ]
+    },
+    {
+      "python_module": "tests/test_validation_register.py",
+      "python_case": "test_revision_history_gap",
+      "rust_cases": [
+        {
+          "target": "registry",
+          "case": "remaining_legacy_registry_mutations_are_rejected_natively"
+        }
+      ]
+    },
+    {
+      "python_module": "tests/test_validation_register.py",
+      "python_case": "test_filename_id_mismatch",
+      "rust_cases": [
+        {
+          "target": "registry",
+          "case": "malformed_schema_missing_directory_bad_filenames_and_missing_targets_fail_closed"
+        }
+      ]
+    },
+    {
+      "python_module": "tests/test_validation_register.py",
+      "python_case": "test_coverage_gate_rejects_unmapped_validation",
+      "rust_cases": [
+        {
+          "target": "registry",
+          "case": "remaining_legacy_registry_mutations_are_rejected_natively"
+        }
+      ]
+    },
+    {
+      "python_module": "tests/test_validation_register.py",
+      "python_case": "test_coverage_requires_mandatory_investigation",
+      "rust_cases": [
+        {
+          "target": "registry",
+          "case": "all_hypotheses_methods_and_validation_obligations_need_mandatory_coverage"
+        }
+      ]
+    },
+    {
+      "python_module": "tests/test_validation_register.py",
+      "python_case": "test_missing_reciprocal_link",
+      "rust_cases": [
+        {
+          "target": "registry",
+          "case": "relationships_must_be_reciprocal_and_obligations_agree"
+        }
+      ]
+    },
+    {
+      "python_module": "tests/test_validation_register.py",
+      "python_case": "test_stale_experiment_revision",
+      "rust_cases": [
+        {
+          "target": "registry",
+          "case": "remaining_legacy_registry_mutations_are_rejected_natively"
+        }
+      ]
+    },
+    {
+      "python_module": "tests/test_validation_register.py",
+      "python_case": "test_duplicate_coverage_id_with_different_metadata",
+      "rust_cases": [
+        {
+          "target": "registry",
+          "case": "remaining_legacy_registry_mutations_are_rejected_natively"
+        }
+      ]
+    },
+    {
+      "python_module": "tests/test_validation_register.py",
+      "python_case": "test_duplicate_hypothesis_identity",
+      "rust_cases": [
+        {
+          "target": "registry",
+          "case": "remaining_legacy_registry_mutations_are_rejected_natively"
+        }
+      ]
+    },
+    {
+      "python_module": "tests/test_validation_register.py",
+      "python_case": "test_experiment_cannot_be_ready_without_tests",
+      "rust_cases": [
+        {
+          "target": "registry",
+          "case": "remaining_legacy_registry_mutations_are_rejected_natively"
+        }
+      ]
+    },
+    {
+      "python_module": "tests/test_validation_register.py",
+      "python_case": "test_shared_experiment_keeps_both_validations",
+      "rust_cases": [
+        {
+          "target": "registry",
+          "case": "live_baseline_counts_readiness_and_shared_scope_match_the_legacy_contract"
+        }
+      ]
+    },
+    {
+      "python_module": "tests/test_validation_register.py",
+      "python_case": "test_missing_import_snapshot",
+      "rust_cases": [
+        {
+          "target": "registry",
+          "case": "missing_snapshot_and_changed_snapshot_history_are_rejected"
+        }
+      ]
+    },
+    {
+      "python_module": "tests/test_validation_register.py",
+      "python_case": "test_changed_snapshot_provenance",
+      "rust_cases": [
+        {
+          "target": "registry",
+          "case": "missing_snapshot_and_changed_snapshot_history_are_rejected"
+        }
+      ]
+    },
+    {
+      "python_module": "tests/test_validation_register.py",
+      "python_case": "test_generated_coverage_is_current",
+      "rust_cases": [
+        {
+          "target": "docs",
+          "case": "frozen_reference_renders_all_40_outputs_byte_for_byte"
+        }
+      ]
+    },
+    {
+      "python_module": "tests/test_validation_register.py",
+      "python_case": "test_generated_coverage_rejects_stale_view",
+      "rust_cases": [
+        {
+          "target": "docs",
+          "case": "legacy_generation_targets_are_checked_without_repair"
+        }
+      ]
+    },
+    {
+      "python_module": "tests/test_validation_register.py",
+      "python_case": "test_unknown_test_hypothesis",
+      "rust_cases": [
+        {
+          "target": "registry",
+          "case": "relationships_must_be_reciprocal_and_obligations_agree"
+        }
+      ]
+    },
+    {
+      "python_module": "tests/test_validation_register.py",
+      "python_case": "test_stale_test_validation_revision",
+      "rust_cases": [
+        {
+          "target": "registry",
+          "case": "remaining_legacy_registry_mutations_are_rejected_natively"
+        }
+      ]
+    },
+    {
+      "python_module": "tests/test_validation_register.py",
+      "python_case": "test_wrong_test_owner",
+      "rust_cases": [
+        {
+          "target": "registry",
+          "case": "remaining_legacy_registry_mutations_are_rejected_natively"
+        }
+      ]
+    },
+    {
+      "python_module": "tests/test_validation_register.py",
+      "python_case": "test_test_applicability_outside_experiment",
+      "rust_cases": [
+        {
+          "target": "registry",
+          "case": "remaining_legacy_registry_mutations_are_rejected_natively"
+        }
+      ]
+    },
+    {
+      "python_module": "tests/test_validation_register.py",
+      "python_case": "test_missing_validation_test_link",
+      "rust_cases": [
+        {
+          "target": "registry",
+          "case": "remaining_legacy_registry_mutations_are_rejected_natively"
+        }
+      ]
+    },
+    {
+      "python_module": "tests/test_validation_register.py",
+      "python_case": "test_mandatory_test_obligation_mismatch",
+      "rust_cases": [
+        {
+          "target": "registry",
+          "case": "relationships_must_be_reciprocal_and_obligations_agree"
+        }
+      ]
+    },
+    {
+      "python_module": "tests/test_validation_register.py",
+      "python_case": "test_uncovered_hypothesis",
+      "rust_cases": [
+        {
+          "target": "registry",
+          "case": "all_hypotheses_methods_and_validation_obligations_need_mandatory_coverage"
+        }
+      ]
+    },
+    {
+      "python_module": "tests/test_validation_register.py",
+      "python_case": "test_mixed_experiment_requires_review_and_automation",
+      "rust_cases": [
+        {
+          "target": "registry",
+          "case": "all_hypotheses_methods_and_validation_obligations_need_mandatory_coverage"
+        }
+      ]
+    },
+    {
+      "python_module": "tests/test_validation_register.py",
+      "python_case": "test_unbound_tests_block_experiment_readiness",
+      "rust_cases": [
+        {
+          "target": "registry",
+          "case": "readiness_requires_bound_methods"
+        }
+      ]
+    },
+    {
+      "python_module": "tests/test_validation_register.py",
+      "python_case": "test_unbound_test_cannot_claim_an_entrypoint",
+      "rust_cases": [
+        {
+          "target": "registry",
+          "case": "remaining_legacy_registry_mutations_are_rejected_natively"
+        }
+      ]
+    },
+    {
+      "python_module": "tests/test_validation_register.py",
+      "python_case": "test_bound_automation_requires_source_and_command",
+      "rust_cases": [
+        {
+          "target": "registry",
+          "case": "remaining_legacy_registry_mutations_are_rejected_natively"
+        }
+      ]
+    },
+    {
+      "python_module": "tests/test_validation_register.py",
+      "python_case": "test_test_requires_an_oracle",
+      "rust_cases": [
+        {
+          "target": "registry",
+          "case": "remaining_legacy_registry_mutations_are_rejected_natively"
+        }
+      ]
+    },
+    {
+      "python_module": "tests/test_validation_register.py",
+      "python_case": "test_test_requires_evidence",
+      "rust_cases": [
+        {
+          "target": "registry",
+          "case": "remaining_legacy_registry_mutations_are_rejected_natively"
+        }
+      ]
+    },
+    {
+      "python_module": "tests/test_validation_register.py",
+      "python_case": "test_shared_experiment_test_scope",
+      "rust_cases": [
+        {
+          "target": "registry",
+          "case": "live_baseline_counts_readiness_and_shared_scope_match_the_legacy_contract"
+        }
+      ]
+    },
+    {
+      "python_module": "tests/test_validation_register.py",
+      "python_case": "test_missing_experiment_snapshot",
+      "rust_cases": [
+        {
+          "target": "registry",
+          "case": "missing_snapshot_and_changed_snapshot_history_are_rejected"
+        }
+      ]
+    },
+    {
+      "python_module": "tests/test_validation_register.py",
+      "python_case": "test_generated_test_catalog_rejects_stale_view",
+      "rust_cases": [
+        {
+          "target": "docs",
+          "case": "legacy_generation_targets_are_checked_without_repair"
+        }
+      ]
+    },
+    {
+      "python_module": "tests/test_validation_register.py",
+      "python_case": "test_missing_lab_page_is_detected_without_writing",
+      "rust_cases": [
+        {
+          "target": "docs",
+          "case": "legacy_generation_targets_are_checked_without_repair"
+        }
+      ]
+    },
+    {
+      "python_module": "tests/test_validation_register.py",
+      "python_case": "test_unregistered_experiment_page_is_rejected",
+      "rust_cases": [
+        {
+          "target": "docs",
+          "case": "unregistered_pages_missing_authored_pages_and_bad_nav_prevent_writes"
+        }
+      ]
+    },
+    {
+      "python_module": "tests/test_validation_runtime.py",
+      "python_case": "test_passing_capture_preserves_reproduction_and_integrity",
+      "rust_cases": [
+        {
+          "target": "execution",
+          "case": "passing_capture_accounts_for_all_tests_and_retains_reproduction_and_hashes"
+        }
+      ]
+    },
+    {
+      "python_module": "tests/test_validation_runtime.py",
+      "python_case": "test_head_pins_resolve_before_execution",
+      "rust_cases": [
+        {
+          "target": "execution",
+          "case": "head_is_resolved_and_source_must_be_clean_before_reservation"
+        }
+      ]
+    },
+    {
+      "python_module": "tests/test_validation_runtime.py",
+      "python_case": "test_failure_is_registered_with_logs",
+      "rust_cases": [
+        {
+          "target": "execution",
+          "case": "failed_assertions_and_tool_exits_have_distinct_outcomes_and_retained_logs"
+        }
+      ]
+    },
+    {
+      "python_module": "tests/test_validation_runtime.py",
+      "python_case": "test_omitted_cases_are_skipped_not_passed",
+      "rust_cases": [
+        {
+          "target": "execution",
+          "case": "omitted_and_reordered_selections_account_for_every_test_in_execution_order"
+        }
+      ]
+    },
+    {
+      "python_module": "tests/test_validation_runtime.py",
+      "python_case": "test_capture_reports_actual_order_for_reordered_partial_selection",
+      "rust_cases": [
+        {
+          "target": "execution",
+          "case": "omitted_and_reordered_selections_account_for_every_test_in_execution_order"
+        }
+      ]
+    },
+    {
+      "python_module": "tests/test_validation_runtime.py",
+      "python_case": "test_repeated_bound_commands_are_preserved_in_the_procedure",
+      "rust_cases": [
+        {
+          "target": "execution",
+          "case": "repeated_bound_commands_remain_repeated_in_procedure"
+        }
+      ]
+    },
+    {
+      "python_module": "tests/test_validation_runtime.py",
+      "python_case": "test_timeout_is_error_with_retained_logs",
+      "rust_cases": [
+        {
+          "target": "execution",
+          "case": "timeout_kills_descendants_before_finalizing_and_retains_error"
+        }
+      ]
+    },
+    {
+      "python_module": "tests/test_validation_runtime.py",
+      "python_case": "test_tool_exit_is_not_an_assertion_failure",
+      "rust_cases": [
+        {
+          "target": "execution",
+          "case": "failed_assertions_and_tool_exits_have_distinct_outcomes_and_retained_logs"
+        }
+      ]
+    },
+    {
+      "python_module": "tests/test_validation_runtime.py",
+      "python_case": "test_source_mutation_blocks_success",
+      "rust_cases": [
+        {
+          "target": "execution",
+          "case": "source_mutation_or_deletion_stops_remaining_cases_and_blocks_success"
+        }
+      ]
+    },
+    {
+      "python_module": "tests/test_validation_runtime.py",
+      "python_case": "test_interrupt_preserves_aborted_observation",
+      "rust_cases": [
+        {
+          "target": "execution",
+          "case": "actual_sigint_publishes_aborted_observation"
+        }
+      ]
+    },
+    {
+      "python_module": "tests/test_validation_runtime.py",
+      "python_case": "test_ids_cannot_be_overwritten",
+      "rust_cases": [
+        {
+          "target": "execution",
+          "case": "reused_run_ids_or_reserved_bundles_never_overwrite"
+        }
+      ]
+    },
+    {
+      "python_module": "tests/test_validation_runtime.py",
+      "python_case": "test_unbound_or_uncommitted_source_cannot_run",
+      "rust_cases": [
+        {
+          "target": "execution",
+          "case": "head_is_resolved_and_source_must_be_clean_before_reservation"
+        }
+      ]
+    },
+    {
+      "python_module": "tests/test_validation_runtime.py",
+      "python_case": "test_command_must_match_pinned_binding",
+      "rust_cases": [
+        {
+          "target": "execution",
+          "case": "plan_binding_revision_scope_and_path_errors_fail_before_reservation"
+        }
+      ]
+    },
+    {
+      "python_module": "tests/test_validation_runtime.py",
+      "python_case": "test_artifact_hash_and_size_tampering_is_detected",
+      "rust_cases": [
+        {
+          "target": "evidence",
+          "case": "artifacts_detect_byte_size_and_missing_content_changes"
+        }
+      ]
+    },
+    {
+      "python_module": "tests/test_validation_runtime.py",
+      "python_case": "test_external_evidence_requires_a_local_mirror",
+      "rust_cases": [
+        {
+          "target": "evidence",
+          "case": "external_mirrors_and_repository_mirror_roots_are_explicit_and_hash_checked"
+        }
+      ]
+    },
+    {
+      "python_module": "tests/test_validation_runtime.py",
+      "python_case": "test_partial_publication_can_resume_identical_records_only",
+      "rust_cases": [
+        {
+          "target": "execution",
+          "case": "partial_publication_resumes_identical_content_only"
+        }
+      ]
+    },
+    {
+      "python_module": "tests/test_validation_runtime.py",
+      "python_case": "test_complete_fixture_decision_checks_without_registering",
+      "rust_cases": [
+        {
+          "target": "review",
+          "case": "bare_and_explicitly_reviewed_wrapped_checks_are_read_only"
+        }
+      ]
+    },
+    {
+      "python_module": "tests/test_validation_runtime.py",
+      "python_case": "test_partial_experiment_cannot_close_validation",
+      "rust_cases": [
+        {
+          "target": "review",
+          "case": "partial_or_contradictory_observations_block_positive_registration"
+        }
+      ]
+    },
+    {
+      "python_module": "tests/test_validation_runtime.py",
+      "python_case": "test_required_evidence_and_invalidating_findings_block_acceptance",
+      "rust_cases": [
+        {
+          "target": "review",
+          "case": "substantive_review_identity_dates_and_required_assessments_are_enforced"
+        }
+      ]
+    },
+    {
+      "python_module": "tests/test_validation_runtime.py",
+      "python_case": "test_conditional_decision_needs_limits_and_follow_up",
+      "rust_cases": [
+        {
+          "target": "review",
+          "case": "conditional_decisions_require_explicit_limits_and_follow_up"
+        }
+      ]
+    },
+    {
+      "python_module": "tests/test_validation_runtime.py",
+      "python_case": "test_blank_reviewer_and_review_before_observations_are_rejected",
+      "rust_cases": [
+        {
+          "target": "review",
+          "case": "substantive_review_identity_dates_and_required_assessments_are_enforced"
+        }
+      ]
+    },
+    {
+      "python_module": "tests/test_validation_runtime.py",
+      "python_case": "test_toolchain_failure_records_error_without_claiming_tests_ran",
+      "rust_cases": [
+        {
+          "target": "execution",
+          "case": "missing_toolchain_probe_and_missing_outputs_are_registered_as_errors"
+        }
+      ]
+    },
+    {
+      "python_module": "tests/test_validation_runtime.py",
+      "python_case": "test_bundle_artifacts_can_be_verified_from_an_explicit_mirror",
+      "rust_cases": [
+        {
+          "target": "execution",
+          "case": "declared_outputs_are_retained_and_bundle_mirrors_verify"
+        }
+      ]
+    },
+    {
+      "python_module": "tests/test_validation_runtime.py",
+      "python_case": "test_historical_decision_survives_new_definition_but_is_not_current",
+      "rust_cases": [
+        {
+          "target": "evidence",
+          "case": "historical_decision_remains_historical_after_the_current_definition_changes"
+        }
+      ]
+    },
+    {
+      "python_module": "tests/test_validation_runtime.py",
+      "python_case": "test_review_package_remains_unapproved_and_outside_registry",
+      "rust_cases": [
+        {
+          "target": "review",
+          "case": "preparation_preserves_unapproved_fields_requirements_and_coverage"
+        }
+      ]
+    },
+    {
+      "python_module": "tests/test_validation_runtime.py",
+      "python_case": "test_manual_review_observations_can_be_imported_without_fabricated_commands",
+      "rust_cases": [
+        {
+          "target": "execution",
+          "case": "manual_staged_observation_imports_without_inventing_commands"
+        }
+      ]
+    },
+    {
+      "python_module": "tests/test_validation_runtime.py",
+      "python_case": "test_later_contradictory_observation_blocks_cherry_picked_acceptance",
+      "rust_cases": [
+        {
+          "target": "review",
+          "case": "partial_or_contradictory_observations_block_positive_registration"
+        }
+      ]
+    },
+    {
+      "python_module": "tests/test_validation_runtime.py",
+      "python_case": "test_review_registration_requires_explicit_attestation_and_keeps_selection_separate",
+      "rust_cases": [
+        {
+          "target": "review",
+          "case": "cli_prepare_check_and_explicit_attestation_keep_selection_separate"
+        }
+      ]
+    },
+    {
+      "python_module": "tests/test_validation_runtime.py",
+      "python_case": "test_missing_declared_output_is_preserved_as_tool_error",
+      "rust_cases": [
+        {
+          "target": "execution",
+          "case": "missing_toolchain_probe_and_missing_outputs_are_registered_as_errors"
+        }
+      ]
+    },
+    {
+      "python_module": "tests/test_validation_runtime.py",
+      "python_case": "test_shared_ci_rejects_performance_acceptance",
+      "rust_cases": [
+        {
+          "target": "execution",
+          "case": "plan_binding_revision_scope_and_path_errors_fail_before_reservation"
+        }
+      ]
+    },
+    {
+      "python_module": "tests/test_validation_runtime.py",
+      "python_case": "test_unbound_pinned_method_is_rejected_before_execution",
+      "rust_cases": [
+        {
+          "target": "execution",
+          "case": "plan_binding_revision_scope_and_path_errors_fail_before_reservation"
+        }
+      ]
+    },
+    {
+      "python_module": "tests/test_validation_runtime.py",
+      "python_case": "test_false_pass_missing_cases_and_lockfile_hash_are_rejected",
+      "rust_cases": [
+        {
+          "target": "evidence",
+          "case": "input_lockfile_evidence_scope_and_dirty_patch_requirements_are_verified"
+        }
+      ]
+    },
+    {
+      "python_module": "tests/test_validation_runtime.py",
+      "python_case": "test_immutable_file_write_is_exclusive",
+      "rust_cases": [
+        {
+          "target": "execution",
+          "case": "exclusive_writes_and_copies_do_not_replace_existing_content"
+        }
+      ]
+    },
+    {
+      "python_module": "tests/test_validation_runtime.py",
+      "python_case": "test_history_blocks_definition_edits_without_revision",
+      "rust_cases": [
+        {
+          "target": "history",
+          "case": "definition_edits_need_revision_snapshots_and_historical_prefixes"
+        }
+      ]
+    },
+    {
+      "python_module": "tests/test_validation_runtime.py",
+      "python_case": "test_history_blocks_ledger_and_snapshot_rewrites",
+      "rust_cases": [
+        {
+          "target": "history",
+          "case": "immutable_runs_evidence_and_artifacts_cannot_be_edited_or_removed"
+        }
+      ]
+    },
+    {
+      "python_module": "tests/test_validation_runtime.py",
+      "python_case": "test_history_allows_appended_lifecycle_and_definition_revision",
+      "rust_cases": [
+        {
+          "target": "history",
+          "case": "definition_edits_need_revision_snapshots_and_historical_prefixes"
+        }
+      ]
+    },
+    {
+      "python_module": "tests/test_validation_runtime.py",
+      "python_case": "test_event_base_is_explicit_and_missing_history_fails",
+      "rust_cases": [
+        {
+          "target": "history",
+          "case": "automatic_baselines_follow_events_and_an_initial_event_is_explicit"
+        }
+      ]
+    },
+    {
+      "python_module": "tests/test_validation_runtime.py",
+      "python_case": "test_aggregate_never_treats_missing_or_error_cases_as_pass",
+      "rust_cases": [
+        {
+          "target": "evidence",
+          "case": "skipped_error_and_aborted_observations_keep_their_distinct_outcomes"
+        }
+      ]
+    }
+  ]
+}

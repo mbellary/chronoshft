@@ -1,0 +1,56 @@
+schema_version: 1
+id: TST-009
+revision: 2
+title: Producer and consumer API misuse rejection
+experiment:
+  id: EXP-003
+  revision: 3
+validations:
+- id: VAL-013
+  revision: 4
+hypothesis_ids:
+- HYP-001
+classification: safety
+execution_type: automated
+mandatory: true
+preconditions:
+- Pinned Rust toolchain; safe public API and ownership contract defined; positive single-producer/single-consumer
+  examples available.
+- Bind the exact input/source/configuration revisions and execution or review method before running; unresolved
+  prerequisites are not a pass.
+procedure:
+- Compile positive ownership examples.
+- Compile negative examples attempting duplicate handles, concurrent producer aliases, concurrent consumer
+  aliases and forbidden cross-thread sharing.
+expected:
+- Every supported positive example compiles.
+- Every forbidden pattern is rejected for the intended ownership/type restriction, with no safe escape
+  path in the tested API.
+oracle:
+  kind: independent_reference_comparison
+  description: Compile expectations are written from the ownership contract; diagnostic categories and
+    positive controls prevent unrelated syntax/dependency errors from appearing as success.
+execution_method: Planned automated procedure for Producer and consumer API misuse rejection; bind the
+  exact command or review checklist and applicable source/fixture revisions before execution.
+execution_binding:
+  state: unbound
+  implementation_path: null
+  entrypoint: null
+required_evidence:
+- Per-case test outcomes including failures, skips and tool errors
+- Registry/test revision and implementation or documentary source revision
+- Exact execution command or review procedure; input/configuration hashes and applicable environment/toolchain
+- Retained artifact references with SHA-256 digests
+- Positive/negative fixture source
+- Compiler diagnostics and expected error categories
+revision_history:
+- revision: 1
+  date: '2026-10-15'
+  actor: codex
+  reason: Stage 5 pre-execution test specification; execution binding, implementation, inputs and approvals
+    remain pending.
+- revision: 2
+  date: '2026-10-15'
+  actor: codex
+  reason: Stage 9 binds the isolated EXP-001 prototype and preserves reciprocal revision-pinned coverage;
+    other investigations remain pending.

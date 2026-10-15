@@ -25,12 +25,12 @@ The experiment registry contains EXP-001–EXP-003 and EXP-005–EXP-030: 29 inv
 From the repository root:
 
 ```bash
-uv sync --locked --extra docs --extra validation
-uv run --locked --extra docs --extra validation python scripts/generate_validation_docs.py
-uv run --locked --extra docs --extra validation python scripts/check_documentation.py
+uv sync --locked --extra docs
+cargo lab docs generate
+cargo lab check
 ```
 
-The checker locates the repository relative to its script; `--root` selects an isolated repository fixture for tests. The historical Markdown table remains authoritative for original research; YAML is authoritative for current engineering metadata. Do not maintain another current-status table. Original closure evidence is checked verbatim at revision 1. Later engineering requirements may evolve through explicit revisions while `origin` remains unchanged.
+The Rust CLI defaults to its compiled source repository; `--root` selects an isolated repository fixture for tests. The historical Markdown table remains authoritative for original research; YAML is authoritative for current engineering metadata. Do not maintain another current-status table. Original closure evidence is checked verbatim at revision 1. Later engineering requirements may evolve through explicit revisions while `origin` remains unchanged.
 
 Before increasing a VAL, EXP or TST revision, retain its full previous definition under `validation/revisions/{validations,experiments,tests}/<ID>/r<revision>.yaml`. The checker requires schema-valid snapshots for prior revisions and checks their identity, retained revision history and research provenance. This preserves definitions during uncommitted staged work as well as in Git history; archive files are historical definitions, not additional current records.
 
@@ -38,22 +38,22 @@ Before increasing a VAL, EXP or TST revision, retain its full previous definitio
 
 Tests start with `execution_binding.state: unbound`, null implementation path and null entrypoint. A bound method needs a concrete command/review entrypoint; automated methods also need a source path. Unbound mandatory methods prevent experiment advancement. Source existence, executable behavior and full prerequisite fulfillment remain execution-readiness checks; bindings alone never imply a run or a pass. Approved budgets, policies and fixture/environment values must be fixed before contract-dependent execution.
 
-`scripts/generate_validation_docs.py` validates full test coverage and generates the Lab overview, coverage, registers, environment view, results and per-experiment pages under `docs/10-validation-lab/`. It updates only the marked Lab navigation section in `mkdocs.yml`. The methodology page is authored separately. `--check` rejects missing/stale pages, navigation drift and unregistered experiment pages without writing.
+`cargo lab docs generate` validates full test coverage and generates the Lab overview, coverage, registers, environment view, results and per-experiment pages under `docs/10-validation-lab/`. It updates only the marked Lab navigation section in `mkdocs.yml`. The methodology page is authored separately. `--check` rejects missing/stale pages, navigation drift and unregistered experiment pages without writing.
 
-`scripts/generate_validation_coverage.py` remains a compatibility entrypoint for the full generator. The earlier governance coverage/test URLs preserve their anchors and link to canonical Lab pages. No independent manual status tables are retained. Displayed runs, manifests and decisions are projections of records, not artifact verification or inferred approval. Environment profile categories are preparation requirements; actual environments come from RUN records.
+`cargo lab docs generate` is the sole generation entrypoint; custom Python generators are retired. The earlier governance coverage/test URLs preserve their anchors and link to canonical Lab pages. No independent manual status tables are retained. Displayed runs, manifests and decisions are projections of records, not artifact verification or inferred approval. Environment profile categories are preparation requirements; actual environments come from RUN records.
 
 The checker compares imported origin fields to Markdown and verifies digests for the original rows and supplied assessment. Changing baseline digests requires an explicit reviewed migration or amendment. Digests detect drift relative to the committed manifest; they do not prevent deliberate edits to that manifest.
 
 The shared documentation gate runs full registry coverage, Git-baseline checks, execution/artifact/decision verification, generated views (`--check`), regressions, strict MkDocs build and rendered local links. It stops at the first failure. CI never regenerates content to hide drift. Both workflow files, schemas, registries, scripts and tests are covered by the Documentation trigger filters.
 
-Stage 8 adds these tools:
+The native tooling now provides these operations (the original framework delivery Stage 8 introduced their Python predecessors):
 
 | Tool | Responsibility |
 | --- | --- |
-| `capture_execution.py` | Capture exact bound automated commands, toolchain/environment, outcomes, logs and declared artifacts against committed source |
-| `register_execution.py` | Verify/import manual observations or complete identical staged publication with `--resume` |
-| `verify_evidence.py` | Resolve pinned definitions and verify actual artifact content, outcomes, input/lock hashes and decision evidence |
-| `check_validation_history.py` | Protect committed ledgers/snapshots/artifacts and require explicit definition revisions against the trusted Git baseline |
-| `review_validation.py` | Prepare an unapproved package; check a supplied human decision; register only with explicit `--register-reviewed` |
+| `cargo lab execution capture` | Capture exact bound automated commands, toolchain/environment, outcomes, logs and declared artifacts against committed source |
+| `cargo lab execution import` | Verify/import manual observations or complete identical staged publication with `--resume` |
+| `cargo lab evidence verify` | Resolve pinned definitions and verify actual artifact content, outcomes, input/lock hashes and decision evidence |
+| `cargo lab history check` | Protect committed ledgers/snapshots/artifacts and require explicit definition revisions against the trusted Git baseline |
+| `cargo lab review prepare/check` | Prepare an unapproved package; check a supplied human decision; register only with explicit `--register-reviewed` |
 
 See `docs/10-validation-lab/execution-and-evidence.md` for plan fields, retention policies, mirror mapping, CI capture, recovery and review steps. No schema/check result authenticates a reviewer or supplies domain judgment. Positive decisions need complete declared coverage, a concrete scope and verified supporting artifacts; current-decision selection/lifecycle changes remain explicit. Stage 9 binds EXP-001 to the isolated Rust prototype; Stage 10 investigates EXP-002 overload behavior. Documentation regressions remain isolated fixtures and create no actual project results.

@@ -1,10 +1,10 @@
 schema_version: 1
 id: EXP-001
-revision: 3
+revision: 4
 title: Bounded SPSC queue
 validates:
 - id: VAL-012
-  revision: 4
+  revision: 5
 objective: Establish capacity enforcement, FIFO behavior and safe wraparound for an explicitly bounded
   queue.
 hypotheses:
@@ -33,13 +33,13 @@ dependencies:
   owns overload policy and EXP-003 owns concurrent publication proof.
 tests:
 - id: TST-001
-  revision: 2
+  revision: 3
 - id: TST-002
-  revision: 2
+  revision: 3
 - id: TST-003
-  revision: 2
+  revision: 3
 - id: TST-004
-  revision: 2
+  revision: 3
 completion_criteria:
 - Define versioned test specifications with independent oracles and predeclared acceptance criteria before
   execution.
@@ -77,3 +77,8 @@ revision_history:
   actor: codex
   reason: Stage 9 binds the isolated EXP-001 prototype and preserves reciprocal revision-pinned coverage;
     other investigations remain pending.
+- revision: 4
+  date: '2026-10-15'
+  actor: codex
+  reason: Rust migration Stage 8 versions native EXP-001 command bindings and the consolidated Cargo workspace;
+    preserves reciprocal planning references and existing scope.

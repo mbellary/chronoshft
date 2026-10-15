@@ -1,0 +1,14 @@
+[workspace]
+members = ["crates/chronoshft-lab", "experiments/exp-001-spsc-queue"]
+resolver = "2"
+
+[workspace.package]
+version = "0.1.0"
+edition = "2021"
+publish = false
+
+[workspace.lints.rust]
+unsafe_code = "forbid"
+
+[workspace.lints.clippy]
+all = "warn"

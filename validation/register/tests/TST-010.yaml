@@ -1,15 +1,15 @@
 schema_version: 1
 id: TST-010
-revision: 2
+revision: 3
 title: Publication and bounded-capacity model
 experiment:
   id: EXP-003
-  revision: 3
+  revision: 4
 validations:
 - id: VAL-012
-  revision: 4
+  revision: 5
 - id: VAL-013
-  revision: 4
+  revision: 5
 hypothesis_ids:
 - HYP-002
 classification: safety
@@ -57,3 +57,8 @@ revision_history:
   actor: codex
   reason: Stage 9 binds the isolated EXP-001 prototype and preserves reciprocal revision-pinned coverage;
     other investigations remain pending.
+- revision: 3
+  date: '2026-10-15'
+  actor: codex
+  reason: Rust migration Stage 8 versions native EXP-001 command bindings and the consolidated Cargo workspace;
+    preserves reciprocal planning references and existing scope.

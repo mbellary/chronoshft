@@ -1,10 +1,10 @@
 schema_version: 1
 id: EXP-002
-revision: 3
+revision: 4
 title: Queue overload policy
 validates:
 - id: VAL-012
-  revision: 4
+  revision: 5
 objective: Establish that saturation follows the approved policy and preserves complete event accounting
   through recovery.
 hypotheses:
@@ -29,13 +29,13 @@ dependencies:
 - EXP-001 capacity contract and implementation boundary.
 tests:
 - id: TST-005
-  revision: 2
+  revision: 3
 - id: TST-006
-  revision: 2
+  revision: 3
 - id: TST-007
-  revision: 2
+  revision: 3
 - id: TST-008
-  revision: 2
+  revision: 3
 completion_criteria:
 - Define versioned test specifications with independent oracles and predeclared acceptance criteria before
   execution.
@@ -67,3 +67,8 @@ revision_history:
   actor: codex
   reason: Stage 9 binds the isolated EXP-001 prototype and preserves reciprocal revision-pinned coverage;
     other investigations remain pending.
+- revision: 4
+  date: '2026-10-15'
+  actor: codex
+  reason: Rust migration Stage 8 versions native EXP-001 command bindings and the consolidated Cargo workspace;
+    preserves reciprocal planning references and existing scope.

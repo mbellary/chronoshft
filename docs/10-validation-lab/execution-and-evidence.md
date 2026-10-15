@@ -1,6 +1,26 @@
 # Execution, evidence and review workflow
 
-Stage 8 provides tools for pinned observations, retained artifacts, historical integrity and explicit review. It introduces no actual ChronosHFT execution or approval. The initial experiment methods remain unbound; regression fixtures exercise the infrastructure in temporary Git repositories.
+The native Rust tools capture pinned observations, retain artifacts, verify historical integrity and support explicit human review. EXP-001 has four bound sequential correctness tests; other investigations retain their declared readiness and scope. Passing an experiment does not approve its validation.
+
+## Native Rust migration commands
+
+Rust migration Stage 5 adds native capture/import, single-case execution and
+actual toolchain reporting:
+
+```bash
+cargo lab experiment run-case fifo_exactly_once
+cargo lab toolchain show
+cargo lab execution capture --help
+cargo lab execution import --help
+```
+
+The [Stage 5 migration contract](rust-migration.md#stage-5-execution-capture-and-experiment-helpers)
+describes flags, process supervision, append-only publication, recovery and native
+regression coverage. Capture still requires clean committed source and exact
+pinned bindings. The current EXP-001 plan uses native Rust commands and the root
+Cargo.lock. Historical observations retain their original Python commands, source
+commits and lockfiles; those files resolve from Git even after retirement from the
+current checkout. MkDocs continues to build and check this documentation.
 
 ## Source and readiness boundary
 
@@ -21,12 +41,12 @@ Readiness still needs the declared contracts, fixtures, independent oracle and a
 
 Commands run as argument arrays with no shell. Selected cases execute in the pinned experiment's order; the recorded procedure lists attempted commands in that actual order, while skipped cases remain explicit outcomes. The runner uses a small platform environment plus declared variables, and records the resolved environment. Keep credentials out of plan/configuration metadata. Toolchain, OS and CPU observations are captured from the actual host; topology and workload settings still need their declared configuration and deviations.
 
-Use `repository` retention for small content-addressed artifacts or `bundle` for separately retained outputs. Set the explicit repository size limit for the intended storage policy. Artifacts above that limit remain in the run bundle instead of entering Git. No ready execution plan is supplied in Stage 8; the first plan follows the first implemented/bound experiment.
+Use `repository` retention for small content-addressed artifacts or `bundle` for separately retained outputs. Set the explicit repository size limit for the intended storage policy. Artifacts above that limit remain in the run bundle instead of entering Git. EXP-001 supplies a ready native capture plan; other experiments require their own versioned bindings and prerequisites.
 
 After preparing and committing a real plan and its bindings:
 
 ```bash
-uv run --locked --extra validation python scripts/capture_execution.py \
+cargo lab execution capture \
   --plan validation/execution-plans/EXP-001.yaml \
   --committed-plan --run-id RUN-local-unique
 ```
@@ -48,7 +68,7 @@ Publication validates schemas, pinned definitions, per-case/run evidence, inputs
 Documentary investigations use bound review checklists and versioned sources. Prepare a complete RUN manifest with manual outcomes, no fabricated executable command/exit code, and retained review artifacts with EVD manifests. Each declared test still needs an outcome, including skips. Import it through the same verification path:
 
 ```bash
-uv run --locked --extra validation python scripts/register_execution.py \
+cargo lab execution import \
   --run /retained/manifests/RUN-unique.yaml \
   --evidence-dir /retained/manifests/evidence
 ```
@@ -58,7 +78,7 @@ If publication was interrupted after staging complete verified manifests, use `-
 ## Verify retained content
 
 ```bash
-uv run --locked --extra validation python scripts/verify_evidence.py
+cargo lab evidence verify
 ```
 
 Verification checks actual artifact size/SHA-256, pinned experiment/test/validation definitions, test ownership and bindings, complete case accounting, aggregate outcomes, source/input/lockfile hashes and decision evidence. `repo://` references resolve within the repository or an explicit mirror root. External artifact URIs need a local mirror mapping; verification never silently skips inaccessible content or fetches arbitrary URLs.
@@ -75,7 +95,7 @@ The Documentation workflow fetches history and now includes Git-baseline and evi
 
 ## History and revision enforcement
 
-`scripts/check_validation_history.py` compares against the pull-request base SHA, the push's previous SHA, the prior commit on manual dispatch, or `HEAD` for local working changes. An initial event has no earlier baseline; current schema/coverage checks still apply. Unavailable history fails instead of silently using a weaker baseline.
+`cargo lab history check` compares against the pull-request base SHA, the push's previous SHA, the prior commit on manual dispatch, or `HEAD` for local working changes. An initial event has no earlier baseline; current schema/coverage checks still apply. Unavailable history fails instead of silently using a weaker baseline.
 
 Previously committed RUN/EVD/VDEC records, revision snapshots, content-addressed artifacts, baseline manifests and the supplied assessment are immutable. Stable definition IDs cannot disappear; provenance, revision histories and lifecycle transitions cannot be rewritten. A changed YAML definition requires a revision and a matching retained prior definition. CI treats wording changes in definition fields conservatively as revisions; YAML formatting and authored-document presentation changes do not alter the parsed definition.
 
@@ -83,15 +103,33 @@ These checks enforce append-only behavior relative to the trusted Git baseline. 
 
 ## Prepare and register a human decision
 
+Rust migration Stage 6 provides equivalent native commands. Preparation creates
+an editable, unapproved package; checking is read-only by default:
+
 ```bash
-uv run --locked --extra validation python scripts/review_validation.py prepare \
+cargo lab review prepare --validation VAL-012 --decision-id VDEC-001 \
+  --output evidence/reviews/VAL-012-draft.yaml
+cargo lab review check --candidate /retained/VAL-012-reviewed.yaml
+```
+
+Use `--root PATH` for another checkout and the existing artifact mirror flags
+for separately retained content. Only after the named human review has happened
+may the operator supply `--register-reviewed`. That explicit attestation still
+requires complete evidence, a validation in `reviewing` and a fresh VDEC identity;
+it appends the decision without selecting it or changing lifecycle state. The
+[Stage 6 migration contract](rust-migration.md#stage-6-reviewer-workflow) documents
+the native guards, status codes and tests. The native commands below are the operational entrypoints.
+
+
+```bash
+cargo lab review prepare \
   --validation VAL-012 --decision-id VDEC-001 --output /tmp/VAL-012-review.yaml
 ```
 
 This produces an unapproved draft outside the registry. Reviewer, disposition, rationale and scope remain unassigned. Available runs/evidence are an inventory, not an automatic selection. A human must select applicable observations, exact registry/implementation boundaries and evidence; fill the requirement-by-requirement assessment; record unresolved findings, operating limits and follow-up; and attest their identity and review time. Set `draft: false` only after that review.
 
 ```bash
-uv run --locked --extra validation python scripts/review_validation.py check \
+cargo lab review check \
   --candidate /tmp/VAL-012-review.yaml
 ```
 
@@ -111,15 +149,15 @@ a slot. It does not resolve production architecture or overload decisions.
 From the repository root, run all four correctness tests:
 
 ```sh
-cargo test --offline --locked --manifest-path experiments/Cargo.toml -p exp-001-spsc-queue
+cargo test --offline --locked -p exp-001-spsc-queue
 ```
 
 After committing source, definitions and the plan, capture one observation set:
 
 ```sh
-uv run --locked --extra validation python scripts/capture_execution.py \
+cargo lab execution capture \
   --plan validation/execution-plans/EXP-001.yaml --committed-plan \
-  --run-id RUN-exp001-local-001
+  --run-id RUN-exp001-rust-002
 ```
 
 Use a new RUN identity for every subsequent capture. The plan records actual

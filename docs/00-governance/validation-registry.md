@@ -34,7 +34,7 @@ The layout reserves `validation/register/experiments/`, `validation/register/tes
 
 ## Checks and reproduction
 
-`scripts/validate_register.py` checks:
+`cargo lab registry check` checks:
 
 - Schemas, required fields, states, IDs, filenames and duplicate YAML keys.
 - Preservation of all 28 origin records against the historical Markdown table.
@@ -50,13 +50,13 @@ Quote dates to keep YAML compatible with JSON Schema. Follow the [identity and r
 From the repository root:
 
 ```bash
-uv sync --locked --extra docs --extra validation
-uv run --locked --extra docs --extra validation python scripts/check_documentation.py
+uv sync --locked --extra docs
+cargo lab check
 ```
 
 The shared gate now also resolves pinned historical definitions, protects immutable ledgers against the Git event baseline, verifies retained artifact content and checks recorded decision coverage. The [execution/review workflow](../10-validation-lab/execution-and-evidence.md) describes those tools and their limits. Reviewer attestation and domain judgment remain explicit; a successful schema/hash check cannot grant approval. Git history protects previously committed baseline manifests and original source content from silent replacement.
 
-`scripts/generate_validation_docs.py` generates all Lab projections and updates only the marked Lab section in `mkdocs.yml`. `--check` verifies content and navigation without writing. Unregistered experiment pages are rejected. The old `scripts/generate_validation_coverage.py` command invokes the same generator. Earlier governance coverage/test URLs preserve their anchors and link to the canonical Lab pages; they hold no independent status tables.
+`cargo lab docs generate` generates all Lab projections and updates only the marked Lab section in `mkdocs.yml`. `--check` verifies content and navigation without writing. Unregistered experiment pages are rejected. Custom Python generation entrypoints are retired. Earlier governance coverage/test URLs preserve their anchors and link to the canonical Lab pages; they hold no independent status tables.
 
 ## Next stage
 

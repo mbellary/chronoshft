@@ -1,0 +1,1713 @@
+{
+  "fixture_version": 1,
+  "purpose": "Migration compatibility observations only; not project RUN/EVD/VDEC records or technical approval.",
+  "reference_commit": "2be4fa2af0f4cf50c94c3a6c7b0ff3e172e2a77c",
+  "python_scripts": [
+    "scripts/capture_execution.py",
+    "scripts/check_documentation.py",
+    "scripts/check_documentation_links.py",
+    "scripts/check_validation_history.py",
+    "scripts/generate_validation_coverage.py",
+    "scripts/generate_validation_docs.py",
+    "scripts/register_execution.py",
+    "scripts/review_validation.py",
+    "scripts/run_exp001_test.py",
+    "scripts/rust_toolchain_manifest.py",
+    "scripts/validate_register.py",
+    "scripts/validation_runtime.py",
+    "scripts/verify_evidence.py"
+  ],
+  "python_test_modules": [
+    "tests/test_validation_ci.py",
+    "tests/test_validation_docs.py",
+    "tests/test_validation_exp001_runner.py",
+    "tests/test_validation_register.py",
+    "tests/test_validation_runtime.py"
+  ],
+  "record_counts": {
+    "EVD": 16,
+    "EXP": 29,
+    "RUN": 1,
+    "TST": 90,
+    "VAL": 28
+  },
+  "reference_gate": {
+    "registry_accepted": true,
+    "evidence_accepted": true,
+    "history_accepted": true,
+    "generated_views_match": true
+  },
+  "reference_inputs": [
+    {
+      "path": "docs/00-governance/technical-validation.md",
+      "sha256": "c249c0da457e0d157ac5122b4e58e0fba1b72e1a951fb034331b5e0e5b2ac0b8"
+    },
+    {
+      "path": "docs/assets/research/ChronosHFT-Phase-0-Research-Baseline-Assessment.md",
+      "sha256": "63ac390cf56abbe9d3b5da004795780bc5277e2f92e324fa0ec0d20d005eae8b"
+    },
+    {
+      "path": "mkdocs.yml",
+      "sha256": "f19fc90fbe8f18138f8b97f4fcfad45bef52c5f665c2db2cc942d5704a1da90f"
+    },
+    {
+      "path": "pyproject.toml",
+      "sha256": "29b62a0befec6445dd86e90a1e2f48b16f769c56758e59c32ca141e207b15db6"
+    },
+    {
+      "path": "scripts/capture_execution.py",
+      "sha256": "2b21a4deba5388501d2f984c10d695b2cc5a3dc6a9463f1376fe16214c540c34"
+    },
+    {
+      "path": "scripts/check_documentation.py",
+      "sha256": "3dd49d4193824888e8f793e31a7856e818f3d922742b4491405f7ce770e79474"
+    },
+    {
+      "path": "scripts/check_documentation_links.py",
+      "sha256": "ea2a1d8e3770231660a1df885627662a5c98eac35cbd11b5cb3d6676abf0d7fc"
+    },
+    {
+      "path": "scripts/check_validation_history.py",
+      "sha256": "1f43873cdf64456b8249fd046a43936570f24e36474bc5836cd9a1fac6a8b592"
+    },
+    {
+      "path": "scripts/generate_validation_coverage.py",
+      "sha256": "74c16d99a16f5c2cea67d79c4485ee457f7709e8aa14a123bf107c151365102e"
+    },
+    {
+      "path": "scripts/generate_validation_docs.py",
+      "sha256": "a13ed633f32c2e25f22bec04224c63479e66ac0837f34cfb7fe41e919fd4378e"
+    },
+    {
+      "path": "scripts/register_execution.py",
+      "sha256": "c782d9a5b3a770c5ac155726911a3fc7e25137b809d4c77b9d87697c3d4e5a74"
+    },
+    {
+      "path": "scripts/review_validation.py",
+      "sha256": "b55e02eda654fe4917f33b7f3fcd8b0d157579383db4acdd3907a60f82939300"
+    },
+    {
+      "path": "scripts/run_exp001_test.py",
+      "sha256": "7952272e2b88d8c61311f8cf87d0260b4ca8d0788c6b9e1d41e681bf7eb68c6e"
+    },
+    {
+      "path": "scripts/rust_toolchain_manifest.py",
+      "sha256": "f30109cb4841c3fe99d1cce230bedc692d3b298787dac904353e5423ff272096"
+    },
+    {
+      "path": "scripts/validate_register.py",
+      "sha256": "f2c21ab135a855822bdce8dc337d573c4fc105afc1aefc379d66a71da9c4461d"
+    },
+    {
+      "path": "scripts/validation_runtime.py",
+      "sha256": "695d5017a3404dd701e639c040d0f66f3c7919fd53726d5de4b5570126066499"
+    },
+    {
+      "path": "scripts/verify_evidence.py",
+      "sha256": "469c366b3859de1838b2d8d7a057e65f787093811008961af8c7941ecc53c086"
+    },
+    {
+      "path": "tests/test_validation_ci.py",
+      "sha256": "ba5f3e1be28a2defa3170f74b6cc61ba926ffc0713d8bdec3f2425272796a027"
+    },
+    {
+      "path": "tests/test_validation_docs.py",
+      "sha256": "ea9cd9780644886e66218a7bac64b1eaf589b537523821b6265e700a700b7a2a"
+    },
+    {
+      "path": "tests/test_validation_exp001_runner.py",
+      "sha256": "b827be38848ad0ede521037aed888fbfa300a9c4c0daf9a76cc9e86852e32803"
+    },
+    {
+      "path": "tests/test_validation_register.py",
+      "sha256": "4ee3786484c29d61ca7ca2eae05aa6cc2f90e574894bc0e2399c031a0f5d6719"
+    },
+    {
+      "path": "tests/test_validation_runtime.py",
+      "sha256": "68dfac0c77ffde93f9b56e1cd4fbdc0072b42abb2d7ca58bbd5e777d1da0149e"
+    },
+    {
+      "path": "uv.lock",
+      "sha256": "76f5010d90fe06b36268adb40f2f8f21c61904c1b10d43cc29c2d1afd653afe3"
+    },
+    {
+      "path": "validation/README.md",
+      "sha256": "bd7e354e22caed4a1e74d0618694edbfd345528bc918fcf8383ae0d6d3812359"
+    },
+    {
+      "path": "validation/artifacts/sha256/0c62f27a666ef16ad90fab40d0f377c1d9eccc82f62869c7745703fa520cc45b",
+      "sha256": "0c62f27a666ef16ad90fab40d0f377c1d9eccc82f62869c7745703fa520cc45b"
+    },
+    {
+      "path": "validation/artifacts/sha256/169b5adf9d8dfdf89e8845dad9b54856277023c4791f6bcb5b6a235716a5b205",
+      "sha256": "169b5adf9d8dfdf89e8845dad9b54856277023c4791f6bcb5b6a235716a5b205"
+    },
+    {
+      "path": "validation/artifacts/sha256/1cf120419d16d991779e253aa727c3e7206f1c41be53d367dd399a00bf4b4a95",
+      "sha256": "1cf120419d16d991779e253aa727c3e7206f1c41be53d367dd399a00bf4b4a95"
+    },
+    {
+      "path": "validation/artifacts/sha256/243dc8139d8146242e096c8bea2676c5cdb78d983c4bfd65ae248bc1e0b5067e",
+      "sha256": "243dc8139d8146242e096c8bea2676c5cdb78d983c4bfd65ae248bc1e0b5067e"
+    },
+    {
+      "path": "validation/artifacts/sha256/340926e8d5520b727d149429392f46da5ff1be002e8a643315d84a38439a9f84",
+      "sha256": "340926e8d5520b727d149429392f46da5ff1be002e8a643315d84a38439a9f84"
+    },
+    {
+      "path": "validation/artifacts/sha256/359aa7ca4260c768ab7690082161644585b9ff2f5abba33854302f70cbae31ea",
+      "sha256": "359aa7ca4260c768ab7690082161644585b9ff2f5abba33854302f70cbae31ea"
+    },
+    {
+      "path": "validation/artifacts/sha256/863055e1cf53b4f241655063856216ee05dac46183dec4fba13406729b60c342",
+      "sha256": "863055e1cf53b4f241655063856216ee05dac46183dec4fba13406729b60c342"
+    },
+    {
+      "path": "validation/artifacts/sha256/94305f55a37567d471d43bc16e651e6f1ab97a630f3d4b7dcad4f0f6f598df53",
+      "sha256": "94305f55a37567d471d43bc16e651e6f1ab97a630f3d4b7dcad4f0f6f598df53"
+    },
+    {
+      "path": "validation/artifacts/sha256/9d0842c018c6a5be9b1edf38c21229ccc2bf850756b676811918047d11a8f213",
+      "sha256": "9d0842c018c6a5be9b1edf38c21229ccc2bf850756b676811918047d11a8f213"
+    },
+    {
+      "path": "validation/artifacts/sha256/9f23bf76a8f11a99f1cb2c0dc0cf3ac71aff51ce2914adb5287522a799db0ff6",
+      "sha256": "9f23bf76a8f11a99f1cb2c0dc0cf3ac71aff51ce2914adb5287522a799db0ff6"
+    },
+    {
+      "path": "validation/artifacts/sha256/e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "validation/artifacts/sha256/eba8ee88951d005d43dc2b6e7bb6d31ab6bcba3c9298a4e9bef9ad25213b9400",
+      "sha256": "eba8ee88951d005d43dc2b6e7bb6d31ab6bcba3c9298a4e9bef9ad25213b9400"
+    },
+    {
+      "path": "validation/artifacts/sha256/f2255e993bb15deccd32e10b261c870c47a400e0a85642ae35c2ce1d03e84f31",
+      "sha256": "f2255e993bb15deccd32e10b261c870c47a400e0a85642ae35c2ce1d03e84f31"
+    },
+    {
+      "path": "validation/artifacts/sha256/f495fc48c7dd32fae4da7c901bd575fc4c51f54a7304511cb3c60e9e5a23e05a",
+      "sha256": "f495fc48c7dd32fae4da7c901bd575fc4c51f54a7304511cb3c60e9e5a23e05a"
+    },
+    {
+      "path": "validation/baseline.yaml",
+      "sha256": "8e5820b050f82473e6f9ca1bf79dd8955f875425abb157bbeb2397c3242c7b99"
+    },
+    {
+      "path": "validation/decisions/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "validation/evidence-manifests/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "validation/evidence-manifests/EVD-exp001-local-001-001.yaml",
+      "sha256": "f888ed5252dc6040ff2cfea005c28e39df3eb566cb84e05bd7c8a975b72581e4"
+    },
+    {
+      "path": "validation/evidence-manifests/EVD-exp001-local-001-002.yaml",
+      "sha256": "9ca3efaabf3692c3183e4ee61234eec145627b99024066201265693169b7ef8f"
+    },
+    {
+      "path": "validation/evidence-manifests/EVD-exp001-local-001-003.yaml",
+      "sha256": "3c29457879eea219550f80b9d907f6a29fc7507a79504c729c27b6e75469cbf6"
+    },
+    {
+      "path": "validation/evidence-manifests/EVD-exp001-local-001-004.yaml",
+      "sha256": "64e743a21d85c437072a7e6060b24f988a4c39350da6a3d9d92e1495bc62f43a"
+    },
+    {
+      "path": "validation/evidence-manifests/EVD-exp001-local-001-005.yaml",
+      "sha256": "8265b47506204f7f6eafff3322049cc391bea3053c7200cb1f07f7a04159995e"
+    },
+    {
+      "path": "validation/evidence-manifests/EVD-exp001-local-001-006.yaml",
+      "sha256": "03101b6a6507164dd38a1ac43edf1016276961105754282577e9b2cba21da631"
+    },
+    {
+      "path": "validation/evidence-manifests/EVD-exp001-local-001-007.yaml",
+      "sha256": "723a777c075b6d37788f9efd8ca4099230473f4a3d765ef48a267f5f58f0d2e1"
+    },
+    {
+      "path": "validation/evidence-manifests/EVD-exp001-local-001-008.yaml",
+      "sha256": "d3e30d75c344e02eb40b1c00d4034092408a70d2d5d22bb28e1bbab743d160d2"
+    },
+    {
+      "path": "validation/evidence-manifests/EVD-exp001-local-001-009.yaml",
+      "sha256": "806c752e904f0ce15d79a264b61f4d23e5447b2210a4ebb9fc2a063d94fffef4"
+    },
+    {
+      "path": "validation/evidence-manifests/EVD-exp001-local-001-010.yaml",
+      "sha256": "7b11b6b55a43a68569e587174ba3d0399c95a37f41d362a8a30a0f033945467a"
+    },
+    {
+      "path": "validation/evidence-manifests/EVD-exp001-local-001-011.yaml",
+      "sha256": "71174b40eb806dda610e3d196329222cdd6a1fd15acdfe6840795c2ab76bbe2f"
+    },
+    {
+      "path": "validation/evidence-manifests/EVD-exp001-local-001-012.yaml",
+      "sha256": "6022d1d9144643ed35f614ae65c7ab53c5f0f39a35092cf71cd0eead95b126c4"
+    },
+    {
+      "path": "validation/evidence-manifests/EVD-exp001-local-001-013.yaml",
+      "sha256": "95dd31eb9958193f9edf3724db6746ce64b8a3c8ecdfc6ca2c0577be86075d23"
+    },
+    {
+      "path": "validation/evidence-manifests/EVD-exp001-local-001-014.yaml",
+      "sha256": "d36bbd6d8f5f14c7ce6ee5de152ca805f5cebd5cf35c222792508f96d3be70ea"
+    },
+    {
+      "path": "validation/evidence-manifests/EVD-exp001-local-001-015.yaml",
+      "sha256": "b5c034fe5e6ae5c4c5b0bf938eae60649a84566662616b754629fa4295120510"
+    },
+    {
+      "path": "validation/evidence-manifests/EVD-exp001-local-001-016.yaml",
+      "sha256": "dd25a2708f8b4e1473d97db594f7fd50938649a031ca7e48a06120b2ea720f6e"
+    },
+    {
+      "path": "validation/execution-plans/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "validation/execution-plans/EXP-001.yaml",
+      "sha256": "91f8a183e46a658a6877a33e4d62f947060f2208dd4e63d4c778a09c0b8aefd9"
+    },
+    {
+      "path": "validation/executions/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "validation/executions/RUN-exp001-local-001.yaml",
+      "sha256": "0faee815f7bab6b5dae36acb5863021c7afe8627e5e56cebdea62560decc9178"
+    },
+    {
+      "path": "validation/register/experiments/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "validation/register/experiments/EXP-001.yaml",
+      "sha256": "8e2eab731bf7885e1ba3aacaf5b13b67162ca8fdc7caf9d0443f5159fd738ee3"
+    },
+    {
+      "path": "validation/register/experiments/EXP-002.yaml",
+      "sha256": "5c5249724133dd8ba666273b5650d400bd5ca210a1c0e9ff506a9f42cf2a24e0"
+    },
+    {
+      "path": "validation/register/experiments/EXP-003.yaml",
+      "sha256": "27f08a1500148fbd665f9c9040ae3d6546d0fb0fb5f4d3ec5140d115ec4d95ae"
+    },
+    {
+      "path": "validation/register/experiments/EXP-005.yaml",
+      "sha256": "0039dccda2e6746eff1568fe41fe9644b3f370e964d172b4cf12811024c57b80"
+    },
+    {
+      "path": "validation/register/experiments/EXP-006.yaml",
+      "sha256": "1e8d7a01e717c9f384b3656796192dcffbabcc5687ec68116073f0e6495efdc1"
+    },
+    {
+      "path": "validation/register/experiments/EXP-007.yaml",
+      "sha256": "3d0d9cb24377a3fe25b5bd7c9cf21521ad311670e5a6315350097af501c0544e"
+    },
+    {
+      "path": "validation/register/experiments/EXP-008.yaml",
+      "sha256": "f98757f554428ec52cf4473453949e5f6f8eec84f0624a5bbc2ae1875bea7009"
+    },
+    {
+      "path": "validation/register/experiments/EXP-009.yaml",
+      "sha256": "f41fc3832a2dbdc3992e865239f6691337f9ade903b26476dc681e31882101b3"
+    },
+    {
+      "path": "validation/register/experiments/EXP-010.yaml",
+      "sha256": "e458d3ee54d0c32a879a7a26e15d4967d7c8322b44171fda2655da69e71b6aa1"
+    },
+    {
+      "path": "validation/register/experiments/EXP-011.yaml",
+      "sha256": "3f8dfd1a69f591edb939f613e87e27cf089de86ce7ea08a5b0bd62a23e6550eb"
+    },
+    {
+      "path": "validation/register/experiments/EXP-012.yaml",
+      "sha256": "d1022c1b9a80a23f242dca1e45d8bf3a0fb0b1c7c4c504773ce52729caa1889b"
+    },
+    {
+      "path": "validation/register/experiments/EXP-013.yaml",
+      "sha256": "c09e3e60efc49cdd1acdaeacc4143090dc3a2b951c5f2a92af38a356a995e2aa"
+    },
+    {
+      "path": "validation/register/experiments/EXP-014.yaml",
+      "sha256": "76171bdc6447b701294b572d758ddc354eb8c00055e784f3e6aca6f0c12db7a2"
+    },
+    {
+      "path": "validation/register/experiments/EXP-015.yaml",
+      "sha256": "8f2602028f38bf4caa42098d05e86bbdbfc7f76844abc3f066dd3c8636c64b67"
+    },
+    {
+      "path": "validation/register/experiments/EXP-016.yaml",
+      "sha256": "edcb8a3a50cfb87dafa35539154ac1e785c576c64f2037b185deb7bebcd653d1"
+    },
+    {
+      "path": "validation/register/experiments/EXP-017.yaml",
+      "sha256": "9654c87287cc951600ef02321de28e9fef227822366d5a78070b16bda66f2f9b"
+    },
+    {
+      "path": "validation/register/experiments/EXP-018.yaml",
+      "sha256": "27c11b4d4bbb373ebc745c868e5a37fc8bcd6b113c7422c6ed950034372013c6"
+    },
+    {
+      "path": "validation/register/experiments/EXP-019.yaml",
+      "sha256": "1783e2b9b23f5f52d68d387d2002136f3b066baf1fb0409b25978822ed240c51"
+    },
+    {
+      "path": "validation/register/experiments/EXP-020.yaml",
+      "sha256": "ffff2d45838bf86d661e5f25cf4d9ff9c4faca4d79db73824e753e1f27f51dcc"
+    },
+    {
+      "path": "validation/register/experiments/EXP-021.yaml",
+      "sha256": "c1a7e089139c7097171ceedf2c8327fb8ab8fedc7472552664db756920d9a68b"
+    },
+    {
+      "path": "validation/register/experiments/EXP-022.yaml",
+      "sha256": "6ac757a4572747bc6ed093deb90b29c86ae0eb5374e37bb7644f9b009b9e46b8"
+    },
+    {
+      "path": "validation/register/experiments/EXP-023.yaml",
+      "sha256": "38eb48741671abcea4ec9b1cb2b433cd40d0a664ca1ef07fceaad9b59fb1ea7d"
+    },
+    {
+      "path": "validation/register/experiments/EXP-024.yaml",
+      "sha256": "c596e7dc01279b36e6e63b97fde6c29b14708469309197a1f4f4e08cddae19a3"
+    },
+    {
+      "path": "validation/register/experiments/EXP-025.yaml",
+      "sha256": "0c00485ebbac19c0330525af3a08ddda7466b969898694f303ea19c8228ee0d6"
+    },
+    {
+      "path": "validation/register/experiments/EXP-026.yaml",
+      "sha256": "1eff33ac26a0950eddcfcfbf31d086c707caf7b7ad6ccb3629252c0b05f15891"
+    },
+    {
+      "path": "validation/register/experiments/EXP-027.yaml",
+      "sha256": "354666413432d3896e68206b641b5acb105d621216f52781665fd6758b8a06ff"
+    },
+    {
+      "path": "validation/register/experiments/EXP-028.yaml",
+      "sha256": "beea00843ac4231968df9f0a4ca68899684112c0dbf11bd8b46da88236ebdf3d"
+    },
+    {
+      "path": "validation/register/experiments/EXP-029.yaml",
+      "sha256": "f3dd17d0738ce3c92128aa9a13c60c72dc9fbd041b08f065fefbfe4f03014371"
+    },
+    {
+      "path": "validation/register/experiments/EXP-030.yaml",
+      "sha256": "0675ae2b6a8508edea95762c4b2988a466ef821874418184e02c261353914dcd"
+    },
+    {
+      "path": "validation/register/tests/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "validation/register/tests/TST-001.yaml",
+      "sha256": "ce62535afd3dd12d81488972ed943589df903acaf075e26a4b6d351473d17f03"
+    },
+    {
+      "path": "validation/register/tests/TST-002.yaml",
+      "sha256": "929affd160029229e604348a0008288447bbbf6d7551bdbbe42feb82a8f7d486"
+    },
+    {
+      "path": "validation/register/tests/TST-003.yaml",
+      "sha256": "f08c37f9fcf1fc7f975bfd63ff5bc5eb7cb2b7bec1938b635fee677459b92391"
+    },
+    {
+      "path": "validation/register/tests/TST-004.yaml",
+      "sha256": "d317d66644eaf804140aec41f81e18c8276e685d727019953df9166a7d803873"
+    },
+    {
+      "path": "validation/register/tests/TST-005.yaml",
+      "sha256": "1cf2476b6fe681593b7a003ef7a0c1ccf1eb6b94371d4cc6a372b3fba321edc1"
+    },
+    {
+      "path": "validation/register/tests/TST-006.yaml",
+      "sha256": "95ac29f9eefd0feeed53ad2a2d379887f5841632e8fa5876a2be0b77d86bd168"
+    },
+    {
+      "path": "validation/register/tests/TST-007.yaml",
+      "sha256": "1c86baef742736e07adabeb49f6902530ef074e1b1cbdd7051797af9919aed44"
+    },
+    {
+      "path": "validation/register/tests/TST-008.yaml",
+      "sha256": "15da2f41cc0c7da72abd4e869a17cc54d5b6367dbd6a53be0e385a9f8e8a169d"
+    },
+    {
+      "path": "validation/register/tests/TST-009.yaml",
+      "sha256": "0a1d0d4d58dd0ae66265fd07fe9c1fec46d887cf50665e68be64ba0c2af17f7e"
+    },
+    {
+      "path": "validation/register/tests/TST-010.yaml",
+      "sha256": "7e620dde1e5710f0727e77ac5be1df6e9bd5a13b883c9f8f9d673a3fcabc7142"
+    },
+    {
+      "path": "validation/register/tests/TST-011.yaml",
+      "sha256": "7e3ef57ac75716a86630e960c6019fdb06836f2f0671c88105111f854ba6dbdc"
+    },
+    {
+      "path": "validation/register/tests/TST-012.yaml",
+      "sha256": "4711c2758bfb0842505103fad290c0a70ffe1b76d843dc9c359ca8246daf4536"
+    },
+    {
+      "path": "validation/register/tests/TST-013.yaml",
+      "sha256": "b3b68c8e72a92161f69d6cedfecd3174ee944019694e709eaf85a2d9b04e9ee6"
+    },
+    {
+      "path": "validation/register/tests/TST-014.yaml",
+      "sha256": "836d9e5a9fd42ff40793a5745bc9912250e7e13d6605ab16498ba9d019472278"
+    },
+    {
+      "path": "validation/register/tests/TST-015.yaml",
+      "sha256": "dd6193dab71cf387778e5824a9c36df4b04ebd2457c89703257bdc261a407883"
+    },
+    {
+      "path": "validation/register/tests/TST-016.yaml",
+      "sha256": "950e866aea32c732a14190db1f76d697c257941f5c9b26b3d5ade87805a12185"
+    },
+    {
+      "path": "validation/register/tests/TST-017.yaml",
+      "sha256": "50ee219df07534717d552eda0b517d23158c8adfbc7a2b006a6afd8881069337"
+    },
+    {
+      "path": "validation/register/tests/TST-018.yaml",
+      "sha256": "4ffc4b18698aa8cd42a4913196003b9964ecfcefadf21876c7cf372a67aab71c"
+    },
+    {
+      "path": "validation/register/tests/TST-019.yaml",
+      "sha256": "c3b6a4c928585a8939ba29945e895a8bd7daef5a99b39a8626607784a1df1247"
+    },
+    {
+      "path": "validation/register/tests/TST-020.yaml",
+      "sha256": "af51d4b0e20267864210c405b28c8df7c168d4683f2c96d1420b80e03bd7c00a"
+    },
+    {
+      "path": "validation/register/tests/TST-021.yaml",
+      "sha256": "c62d78a54a24421b9129505e3e226767e5a80a34e3dbf9a76a084f8d110dbd95"
+    },
+    {
+      "path": "validation/register/tests/TST-022.yaml",
+      "sha256": "d6b097c2568ef7f8fbff57cd66ec5efcf90f2f6fba0106b9303611094b21ed0a"
+    },
+    {
+      "path": "validation/register/tests/TST-023.yaml",
+      "sha256": "10d22de75859dd2b09e3c8b9778470b6f56d66db42b38318949d356f17f6bd7b"
+    },
+    {
+      "path": "validation/register/tests/TST-024.yaml",
+      "sha256": "14b199fea83c99f0a27ccd9c05bb36f80cbe01cddcc7ca412f08d24b45d2225a"
+    },
+    {
+      "path": "validation/register/tests/TST-025.yaml",
+      "sha256": "eac113ac49120036fb8e3f0a94e357c630ee12a528d3e7c8bc4dc906ac6abf47"
+    },
+    {
+      "path": "validation/register/tests/TST-026.yaml",
+      "sha256": "1039ce0a98a93d94e5ebb954a45497cd184a14ddedc539d71393bff383a86d10"
+    },
+    {
+      "path": "validation/register/tests/TST-027.yaml",
+      "sha256": "4d87e5008fbb5be87cee668db183f7908d93982b522b02238713dfac09c0c0c6"
+    },
+    {
+      "path": "validation/register/tests/TST-028.yaml",
+      "sha256": "dd64f00964f4de573700febef732927539b1bdb6e5b0eaa49200ae64df7ff4d0"
+    },
+    {
+      "path": "validation/register/tests/TST-029.yaml",
+      "sha256": "eb2019242ae255d3f9b5b5eb98eb5df96585be13bccf75d0ed759c381df129cd"
+    },
+    {
+      "path": "validation/register/tests/TST-030.yaml",
+      "sha256": "24dadbd6174a55c3db6149831262013f59dc9007615a5472075b9098aba50075"
+    },
+    {
+      "path": "validation/register/tests/TST-031.yaml",
+      "sha256": "079af62842f240b91b184d5a3427935118e8e854026774ec581305e1fbd21bce"
+    },
+    {
+      "path": "validation/register/tests/TST-032.yaml",
+      "sha256": "e4a62bd304e5896e0d36b12d75baa74aa2b4740dac5c52c598a57f5fead57e1b"
+    },
+    {
+      "path": "validation/register/tests/TST-033.yaml",
+      "sha256": "86b7cd636849211910c1038b9c768d6aa0454ab37f903f32f3f9bcb599e64389"
+    },
+    {
+      "path": "validation/register/tests/TST-034.yaml",
+      "sha256": "5770d5617ff3753e5303039699d16e50408099748beb302c5b44bdc3c5ccc69a"
+    },
+    {
+      "path": "validation/register/tests/TST-035.yaml",
+      "sha256": "8d0522d72748dbb724f1e257cf1024daa63488469881112778137f705590c81e"
+    },
+    {
+      "path": "validation/register/tests/TST-036.yaml",
+      "sha256": "9dd87a31580566d66e04401d808e6fdfb4d691cefcfe02b5e1dfa4dee013fbfa"
+    },
+    {
+      "path": "validation/register/tests/TST-037.yaml",
+      "sha256": "36e2be3d5dd02e6b066c24c830fc37cb10345a0e1eff41192d886adbcd1ee134"
+    },
+    {
+      "path": "validation/register/tests/TST-038.yaml",
+      "sha256": "4757266e111124b1d8e1bc2ab173ca180bd64e90b48af63185da30fe27b9b972"
+    },
+    {
+      "path": "validation/register/tests/TST-039.yaml",
+      "sha256": "ead9766a23221ac041562a12b0de584727f2c8d1cf2fcd1396ebe1717e74dd38"
+    },
+    {
+      "path": "validation/register/tests/TST-040.yaml",
+      "sha256": "ac960476b7b01d1a50c034dd29f9fcb303cae7fff60ac719ba90b8d1e94ba2d4"
+    },
+    {
+      "path": "validation/register/tests/TST-041.yaml",
+      "sha256": "4c4088ac9a904657dcb53e7531d5ee4037facf6080d1b5c7a537ae91d4bb90cb"
+    },
+    {
+      "path": "validation/register/tests/TST-042.yaml",
+      "sha256": "e1c3b446182e5d9d41737da77f8c9bab014db1c8eb2817fdb524468949c952d6"
+    },
+    {
+      "path": "validation/register/tests/TST-043.yaml",
+      "sha256": "6636b32b6cacdcfc927b27bd041f61eda213dc66bcbdc31d559d1f1d78ca7f6e"
+    },
+    {
+      "path": "validation/register/tests/TST-044.yaml",
+      "sha256": "8701e508f4f6e5ddff3f17492408f144e8ca140b917f3c0eb57faebcd1ff4aa4"
+    },
+    {
+      "path": "validation/register/tests/TST-045.yaml",
+      "sha256": "0c1042e0a59ee54ec8fbca6f8a05bc2ef0017dfafbe8f6575e4727932fed96db"
+    },
+    {
+      "path": "validation/register/tests/TST-046.yaml",
+      "sha256": "30f0c0e04699661426cd763c27959b431395fb643097e3957feefc9244822b0a"
+    },
+    {
+      "path": "validation/register/tests/TST-047.yaml",
+      "sha256": "00372db7224fa63175fe883abada4ef40f8baa34d975831b7501120ceef11790"
+    },
+    {
+      "path": "validation/register/tests/TST-048.yaml",
+      "sha256": "09e4d6b8ecf671ac5de52527e94b0b3aa2f52f8e8cc6cb5f1c81a50d5da08dd0"
+    },
+    {
+      "path": "validation/register/tests/TST-049.yaml",
+      "sha256": "c67076867d2e5a0f26c74e9441c0237cc1c1506ec7dd3eae4746f84903453d27"
+    },
+    {
+      "path": "validation/register/tests/TST-050.yaml",
+      "sha256": "928722b983f27e647d08a553cfad685054c4521313ec1d1a94faa456e5c04dee"
+    },
+    {
+      "path": "validation/register/tests/TST-051.yaml",
+      "sha256": "5baf7ec61ee0fa8c9732fc685d3fc68b80447803015255fdaae78ce7deff8f3d"
+    },
+    {
+      "path": "validation/register/tests/TST-052.yaml",
+      "sha256": "fd39c80be0ad1933cc98cf0ae30f2cf30b0c2b86a52437294ba19d9dd3e3c8a3"
+    },
+    {
+      "path": "validation/register/tests/TST-053.yaml",
+      "sha256": "e583b1ff9ed877fc2221a25be1bf922b6dea16d5da249ebf2324d834cdcfcb63"
+    },
+    {
+      "path": "validation/register/tests/TST-054.yaml",
+      "sha256": "dddc6bd358f3a0619b8b79578ffef0a9935739c15c152bb2499f1f840ca310cb"
+    },
+    {
+      "path": "validation/register/tests/TST-055.yaml",
+      "sha256": "579b1c9f419c7cd33476a024c244eba2dcddc21144fc5c5eae21e4c013c42380"
+    },
+    {
+      "path": "validation/register/tests/TST-056.yaml",
+      "sha256": "5029cabd8083222e90b2488ad512f02c366a7b33233d680099a38686c4f7ee04"
+    },
+    {
+      "path": "validation/register/tests/TST-057.yaml",
+      "sha256": "f1ed48f3a73cd5318b56f3b1b15377032927e9d6ef229d01c0c5b96697a2d5e8"
+    },
+    {
+      "path": "validation/register/tests/TST-058.yaml",
+      "sha256": "198c04c82a79bb7fb7369242907c5fb0876cd6980b85859a12be03bd6a8c0c15"
+    },
+    {
+      "path": "validation/register/tests/TST-059.yaml",
+      "sha256": "330f716f98930cc6ea4127f24df334a501ba5e22b1844363cb9452a6dbe3ce74"
+    },
+    {
+      "path": "validation/register/tests/TST-060.yaml",
+      "sha256": "b4a07853d617b21a08e867905e4d9ed6fc30913bea271ad70fcc68a49b79cd94"
+    },
+    {
+      "path": "validation/register/tests/TST-061.yaml",
+      "sha256": "89844fd1f959471d5d2490ac629acc6e1b18d1feb23046576d02d71d85fb55c6"
+    },
+    {
+      "path": "validation/register/tests/TST-062.yaml",
+      "sha256": "37102ec02d5624fbd4ad6edc08a2932bbe126da59319bf3b693e61d341c2b960"
+    },
+    {
+      "path": "validation/register/tests/TST-063.yaml",
+      "sha256": "bc46510802ac89e0e7270ac0cf269a2a16422c49499c12f8a80f78cd427344b1"
+    },
+    {
+      "path": "validation/register/tests/TST-064.yaml",
+      "sha256": "115e3fa653318d16344ec906ad85520591f2692cb3004c0bd621fae44477e6c4"
+    },
+    {
+      "path": "validation/register/tests/TST-065.yaml",
+      "sha256": "bdb070403be359b0a63e78c2c955f58abcd49edff6070878f8917241b2852ee1"
+    },
+    {
+      "path": "validation/register/tests/TST-066.yaml",
+      "sha256": "160ce29ab57f8255e80612404ee3e68f9d5371ca5432d4b3526800a0d2a19a8d"
+    },
+    {
+      "path": "validation/register/tests/TST-067.yaml",
+      "sha256": "31aae4bc0b9c872350149fb80d92320ffdb89885e1c8a38d26784dc076c7d3a0"
+    },
+    {
+      "path": "validation/register/tests/TST-068.yaml",
+      "sha256": "fe277f4f10f3e2f3fd96a95940463f26eb2f947d8da109b3b0cd92fce717e8bd"
+    },
+    {
+      "path": "validation/register/tests/TST-069.yaml",
+      "sha256": "610ad6ea1e2255be738d35b0b4053370de2ef01c06f7003eb422d71baab67b75"
+    },
+    {
+      "path": "validation/register/tests/TST-070.yaml",
+      "sha256": "a88a5f23e12e5d8404afddabc8de7c65ed7428e60bb5a793ac396f6731b3f80a"
+    },
+    {
+      "path": "validation/register/tests/TST-071.yaml",
+      "sha256": "1fe9848683f3ba5e6f9451617eb95b7a51857322a43b3778a59ddc2524eb93d3"
+    },
+    {
+      "path": "validation/register/tests/TST-072.yaml",
+      "sha256": "c2b24fb71a6d374ec17279fd864c00d51043226cd24ff76fde6dae48dc1249e3"
+    },
+    {
+      "path": "validation/register/tests/TST-073.yaml",
+      "sha256": "b13dcb0c6a7861145d42db9760b126e8259eb96e71984f16b44342bd4faee19b"
+    },
+    {
+      "path": "validation/register/tests/TST-074.yaml",
+      "sha256": "45b2d4e0abd649fb9d0d79e2907c84954d3bc5d2bec31c150800df5fd5d7578e"
+    },
+    {
+      "path": "validation/register/tests/TST-075.yaml",
+      "sha256": "8af46f191965f959b76cda1250817d5bb4d45564917da12d0ef902be9ebbbdd5"
+    },
+    {
+      "path": "validation/register/tests/TST-076.yaml",
+      "sha256": "7ed143c247df81814560bdc0f26a7a560c8c6f0fe9fa314e02eeace0fcfaa618"
+    },
+    {
+      "path": "validation/register/tests/TST-077.yaml",
+      "sha256": "10f1df213f9ed05d4886a29781adbe58178b154c04ccf70fae8bf88ba13af9d9"
+    },
+    {
+      "path": "validation/register/tests/TST-078.yaml",
+      "sha256": "4b6c6b8ca7c8a1bf82c5e7a3b4df2b77a33f668c392c56cd73ce9d427800c9c4"
+    },
+    {
+      "path": "validation/register/tests/TST-079.yaml",
+      "sha256": "971f80304285f1cb4dfd00fea6cd614051adaf555c3748c15ef20487c0f9c375"
+    },
+    {
+      "path": "validation/register/tests/TST-080.yaml",
+      "sha256": "312bbdfd8fcbc2adef5bce27db7837c57f8a14dcfbeb27ad664d6e6486741248"
+    },
+    {
+      "path": "validation/register/tests/TST-081.yaml",
+      "sha256": "af6c80cc71f61b27f8d4e9322b12c216795edc4622f622f0345e4898fcde82bc"
+    },
+    {
+      "path": "validation/register/tests/TST-082.yaml",
+      "sha256": "2fae2c689680eef09c15b905de6607d7e3aa6a8a6b581b71de5db73e66e618a1"
+    },
+    {
+      "path": "validation/register/tests/TST-083.yaml",
+      "sha256": "038cc9a4c9e343dea4725429d6a73b271460d9a86ffa4c5d6d148e7d7dc5e7d9"
+    },
+    {
+      "path": "validation/register/tests/TST-084.yaml",
+      "sha256": "fd6a6eba2d7773ffe9e1286b38cbe54c4cd1c66212aaed263e6ea2d7c1d4a6b2"
+    },
+    {
+      "path": "validation/register/tests/TST-085.yaml",
+      "sha256": "5fd50078e586c201c314c9f52c045a2115b0a0f75f92d0978c9dde068e970d6e"
+    },
+    {
+      "path": "validation/register/tests/TST-086.yaml",
+      "sha256": "eca9194dcde97f941d838cd7d28105afddc983a5b185e297e7ffb6e842605372"
+    },
+    {
+      "path": "validation/register/tests/TST-087.yaml",
+      "sha256": "c2405a2d7566fda41c6af666efae1b3c5d20c8d5459b401c252db72e4f34deda"
+    },
+    {
+      "path": "validation/register/tests/TST-088.yaml",
+      "sha256": "1bc757ee2df2f78760a376c40316509950c70e6b54b37c26aa271936a88473bb"
+    },
+    {
+      "path": "validation/register/tests/TST-089.yaml",
+      "sha256": "10b0845da2b7d0e95c5eb2eabd8238cc70b02b2093830a1344e178d236de18f7"
+    },
+    {
+      "path": "validation/register/tests/TST-090.yaml",
+      "sha256": "aa78b84c7d7012a47294594f59f662081e0bb7b0d910d98348e80e297b1c37ca"
+    },
+    {
+      "path": "validation/register/validations/VAL-001.yaml",
+      "sha256": "2016e4cb78004842714fe3866e0ef2ef41edcf895058bfa3565178e3d3ac52fe"
+    },
+    {
+      "path": "validation/register/validations/VAL-002.yaml",
+      "sha256": "abb97b73302dc274e7bc0bb467b9cf69e1aba2e9aec3a27b46bdd0568dca5693"
+    },
+    {
+      "path": "validation/register/validations/VAL-003.yaml",
+      "sha256": "29eb992a9fb8476b1854f71e271fcb1e544c072464285e8065033b2a80d68555"
+    },
+    {
+      "path": "validation/register/validations/VAL-004.yaml",
+      "sha256": "045f11589a668498c716add8437c1900acd89fc8e51c6ae6372c35092f210b03"
+    },
+    {
+      "path": "validation/register/validations/VAL-005.yaml",
+      "sha256": "989d673e6e588839dedefa1d3fb9472dbff74a3d1bc527f49088fc8972d2da00"
+    },
+    {
+      "path": "validation/register/validations/VAL-006.yaml",
+      "sha256": "074ea6a5520a7293a97f9325607811aa342537d2d83832002f405ba9504e84c1"
+    },
+    {
+      "path": "validation/register/validations/VAL-007.yaml",
+      "sha256": "90f567fc002889d93cc1d47fc6e471add57b6d075eb829045d9e1ebc86b03443"
+    },
+    {
+      "path": "validation/register/validations/VAL-008.yaml",
+      "sha256": "b4632e157d2cdd9de61122d648e6158d63e2486053ec61a804eca4c525ccb765"
+    },
+    {
+      "path": "validation/register/validations/VAL-009.yaml",
+      "sha256": "ccc8e9329a462caa056d7e67f23a88284a50f83bc48f3784976ec1fd960355e1"
+    },
+    {
+      "path": "validation/register/validations/VAL-010.yaml",
+      "sha256": "660a18d40de9c8391f02c2e7e9e1e13c1af5807ccebe1a5c0718f72077a0badd"
+    },
+    {
+      "path": "validation/register/validations/VAL-011.yaml",
+      "sha256": "d00d8a730c8b6239530c7ada6d9b5c5d9812a968976253f001966f8faf03a3f5"
+    },
+    {
+      "path": "validation/register/validations/VAL-012.yaml",
+      "sha256": "f20ab51f0495c710aa2e6db751cfdc44031e1d8f7565fdb2cd08413a13795f6d"
+    },
+    {
+      "path": "validation/register/validations/VAL-013.yaml",
+      "sha256": "26fd237f42491e949fe12a7b0a3474dc0c4a218f76730d627ea816a093ecd6b3"
+    },
+    {
+      "path": "validation/register/validations/VAL-014.yaml",
+      "sha256": "19fba4d53bc14791bea9ad1abe6155e6b32105f145ddafaa7d38135428177e64"
+    },
+    {
+      "path": "validation/register/validations/VAL-015.yaml",
+      "sha256": "d66ed04b020fc4e02fc53627babeead51e52c738478614414a78a5187b7f4b53"
+    },
+    {
+      "path": "validation/register/validations/VAL-016.yaml",
+      "sha256": "bdf250d85d3ff9e7dc5978566ccbda5b605ee5579a739b29f099ca22262b2dc6"
+    },
+    {
+      "path": "validation/register/validations/VAL-017.yaml",
+      "sha256": "8d4a8955c71e9d016bd468402719d5cb90fa043df5adeb55ba6722f2236c2f4f"
+    },
+    {
+      "path": "validation/register/validations/VAL-018.yaml",
+      "sha256": "70f9c3e2ddf6d22e28ac78217d438ae74fc07a6de469555d978c64b6dea3d6ce"
+    },
+    {
+      "path": "validation/register/validations/VAL-019.yaml",
+      "sha256": "7af7448e0adaf51e5c75fa0e51ca2ad4f28072c78a51e57b5b9829eb4fada2be"
+    },
+    {
+      "path": "validation/register/validations/VAL-020.yaml",
+      "sha256": "abb82dfe60a14db737291c631eed1d6fbaa5b6aa08de1a32c1d231ce7334aa72"
+    },
+    {
+      "path": "validation/register/validations/VAL-021.yaml",
+      "sha256": "2111e52a047e57f432a8b16ac486143d8ef9689d4c319ef089b6a43f6b594743"
+    },
+    {
+      "path": "validation/register/validations/VAL-022.yaml",
+      "sha256": "86b7338f1a7882f82723ead689d900c2b49c9cb347f689440b434d49c64111ac"
+    },
+    {
+      "path": "validation/register/validations/VAL-023.yaml",
+      "sha256": "e1c24e033676809ea4dc61c813a4587aa14a85d4428c669d1f12a8c9f121bd0d"
+    },
+    {
+      "path": "validation/register/validations/VAL-024.yaml",
+      "sha256": "468abad1a9a207b35d248ef031e12966d91bd7b8d678b5a77ef4f9d449e6c0e7"
+    },
+    {
+      "path": "validation/register/validations/VAL-025.yaml",
+      "sha256": "591160d79bc87bf0e906c97a3bd76b7132f4258568e12dd47c5d4ccca0a5750a"
+    },
+    {
+      "path": "validation/register/validations/VAL-026.yaml",
+      "sha256": "a86fa9b868b49f2c6cc615ce3211b0d0b07161b65d13defe316e4f5845188335"
+    },
+    {
+      "path": "validation/register/validations/VAL-027.yaml",
+      "sha256": "be15653e9d7edc4f00684bdc74ed0ccb6ce8c47ab5e1c95d3f7533e39331db9c"
+    },
+    {
+      "path": "validation/register/validations/VAL-028.yaml",
+      "sha256": "afe55245cc258b7849c51443985ef6ae7458c6bc7d7daaea480004e315a51fae"
+    },
+    {
+      "path": "validation/revisions/experiments/EXP-001/r1.yaml",
+      "sha256": "5b14d494e9ce647a0734005c68a6cb8671e22985366f7a01e01709757c993975"
+    },
+    {
+      "path": "validation/revisions/experiments/EXP-001/r2.yaml",
+      "sha256": "0648ce7ca4070e1915e549eaa8175822b7927ba570cdcc0c2c8334fb3a2b63fd"
+    },
+    {
+      "path": "validation/revisions/experiments/EXP-002/r1.yaml",
+      "sha256": "585c51443185ed4cb631e393eecdeb415a27ee242f9f51a773bafd4d582e6ee1"
+    },
+    {
+      "path": "validation/revisions/experiments/EXP-002/r2.yaml",
+      "sha256": "9e2aa7fe9733a76efc217b563e40a4c47bbd3f6344d1b9c9e99150e5bf7693f5"
+    },
+    {
+      "path": "validation/revisions/experiments/EXP-003/r1.yaml",
+      "sha256": "f11ea3fe7307685e7d06fd551ccc51e8469992d6eb28df6b32270ae32bc564e5"
+    },
+    {
+      "path": "validation/revisions/experiments/EXP-003/r2.yaml",
+      "sha256": "860ff0306d4b388f1820b37523d66a1250d8e73fc55fb7468d8c1ce7d16301d5"
+    },
+    {
+      "path": "validation/revisions/experiments/EXP-005/r1.yaml",
+      "sha256": "0565ef5ed8fda7d1208ffc186e14339f8d8afb561c3c276a1f44664f1f81d00f"
+    },
+    {
+      "path": "validation/revisions/experiments/EXP-006/r1.yaml",
+      "sha256": "5da27298068f67fc4defca2db3a86c7c2172306ce6615a08cb7694120dfbd7a8"
+    },
+    {
+      "path": "validation/revisions/experiments/EXP-007/r1.yaml",
+      "sha256": "a77419da31e0b8ddf92ec4e887aeec0962316f23ee5e3d369b8fce56d8efc65c"
+    },
+    {
+      "path": "validation/revisions/experiments/EXP-008/r1.yaml",
+      "sha256": "bb709678bb4d77b25cfb9c53a84008323a71b3f07c4acffdc31811e9f1cdf54b"
+    },
+    {
+      "path": "validation/revisions/experiments/EXP-009/r1.yaml",
+      "sha256": "22b086fabe2394e600fa81ce2cb23fe29ccd77319cd474b5e3be6f8dddaeeac7"
+    },
+    {
+      "path": "validation/revisions/experiments/EXP-010/r1.yaml",
+      "sha256": "fcd3cdb512884370bb6ab6e5acf646d6d401dd87fd7299999bed0189b14f9c01"
+    },
+    {
+      "path": "validation/revisions/experiments/EXP-011/r1.yaml",
+      "sha256": "23f3f806acc943f7b2c60681d3e326f217d98b16fbca7955a79d996ef4a23341"
+    },
+    {
+      "path": "validation/revisions/experiments/EXP-012/r1.yaml",
+      "sha256": "36930df2581433c15675f7312ac8e5573a23f99706ae746c7dad4f9134b39ac2"
+    },
+    {
+      "path": "validation/revisions/experiments/EXP-013/r1.yaml",
+      "sha256": "c42c3eb8af56277bb5461a6c7690a64c59c6208b8cd23fc8501c4784854af0a8"
+    },
+    {
+      "path": "validation/revisions/experiments/EXP-014/r1.yaml",
+      "sha256": "3f7a0561cde89ce624b852a109dc8269fa44359d9048a3e072ca774e1cbd75fb"
+    },
+    {
+      "path": "validation/revisions/experiments/EXP-015/r1.yaml",
+      "sha256": "0a07fa1afc540b05087e656359496b1703fe9b8785968bf196da257e36b75a8a"
+    },
+    {
+      "path": "validation/revisions/experiments/EXP-016/r1.yaml",
+      "sha256": "81522920b1cf158590ff9f45d61ea4bac53083f0775d1d3b6495ac370199b3dc"
+    },
+    {
+      "path": "validation/revisions/experiments/EXP-017/r1.yaml",
+      "sha256": "c7f0aacc5f37eec266b56efbf92c1fad0ac1be5fe8723741203e2b87ac7b4f3b"
+    },
+    {
+      "path": "validation/revisions/experiments/EXP-018/r1.yaml",
+      "sha256": "141623b4bf8124430c236dae7664c540c1cdbec7ab4faa98c2642e0001b1f5f4"
+    },
+    {
+      "path": "validation/revisions/experiments/EXP-019/r1.yaml",
+      "sha256": "6584d9651a8931fa00c7966fa41fc527209463502ae59be8c77ef4a0262bced3"
+    },
+    {
+      "path": "validation/revisions/experiments/EXP-020/r1.yaml",
+      "sha256": "c67b8b5f8183df31144923ed2911678bf1e3d9d65e562f2bb80403b7c39b2f72"
+    },
+    {
+      "path": "validation/revisions/experiments/EXP-021/r1.yaml",
+      "sha256": "ec6c67c407cc1deccc78c45e33fc6a8e9d40a0cda67c99f9d441d620194d5aab"
+    },
+    {
+      "path": "validation/revisions/experiments/EXP-022/r1.yaml",
+      "sha256": "1cf0866aeb64fa3e18f8c4b1769248b1d448bfcbc372d260959c0d152afa14e6"
+    },
+    {
+      "path": "validation/revisions/experiments/EXP-023/r1.yaml",
+      "sha256": "f9d9500cc76a8df77daddb4abdaad28fe252fa4226817c6f2488d1620e778c07"
+    },
+    {
+      "path": "validation/revisions/experiments/EXP-024/r1.yaml",
+      "sha256": "4af84d1554fcd5b9d95e1f7002481466f01b8d1c92cdbd8d3093eaaf23997b00"
+    },
+    {
+      "path": "validation/revisions/experiments/EXP-025/r1.yaml",
+      "sha256": "ff094e419ae3650c27bd67141bf7edadbfdcece202c0eba9d1b3a6809102b301"
+    },
+    {
+      "path": "validation/revisions/experiments/EXP-026/r1.yaml",
+      "sha256": "63695d828e7f628b7c7bc74baacb3547a019039f051789a7bf2379236221019b"
+    },
+    {
+      "path": "validation/revisions/experiments/EXP-027/r1.yaml",
+      "sha256": "0bf9cda890c39e126e2209a157df9f5fdef578fdb694cca0c403cd13d6ad4c0c"
+    },
+    {
+      "path": "validation/revisions/experiments/EXP-028/r1.yaml",
+      "sha256": "5a81cd139a8274fc01c628a60152cb823e353462fa69c81e5e495cc675db910b"
+    },
+    {
+      "path": "validation/revisions/experiments/EXP-029/r1.yaml",
+      "sha256": "d4f507e22d54f6eb3155d0a09eb66d1a4fbef9223d6536936fbf15f5aa365f99"
+    },
+    {
+      "path": "validation/revisions/experiments/EXP-030/r1.yaml",
+      "sha256": "f8b9a2fd04f0d048381bee2fa87295eafb2e23f722454a30a136799c5814a4bb"
+    },
+    {
+      "path": "validation/revisions/tests/TST-001/r1.yaml",
+      "sha256": "14a83a2421cf27fbbd1db90b06646b66a715216e3c99223fdae8212430908620"
+    },
+    {
+      "path": "validation/revisions/tests/TST-002/r1.yaml",
+      "sha256": "8532e66f52f160ebab4abdda7ce60c1b669b04cebf73815739df0cb4646387d6"
+    },
+    {
+      "path": "validation/revisions/tests/TST-003/r1.yaml",
+      "sha256": "ec9788a029eea83e72a03bca8d5bc3889f9cecc089463be3f0aa1ec2e0b813da"
+    },
+    {
+      "path": "validation/revisions/tests/TST-004/r1.yaml",
+      "sha256": "b0ce94a901ad5eaef8ac0c7c4585ac162c3750b041025985a991fee6fe5463e2"
+    },
+    {
+      "path": "validation/revisions/tests/TST-005/r1.yaml",
+      "sha256": "2933660fc3f7abebc457c0f518f41f46978b435e64e35b2bfbcb7a4944735e5b"
+    },
+    {
+      "path": "validation/revisions/tests/TST-006/r1.yaml",
+      "sha256": "b8e65fe1d2e6259be13caf840b3ab50f2964569d12807d8375bebbbda8d57ca7"
+    },
+    {
+      "path": "validation/revisions/tests/TST-007/r1.yaml",
+      "sha256": "3e7a6ad16f6e2f79e5b6b846f4a43faba1bbd5015f49475fd700ed3ee4930909"
+    },
+    {
+      "path": "validation/revisions/tests/TST-008/r1.yaml",
+      "sha256": "a302ca83874d6a3a8c8e52ba083466efaa4c10fbb1bafd19a8fba36ee850877a"
+    },
+    {
+      "path": "validation/revisions/tests/TST-009/r1.yaml",
+      "sha256": "3e67ee6722db95f62617ea9bf1ab6a4d718b998498c5ac8eed56e6238aa3a8b7"
+    },
+    {
+      "path": "validation/revisions/tests/TST-010/r1.yaml",
+      "sha256": "4fbb1f1c6a757bb635b1f949510c741ef227aa1eb169876266a1085bf7794552"
+    },
+    {
+      "path": "validation/revisions/tests/TST-011/r1.yaml",
+      "sha256": "9753b10e985eff336e07fd8e3d50c65c4bfd18ffb323f2fa4ac2cbc779dd9dc8"
+    },
+    {
+      "path": "validation/revisions/tests/TST-012/r1.yaml",
+      "sha256": "a1cfd61c54dcbb62cca7b11b0d0ed494ddc72814f66b0cbd9570fe96c451525b"
+    },
+    {
+      "path": "validation/revisions/validations/VAL-001/r1.yaml",
+      "sha256": "53e5c62c59fefbd0574fc563db874f716e0f8155b2a7a70a1569eb0e26d7c83c"
+    },
+    {
+      "path": "validation/revisions/validations/VAL-001/r2.yaml",
+      "sha256": "5d3bf4597a211c1af48808e793809a8cfab1d04cab2b716f0aa3e9d140a1e857"
+    },
+    {
+      "path": "validation/revisions/validations/VAL-002/r1.yaml",
+      "sha256": "bbf90ef814c682775ca828d26bcc208e83fc7f49b412f194a9e97428ba354ad7"
+    },
+    {
+      "path": "validation/revisions/validations/VAL-002/r2.yaml",
+      "sha256": "1abe459d6af28f9986f01d42a44a8128eed1122fb3e0bbda5a5eb0665a6ca425"
+    },
+    {
+      "path": "validation/revisions/validations/VAL-003/r1.yaml",
+      "sha256": "5778e30b192561a69b3ac4f3585b5ef7a1744038b123c7a0ff7e2f3d57ab9a6c"
+    },
+    {
+      "path": "validation/revisions/validations/VAL-003/r2.yaml",
+      "sha256": "1573bb64bba506ee5a6d18432757c1bd06715b6ece603781889020caf94523c0"
+    },
+    {
+      "path": "validation/revisions/validations/VAL-004/r1.yaml",
+      "sha256": "4baef04bfd889e9f60370279f204fe936ddcd696d1139bd7ad60a7e6ab21676e"
+    },
+    {
+      "path": "validation/revisions/validations/VAL-004/r2.yaml",
+      "sha256": "62b60c10f5863c04d5e646146751c5c7566ebb418bbbc03b4013e099fa8d0770"
+    },
+    {
+      "path": "validation/revisions/validations/VAL-005/r1.yaml",
+      "sha256": "24e04028b39ae7f7cf182309ffb2f9926c2c80a673593259b4ba995243de3d1d"
+    },
+    {
+      "path": "validation/revisions/validations/VAL-005/r2.yaml",
+      "sha256": "9d5ab63067ba3973cdd9c33ebb216712810829c68c287c223c1ede7a16ec4adc"
+    },
+    {
+      "path": "validation/revisions/validations/VAL-006/r1.yaml",
+      "sha256": "792352e2644d09d17d495fd288c0e06bacce0e392b8099243b77f94410492da2"
+    },
+    {
+      "path": "validation/revisions/validations/VAL-006/r2.yaml",
+      "sha256": "74ecce0b305c63eac829ddfdf6a423559af5f30e8aec075ef211b7e06f322b30"
+    },
+    {
+      "path": "validation/revisions/validations/VAL-007/r1.yaml",
+      "sha256": "9c9be9544a95090344ca3dfebd0c8d9912f6212b4feb7093c661c15554f0f561"
+    },
+    {
+      "path": "validation/revisions/validations/VAL-007/r2.yaml",
+      "sha256": "e0f3fb904a1e08506d302fcc1f7006a010a659287ae617ea7b01d6b8dbc7053e"
+    },
+    {
+      "path": "validation/revisions/validations/VAL-008/r1.yaml",
+      "sha256": "aea0aa4a8672fbdd182faaac64326946d47628ecc818e68ec2f580e64bec18ff"
+    },
+    {
+      "path": "validation/revisions/validations/VAL-008/r2.yaml",
+      "sha256": "9d8e868c1cfd5d9d526b66a22c3ceef06ee101ecf32313dafc462ee6cfd532c7"
+    },
+    {
+      "path": "validation/revisions/validations/VAL-009/r1.yaml",
+      "sha256": "43c12e32fbd9212f608b64697b5529a314f2a085a563e00fe4768d4b93a82c57"
+    },
+    {
+      "path": "validation/revisions/validations/VAL-009/r2.yaml",
+      "sha256": "8d4d22557ca9be4509bae960c3fdfe0e6ebedacd9d37a3ce3ec75abfafed74e4"
+    },
+    {
+      "path": "validation/revisions/validations/VAL-010/r1.yaml",
+      "sha256": "45c62dcb3f558631f4020893a78b26997123e63cfd519e0216ede1967725cfe2"
+    },
+    {
+      "path": "validation/revisions/validations/VAL-010/r2.yaml",
+      "sha256": "9e6a867148f6fc3a0dbddc9e1fc60d8e9dc0a49307655f707ed7f764102a5531"
+    },
+    {
+      "path": "validation/revisions/validations/VAL-011/r1.yaml",
+      "sha256": "69d8dc324cd0925ef27e40cb199a5975b2cf709e7d407b9f93472f1e9f53bf56"
+    },
+    {
+      "path": "validation/revisions/validations/VAL-011/r2.yaml",
+      "sha256": "a462360c21aed27f0ab87d4f043a6e6e2365701d03a7fcae33f59970e27ebc67"
+    },
+    {
+      "path": "validation/revisions/validations/VAL-012/r1.yaml",
+      "sha256": "b6e51e8f4e236ad3abf05b1356518961a318dd8c317251c01f5a6a9e5843c0ce"
+    },
+    {
+      "path": "validation/revisions/validations/VAL-012/r2.yaml",
+      "sha256": "ee272576e6a213e09ef9819049dff11391a876ee34283200e00d02eaaba52608"
+    },
+    {
+      "path": "validation/revisions/validations/VAL-012/r3.yaml",
+      "sha256": "e6095db1fada86da1b4d4637bd9c28d2214529a0811ab547a9d1aa5abbc04838"
+    },
+    {
+      "path": "validation/revisions/validations/VAL-013/r1.yaml",
+      "sha256": "25bc21fa33aaa0c523f09eae70f1365b45fb78e1ae3a111be1363cf06af070f7"
+    },
+    {
+      "path": "validation/revisions/validations/VAL-013/r2.yaml",
+      "sha256": "18fb12b037bf9e5e56bdbd1736558151f63b48b61949f0d9556eb9d7bec5f4b0"
+    },
+    {
+      "path": "validation/revisions/validations/VAL-013/r3.yaml",
+      "sha256": "0660d2d076bdb56c8766bd993b8222339020a50370f499708646f9c7279e6b62"
+    },
+    {
+      "path": "validation/revisions/validations/VAL-014/r1.yaml",
+      "sha256": "70e2581ebf3699163cb7526d29ee7ebc106395485c722483d9e47ece3fb53a5a"
+    },
+    {
+      "path": "validation/revisions/validations/VAL-014/r2.yaml",
+      "sha256": "59ee36419e196f9f92f42a8d0aae7bc38133fbc7b806c1ef3b32b901f157e2b3"
+    },
+    {
+      "path": "validation/revisions/validations/VAL-015/r1.yaml",
+      "sha256": "89028b7556725926e2b2109676876fdfb2189b656092b4367d71169e52c6675c"
+    },
+    {
+      "path": "validation/revisions/validations/VAL-015/r2.yaml",
+      "sha256": "fdbc4b5d2f99b92631c6a5ab762bd1bc91fa1edc7087bc4afd64495d63df51b4"
+    },
+    {
+      "path": "validation/revisions/validations/VAL-016/r1.yaml",
+      "sha256": "841d57b908ac79894414eca501eebac6b852555f48f5ff7cdc7846e6b266d229"
+    },
+    {
+      "path": "validation/revisions/validations/VAL-016/r2.yaml",
+      "sha256": "c3caec0f3a19e8e0234ce419e25fba9ce908c77bd11727150431fc25a7b437a7"
+    },
+    {
+      "path": "validation/revisions/validations/VAL-017/r1.yaml",
+      "sha256": "7f1f304bb80dad29582096fc93f9ab413e00519661da9baf49371c312c3ae954"
+    },
+    {
+      "path": "validation/revisions/validations/VAL-017/r2.yaml",
+      "sha256": "919c6a227bb54dec728fd625e021ac55591b131f729ed816822b85e770c5565d"
+    },
+    {
+      "path": "validation/revisions/validations/VAL-018/r1.yaml",
+      "sha256": "e58c8a4678ac87c182a7d1f4f92a3c08bc358deb598c6c012785a083a2c31b59"
+    },
+    {
+      "path": "validation/revisions/validations/VAL-018/r2.yaml",
+      "sha256": "630bebb1be46753b71ad414fabe8a2e2bc8533c20d5ecfc63d13bd69fb792dae"
+    },
+    {
+      "path": "validation/revisions/validations/VAL-019/r1.yaml",
+      "sha256": "ab8447101ba078cc8627f2eb0c350d84091be398e8fd01dba2ccdd1cca4fe1a7"
+    },
+    {
+      "path": "validation/revisions/validations/VAL-019/r2.yaml",
+      "sha256": "2ebce97f5daa116bc2a3e181b03267a5099a38decc41a503775f938ecd07da01"
+    },
+    {
+      "path": "validation/revisions/validations/VAL-020/r1.yaml",
+      "sha256": "5d81ba66ab22db7d6c3cc2c1093570e11e5a0e48a97d8ae233d6bc1c1ee0fd7e"
+    },
+    {
+      "path": "validation/revisions/validations/VAL-020/r2.yaml",
+      "sha256": "804cf33270bd13e20397a651340b152ee02f18c9e49815611558900b8a5f941d"
+    },
+    {
+      "path": "validation/revisions/validations/VAL-021/r1.yaml",
+      "sha256": "81ed5f7e8c395993707b54405209691380c6e27753b6f7ac6c3355078a42c831"
+    },
+    {
+      "path": "validation/revisions/validations/VAL-021/r2.yaml",
+      "sha256": "e8eeb98ec29e840de9690ef50e72f0993893e04cf342361b69fb12ec48314612"
+    },
+    {
+      "path": "validation/revisions/validations/VAL-022/r1.yaml",
+      "sha256": "bb958d61f6d3276404483bb4e0551f97c1976caf560176a3cf2f2381953b028c"
+    },
+    {
+      "path": "validation/revisions/validations/VAL-022/r2.yaml",
+      "sha256": "7bc131ebd8e4e5ec6d29ba20a7cde96aef671de9ae7177ef81552f996810910a"
+    },
+    {
+      "path": "validation/revisions/validations/VAL-023/r1.yaml",
+      "sha256": "2e2adeb26b6cd708a650febe744f3e442b40597348fc2e62be0ece5e03af5d08"
+    },
+    {
+      "path": "validation/revisions/validations/VAL-023/r2.yaml",
+      "sha256": "c3c1e931d4970fda711fcaa2d67ba0fee348dc26ad115ed69702ed71114624c0"
+    },
+    {
+      "path": "validation/revisions/validations/VAL-024/r1.yaml",
+      "sha256": "34c4114b40ef9aea3f11c582f8de48bba900d9dd353e66307b5ed830138c842a"
+    },
+    {
+      "path": "validation/revisions/validations/VAL-024/r2.yaml",
+      "sha256": "119e6bf3872e757e0b2f08200711296752e118f16cfc0da970b2772896d7cafc"
+    },
+    {
+      "path": "validation/revisions/validations/VAL-025/r1.yaml",
+      "sha256": "d2f18fc9454816a24e4af2df2e83bf5e2d610c9e8ca360389832f17be1652e10"
+    },
+    {
+      "path": "validation/revisions/validations/VAL-025/r2.yaml",
+      "sha256": "3ef42915fdfb25860173d0e94f002699ed9a752dbe98adb61b5680e69e6d51e9"
+    },
+    {
+      "path": "validation/revisions/validations/VAL-026/r1.yaml",
+      "sha256": "67b349248867b1ed3746fec5b170058e9ea4dd3da1bd14c6965a6bbbea26b43f"
+    },
+    {
+      "path": "validation/revisions/validations/VAL-026/r2.yaml",
+      "sha256": "067ab138751a7b6d6f36e5dc79784793066c77e24ac15a37c5a9edb61c34332c"
+    },
+    {
+      "path": "validation/revisions/validations/VAL-027/r1.yaml",
+      "sha256": "d978d4b7d025660842aeba5e7cbc2e83b0521dd802e89445fc16ec80f9a03bfb"
+    },
+    {
+      "path": "validation/revisions/validations/VAL-027/r2.yaml",
+      "sha256": "9a256e73942b920d2fdef62bfea8902ca051a1c331e34a35f64c29607b43945d"
+    },
+    {
+      "path": "validation/revisions/validations/VAL-028/r1.yaml",
+      "sha256": "12e49b45ad65915d26b478ab1c432ddb6918839a81ae151e4ce63e6a55e550c4"
+    },
+    {
+      "path": "validation/revisions/validations/VAL-028/r2.yaml",
+      "sha256": "4fb14fbf10eceadab26367ea51f86644e3dc00dc11cb2d3c00ecacc3a86eee96"
+    },
+    {
+      "path": "validation/schemas/baseline.schema.json",
+      "sha256": "abcad09783d8969945833f427d70347ce129f0dc7c335785ab7f58aa9b6a0c0e"
+    },
+    {
+      "path": "validation/schemas/capture-plan.schema.json",
+      "sha256": "0d283d88db667a9e86b14cca37ca3f7804ea0e98c318dd85c484a429d54b781a"
+    },
+    {
+      "path": "validation/schemas/decision.schema.json",
+      "sha256": "2e7db2bfc6773191731216b8d9436fef554155bc46e1446590fd01b360509ed0"
+    },
+    {
+      "path": "validation/schemas/evidence.schema.json",
+      "sha256": "5df4e4a3460ff175fdf53ba9793f702336b3395e01da4d61f03b411f6d9c7070"
+    },
+    {
+      "path": "validation/schemas/execution.schema.json",
+      "sha256": "53af20b7443c686b27ef8a40401ab4941900ecf14fb7b6eb2a098df658dc15e4"
+    },
+    {
+      "path": "validation/schemas/experiment.schema.json",
+      "sha256": "a38bdb0cded6f17c5d026e0c382540e2b86ec25d4c5b6c984536212def5dca76"
+    },
+    {
+      "path": "validation/schemas/test.schema.json",
+      "sha256": "132b2d4537fb104aa0734810ff28d6fd2b8041eee143e3fb928c36899c5ef212"
+    },
+    {
+      "path": "validation/schemas/validation.schema.json",
+      "sha256": "80b47610365f38eed0f007b080e83b03acb7486fc5dce54dc2f2f0af199be4ca"
+    }
+  ],
+  "registry_cases": [
+    {
+      "name": "valid-bound-test",
+      "target": "validation/register/tests/TST-001.yaml",
+      "fixture": "cases/registry/valid-bound-test.yaml",
+      "accepted": true,
+      "diagnostic_contains": null,
+      "reference_errors": [],
+      "sha256": "ce62535afd3dd12d81488972ed943589df903acaf075e26a4b6d351473d17f03"
+    },
+    {
+      "name": "valid-narrow-ownership-test",
+      "target": "validation/register/tests/TST-009.yaml",
+      "fixture": "cases/registry/valid-narrow-ownership-test.yaml",
+      "accepted": true,
+      "diagnostic_contains": null,
+      "reference_errors": [],
+      "sha256": "0a1d0d4d58dd0ae66265fd07fe9c1fec46d887cf50665e68be64ba0c2af17f7e"
+    },
+    {
+      "name": "duplicate-key",
+      "target": "validation/register/tests/TST-001.yaml",
+      "fixture": "cases/registry/duplicate-key.yaml",
+      "accepted": false,
+      "diagnostic_contains": "duplicate YAML key",
+      "reference_errors": [
+        "validation/register/tests/TST-001.yaml: duplicate YAML key: id"
+      ],
+      "sha256": "d193b74b119debe9331f268fb14d85ab5753c8a62c680202d162df5955eeab9b"
+    },
+    {
+      "name": "unknown-field",
+      "target": "validation/register/tests/TST-001.yaml",
+      "fixture": "cases/registry/unknown-field.yaml",
+      "accepted": false,
+      "diagnostic_contains": "Additional properties",
+      "reference_errors": [
+        "validation/register/tests/TST-001.yaml:: Additional properties are not allowed ('approved' was unexpected)"
+      ],
+      "sha256": "6732a622786f34fe6778ec7c16c08b5d74f1751b9eabab898bd14bcddc3119d4"
+    },
+    {
+      "name": "invalid-date",
+      "target": "validation/register/tests/TST-001.yaml",
+      "fixture": "cases/registry/invalid-date.yaml",
+      "accepted": false,
+      "diagnostic_contains": "not a 'date'",
+      "reference_errors": [
+        "validation/register/tests/TST-001.yaml:revision_history.1.date: '2026-02-30' is not a 'date'"
+      ],
+      "sha256": "78ecd504e723f4bf8660bcda25aa1042b8922baaffaa08f2005b6762c14e90eb"
+    },
+    {
+      "name": "stale-experiment-reference",
+      "target": "validation/register/tests/TST-001.yaml",
+      "fixture": "cases/registry/stale-experiment-reference.yaml",
+      "accepted": false,
+      "diagnostic_contains": "stale planning reference",
+      "reference_errors": [
+        "TST-001: stale planning reference: EXP-001"
+      ],
+      "sha256": "0a94cd67fd738787a24d2b0a91f89ed93541607a387fc9e051b7caf024c48247"
+    },
+    {
+      "name": "missing-oracle",
+      "target": "validation/register/tests/TST-001.yaml",
+      "fixture": "cases/registry/missing-oracle.yaml",
+      "accepted": false,
+      "diagnostic_contains": "should be non-empty",
+      "reference_errors": [
+        "validation/register/tests/TST-001.yaml:oracle.description: '' should be non-empty"
+      ],
+      "sha256": "13be441ac72acaa0777990aa12eba6473402aad280c99d15d6d8ef8ad295cf57"
+    },
+    {
+      "name": "revision-history-gap",
+      "target": "validation/register/tests/TST-001.yaml",
+      "fixture": "cases/registry/revision-history-gap.yaml",
+      "accepted": false,
+      "diagnostic_contains": "revision history must account",
+      "reference_errors": [
+        "VAL-012: stale planning reference: TST-001",
+        "EXP-001: stale planning reference: TST-001",
+        "TST-001: revision history must account for every revision"
+      ],
+      "sha256": "8d252e92f432d2f7f62cdbbd98d4d5aed23502c47865e9d70509a98bb98db3fd"
+    },
+    {
+      "name": "unbound-with-command",
+      "target": "validation/register/tests/TST-001.yaml",
+      "fixture": "cases/registry/unbound-with-command.yaml",
+      "accepted": false,
+      "diagnostic_contains": "not of type 'null'",
+      "reference_errors": [
+        "validation/register/tests/TST-001.yaml:execution_binding.implementation_path: 'experiments/exp-001-spsc-queue/tests/queue_contracts.rs' is not of type 'null'",
+        "validation/register/tests/TST-001.yaml:execution_binding.entrypoint: 'python3 scripts/run_exp001_test.py fifo_exactly_once' is not of type 'null'"
+      ],
+      "sha256": "52656e83b5922a8b9c92dc807adf6abe0f438f85248b3ead4dde1ff7c8370be6"
+    },
+    {
+      "name": "scope-outside-experiment",
+      "target": "validation/register/tests/TST-001.yaml",
+      "fixture": "cases/registry/scope-outside-experiment.yaml",
+      "accepted": false,
+      "diagnostic_contains": "test applies to a validation outside its experiment",
+      "reference_errors": [
+        "VAL-012: validation/test applicability is not reciprocal",
+        "TST-001: test applies to a validation outside its experiment"
+      ],
+      "sha256": "a7c42ee45e9a4d4de0c4e53c9f504b0e09804956d943811ab58fc401f162fed8"
+    }
+  ],
+  "aggregate_cases": [
+    {
+      "outcomes": [],
+      "flags": {},
+      "expected": "incomplete"
+    },
+    {
+      "outcomes": [
+        "passed"
+      ],
+      "flags": {},
+      "expected": "passed"
+    },
+    {
+      "outcomes": [
+        "passed",
+        "skipped"
+      ],
+      "flags": {},
+      "expected": "incomplete"
+    },
+    {
+      "outcomes": [
+        "passed",
+        "failed"
+      ],
+      "flags": {},
+      "expected": "failed"
+    },
+    {
+      "outcomes": [
+        "failed",
+        "error"
+      ],
+      "flags": {},
+      "expected": "error"
+    },
+    {
+      "outcomes": [
+        "passed"
+      ],
+      "flags": {
+        "source_changed": true
+      },
+      "expected": "error"
+    },
+    {
+      "outcomes": [
+        "passed"
+      ],
+      "flags": {
+        "infrastructure_error": true
+      },
+      "expected": "error"
+    },
+    {
+      "outcomes": [
+        "failed",
+        "error"
+      ],
+      "flags": {
+        "aborted": true
+      },
+      "expected": "aborted"
+    }
+  ],
+  "generated_outputs": [
+    {
+      "path": "docs/10-validation-lab/index.md",
+      "fixture": "golden/docs/10-validation-lab/index.md",
+      "sha256": "af677fa04605db0325903cc9f0d11d3a4181627934aa4025536499d222532e32"
+    },
+    {
+      "path": "docs/10-validation-lab/validation-coverage.md",
+      "fixture": "golden/docs/10-validation-lab/validation-coverage.md",
+      "sha256": "2f8d52e8eeaea0d5ade9b2931d18812abe1e72e70d88579ad999aa298745c3e1"
+    },
+    {
+      "path": "docs/10-validation-lab/experiment-register.md",
+      "fixture": "golden/docs/10-validation-lab/experiment-register.md",
+      "sha256": "eb40f00b035a269a22a2b5c18b1ffeca7d644692519d8e7da882ecfa76c82939"
+    },
+    {
+      "path": "docs/10-validation-lab/test-register.md",
+      "fixture": "golden/docs/10-validation-lab/test-register.md",
+      "sha256": "8fe605c48e527020686b10e104b3c8cb1e175f9594b7037cb5b136b3b3dd3dad"
+    },
+    {
+      "path": "docs/10-validation-lab/execution-register.md",
+      "fixture": "golden/docs/10-validation-lab/execution-register.md",
+      "sha256": "400681abf29e666518df601e0274ac13387f0891d3d0df8ebf7bafd2a7fdae84"
+    },
+    {
+      "path": "docs/10-validation-lab/evidence-register.md",
+      "fixture": "golden/docs/10-validation-lab/evidence-register.md",
+      "sha256": "7aee4379795049a732dad8e2b6b7a7eeaff4cb3a2fd12ce6b74a8b432d44fc07"
+    },
+    {
+      "path": "docs/10-validation-lab/validation-results.md",
+      "fixture": "golden/docs/10-validation-lab/validation-results.md",
+      "sha256": "e590cefc3f3a0db580026ffaff93153ce26e58df2f19f8d8cf92c5f79f5fcb8e"
+    },
+    {
+      "path": "docs/10-validation-lab/environment-profiles.md",
+      "fixture": "golden/docs/10-validation-lab/environment-profiles.md",
+      "sha256": "db46f0808c58acbba2a8a2e6e56e3bd8be416736b14cc8ff386aec014b12ba86"
+    },
+    {
+      "path": "docs/00-governance/validation-coverage.md",
+      "fixture": "golden/docs/00-governance/validation-coverage.md",
+      "sha256": "245e4ae0797db58625b04bf4df56317bff6bf6827ec3412ce239aa7317f4939b"
+    },
+    {
+      "path": "docs/00-governance/validation-tests.md",
+      "fixture": "golden/docs/00-governance/validation-tests.md",
+      "sha256": "bdab6d172276100e6ca6de7787d1451b11ee5a083b7f702aebef61c7b0814264"
+    },
+    {
+      "path": "docs/10-validation-lab/experiments/EXP-001.md",
+      "fixture": "golden/docs/10-validation-lab/experiments/EXP-001.md",
+      "sha256": "ce4ee307745a60fbac8de3495d08e90785b1372678ec4e410c43f96a849580ae"
+    },
+    {
+      "path": "docs/10-validation-lab/experiments/EXP-002.md",
+      "fixture": "golden/docs/10-validation-lab/experiments/EXP-002.md",
+      "sha256": "a466b5f7e0968a4eaf59b831fe6d67501315a6afd703c585482f04a674991b47"
+    },
+    {
+      "path": "docs/10-validation-lab/experiments/EXP-003.md",
+      "fixture": "golden/docs/10-validation-lab/experiments/EXP-003.md",
+      "sha256": "b91ec40f0c04720ee97b74cdd3786096bf849dc817406829bc6f374c3ee19958"
+    },
+    {
+      "path": "docs/10-validation-lab/experiments/EXP-005.md",
+      "fixture": "golden/docs/10-validation-lab/experiments/EXP-005.md",
+      "sha256": "383379bd0a05cfbf3d70a816c3097b2b26cb7fd4f2cf536c9d15165444d1298c"
+    },
+    {
+      "path": "docs/10-validation-lab/experiments/EXP-006.md",
+      "fixture": "golden/docs/10-validation-lab/experiments/EXP-006.md",
+      "sha256": "39585f5bf6acef9f8cefba6fc6142c9d7b7fcbd8c1a1b694ca95cd35ba41728b"
+    },
+    {
+      "path": "docs/10-validation-lab/experiments/EXP-007.md",
+      "fixture": "golden/docs/10-validation-lab/experiments/EXP-007.md",
+      "sha256": "cc7d9ba2720445b432e7b3f54606dce486cb01ba5e8934dac3fdb44225eedd19"
+    },
+    {
+      "path": "docs/10-validation-lab/experiments/EXP-008.md",
+      "fixture": "golden/docs/10-validation-lab/experiments/EXP-008.md",
+      "sha256": "ed7c75ccf27e9db2ed68375c70716ecc7522a0cd32dd353a8c48f457c4740ddc"
+    },
+    {
+      "path": "docs/10-validation-lab/experiments/EXP-009.md",
+      "fixture": "golden/docs/10-validation-lab/experiments/EXP-009.md",
+      "sha256": "37b3228d346050cb8751445f3a0064099b62f2950ea896cd03e4c63a28f28ac1"
+    },
+    {
+      "path": "docs/10-validation-lab/experiments/EXP-010.md",
+      "fixture": "golden/docs/10-validation-lab/experiments/EXP-010.md",
+      "sha256": "b3d3a3628d84ebf12ef4cf5a35a873768ab87f44d24d674fdb3fed393db594c8"
+    },
+    {
+      "path": "docs/10-validation-lab/experiments/EXP-011.md",
+      "fixture": "golden/docs/10-validation-lab/experiments/EXP-011.md",
+      "sha256": "06b1ffa07737450659483ede8aee3e269d0cfd6eaaad22da824ad0569b0c5739"
+    },
+    {
+      "path": "docs/10-validation-lab/experiments/EXP-012.md",
+      "fixture": "golden/docs/10-validation-lab/experiments/EXP-012.md",
+      "sha256": "df27e293c18f74b3740798227336e9096a46b0d4d42773e45774ae085bac0dfc"
+    },
+    {
+      "path": "docs/10-validation-lab/experiments/EXP-013.md",
+      "fixture": "golden/docs/10-validation-lab/experiments/EXP-013.md",
+      "sha256": "35e0472e772f8dfa612bcf3341764b22d63673bc4dfd6933aa6b1f9b48abfd05"
+    },
+    {
+      "path": "docs/10-validation-lab/experiments/EXP-014.md",
+      "fixture": "golden/docs/10-validation-lab/experiments/EXP-014.md",
+      "sha256": "17b06ba1d9e44b4c8d4e01cd94bf05ecad134688f6de5da3a38e5113a8d7cc33"
+    },
+    {
+      "path": "docs/10-validation-lab/experiments/EXP-015.md",
+      "fixture": "golden/docs/10-validation-lab/experiments/EXP-015.md",
+      "sha256": "602381c2657f0a26b7af95ded6262f6c3c144c601bc0ef855dfff2a66106461c"
+    },
+    {
+      "path": "docs/10-validation-lab/experiments/EXP-016.md",
+      "fixture": "golden/docs/10-validation-lab/experiments/EXP-016.md",
+      "sha256": "13a61b8f5221db693bb0a7b756891182034fe0d116105047b0840b758621eab4"
+    },
+    {
+      "path": "docs/10-validation-lab/experiments/EXP-017.md",
+      "fixture": "golden/docs/10-validation-lab/experiments/EXP-017.md",
+      "sha256": "baf34efab0e3811224eb579a26218c51ce0380ac36937ae9346f7935bfa5f963"
+    },
+    {
+      "path": "docs/10-validation-lab/experiments/EXP-018.md",
+      "fixture": "golden/docs/10-validation-lab/experiments/EXP-018.md",
+      "sha256": "dcdfb19827f7d382868e583af3fcbb74ff14c2b5716babcc7e5f6e4d0a883215"
+    },
+    {
+      "path": "docs/10-validation-lab/experiments/EXP-019.md",
+      "fixture": "golden/docs/10-validation-lab/experiments/EXP-019.md",
+      "sha256": "a14d2fbde66f88d47728e32391caa499eb2c5806fcf613a81287a4d55493dd69"
+    },
+    {
+      "path": "docs/10-validation-lab/experiments/EXP-020.md",
+      "fixture": "golden/docs/10-validation-lab/experiments/EXP-020.md",
+      "sha256": "3a1dc10c7d4f2bb92fccb9ccdc6eb780b1bef3c06a635190930a10259803d8a4"
+    },
+    {
+      "path": "docs/10-validation-lab/experiments/EXP-021.md",
+      "fixture": "golden/docs/10-validation-lab/experiments/EXP-021.md",
+      "sha256": "8eceb52164c78cc2052febbcd20792dc5d67001e901cc902e46e674fb5472231"
+    },
+    {
+      "path": "docs/10-validation-lab/experiments/EXP-022.md",
+      "fixture": "golden/docs/10-validation-lab/experiments/EXP-022.md",
+      "sha256": "83fc0225afeda5bcab8db66bc3ed299c699b1d69b48554b3e67414290f5b2b2c"
+    },
+    {
+      "path": "docs/10-validation-lab/experiments/EXP-023.md",
+      "fixture": "golden/docs/10-validation-lab/experiments/EXP-023.md",
+      "sha256": "8f26e9af006be5c625ed006b2c919bc05921144701038c5a97305a322761e4be"
+    },
+    {
+      "path": "docs/10-validation-lab/experiments/EXP-024.md",
+      "fixture": "golden/docs/10-validation-lab/experiments/EXP-024.md",
+      "sha256": "3ad73000bbbb97c81d6c00a98ad185caa4a3ba7c5ecfde1d7e5f919b6279dee4"
+    },
+    {
+      "path": "docs/10-validation-lab/experiments/EXP-025.md",
+      "fixture": "golden/docs/10-validation-lab/experiments/EXP-025.md",
+      "sha256": "d6b696da1750ef9e89211130d0ba2c549690ccb3f5ba630f9a0c2863b23622a2"
+    },
+    {
+      "path": "docs/10-validation-lab/experiments/EXP-026.md",
+      "fixture": "golden/docs/10-validation-lab/experiments/EXP-026.md",
+      "sha256": "53310eb96aed5a21c4cddfb43c700c73de1b2376ccf20335eddbf032ef2fad2a"
+    },
+    {
+      "path": "docs/10-validation-lab/experiments/EXP-027.md",
+      "fixture": "golden/docs/10-validation-lab/experiments/EXP-027.md",
+      "sha256": "331cbc4386ff73ac519a3e9aa3eb852973da4d712f4ac4eb7612e4a52473f0e4"
+    },
+    {
+      "path": "docs/10-validation-lab/experiments/EXP-028.md",
+      "fixture": "golden/docs/10-validation-lab/experiments/EXP-028.md",
+      "sha256": "da81977ef498aa54cf5f1cd12f4cfd6dc7f80605285c5735d87e65bcc5c53f82"
+    },
+    {
+      "path": "docs/10-validation-lab/experiments/EXP-029.md",
+      "fixture": "golden/docs/10-validation-lab/experiments/EXP-029.md",
+      "sha256": "f0654f8c1a32b8d551c142b01aa71c81c1bdb04b3499b6bb6b408fbcbbe7d8f4"
+    },
+    {
+      "path": "docs/10-validation-lab/experiments/EXP-030.md",
+      "fixture": "golden/docs/10-validation-lab/experiments/EXP-030.md",
+      "sha256": "52cf4d568b3e298c99a434fb6d0e701290ef461cb4d49bd21a544718428d9944"
+    },
+    {
+      "path": "mkdocs.yml",
+      "fixture": "golden/mkdocs.yml",
+      "sha256": "f19fc90fbe8f18138f8b97f4fcfad45bef52c5f665c2db2cc942d5704a1da90f"
+    }
+  ],
+  "comparison_policy": {
+    "registry": "Compare acceptance/rejection and diagnostic category/fragment; do not require Python-specific diagnostic formatting.",
+    "documentation": "Compare generated UTF-8 content byte for byte, including navigation; approved intentional changes require reviewed fixture updates.",
+    "historical_evidence": "Resolve source/schema definitions at recorded commits; never rewrite original manifests or artifacts."
+  },
+  "reference_environment": {
+    "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+    "PyYAML": "6.0.3",
+    "jsonschema": "4.26.0",
+    "dependency_lockfile": "uv.lock at reference_commit"
+  }
+}

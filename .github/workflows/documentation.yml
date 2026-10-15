@@ -7,8 +7,11 @@ on:
       - "docs/**"
       - "research/**"
       - "experiments/**"
+      - "crates/**"
+      - ".cargo/**"
+      - "Cargo.toml"
+      - "Cargo.lock"
       - "validation/**"
-      - "scripts/**"
       - "tests/**"
       - "mkdocs.yml"
       - "pyproject.toml"
@@ -23,8 +26,11 @@ on:
       - "docs/**"
       - "research/**"
       - "experiments/**"
+      - "crates/**"
+      - ".cargo/**"
+      - "Cargo.toml"
+      - "Cargo.lock"
       - "validation/**"
-      - "scripts/**"
       - "tests/**"
       - "mkdocs.yml"
       - "pyproject.toml"
@@ -60,10 +66,16 @@ jobs:
           cache-dependency-glob: uv.lock
       - name: Set up Python
         run: uv python install
-      - name: Install locked documentation and validation dependencies
-        run: uv sync --locked --extra docs --extra validation
-      - name: Check registries, generated documentation, regressions and rendered links
-        run: uv run --locked --extra docs --extra validation python scripts/check_documentation.py
+      - name: Install locked documentation dependencies
+        run: uv sync --locked --extra docs
+      - name: Prepare locked Rust tooling and lint
+        run: |
+          rustup toolchain install stable --profile minimal --component rustfmt --component clippy
+          cargo +stable fetch --locked
+          cargo +stable fmt --all --check
+          cargo +stable clippy --offline --locked --workspace --all-targets -- -D warnings
+      - name: Run the shared Rust documentation and validation gate
+        run: cargo +stable run --offline --locked -p chronoshft-lab -- check
       - name: Upload GitHub Pages artifact
         if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
         uses: actions/upload-pages-artifact@v4
