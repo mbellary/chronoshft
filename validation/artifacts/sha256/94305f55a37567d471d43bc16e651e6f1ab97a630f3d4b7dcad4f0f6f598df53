@@ -1,0 +1,8 @@
+Build: cargo test --offline --locked --manifest-path experiments/Cargo.toml -p exp-001-spsc-queue --test queue_contracts --no-run --message-format=json
+Execute: /home/mbellary/work/projects/chronoshft/experiments/target/debug/deps/queue_contracts-8670e2876f309fad capacity_before_write --exact --nocapture
+
+running 1 test
+test capacity_before_write ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 3 filtered out; finished in 0.01s
+

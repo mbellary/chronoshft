@@ -1,0 +1,22 @@
+schema_version: 1
+id: EVD-exp001-local-001-003
+kind: other
+provenance:
+  execution_id: RUN-exp001-local-001
+  description: Actual toolchain command error output
+  source_version: fcb538e7817d54766a18859a593ffd50046a8c8d
+  retrieved_at: '2026-10-15T09:50:47.537959Z'
+artifact:
+  uri: repo://validation/artifacts/sha256/e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+  sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+  size_bytes: 0
+  media_type: text/plain
+  retention_location: Repository content-addressed artifact
+  access: Repository checkout
+supports:
+- validation:
+    id: VAL-012
+    revision: 4
+    registry_commit: fcb538e7817d54766a18859a593ffd50046a8c8d
+  scope: Actual toolchain command error output
+supersedes: null

@@ -135,6 +135,28 @@ pins. Passing these cases covers sequential behavior only. Mutex contention,
 concurrent publication, allocator failure injection, disconnection and performance
 remain outside this experiment. VAL-012 and VAL-013 remain pending.
 
+## EXP-001 observation and coverage review
+
+`RUN-exp001-local-001` records four passing cases against source/registry commit
+`fcb538e7817d54766a18859a593ffd50046a8c8d`, EXP-001 r3 and TST-001–004 r2.
+Its 16 artifact manifests retain toolchain observations, the resolved plan,
+per-case logs/reports and the final run report. Content hashes are checked by
+the evidence gate. This is an engineering observation review by Codex, not a
+human validation decision or architecture approval.
+
+| Question | Observed support | Limits |
+| --- | --- | --- |
+| HYP-001: admission before modifying unread entries | Rejected pushes returned their original events; later drains matched the independent accepted ledger. Source inspection places the full check before the slot assignment. Constructor fixtures reject zero and oversized sizes. | Sequential samples at capacities 1, 2, 3, 7, 32 and 4096; no exhaustive proof for every intermediate size, allocator exhaustion or concurrent interleaving. |
+| HYP-002: FIFO and exactly-once delivery | All four cases passed their applicable checks. TST-001 compared 192 distinct accepted/consumed identities; TST-003 compared each action with an independent deque over partial-drain and seeded schedules, with at least four complete write traversals per capacity. | Finite deterministic schedules; no concurrent publication proof, monotonic-counter rollover experiment or performance conclusion. |
+| VAL-012 closure | Four of its eleven mandatory tests have passing observations; the prototype rejects individual full pushes before writes. | TST-005–008 and TST-010–012 remain unexecuted. EXP-002 must address sustained saturation policy; EXP-003 must address publication. Disposition remains pending. |
+| VAL-013 closure | No applicable mandatory case was executed by this run. | TST-009–012 remain unbound and unexecuted; this experiment supplies no ownership-proof acceptance. Disposition remains pending. |
+
+The safe Rust implementation uses preallocated bounded slot indexes and a mutex.
+This addresses the prototype's sequential admission boundary while retaining the
+original research finding unchanged. DEC-003 and DEC-006 still need explicit
+architecture decisions. A passing isolated prototype does not establish that a
+production ingestion path satisfies this contract.
+
 ## Next stage
 
 Stage 10 implements EXP-002, the full-ring and slow-consumer overload investigation,

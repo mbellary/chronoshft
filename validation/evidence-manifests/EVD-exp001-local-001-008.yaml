@@ -1,0 +1,22 @@
+schema_version: 1
+id: EVD-exp001-local-001-008
+kind: test_report
+provenance:
+  execution_id: RUN-exp001-local-001
+  description: TST-002 standard error
+  source_version: fcb538e7817d54766a18859a593ffd50046a8c8d
+  retrieved_at: '2026-10-15T09:50:47.850417Z'
+artifact:
+  uri: repo://validation/artifacts/sha256/f2255e993bb15deccd32e10b261c870c47a400e0a85642ae35c2ce1d03e84f31
+  sha256: f2255e993bb15deccd32e10b261c870c47a400e0a85642ae35c2ce1d03e84f31
+  size_bytes: 73
+  media_type: text/plain
+  retention_location: Repository content-addressed artifact
+  access: Repository checkout
+supports:
+- validation:
+    id: VAL-012
+    revision: 4
+    registry_commit: fcb538e7817d54766a18859a593ffd50046a8c8d
+  scope: TST-002 standard error
+supersedes: null

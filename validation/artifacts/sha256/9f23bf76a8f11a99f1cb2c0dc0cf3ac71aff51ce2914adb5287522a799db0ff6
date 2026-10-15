@@ -1,0 +1,13 @@
+TST-004: sequential bounded queue observations
+requested=0; expected=Err(Zero); actual=Err(Zero)
+requested=1; expected=Ok(()); actual=Ok(1)
+exact_usable=1; extra_returned; FIFO drain verified; bytes_checked=Some(16)
+requested=2; expected=Ok(()); actual=Ok(2)
+exact_usable=2; extra_returned; FIFO drain verified; bytes_checked=Some(32)
+requested=3; expected=Ok(()); actual=Ok(3)
+exact_usable=3; extra_returned; FIFO drain verified; bytes_checked=Some(48)
+requested=4096; expected=Ok(()); actual=Ok(4096)
+exact_usable=4096; extra_returned; FIFO drain verified; bytes_checked=Some(65536)
+requested=4097; expected=Err(TooLarge); actual=Err(TooLarge)
+requested=18446744073709551615; expected=Err(TooLarge); actual=Err(TooLarge)
+PASS: zero and oversized rejected; all integer sizes including non-powers-of-two supported within 1..=4096; allocation failure injection excluded

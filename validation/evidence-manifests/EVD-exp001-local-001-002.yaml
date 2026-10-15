@@ -1,0 +1,22 @@
+schema_version: 1
+id: EVD-exp001-local-001-002
+kind: other
+provenance:
+  execution_id: RUN-exp001-local-001
+  description: Actual toolchain command output
+  source_version: fcb538e7817d54766a18859a593ffd50046a8c8d
+  retrieved_at: '2026-10-15T09:50:47.536941Z'
+artifact:
+  uri: repo://validation/artifacts/sha256/169b5adf9d8dfdf89e8845dad9b54856277023c4791f6bcb5b6a235716a5b205
+  sha256: 169b5adf9d8dfdf89e8845dad9b54856277023c4791f6bcb5b6a235716a5b205
+  size_bytes: 586
+  media_type: text/plain
+  retention_location: Repository content-addressed artifact
+  access: Repository checkout
+supports:
+- validation:
+    id: VAL-012
+    revision: 4
+    registry_commit: fcb538e7817d54766a18859a593ffd50046a8c8d
+  scope: Actual toolchain command output
+supersedes: null

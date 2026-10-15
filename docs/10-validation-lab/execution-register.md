@@ -6,4 +6,65 @@ Runs record observations for pinned experiment/test definitions. Failed, skipped
 
 ## Execution register
 
-No executions recorded. The planned tests are unexecuted; no run result is inferred from documentation or registry checks.
+| Run | Experiment revision | Started (UTC) | Recorded outcome | Test outcomes | Evidence |
+| --- | --- | --- | --- | --- | --- |
+| [RUN-exp001-local-001](execution-register.md#run-exp001-local-001) | [EXP-001](experiments/EXP-001.md) r3 | 2026-10-15T09:50:47.417537Z | passed | 4 | [EVD-exp001-local-001-001](evidence-register.md#evd-exp001-local-001-001), [EVD-exp001-local-001-002](evidence-register.md#evd-exp001-local-001-002), [EVD-exp001-local-001-003](evidence-register.md#evd-exp001-local-001-003), [EVD-exp001-local-001-004](evidence-register.md#evd-exp001-local-001-004), [EVD-exp001-local-001-005](evidence-register.md#evd-exp001-local-001-005), [EVD-exp001-local-001-006](evidence-register.md#evd-exp001-local-001-006), [EVD-exp001-local-001-007](evidence-register.md#evd-exp001-local-001-007), [EVD-exp001-local-001-008](evidence-register.md#evd-exp001-local-001-008), [EVD-exp001-local-001-009](evidence-register.md#evd-exp001-local-001-009), [EVD-exp001-local-001-010](evidence-register.md#evd-exp001-local-001-010), [EVD-exp001-local-001-011](evidence-register.md#evd-exp001-local-001-011), [EVD-exp001-local-001-012](evidence-register.md#evd-exp001-local-001-012), [EVD-exp001-local-001-013](evidence-register.md#evd-exp001-local-001-013), [EVD-exp001-local-001-014](evidence-register.md#evd-exp001-local-001-014), [EVD-exp001-local-001-015](evidence-register.md#evd-exp001-local-001-015), [EVD-exp001-local-001-016](evidence-register.md#evd-exp001-local-001-016) |
+
+## RUN-exp001-local-001 { #run-exp001-local-001 }
+
+**Recorded outcome:** passed. **Time:** 2026-10-15T09:50:47.417537Z to 2026-10-15T09:50:48.200636Z.
+
+**Registry commit:** `fcb538e7817d54766a18859a593ffd50046a8c8d`. **Implementation commit:** `fcb538e7817d54766a18859a593ffd50046a8c8d`. **Dirty:** false.
+
+**Working directory:** .. **Source/input changed during run:** false.
+
+**Exact recorded procedure**
+
+- Working directory: .
+- Toolchain probe: python3 scripts/rust_toolchain_manifest.py
+- python3 scripts/run_exp001_test.py fifo_exactly_once
+- python3 scripts/run_exp001_test.py capacity_before_write
+- python3 scripts/run_exp001_test.py wraparound_partial_drains
+- python3 scripts/run_exp001_test.py capacity_configuration
+
+| Test revision | Recorded outcome | Exit | Duration (s) | Details | Evidence |
+| --- | --- | --- | --- | --- | --- |
+| [TST-001](experiments/EXP-001.md#tst-001) r2 | passed | 0 | 0.164865 | Bound process exited with code 0 | [EVD-exp001-local-001-004](evidence-register.md#evd-exp001-local-001-004), [EVD-exp001-local-001-005](evidence-register.md#evd-exp001-local-001-005), [EVD-exp001-local-001-006](evidence-register.md#evd-exp001-local-001-006) |
+| [TST-002](experiments/EXP-001.md#tst-002) r2 | passed | 0 | 0.114649 | Bound process exited with code 0 | [EVD-exp001-local-001-007](evidence-register.md#evd-exp001-local-001-007), [EVD-exp001-local-001-008](evidence-register.md#evd-exp001-local-001-008), [EVD-exp001-local-001-009](evidence-register.md#evd-exp001-local-001-009) |
+| [TST-003](experiments/EXP-001.md#tst-003) r2 | passed | 0 | 0.165242 | Bound process exited with code 0 | [EVD-exp001-local-001-010](evidence-register.md#evd-exp001-local-001-010), [EVD-exp001-local-001-011](evidence-register.md#evd-exp001-local-001-011), [EVD-exp001-local-001-012](evidence-register.md#evd-exp001-local-001-012) |
+| [TST-004](experiments/EXP-001.md#tst-004) r2 | passed | 0 | 0.114755 | Bound process exited with code 0 | [EVD-exp001-local-001-013](evidence-register.md#evd-exp001-local-001-013), [EVD-exp001-local-001-014](evidence-register.md#evd-exp001-local-001-014), [EVD-exp001-local-001-015](evidence-register.md#evd-exp001-local-001-015) |
+
+**Case commands**
+
+- TST-001: ["python3", "scripts/run_exp001_test.py", "fifo_exactly_once"]
+- TST-002: ["python3", "scripts/run_exp001_test.py", "capacity_before_write"]
+- TST-003: ["python3", "scripts/run_exp001_test.py", "wraparound_partial_drains"]
+- TST-004: ["python3", "scripts/run_exp001_test.py", "capacity_configuration"]
+
+**Inputs**
+
+- prototype contract: repo://experiments/exp-001-spsc-queue/README.md · SHA-256 `0bf3d7f9f006024c8eb3d31a56fa2c69215e470e3bca1e4a13a5564a16177095`
+- independent model and schedules: repo://experiments/exp-001-spsc-queue/tests/queue_contracts.rs · SHA-256 `aae3f0fc31f0a4395cf6c05fa954103f370f9e4d76ea523f9642b6f4474df0e6`
+- build and single-case runner: repo://scripts/run_exp001_test.py · SHA-256 `7952272e2b88d8c61311f8cf87d0260b4ca8d0788c6b9e1d41e681bf7eb68c6e`
+
+**Dependency lockfiles**
+
+- experiments/Cargo.lock · SHA-256 `edd5197e4537ca278f8077801c589fdee0b24c034efdcd50939ea069c631cb9a`
+
+**Seeds:** 24301.
+
+**Instrumentation:** Rust assertions, independent VecDeque/identity ledgers, per-operation text reports, captured stdout/stderr and actual rustc/cargo versions.
+
+**Failures**
+
+None recorded.
+
+**Skips**
+
+None recorded.
+
+**Tool errors**
+
+None recorded.
+
+**Supersedes:** None. Originals remain retained.

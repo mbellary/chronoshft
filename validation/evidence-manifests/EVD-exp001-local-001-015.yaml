@@ -1,0 +1,22 @@
+schema_version: 1
+id: EVD-exp001-local-001-015
+kind: test_report
+provenance:
+  execution_id: RUN-exp001-local-001
+  description: TST-004 declared output target/validation-reports/TST-004.txt
+  source_version: fcb538e7817d54766a18859a593ffd50046a8c8d
+  retrieved_at: '2026-10-15T09:50:48.187984Z'
+artifact:
+  uri: repo://validation/artifacts/sha256/9f23bf76a8f11a99f1cb2c0dc0cf3ac71aff51ce2914adb5287522a799db0ff6
+  sha256: 9f23bf76a8f11a99f1cb2c0dc0cf3ac71aff51ce2914adb5287522a799db0ff6
+  size_bytes: 869
+  media_type: application/octet-stream
+  retention_location: Repository content-addressed artifact
+  access: Repository checkout
+supports:
+- validation:
+    id: VAL-012
+    revision: 4
+    registry_commit: fcb538e7817d54766a18859a593ffd50046a8c8d
+  scope: TST-004 declared output target/validation-reports/TST-004.txt
+supersedes: null

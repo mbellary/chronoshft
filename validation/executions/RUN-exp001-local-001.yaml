@@ -1,0 +1,172 @@
+schema_version: 1
+id: RUN-exp001-local-001
+started_at: '2026-10-15T09:50:47.417537Z'
+ended_at: '2026-10-15T09:50:48.200636Z'
+experiment:
+  id: EXP-001
+  revision: 3
+  registry_commit: fcb538e7817d54766a18859a593ffd50046a8c8d
+working_directory: .
+tests:
+- test:
+    id: TST-001
+    revision: 2
+    registry_commit: fcb538e7817d54766a18859a593ffd50046a8c8d
+  outcome: passed
+  details: Bound process exited with code 0
+  command:
+  - python3
+  - scripts/run_exp001_test.py
+  - fifo_exactly_once
+  exit_code: 0
+  duration_seconds: 0.16486515500037058
+  evidence_ids:
+  - EVD-exp001-local-001-004
+  - EVD-exp001-local-001-005
+  - EVD-exp001-local-001-006
+- test:
+    id: TST-002
+    revision: 2
+    registry_commit: fcb538e7817d54766a18859a593ffd50046a8c8d
+  outcome: passed
+  details: Bound process exited with code 0
+  command:
+  - python3
+  - scripts/run_exp001_test.py
+  - capacity_before_write
+  exit_code: 0
+  duration_seconds: 0.11464948299908428
+  evidence_ids:
+  - EVD-exp001-local-001-007
+  - EVD-exp001-local-001-008
+  - EVD-exp001-local-001-009
+- test:
+    id: TST-003
+    revision: 2
+    registry_commit: fcb538e7817d54766a18859a593ffd50046a8c8d
+  outcome: passed
+  details: Bound process exited with code 0
+  command:
+  - python3
+  - scripts/run_exp001_test.py
+  - wraparound_partial_drains
+  exit_code: 0
+  duration_seconds: 0.16524178300096537
+  evidence_ids:
+  - EVD-exp001-local-001-010
+  - EVD-exp001-local-001-011
+  - EVD-exp001-local-001-012
+- test:
+    id: TST-004
+    revision: 2
+    registry_commit: fcb538e7817d54766a18859a593ffd50046a8c8d
+  outcome: passed
+  details: Bound process exited with code 0
+  command:
+  - python3
+  - scripts/run_exp001_test.py
+  - capacity_configuration
+  exit_code: 0
+  duration_seconds: 0.11475492099998519
+  evidence_ids:
+  - EVD-exp001-local-001-013
+  - EVD-exp001-local-001-014
+  - EVD-exp001-local-001-015
+outcome: passed
+procedure:
+- 'Working directory: .'
+- 'Toolchain probe: python3 scripts/rust_toolchain_manifest.py'
+- python3 scripts/run_exp001_test.py fifo_exactly_once
+- python3 scripts/run_exp001_test.py capacity_before_write
+- python3 scripts/run_exp001_test.py wraparound_partial_drains
+- python3 scripts/run_exp001_test.py capacity_configuration
+source:
+  implementation_commit: fcb538e7817d54766a18859a593ffd50046a8c8d
+  registry_commit: fcb538e7817d54766a18859a593ffd50046a8c8d
+  dirty: false
+  changed_during_run: false
+  patch_evidence_id: null
+  dependency_lockfiles:
+  - path: experiments/Cargo.lock
+    sha256: edd5197e4537ca278f8077801c589fdee0b24c034efdcd50939ea069c631cb9a
+environment:
+  toolchain: 'rustc --version --verbose
+
+    rustc 1.99.0 (b940084d7 2026-09-28)
+
+    binary: rustc
+
+    commit-hash: b940084d7eb6a299eb4bfeb8e34901bc051e7ac4
+
+    commit-date: 2026-09-28
+
+    host: x86_64-unknown-linux-gnu
+
+    release: 1.99.0
+
+    LLVM version: 23.1.1
+
+    cargo --version --verbose
+
+    cargo 1.99.0 (5f94df478 2026-08-27)
+
+    release: 1.99.0
+
+    commit-hash: 5f94df4789f005f9a352888e8355ffc645b7ed0e
+
+    commit-date: 2026-08-27
+
+    host: x86_64-unknown-linux-gnu
+
+    libgit2: 1.9.6 (sys:0.21.0 vendored)
+
+    libcurl: 8.21.0-DEV (sys:0.4.90+curl-8.21.0 vendored ssl:OpenSSL/3.6.3)
+
+    ssl: OpenSSL 3.6.3 9 Jun 2026
+
+    os: Ubuntu 26.4.0 (resolute) [64-bit]'
+  os: Linux-7.0.0-38-generic-x86_64-with-glibc2.43
+  cpu: AMD Ryzen 7 PRO 4750U with Radeon Graphics
+  configuration: 'Sequential debug-profile prototype. Capacities 1..4096 events; mutex-backed ring; no
+    external Rust dependencies; offline locked Cargo. No performance acceptance. Reports include operation
+    traces, constructor matrix and native index width.
+
+    Process environment: {"CARGO_TERM_COLOR": "never", "CHRONOSHFT_REPORT_DIR": "target/validation-reports",
+    "HOME": "/home/mbellary", "LC_ALL": "C", "PATH": "/home/mbellary/.cargo/bin:/home/mbellary/.codex/tmp/arg0/codex-arg0Msl1oC:/home/mbellary/.cache/codex-runtimes/codex-primary-runtime/dependencies/bin/override:/home/mbellary/.cargo/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/mbellary/.cache/codex-runtimes/codex-primary-runtime/dependencies/bin/fallback:/usr/lib/chatgpt/resources",
+    "TZ": "UTC"}'
+  deviations: []
+inputs:
+- name: prototype contract
+  sha256: 0bf3d7f9f006024c8eb3d31a56fa2c69215e470e3bca1e4a13a5564a16177095
+  reference: repo://experiments/exp-001-spsc-queue/README.md
+- name: independent model and schedules
+  sha256: aae3f0fc31f0a4395cf6c05fa954103f370f9e4d76ea523f9642b6f4474df0e6
+  reference: repo://experiments/exp-001-spsc-queue/tests/queue_contracts.rs
+- name: build and single-case runner
+  sha256: 7952272e2b88d8c61311f8cf87d0260b4ca8d0788c6b9e1d41e681bf7eb68c6e
+  reference: repo://scripts/run_exp001_test.py
+random_seeds:
+- '24301'
+instrumentation: Rust assertions, independent VecDeque/identity ledgers, per-operation text reports, captured
+  stdout/stderr and actual rustc/cargo versions.
+evidence_ids:
+- EVD-exp001-local-001-001
+- EVD-exp001-local-001-002
+- EVD-exp001-local-001-003
+- EVD-exp001-local-001-004
+- EVD-exp001-local-001-005
+- EVD-exp001-local-001-006
+- EVD-exp001-local-001-007
+- EVD-exp001-local-001-008
+- EVD-exp001-local-001-009
+- EVD-exp001-local-001-010
+- EVD-exp001-local-001-011
+- EVD-exp001-local-001-012
+- EVD-exp001-local-001-013
+- EVD-exp001-local-001-014
+- EVD-exp001-local-001-015
+- EVD-exp001-local-001-016
+failures: []
+skips: []
+tool_errors: []
+supersedes: null

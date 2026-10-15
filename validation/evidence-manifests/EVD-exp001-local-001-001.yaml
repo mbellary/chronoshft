@@ -1,0 +1,22 @@
+schema_version: 1
+id: EVD-exp001-local-001-001
+kind: other
+provenance:
+  execution_id: RUN-exp001-local-001
+  description: Exact predeclared capture plan; not a technical conclusion
+  source_version: fcb538e7817d54766a18859a593ffd50046a8c8d
+  retrieved_at: '2026-10-15T09:50:47.419709Z'
+artifact:
+  uri: repo://validation/artifacts/sha256/f495fc48c7dd32fae4da7c901bd575fc4c51f54a7304511cb3c60e9e5a23e05a
+  sha256: f495fc48c7dd32fae4da7c901bd575fc4c51f54a7304511cb3c60e9e5a23e05a
+  size_bytes: 2135
+  media_type: text/plain
+  retention_location: Repository content-addressed artifact
+  access: Repository checkout
+supports:
+- validation:
+    id: VAL-012
+    revision: 4
+    registry_commit: fcb538e7817d54766a18859a593ffd50046a8c8d
+  scope: Exact predeclared capture plan; not a technical conclusion
+supersedes: null

@@ -1,0 +1,22 @@
+schema_version: 1
+id: EVD-exp001-local-001-010
+kind: test_report
+provenance:
+  execution_id: RUN-exp001-local-001
+  description: TST-003 standard output; observation, not automatic closure evidence
+  source_version: fcb538e7817d54766a18859a593ffd50046a8c8d
+  retrieved_at: '2026-10-15T09:50:48.042977Z'
+artifact:
+  uri: repo://validation/artifacts/sha256/243dc8139d8146242e096c8bea2676c5cdb78d983c4bfd65ae248bc1e0b5067e
+  sha256: 243dc8139d8146242e096c8bea2676c5cdb78d983c4bfd65ae248bc1e0b5067e
+  size_bytes: 460
+  media_type: text/plain
+  retention_location: Repository content-addressed artifact
+  access: Repository checkout
+supports:
+- validation:
+    id: VAL-012
+    revision: 4
+    registry_commit: fcb538e7817d54766a18859a593ffd50046a8c8d
+  scope: TST-003 standard output; observation, not automatic closure evidence
+supersedes: null

@@ -13,8 +13,8 @@ The [historical research register](../00-governance/technical-validation.md) own
 | [Validations](validation-coverage.md) | 28 | 28 planned |
 | [Experiments](experiment-register.md) | 29 | 28 proposed, 1 ready |
 | [Test specifications](test-register.md) | 90 | 4 bound, 86 unbound |
-| [Executions](execution-register.md) | 0 | No records |
-| [Evidence manifests](evidence-register.md) | 0 | Manifest metadata; content is checked by the evidence verification gate |
+| [Executions](execution-register.md) | 1 | 1 passed |
+| [Evidence manifests](evidence-register.md) | 16 | Manifest metadata; content is checked by the evidence verification gate |
 | [Validation decisions](validation-results.md) | 0 | 28 pending |
 
 Counts describe records, not accepted technical claims. A test specification, a bound execution method, a passing run and an accepted validation are separate facts. The absence of a run is displayed as unexecuted; it is never a pass.

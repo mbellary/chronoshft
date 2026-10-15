@@ -25,12 +25,25 @@ class Exp001RunnerChecks(unittest.TestCase):
         self.source = self.root / 'experiments/exp-001-spsc-queue/src/lib.rs'
         self.tests = self.root / 'experiments/exp-001-spsc-queue/tests/queue_contracts.rs'
 
-    def run_case(self):
+    def run_case(self, case="fifo_exactly_once"):
         environment = os.environ.copy()
         environment.pop('CHRONOSHFT_REPORT_DIR', None)
         environment['CARGO_TARGET_DIR'] = str(self.root / 'target/build')
-        return subprocess.run([sys.executable, 'scripts/run_exp001_test.py', 'fifo_exactly_once'],
+        return subprocess.run([sys.executable, 'scripts/run_exp001_test.py', case],
                               cwd=self.root, env=environment, capture_output=True, text=True, timeout=60)
+
+    def test_all_declared_cases_pass_on_the_unmodified_prototype(self):
+        for case, identity in [('fifo_exactly_once', 'TST-001'),
+                               ('capacity_before_write', 'TST-002'),
+                               ('wraparound_partial_drains', 'TST-003'),
+                               ('capacity_configuration', 'TST-004')]:
+            with self.subTest(case=case):
+                result = self.run_case(case)
+                self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+                self.assertIn('1 passed; 0 failed', result.stdout)
+                report = self.root / f'target/validation-reports/{identity}.txt'
+                self.assertIn('PASS:', report.read_text())
+                self.assertNotIn('STALE', report.read_text())
 
     def test_compiler_failure_is_tool_error_and_removes_stale_report(self):
         self.source.write_text(self.source.read_text() + '\nintentional invalid Rust fixture\n')
