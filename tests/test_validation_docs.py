@@ -50,31 +50,32 @@ class ValidationDocsTests(unittest.TestCase):
         self.assertLess(text.index(NAV_END), text.index('  - Financial domain:'))
 
     def test_unexecuted_states_do_not_become_results(self):
-        runs = render_executions(self.records)
-        evidence = render_evidence(self.records)
-        results = render_results(self.records)
-        environment = render_environments(self.records)
+        records = {key: value for key, value in self.records.items() if not key.startswith(("RUN-", "EVD-", "VDEC-"))}
+        runs = render_executions(records)
+        evidence = render_evidence(records)
+        results = render_results(records)
+        environment = render_environments(records)
         self.assertIn('No executions recorded.', runs)
         self.assertIn('No evidence manifests recorded.', evidence)
         self.assertIn('Every current disposition is pending', results)
         self.assertIn('Validated (role only)', results)
         self.assertIn('No run environments recorded.', environment)
-        self.assertNotIn('100%', render_overview(self.records))
+        self.assertNotIn('100%', render_overview(records))
 
     def test_unbound_experiment_has_no_invented_runner(self):
-        text = render_experiment(self.records['EXP-001'], self.records)
+        text = render_experiment(self.records['EXP-002'], self.records)
         self.assertIn('No build, test or benchmark commands are bound.', text)
         self.assertIn('Unassigned; no implementation is asserted.', text)
         self.assertIn('No experimental findings or conclusion are recorded.', text)
         self.assertNotIn('cargo test', text)
-        for reference in self.records['EXP-001']['tests']:
+        for reference in self.records['EXP-002']['tests']:
             self.assertIn(f"#{reference['id'].lower()} }}", text)
             self.assertIn(self.records[reference['id']]['oracle']['description'], text)
 
     def test_shared_experiment_preserves_narrow_test_applicability(self):
         text = '\n'.join(render_test_details(self.records['TST-009']))
-        self.assertIn('VAL-013 r3', text)
-        self.assertNotIn('VAL-012 r3', text)
+        self.assertIn('VAL-013 r4', text)
+        self.assertNotIn('VAL-012 r4', text)
 
     def test_legacy_test_anchors_link_to_owning_experiment(self):
         text = render_legacy_tests(self.records)

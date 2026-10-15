@@ -1,23 +1,23 @@
 schema_version: 1
 id: TST-005
-revision: 1
+revision: 2
 title: Declared full-queue policy
 experiment:
   id: EXP-002
-  revision: 2
+  revision: 3
 validations:
 - id: VAL-012
-  revision: 3
+  revision: 4
 hypothesis_ids:
 - HYP-001
 classification: correctness
 execution_type: automated
 mandatory: true
 preconditions:
-- DEC-006 policy, capacity, retry/admission deadline and any replay eligibility are fixed; consumer
-  can be stalled deterministically.
-- Bind the exact input/source/configuration revisions and execution or review method before running;
-  unresolved prerequisites are not a pass.
+- DEC-006 policy, capacity, retry/admission deadline and any replay eligibility are fixed; consumer can
+  be stalled deterministically.
+- Bind the exact input/source/configuration revisions and execution or review method before running; unresolved
+  prerequisites are not a pass.
 procedure:
 - Fill the queue, stall the consumer and offer additional distinct events.
 - Observe each caller-visible result and retained payload while the selected saturation action occurs.
@@ -27,10 +27,10 @@ expected:
 - No unread event is overwritten and no offer is silently classified as accepted.
 oracle:
   kind: independent_reference_comparison
-  description: A policy transition table plus an external caller-observation ledger predicts the
-    allowed outcomes; elapsed-time checks use the declared deadline boundary.
-execution_method: Planned automated procedure for Declared full-queue policy; bind the exact command
-  or review checklist and applicable source/fixture revisions before execution.
+  description: A policy transition table plus an external caller-observation ledger predicts the allowed
+    outcomes; elapsed-time checks use the declared deadline boundary.
+execution_method: Planned automated procedure for Declared full-queue policy; bind the exact command or
+  review checklist and applicable source/fixture revisions before execution.
 execution_binding:
   state: unbound
   implementation_path: null
@@ -47,5 +47,10 @@ revision_history:
 - revision: 1
   date: '2026-10-15'
   actor: codex
-  reason: Stage 5 pre-execution test specification; execution binding, implementation, inputs and
-    approvals remain pending.
+  reason: Stage 5 pre-execution test specification; execution binding, implementation, inputs and approvals
+    remain pending.
+- revision: 2
+  date: '2026-10-15'
+  actor: codex
+  reason: Stage 9 binds the isolated EXP-001 prototype and preserves reciprocal revision-pinned coverage;
+    other investigations remain pending.

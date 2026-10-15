@@ -6,9 +6,9 @@ Each experiment page presents its purpose, hypotheses, design references, bounda
 
 | Experiment | Investigation | Method | Validations | Lifecycle | Bound tests |
 | --- | --- | --- | --- | --- | --- |
-| [EXP-001](experiments/EXP-001.md) r2 | Bounded SPSC queue | executable | [VAL-012](validation-coverage.md#val-012) | proposed | 0/4 |
-| [EXP-002](experiments/EXP-002.md) r2 | Queue overload policy | mixed | [VAL-012](validation-coverage.md#val-012) | proposed | 0/4 |
-| [EXP-003](experiments/EXP-003.md) r2 | SPSC ownership and publication protocol | mixed | [VAL-012](validation-coverage.md#val-012), [VAL-013](validation-coverage.md#val-013) | proposed | 0/4 |
+| [EXP-001](experiments/EXP-001.md) r3 | Bounded SPSC queue | executable | [VAL-012](validation-coverage.md#val-012) | ready | 4/4 |
+| [EXP-002](experiments/EXP-002.md) r3 | Queue overload policy | mixed | [VAL-012](validation-coverage.md#val-012) | proposed | 0/4 |
+| [EXP-003](experiments/EXP-003.md) r3 | SPSC ownership and publication protocol | mixed | [VAL-012](validation-coverage.md#val-012), [VAL-013](validation-coverage.md#val-013) | proposed | 0/4 |
 | [EXP-005](experiments/EXP-005.md) r2 | Production-readiness claim audit | documentary | [VAL-001](validation-coverage.md#val-001) | proposed | 0/3 |
 | [EXP-006](experiments/EXP-006.md) r2 | FDAP compatibility integration | executable | [VAL-002](validation-coverage.md#val-002) | proposed | 0/3 |
 | [EXP-007](experiments/EXP-007.md) r2 | Encoding and compression evaluation | mixed | [VAL-003](validation-coverage.md#val-003) | proposed | 0/3 |

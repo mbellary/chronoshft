@@ -10,9 +10,9 @@ Stage 3 introduces schema-version 1 records and imports VAL-001–VAL-028. See `
 | `register/experiments/` | Stage 4 experiment definitions and reciprocal validation links |
 | `revisions/{validations,experiments,tests}/<ID>/rN.yaml` | Retained prior definitions before revisions advance |
 | `register/tests/` | Stage 5 test specifications, applicability and execution bindings |
-| `execution-plans/` | Committed capture plans; none supplied before the first bound implementation |
-| `executions/` | Append-only RUN records; no real observations registered yet |
-| `evidence-manifests/` | Append-only EVD manifests; no real evidence registered yet |
+| `execution-plans/` | Committed capture plans, beginning with EXP-001.yaml |
+| `executions/` | Append-only RUN records with exact source/definition pins |
+| `evidence-manifests/` | Append-only EVD manifests with retained artifact digests |
 | `decisions/` | Append-only VDEC decisions; no real approvals registered yet |
 | `artifacts/sha256/` | Small content-addressed retained assets; large artifacts use ignored `evidence/<RUN-ID>/` bundles |
 
@@ -56,4 +56,4 @@ Stage 8 adds these tools:
 | `check_validation_history.py` | Protect committed ledgers/snapshots/artifacts and require explicit definition revisions against the trusted Git baseline |
 | `review_validation.py` | Prepare an unapproved package; check a supplied human decision; register only with explicit `--register-reviewed` |
 
-See `docs/10-validation-lab/execution-and-evidence.md` for plan fields, retention policies, mirror mapping, CI capture, recovery and review steps. No schema/check result authenticates a reviewer or supplies domain judgment. Positive decisions need complete declared coverage, a concrete scope and verified supporting artifacts; current-decision selection/lifecycle changes remain explicit. Stage 9 implements EXP-001. Documentation regressions remain isolated fixtures and create no actual project results.
+See `docs/10-validation-lab/execution-and-evidence.md` for plan fields, retention policies, mirror mapping, CI capture, recovery and review steps. No schema/check result authenticates a reviewer or supplies domain judgment. Positive decisions need complete declared coverage, a concrete scope and verified supporting artifacts; current-decision selection/lifecycle changes remain explicit. Stage 9 binds EXP-001 to the isolated Rust prototype; Stage 10 investigates EXP-002 overload behavior. Documentation regressions remain isolated fixtures and create no actual project results.

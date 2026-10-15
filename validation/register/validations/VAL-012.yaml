@@ -1,6 +1,6 @@
 schema_version: 1
 id: VAL-012
-revision: 3
+revision: 4
 title: Bounded ring capacity and overflow
 origin:
   assessment_id: CHRONOS-P0-001
@@ -9,11 +9,11 @@ origin:
   baseline_path: docs/00-governance/technical-validation.md
   source_refs: RES-051,053
   source_status: Incomplete
-  finding: Writer appends before full-ring check; failed rotate returns and later appends continue
-    in the same slot; capacity bound unenforced
+  finding: Writer appends before full-ring check; failed rotate returns and later appends continue in
+    the same slot; capacity bound unenforced
   required_closure_evidence: Full-queue policy before writes, overflow tests and protocol proof
-objective: 'Establish the closure evidence required for VAL-012: Full-queue policy before writes,
-  overflow tests and protocol proof.'
+objective: 'Establish the closure evidence required for VAL-012: Full-queue policy before writes, overflow
+  tests and protocol proof.'
 category: null
 priority: null
 required_evidence:
@@ -22,47 +22,47 @@ coverage:
   status: mapped
   experiments:
   - id: EXP-001
-    revision: 2
+    revision: 3
     mandatory: true
   - id: EXP-002
-    revision: 2
+    revision: 3
     mandatory: true
   - id: EXP-003
-    revision: 2
+    revision: 3
     mandatory: true
   tests:
   - id: TST-001
-    revision: 1
+    revision: 2
     mandatory: true
   - id: TST-002
-    revision: 1
+    revision: 2
     mandatory: true
   - id: TST-003
-    revision: 1
+    revision: 2
     mandatory: true
   - id: TST-004
-    revision: 1
+    revision: 2
     mandatory: true
   - id: TST-005
-    revision: 1
+    revision: 2
     mandatory: true
   - id: TST-006
-    revision: 1
+    revision: 2
     mandatory: true
   - id: TST-007
-    revision: 1
+    revision: 2
     mandatory: true
   - id: TST-008
-    revision: 1
+    revision: 2
     mandatory: true
   - id: TST-010
-    revision: 1
+    revision: 2
     mandatory: true
   - id: TST-011
-    revision: 1
+    revision: 2
     mandatory: true
   - id: TST-012
-    revision: 1
+    revision: 2
     mandatory: true
 lifecycle:
   state: planned
@@ -96,3 +96,8 @@ revision_history:
   actor: codex
   reason: Stage 5 declares mandatory applicable tests; research baseline and planned lifecycle remain
     unchanged.
+- revision: 4
+  date: '2026-10-15'
+  actor: codex
+  reason: Stage 9 binds the isolated EXP-001 prototype and preserves reciprocal revision-pinned coverage;
+    other investigations remain pending.

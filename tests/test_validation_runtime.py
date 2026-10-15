@@ -33,6 +33,8 @@ class RuntimeFixtures(unittest.TestCase):
         for folder in ['register/validations', 'register/experiments', 'register/tests', 'executions', 'evidence-manifests', 'decisions']:
             (self.root / 'validation' / folder).mkdir(parents=True, exist_ok=True)
         self.val = yaml.safe_load((ROOT / 'validation/register/validations/VAL-012.yaml').read_text())
+        self.val['revision'] = 3
+        self.val['revision_history'] = self.val['revision_history'][:3]
         self.val['objective'] = 'Synthetic fixture only; not a ChronosHFT acceptance conclusion'
         self.val['required_evidence'] = ['Synthetic fixture observation coverage']
         self.val['coverage']['experiments'] = [{'id': 'EXP-001', 'revision': 2, 'mandatory': True}]
@@ -42,6 +44,12 @@ class RuntimeFixtures(unittest.TestCase):
         self.val['lifecycle']['state'] = 'reviewing'
         self.write('validation/register/validations/VAL-012.yaml', self.val)
         self.exp = yaml.safe_load((ROOT / 'validation/register/experiments/EXP-001.yaml').read_text())
+        self.exp['revision'] = 2
+        self.exp['revision_history'] = self.exp['revision_history'][:2]
+        self.exp['validates'] = [{'id': 'VAL-012', 'revision': 3}]
+        self.exp['tests'] = [{'id': f'TST-{n:03}', 'revision': 1} for n in range(1, 5)]
+        self.exp['lifecycle']['history'] = self.exp['lifecycle']['history'][:1]
+        self.exp['method']['implementation_path'] = 'fixture.py'
         manual = self._testMethodName.startswith('test_manual')
         if manual:
             self.exp['method']['kind'] = 'documentary'
@@ -52,6 +60,10 @@ class RuntimeFixtures(unittest.TestCase):
         for n in range(1, 5):
             identity = f'TST-{n:03}'
             test = yaml.safe_load((ROOT / f'validation/register/tests/{identity}.yaml').read_text())
+            test['revision'] = 1
+            test['revision_history'] = test['revision_history'][:1]
+            test['experiment'] = {'id': 'EXP-001', 'revision': 2}
+            test['validations'] = [{'id': 'VAL-012', 'revision': 3}]
             self.commands[identity] = [sys.executable, 'fixture.py', identity]
             test['execution_binding'] = {'state': 'bound', 'implementation_path': 'fixture.py', 'entrypoint': shlex.join(self.commands[identity])}
             if manual:

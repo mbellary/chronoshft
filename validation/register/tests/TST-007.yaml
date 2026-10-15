@@ -1,13 +1,13 @@
 schema_version: 1
 id: TST-007
-revision: 1
+revision: 2
 title: Drain and recovery after overload
 experiment:
   id: EXP-002
-  revision: 2
+  revision: 3
 validations:
 - id: VAL-012
-  revision: 3
+  revision: 4
 hypothesis_ids:
 - HYP-002
 classification: reliability
@@ -15,21 +15,21 @@ execution_type: automated
 mandatory: true
 preconditions:
 - Consumer pause duration, backlog bound, recovery deadline and repeated-burst schedule are declared.
-- Bind the exact input/source/configuration revisions and execution or review method before running;
-  unresolved prerequisites are not a pass.
+- Bind the exact input/source/configuration revisions and execution or review method before running; unresolved
+  prerequisites are not a pass.
 procedure:
 - Apply a saturation burst, resume consumption and measure backlog until drain.
 - Repeat the burst/recovery cycle with new identities and verify later normal admission.
 expected:
 - Accepted identities drain in the declared order without loss or duplication.
-- Backlog, memory and recovery time remain within the declared limits on every cycle; later traffic
-  is not permanently blocked.
+- Backlog, memory and recovery time remain within the declared limits on every cycle; later traffic is
+  not permanently blocked.
 oracle:
   kind: independent_reference_comparison
   description: The accepted-event ledger predicts drain membership/order; an external monotonic timer
     and configured capacity/resource envelope bound recovery.
-execution_method: Planned automated procedure for Drain and recovery after overload; bind the exact
-  command or review checklist and applicable source/fixture revisions before execution.
+execution_method: Planned automated procedure for Drain and recovery after overload; bind the exact command
+  or review checklist and applicable source/fixture revisions before execution.
 execution_binding:
   state: unbound
   implementation_path: null
@@ -46,5 +46,10 @@ revision_history:
 - revision: 1
   date: '2026-10-15'
   actor: codex
-  reason: Stage 5 pre-execution test specification; execution binding, implementation, inputs and
-    approvals remain pending.
+  reason: Stage 5 pre-execution test specification; execution binding, implementation, inputs and approvals
+    remain pending.
+- revision: 2
+  date: '2026-10-15'
+  actor: codex
+  reason: Stage 9 binds the isolated EXP-001 prototype and preserves reciprocal revision-pinned coverage;
+    other investigations remain pending.

@@ -1,0 +1,3 @@
+[workspace]
+members = ["exp-001-spsc-queue"]
+resolver = "2"

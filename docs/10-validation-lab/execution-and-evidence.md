@@ -101,6 +101,42 @@ After the named human review, the operator may explicitly add `--register-review
 
 Registration writes only VDEC. Current-decision selection, prior-decision retention and legal lifecycle closure/reopening are explicit subsequent record edits. Architecture adoption remains in the [decision register](../00-governance/decision-register.md). Historical decisions retain their original applicability after revalidation; they do not automatically establish current acceptance.
 
+## First executable experiment
+
+Stage 9 binds EXP-001 to a safe mutex-backed Rust prototype. Its provisional
+contract uses individual events, supports exactly N usable slots for every
+integer N in 1..=4096 and returns the original event when full before changing
+a slot. It does not resolve production architecture or overload decisions.
+
+From the repository root, run all four correctness tests:
+
+```sh
+cargo test --offline --locked --manifest-path experiments/Cargo.toml -p exp-001-spsc-queue
+```
+
+After committing source, definitions and the plan, capture one observation set:
+
+```sh
+uv run --locked --extra validation python scripts/capture_execution.py \
+  --plan validation/execution-plans/EXP-001.yaml --committed-plan \
+  --run-id RUN-exp001-local-001
+```
+
+Use a new RUN identity for every subsequent capture. The plan records actual
+rustc/cargo versions, committed model schedules and lockfile, seed 24301,
+per-operation ledgers, constructor outcomes and stdout/stderr. The bound runner
+builds first and checks that the exact case exists: compile/launch errors return
+2; Rust assertion failures return 101. Missing tests cannot produce an empty pass.
+Reports are recreated for each invocation to avoid retaining stale observations.
+
+Read the generated [EXP-001 page](experiments/EXP-001.md) and
+[execution register](execution-register.md) for registered results and source
+pins. Passing these cases covers sequential behavior only. Mutex contention,
+concurrent publication, allocator failure injection, disconnection and performance
+remain outside this experiment. VAL-012 and VAL-013 remain pending.
+
 ## Next stage
 
-Stage 9 implements EXP-001, the bounded SPSC queue investigation, binds its tests and collects the first real traceable observations. Those results cover only their declared scope; VAL-012 and VAL-013 cannot close while their other mandatory investigations and review obligations remain incomplete.
+Stage 10 implements EXP-002, the full-ring and slow-consumer overload investigation,
+with an explicit provisional policy, accounting tests and retained observations.
+EXP-003 still owns concurrent publication and ownership proof.

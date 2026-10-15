@@ -11,8 +11,8 @@ The [historical research register](../00-governance/technical-validation.md) own
 | Record | Count | Recorded state |
 | --- | --- | --- |
 | [Validations](validation-coverage.md) | 28 | 28 planned |
-| [Experiments](experiment-register.md) | 29 | 29 proposed |
-| [Test specifications](test-register.md) | 90 | 90 unbound |
+| [Experiments](experiment-register.md) | 29 | 28 proposed, 1 ready |
+| [Test specifications](test-register.md) | 90 | 4 bound, 86 unbound |
 | [Executions](execution-register.md) | 0 | No records |
 | [Evidence manifests](evidence-register.md) | 0 | Manifest metadata; content is checked by the evidence verification gate |
 | [Validation decisions](validation-results.md) | 0 | 28 pending |
@@ -47,4 +47,4 @@ These commands validate documentation and registry consistency. They do not exec
 
 ## Delivery boundary
 
-Stage 8 provides pinned execution capture, retained artifacts, Git history protection, integrity verification and explicit decision registration. No experiment result is inferred from these tools. Stage 9 implements EXP-001 and collects its first traceable observations.
+Stage 9 binds EXP-001 to the isolated bounded SPSC prototype and provides a capture plan for sequential observations. Registered outcomes appear in the execution and evidence views; validation dispositions remain pending until review. Stage 10 investigates EXP-002 overload behavior.

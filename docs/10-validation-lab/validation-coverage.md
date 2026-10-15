@@ -23,8 +23,8 @@ The initial proposal named 29 distinct experiments while stating 30. EXP-004 rem
 | [VAL-009 r3](#val-009) | NUMA locality and runtime interference | [EXP-015](experiments/EXP-015.md) r2 (mandatory) | [3](test-register.md#validation-test-map) | planned | pending |
 | [VAL-010 r3](#val-010) | Timestamp boundaries and round trips | [EXP-018](experiments/EXP-018.md) r2 (mandatory) | [3](test-register.md#validation-test-map) | planned | pending |
 | [VAL-011 r3](#val-011) | Sequence and ordering semantics | [EXP-019](experiments/EXP-019.md) r2 (mandatory) | [3](test-register.md#validation-test-map) | planned | pending |
-| [VAL-012 r3](#val-012) | Bounded ring capacity and overflow | [EXP-001](experiments/EXP-001.md) r2 (mandatory), [EXP-002](experiments/EXP-002.md) r2 (mandatory), [EXP-003](experiments/EXP-003.md) r2 (mandatory) | [11](test-register.md#validation-test-map) | planned | pending |
-| [VAL-013 r3](#val-013) | SPSC ownership enforcement | [EXP-003](experiments/EXP-003.md) r2 (mandatory) | [4](test-register.md#validation-test-map) | planned | pending |
+| [VAL-012 r4](#val-012) | Bounded ring capacity and overflow | [EXP-001](experiments/EXP-001.md) r3 (mandatory), [EXP-002](experiments/EXP-002.md) r3 (mandatory), [EXP-003](experiments/EXP-003.md) r3 (mandatory) | [11](test-register.md#validation-test-map) | planned | pending |
+| [VAL-013 r4](#val-013) | SPSC ownership enforcement | [EXP-003](experiments/EXP-003.md) r3 (mandatory) | [4](test-register.md#validation-test-map) | planned | pending |
 | [VAL-014 r3](#val-014) | Arrow builder allocation lifecycle | [EXP-021](experiments/EXP-021.md) r2 (mandatory) | [3](test-register.md#validation-test-map) | planned | pending |
 | [VAL-015 r3](#val-015) | Non-destructive table scans | [EXP-022](experiments/EXP-022.md) r2 (mandatory) | [3](test-register.md#validation-test-map) | planned | pending |
 | [VAL-016 r3](#val-016) | DataFusion projection semantics | [EXP-023](experiments/EXP-023.md) r2 (mandatory) | [3](test-register.md#validation-test-map) | planned | pending |
@@ -241,7 +241,7 @@ Equal ns timestamps still possible; timestamps alone cannot guarantee feed event
 
 ## VAL-012 — Bounded ring capacity and overflow { #val-012 }
 
-Revision 3 · lifecycle planned · disposition pending
+Revision 4 · lifecycle planned · disposition pending
 
 **Engineering objective:** Establish the closure evidence required for VAL-012: Full-queue policy before writes, overflow tests and protocol proof.
 
@@ -259,7 +259,7 @@ Writer appends before full-ring check; failed rotate returns and later appends c
 
 ## VAL-013 — SPSC ownership enforcement { #val-013 }
 
-Revision 3 · lifecycle planned · disposition pending
+Revision 4 · lifecycle planned · disposition pending
 
 **Engineering objective:** Establish the closure evidence required for VAL-013: Restricted handles and documented exclusion/publication invariants.
 

@@ -1,15 +1,15 @@
 schema_version: 1
 id: TST-011
-revision: 1
+revision: 2
 title: Unsafe invariants and protocol review
 experiment:
   id: EXP-003
-  revision: 2
+  revision: 3
 validations:
 - id: VAL-012
-  revision: 3
+  revision: 4
 - id: VAL-013
-  revision: 3
+  revision: 4
 hypothesis_ids:
 - HYP-001
 - HYP-002
@@ -17,10 +17,10 @@ classification: documentary
 execution_type: manual
 mandatory: true
 preconditions:
-- Complete safe/unsafe API surface and implementation revision available; intended caller schedules
-  and atomic model documented.
-- Bind the exact input/source/configuration revisions and execution or review method before running;
-  unresolved prerequisites are not a pass.
+- Complete safe/unsafe API surface and implementation revision available; intended caller schedules and
+  atomic model documented.
+- Bind the exact input/source/configuration revisions and execution or review method before running; unresolved
+  prerequisites are not a pass.
 procedure:
 - Enumerate mutable access, Send/Sync guarantees, reservation/full checks and publication/reclamation
   edges.
@@ -34,8 +34,8 @@ oracle:
   kind: independent_review
   description: Rust ownership/memory-model obligations and a separately authored state-machine checklist
     are reviewed against source locations, not implementation comments alone.
-execution_method: Planned manual procedure for Unsafe invariants and protocol review; bind the exact
-  command or review checklist and applicable source/fixture revisions before execution.
+execution_method: Planned manual procedure for Unsafe invariants and protocol review; bind the exact command
+  or review checklist and applicable source/fixture revisions before execution.
 execution_binding:
   state: unbound
   implementation_path: null
@@ -51,5 +51,10 @@ revision_history:
 - revision: 1
   date: '2026-10-15'
   actor: codex
-  reason: Stage 5 pre-execution test specification; execution binding, implementation, inputs and
-    approvals remain pending.
+  reason: Stage 5 pre-execution test specification; execution binding, implementation, inputs and approvals
+    remain pending.
+- revision: 2
+  date: '2026-10-15'
+  actor: codex
+  reason: Stage 9 binds the isolated EXP-001 prototype and preserves reciprocal revision-pinned coverage;
+    other investigations remain pending.

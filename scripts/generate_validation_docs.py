@@ -110,7 +110,7 @@ def render_overview(records):
         '```', '',
         'These commands validate documentation and registry consistency. They do not execute the planned experiments. The [registry guide](../00-governance/validation-registry.md) describes source ownership, snapshots and current enforcement limits.', '',
         '## Delivery boundary', '',
-        'Stage 8 provides pinned execution capture, retained artifacts, Git history protection, integrity verification and explicit decision registration. No experiment result is inferred from these tools. Stage 9 implements EXP-001 and collects its first traceable observations.',
+        'Stage 9 binds EXP-001 to the isolated bounded SPSC prototype and provides a capture plan for sequential observations. Registered outcomes appear in the execution and evidence views; validation dispositions remain pending until review. Stage 10 investigates EXP-002 overload behavior.',
     ])
 
 

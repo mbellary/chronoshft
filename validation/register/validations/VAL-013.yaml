@@ -1,6 +1,6 @@
 schema_version: 1
 id: VAL-013
-revision: 3
+revision: 4
 title: SPSC ownership enforcement
 origin:
   assessment_id: CHRONOS-P0-001
@@ -9,11 +9,11 @@ origin:
   baseline_path: docs/00-governance/technical-validation.md
   source_refs: RES-051
   source_status: Incomplete (safety)
-  finding: Public `&self` append/poll methods plus unsafe Sync do not enforce one producer/consumer;
-    concurrent callers can alias mutable slots
+  finding: Public `&self` append/poll methods plus unsafe Sync do not enforce one producer/consumer; concurrent
+    callers can alias mutable slots
   required_closure_evidence: Restricted handles and documented exclusion/publication invariants
-objective: 'Establish the closure evidence required for VAL-013: Restricted handles and documented
-  exclusion/publication invariants.'
+objective: 'Establish the closure evidence required for VAL-013: Restricted handles and documented exclusion/publication
+  invariants.'
 category: null
 priority: null
 required_evidence:
@@ -22,20 +22,20 @@ coverage:
   status: mapped
   experiments:
   - id: EXP-003
-    revision: 2
+    revision: 3
     mandatory: true
   tests:
   - id: TST-009
-    revision: 1
+    revision: 2
     mandatory: true
   - id: TST-010
-    revision: 1
+    revision: 2
     mandatory: true
   - id: TST-011
-    revision: 1
+    revision: 2
     mandatory: true
   - id: TST-012
-    revision: 1
+    revision: 2
     mandatory: true
 lifecycle:
   state: planned
@@ -69,3 +69,8 @@ revision_history:
   actor: codex
   reason: Stage 5 declares mandatory applicable tests; research baseline and planned lifecycle remain
     unchanged.
+- revision: 4
+  date: '2026-10-15'
+  actor: codex
+  reason: Stage 9 binds the isolated EXP-001 prototype and preserves reciprocal revision-pinned coverage;
+    other investigations remain pending.

@@ -19,8 +19,8 @@ Technical dispositions derive from each validation’s current decision referenc
 | [VAL-009 r3](validation-coverage.md#val-009) | Incomplete | planned | pending | No decision | Unassigned |
 | [VAL-010 r3](validation-coverage.md#val-010) | Validated (bounded arithmetic) | planned | pending | No decision | Unassigned |
 | [VAL-011 r3](validation-coverage.md#val-011) | Incorrect (ordering inference) | planned | pending | No decision | Unassigned |
-| [VAL-012 r3](validation-coverage.md#val-012) | Incomplete | planned | pending | No decision | Unassigned |
-| [VAL-013 r3](validation-coverage.md#val-013) | Incomplete (safety) | planned | pending | No decision | Unassigned |
+| [VAL-012 r4](validation-coverage.md#val-012) | Incomplete | planned | pending | No decision | Unassigned |
+| [VAL-013 r4](validation-coverage.md#val-013) | Incomplete (safety) | planned | pending | No decision | Unassigned |
 | [VAL-014 r3](validation-coverage.md#val-014) | Incorrect for inspected upstream behavior | planned | pending | No decision | Unassigned |
 | [VAL-015 r3](validation-coverage.md#val-015) | Incorrect for persistent-table semantics | planned | pending | No decision | Unassigned |
 | [VAL-016 r3](validation-coverage.md#val-016) | Investigation | planned | pending | No decision | Unassigned |

@@ -48,11 +48,11 @@ class RegisterChecks(unittest.TestCase):
         self.assertEqual(len(experiments), 29)
         tests = [r for r in records.values() if r["id"].startswith("TST-")]
         self.assertEqual(len(tests), 90)
-        self.assertEqual(len(records), 147)
-        self.assertTrue(all(r["lifecycle"]["state"] == "planned" and r["revision"] == 3 for r in vals))
+        self.assertEqual(len(vals) + len(experiments) + len(tests), 147)
+        self.assertTrue(all(r["lifecycle"]["state"] == "planned" and r["revision"] == (4 if r["id"] in {"VAL-012", "VAL-013"} else 3) for r in vals))
         self.assertTrue(all(r["current_decision_id"] is None for r in vals))
-        self.assertTrue(all(r["lifecycle"]["state"] == "proposed" and r["revision"] == 2 and r["tests"] for r in experiments))
-        self.assertTrue(all(r["execution_binding"]["state"] == "unbound" and r["mandatory"] for r in tests))
+        self.assertTrue(all(r["lifecycle"]["state"] == ("ready" if r["id"] == "EXP-001" else "proposed") and r["revision"] == (3 if r["id"] in {"EXP-001", "EXP-002", "EXP-003"} else 2) and r["tests"] for r in experiments))
+        self.assertTrue(all(r["execution_binding"]["state"] == ("bound" if r["id"] in {"TST-001", "TST-002", "TST-003", "TST-004"} else "unbound") and r["mandatory"] for r in tests))
         self.assertNotIn("EXP-004", records)
 
     def test_missing_historical_record(self):
@@ -117,7 +117,7 @@ class RegisterChecks(unittest.TestCase):
         self.assert_rejected("lifecycle state disagrees")
 
     def test_revision_history_gap(self):
-        self.record["revision"] = 4
+        self.record["revision"] += 1
         self.write_record()
         self.assert_rejected("revision history must account")
 
@@ -249,7 +249,7 @@ class RegisterChecks(unittest.TestCase):
         self.assert_rejected("mandatory tests do not cover the declared investigation methods")
 
     def test_unbound_tests_block_experiment_readiness(self):
-        path = self.root / "validation/register/experiments/EXP-001.yaml"
+        path = self.root / "validation/register/experiments/EXP-002.yaml"
         experiment = yaml.safe_load(path.read_text())
         experiment["lifecycle"]["state"] = "ready"
         experiment["lifecycle"]["history"].append({
@@ -259,11 +259,11 @@ class RegisterChecks(unittest.TestCase):
         self.assert_rejected("experiment cannot advance with unbound mandatory tests")
 
     def test_unbound_test_cannot_claim_an_entrypoint(self):
-        self.change_test("TST-001", lambda test: test["execution_binding"].update(entrypoint="claimed_runner"))
+        self.change_test("TST-001", lambda test: test["execution_binding"].update(state="unbound", implementation_path=None, entrypoint="claimed_runner"))
         self.assert_rejected("not of type 'null'")
 
     def test_bound_automation_requires_source_and_command(self):
-        self.change_test("TST-001", lambda test: test["execution_binding"].update(state="bound", entrypoint="test-command"))
+        self.change_test("TST-001", lambda test: test["execution_binding"].update(state="bound", implementation_path=None, entrypoint="test-command"))
         self.assert_rejected("not of type 'string'")
 
     def test_test_requires_an_oracle(self):

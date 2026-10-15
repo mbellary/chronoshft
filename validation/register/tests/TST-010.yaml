@@ -1,15 +1,15 @@
 schema_version: 1
 id: TST-010
-revision: 1
+revision: 2
 title: Publication and bounded-capacity model
 experiment:
   id: EXP-003
-  revision: 2
+  revision: 3
 validations:
 - id: VAL-012
-  revision: 3
+  revision: 4
 - id: VAL-013
-  revision: 3
+  revision: 4
 hypothesis_ids:
 - HYP-002
 classification: safety
@@ -18,22 +18,22 @@ mandatory: true
 preconditions:
 - Atomic ordering and slot-lifecycle model specified; bounded schedule space and model checker/version
   pinned.
-- Bind the exact input/source/configuration revisions and execution or review method before running;
-  unresolved prerequisites are not a pass.
+- Bind the exact input/source/configuration revisions and execution or review method before running; unresolved
+  prerequisites are not a pass.
 procedure:
-- Model producer reservation, payload initialization, publication, consumer read and reclamation
-  across bounded interleavings.
+- Model producer reservation, payload initialization, publication, consumer read and reclamation across
+  bounded interleavings.
 - Inject a deliberately weakened-ordering or early-reuse negative-control variant.
 expected:
 - All explored supported schedules preserve initialized reads, exclusive writes and no-overwrite-before-consume.
-- The negative control produces the predicted counterexample; scope and unexplored schedules are
-  reported explicitly.
+- The negative control produces the predicted counterexample; scope and unexplored schedules are reported
+  explicitly.
 oracle:
   kind: independent_reference_comparison
   description: An independent slot-state specification defines legal ownership/publication transitions;
     assertions do not reuse production state-transition helpers.
-execution_method: Planned automated procedure for Publication and bounded-capacity model; bind the
-  exact command or review checklist and applicable source/fixture revisions before execution.
+execution_method: Planned automated procedure for Publication and bounded-capacity model; bind the exact
+  command or review checklist and applicable source/fixture revisions before execution.
 execution_binding:
   state: unbound
   implementation_path: null
@@ -50,5 +50,10 @@ revision_history:
 - revision: 1
   date: '2026-10-15'
   actor: codex
-  reason: Stage 5 pre-execution test specification; execution binding, implementation, inputs and
-    approvals remain pending.
+  reason: Stage 5 pre-execution test specification; execution binding, implementation, inputs and approvals
+    remain pending.
+- revision: 2
+  date: '2026-10-15'
+  actor: codex
+  reason: Stage 9 binds the isolated EXP-001 prototype and preserves reciprocal revision-pinned coverage;
+    other investigations remain pending.

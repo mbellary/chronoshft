@@ -1,13 +1,13 @@
 schema_version: 1
 id: TST-008
-revision: 1
+revision: 2
 title: Overload policy and recovery envelope review
 experiment:
   id: EXP-002
-  revision: 2
+  revision: 3
 validations:
 - id: VAL-012
-  revision: 3
+  revision: 4
 hypothesis_ids:
 - HYP-001
 - HYP-002
@@ -15,24 +15,21 @@ classification: documentary
 execution_type: manual
 mandatory: true
 preconditions:
-- Candidate full-queue policy, admission/eligibility definitions and resource/recovery objectives
-  available.
-- Bind the exact input/source/configuration revisions and execution or review method before running;
-  unresolved prerequisites are not a pass.
+- Candidate full-queue policy, admission/eligibility definitions and resource/recovery objectives available.
+- Bind the exact input/source/configuration revisions and execution or review method before running; unresolved
+  prerequisites are not a pass.
 procedure:
-- Review selected block/reject/retry/disconnect behavior against event-accounting and consumer-stall
-  requirements.
+- Review selected block/reject/retry/disconnect behavior against event-accounting and consumer-stall requirements.
 - Fix queue bounds, retry deadlines, loss disposition and recovery conditions before automated execution.
 expected:
 - The selected policy explicitly defines every offer outcome and bounded recovery/resource envelope.
-- Pending DEC-006 approval or unspecified bounds prevent execution readiness and positive policy
-  acceptance.
+- Pending DEC-006 approval or unspecified bounds prevent execution readiness and positive policy acceptance.
 oracle:
   kind: independent_review
-  description: A separately prepared policy/state/identity checklist and approved admission contract
-    evaluate the candidate behavior.
-execution_method: Planned manual procedure for Overload policy and recovery envelope review; bind
-  the exact command or review checklist and applicable source/fixture revisions before execution.
+  description: A separately prepared policy/state/identity checklist and approved admission contract evaluate
+    the candidate behavior.
+execution_method: Planned manual procedure for Overload policy and recovery envelope review; bind the
+  exact command or review checklist and applicable source/fixture revisions before execution.
 execution_binding:
   state: unbound
   implementation_path: null
@@ -48,5 +45,10 @@ revision_history:
 - revision: 1
   date: '2026-10-15'
   actor: codex
-  reason: Stage 5 pre-execution test specification; execution binding, implementation, inputs and
-    approvals remain pending.
+  reason: Stage 5 pre-execution test specification; execution binding, implementation, inputs and approvals
+    remain pending.
+- revision: 2
+  date: '2026-10-15'
+  actor: codex
+  reason: Stage 9 binds the isolated EXP-001 prototype and preserves reciprocal revision-pinned coverage;
+    other investigations remain pending.

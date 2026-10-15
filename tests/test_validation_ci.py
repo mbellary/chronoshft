@@ -101,7 +101,7 @@ class WorkflowContractTests(unittest.TestCase):
         cls.workflow = yaml.load((ROOT / '.github/workflows/documentation.yml').read_text(), Loader=yaml.BaseLoader)
 
     def test_all_gate_inputs_trigger_push_and_pull_request_checks(self):
-        required = {'docs/**', 'research/**', 'validation/**', 'scripts/**', 'tests/**', 'mkdocs.yml', 'pyproject.toml', 'uv.lock', '.python-version', 'README.md', '.github/workflows/documentation.yml'}
+        required = {'experiments/**', 'docs/**', 'research/**', 'validation/**', 'scripts/**', 'tests/**', 'mkdocs.yml', 'pyproject.toml', 'uv.lock', '.python-version', 'README.md', '.github/workflows/documentation.yml'}
         for event in ('push', 'pull_request'):
             self.assertTrue(required <= set(self.workflow['on'][event]['paths']))
 
