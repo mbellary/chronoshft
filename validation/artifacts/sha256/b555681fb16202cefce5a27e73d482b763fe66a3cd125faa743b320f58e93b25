@@ -1,0 +1,154 @@
+{
+  "configuration": "Sequential debug-profile prototype. Capacities 1..4096 events; mutex-backed ring; prototype has no external Rust dependencies; tooling dependencies locked in root Cargo.lock; offline locked Cargo. No performance acceptance. Reports include operation traces, constructor matrix and native index width.",
+  "dependency_lockfiles": [
+    "Cargo.lock"
+  ],
+  "deviations": [],
+  "environment_variables": {
+    "CARGO_TERM_COLOR": "never",
+    "CHRONOSHFT_REPORT_DIR": "target/validation-reports"
+  },
+  "experiment": {
+    "id": "EXP-001",
+    "registry_commit": "298f62a699518aa5202dcbf34f6b866f2f355acc",
+    "revision": 4
+  },
+  "implementation_commit": "298f62a699518aa5202dcbf34f6b866f2f355acc",
+  "inputs": [
+    {
+      "name": "prototype contract",
+      "path": "experiments/exp-001-spsc-queue/README.md"
+    },
+    {
+      "name": "independent model and schedules",
+      "path": "experiments/exp-001-spsc-queue/tests/queue_contracts.rs"
+    },
+    {
+      "name": "build and single-case runner",
+      "path": "crates/chronoshft-lab/src/experiment.rs"
+    }
+  ],
+  "instrumentation": "Rust assertions, independent VecDeque/identity ledgers, per-operation text reports, captured stdout/stderr and actual rustc/cargo versions.",
+  "max_repository_artifact_bytes": 2000000,
+  "random_seeds": [
+    "24301"
+  ],
+  "retention": "repository",
+  "run_id": "RUN-exp001-rust-001",
+  "schema_version": 1,
+  "tests": [
+    {
+      "artifacts": [
+        {
+          "kind": "test_report",
+          "path": "target/validation-reports/TST-001.txt"
+        }
+      ],
+      "command": [
+        "cargo",
+        "run",
+        "--offline",
+        "--locked",
+        "-p",
+        "chronoshft-lab",
+        "--",
+        "experiment",
+        "run-case",
+        "fifo_exactly_once"
+      ],
+      "failure_exit_codes": [
+        101
+      ],
+      "id": "TST-001",
+      "revision": 3
+    },
+    {
+      "artifacts": [
+        {
+          "kind": "test_report",
+          "path": "target/validation-reports/TST-002.txt"
+        }
+      ],
+      "command": [
+        "cargo",
+        "run",
+        "--offline",
+        "--locked",
+        "-p",
+        "chronoshft-lab",
+        "--",
+        "experiment",
+        "run-case",
+        "capacity_before_write"
+      ],
+      "failure_exit_codes": [
+        101
+      ],
+      "id": "TST-002",
+      "revision": 3
+    },
+    {
+      "artifacts": [
+        {
+          "kind": "test_report",
+          "path": "target/validation-reports/TST-003.txt"
+        }
+      ],
+      "command": [
+        "cargo",
+        "run",
+        "--offline",
+        "--locked",
+        "-p",
+        "chronoshft-lab",
+        "--",
+        "experiment",
+        "run-case",
+        "wraparound_partial_drains"
+      ],
+      "failure_exit_codes": [
+        101
+      ],
+      "id": "TST-003",
+      "revision": 3
+    },
+    {
+      "artifacts": [
+        {
+          "kind": "test_report",
+          "path": "target/validation-reports/TST-004.txt"
+        }
+      ],
+      "command": [
+        "cargo",
+        "run",
+        "--offline",
+        "--locked",
+        "-p",
+        "chronoshft-lab",
+        "--",
+        "experiment",
+        "run-case",
+        "capacity_configuration"
+      ],
+      "failure_exit_codes": [
+        101
+      ],
+      "id": "TST-004",
+      "revision": 3
+    }
+  ],
+  "timeout_seconds": 180,
+  "toolchain_command": [
+    "cargo",
+    "run",
+    "--offline",
+    "--locked",
+    "-p",
+    "chronoshft-lab",
+    "--",
+    "toolchain",
+    "show"
+  ],
+  "working_directory": "."
+}

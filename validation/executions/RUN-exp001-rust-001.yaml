@@ -1,0 +1,198 @@
+{
+  "ended_at": "2026-10-15T13:24:10.871790Z",
+  "environment": {
+    "configuration": "Sequential debug-profile prototype. Capacities 1..4096 events; mutex-backed ring; prototype has no external Rust dependencies; tooling dependencies locked in root Cargo.lock; offline locked Cargo. No performance acceptance. Reports include operation traces, constructor matrix and native index width.\nProcess environment: {\"CARGO_HOME\":\"/home/mbellary/.cargo\",\"CARGO_TERM_COLOR\":\"never\",\"CHRONOSHFT_REPORT_DIR\":\"target/validation-reports\",\"HOME\":\"/home/mbellary\",\"LC_ALL\":\"C\",\"PATH\":\"/home/mbellary/.cargo/bin:/home/mbellary/.codex/tmp/arg0/codex-arg0Msl1oC:/home/mbellary/.cache/codex-runtimes/codex-primary-runtime/dependencies/bin/override:/home/mbellary/.cargo/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/mbellary/.cache/codex-runtimes/codex-primary-runtime/dependencies/bin/fallback:/usr/lib/chatgpt/resources\",\"RUSTUP_HOME\":\"/home/mbellary/.rustup\",\"TZ\":\"UTC\"}",
+    "cpu": "AMD Ryzen 7 PRO 4750U with Radeon Graphics",
+    "deviations": [],
+    "os": "linux 7.0.0-38-generic x86_64",
+    "toolchain": "rustc --version --verbose\nrustc 1.99.0 (b940084d7 2026-09-28)\nbinary: rustc\ncommit-hash: b940084d7eb6a299eb4bfeb8e34901bc051e7ac4\ncommit-date: 2026-09-28\nhost: x86_64-unknown-linux-gnu\nrelease: 1.99.0\nLLVM version: 23.1.1\ncargo --version --verbose\ncargo 1.99.0 (5f94df478 2026-08-27)\nrelease: 1.99.0\ncommit-hash: 5f94df4789f005f9a352888e8355ffc645b7ed0e\ncommit-date: 2026-08-27\nhost: x86_64-unknown-linux-gnu\nlibgit2: 1.9.6 (sys:0.21.0 vendored)\nlibcurl: 8.21.0-DEV (sys:0.4.90+curl-8.21.0 vendored ssl:OpenSSL/3.6.3)\nssl: OpenSSL 3.6.3 9 Jun 2026\nos: Ubuntu 26.4.0 (resolute) [64-bit]\n    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.07s\n     Running `target/debug/chronoshft-lab toolchain show`"
+  },
+  "evidence_ids": [
+    "EVD-exp001-rust-001-001",
+    "EVD-exp001-rust-001-002",
+    "EVD-exp001-rust-001-003",
+    "EVD-exp001-rust-001-004",
+    "EVD-exp001-rust-001-005",
+    "EVD-exp001-rust-001-006",
+    "EVD-exp001-rust-001-007",
+    "EVD-exp001-rust-001-008",
+    "EVD-exp001-rust-001-009",
+    "EVD-exp001-rust-001-010",
+    "EVD-exp001-rust-001-011",
+    "EVD-exp001-rust-001-012",
+    "EVD-exp001-rust-001-013",
+    "EVD-exp001-rust-001-014",
+    "EVD-exp001-rust-001-015",
+    "EVD-exp001-rust-001-016"
+  ],
+  "experiment": {
+    "id": "EXP-001",
+    "registry_commit": "298f62a699518aa5202dcbf34f6b866f2f355acc",
+    "revision": 4
+  },
+  "failures": [],
+  "id": "RUN-exp001-rust-001",
+  "inputs": [
+    {
+      "name": "prototype contract",
+      "reference": "repo://experiments/exp-001-spsc-queue/README.md",
+      "sha256": "ea426215825552bf58da7691930185a301f12064fd228742033dee95a0cf4993"
+    },
+    {
+      "name": "independent model and schedules",
+      "reference": "repo://experiments/exp-001-spsc-queue/tests/queue_contracts.rs",
+      "sha256": "aae3f0fc31f0a4395cf6c05fa954103f370f9e4d76ea523f9642b6f4474df0e6"
+    },
+    {
+      "name": "build and single-case runner",
+      "reference": "repo://crates/chronoshft-lab/src/experiment.rs",
+      "sha256": "2dac94a752844c0368d00bb5f3d7feec1a37c02facde9aaba8f3bbfb680f912f"
+    }
+  ],
+  "instrumentation": "Rust assertions, independent VecDeque/identity ledgers, per-operation text reports, captured stdout/stderr and actual rustc/cargo versions.",
+  "outcome": "passed",
+  "procedure": [
+    "Working directory: .",
+    "Toolchain probe: cargo run --offline --locked -p chronoshft-lab -- toolchain show",
+    "cargo run --offline --locked -p chronoshft-lab -- experiment run-case fifo_exactly_once",
+    "cargo run --offline --locked -p chronoshft-lab -- experiment run-case capacity_before_write",
+    "cargo run --offline --locked -p chronoshft-lab -- experiment run-case wraparound_partial_drains",
+    "cargo run --offline --locked -p chronoshft-lab -- experiment run-case capacity_configuration"
+  ],
+  "random_seeds": [
+    "24301"
+  ],
+  "schema_version": 1,
+  "skips": [],
+  "source": {
+    "changed_during_run": false,
+    "dependency_lockfiles": [
+      {
+        "path": "Cargo.lock",
+        "sha256": "891a0be0d91c77f28dfb0eb787820b46e091a1f6e2f2f8e45fe0e8e57a637e29"
+      }
+    ],
+    "dirty": false,
+    "implementation_commit": "298f62a699518aa5202dcbf34f6b866f2f355acc",
+    "patch_evidence_id": null,
+    "registry_commit": "298f62a699518aa5202dcbf34f6b866f2f355acc"
+  },
+  "started_at": "2026-10-15T13:24:09.842867Z",
+  "supersedes": null,
+  "tests": [
+    {
+      "command": [
+        "cargo",
+        "run",
+        "--offline",
+        "--locked",
+        "-p",
+        "chronoshft-lab",
+        "--",
+        "experiment",
+        "run-case",
+        "fifo_exactly_once"
+      ],
+      "details": "Bound process exited with code 0",
+      "duration_seconds": 0.162892831,
+      "evidence_ids": [
+        "EVD-exp001-rust-001-004",
+        "EVD-exp001-rust-001-005",
+        "EVD-exp001-rust-001-006"
+      ],
+      "exit_code": 0,
+      "outcome": "passed",
+      "test": {
+        "id": "TST-001",
+        "registry_commit": "298f62a699518aa5202dcbf34f6b866f2f355acc",
+        "revision": 3
+      }
+    },
+    {
+      "command": [
+        "cargo",
+        "run",
+        "--offline",
+        "--locked",
+        "-p",
+        "chronoshft-lab",
+        "--",
+        "experiment",
+        "run-case",
+        "capacity_before_write"
+      ],
+      "details": "Bound process exited with code 0",
+      "duration_seconds": 0.163136449,
+      "evidence_ids": [
+        "EVD-exp001-rust-001-007",
+        "EVD-exp001-rust-001-008",
+        "EVD-exp001-rust-001-009"
+      ],
+      "exit_code": 0,
+      "outcome": "passed",
+      "test": {
+        "id": "TST-002",
+        "registry_commit": "298f62a699518aa5202dcbf34f6b866f2f355acc",
+        "revision": 3
+      }
+    },
+    {
+      "command": [
+        "cargo",
+        "run",
+        "--offline",
+        "--locked",
+        "-p",
+        "chronoshft-lab",
+        "--",
+        "experiment",
+        "run-case",
+        "wraparound_partial_drains"
+      ],
+      "details": "Bound process exited with code 0",
+      "duration_seconds": 0.203975553,
+      "evidence_ids": [
+        "EVD-exp001-rust-001-010",
+        "EVD-exp001-rust-001-011",
+        "EVD-exp001-rust-001-012"
+      ],
+      "exit_code": 0,
+      "outcome": "passed",
+      "test": {
+        "id": "TST-003",
+        "registry_commit": "298f62a699518aa5202dcbf34f6b866f2f355acc",
+        "revision": 3
+      }
+    },
+    {
+      "command": [
+        "cargo",
+        "run",
+        "--offline",
+        "--locked",
+        "-p",
+        "chronoshft-lab",
+        "--",
+        "experiment",
+        "run-case",
+        "capacity_configuration"
+      ],
+      "details": "Bound process exited with code 0",
+      "duration_seconds": 0.163855763,
+      "evidence_ids": [
+        "EVD-exp001-rust-001-013",
+        "EVD-exp001-rust-001-014",
+        "EVD-exp001-rust-001-015"
+      ],
+      "exit_code": 0,
+      "outcome": "passed",
+      "test": {
+        "id": "TST-004",
+        "registry_commit": "298f62a699518aa5202dcbf34f6b866f2f355acc",
+        "revision": 3
+      }
+    }
+  ],
+  "tool_errors": [],
+  "working_directory": "."
+}

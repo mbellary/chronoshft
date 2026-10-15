@@ -24,6 +24,22 @@ Evidence manifests record provenance, artifact references and SHA-256 digests. D
 | [EVD-exp001-local-001-014](evidence-register.md#evd-exp001-local-001-014) | test_report | [RUN-exp001-local-001](execution-register.md#run-exp001-local-001) | [VAL-012 r4](validation-coverage.md#val-012) |
 | [EVD-exp001-local-001-015](evidence-register.md#evd-exp001-local-001-015) | test_report | [RUN-exp001-local-001](execution-register.md#run-exp001-local-001) | [VAL-012 r4](validation-coverage.md#val-012) |
 | [EVD-exp001-local-001-016](evidence-register.md#evd-exp001-local-001-016) | test_report | [RUN-exp001-local-001](execution-register.md#run-exp001-local-001) | [VAL-012 r4](validation-coverage.md#val-012) |
+| [EVD-exp001-rust-001-001](evidence-register.md#evd-exp001-rust-001-001) | other | [RUN-exp001-rust-001](execution-register.md#run-exp001-rust-001) | [VAL-012 r5](validation-coverage.md#val-012) |
+| [EVD-exp001-rust-001-002](evidence-register.md#evd-exp001-rust-001-002) | other | [RUN-exp001-rust-001](execution-register.md#run-exp001-rust-001) | [VAL-012 r5](validation-coverage.md#val-012) |
+| [EVD-exp001-rust-001-003](evidence-register.md#evd-exp001-rust-001-003) | other | [RUN-exp001-rust-001](execution-register.md#run-exp001-rust-001) | [VAL-012 r5](validation-coverage.md#val-012) |
+| [EVD-exp001-rust-001-004](evidence-register.md#evd-exp001-rust-001-004) | test_report | [RUN-exp001-rust-001](execution-register.md#run-exp001-rust-001) | [VAL-012 r5](validation-coverage.md#val-012) |
+| [EVD-exp001-rust-001-005](evidence-register.md#evd-exp001-rust-001-005) | test_report | [RUN-exp001-rust-001](execution-register.md#run-exp001-rust-001) | [VAL-012 r5](validation-coverage.md#val-012) |
+| [EVD-exp001-rust-001-006](evidence-register.md#evd-exp001-rust-001-006) | test_report | [RUN-exp001-rust-001](execution-register.md#run-exp001-rust-001) | [VAL-012 r5](validation-coverage.md#val-012) |
+| [EVD-exp001-rust-001-007](evidence-register.md#evd-exp001-rust-001-007) | test_report | [RUN-exp001-rust-001](execution-register.md#run-exp001-rust-001) | [VAL-012 r5](validation-coverage.md#val-012) |
+| [EVD-exp001-rust-001-008](evidence-register.md#evd-exp001-rust-001-008) | test_report | [RUN-exp001-rust-001](execution-register.md#run-exp001-rust-001) | [VAL-012 r5](validation-coverage.md#val-012) |
+| [EVD-exp001-rust-001-009](evidence-register.md#evd-exp001-rust-001-009) | test_report | [RUN-exp001-rust-001](execution-register.md#run-exp001-rust-001) | [VAL-012 r5](validation-coverage.md#val-012) |
+| [EVD-exp001-rust-001-010](evidence-register.md#evd-exp001-rust-001-010) | test_report | [RUN-exp001-rust-001](execution-register.md#run-exp001-rust-001) | [VAL-012 r5](validation-coverage.md#val-012) |
+| [EVD-exp001-rust-001-011](evidence-register.md#evd-exp001-rust-001-011) | test_report | [RUN-exp001-rust-001](execution-register.md#run-exp001-rust-001) | [VAL-012 r5](validation-coverage.md#val-012) |
+| [EVD-exp001-rust-001-012](evidence-register.md#evd-exp001-rust-001-012) | test_report | [RUN-exp001-rust-001](execution-register.md#run-exp001-rust-001) | [VAL-012 r5](validation-coverage.md#val-012) |
+| [EVD-exp001-rust-001-013](evidence-register.md#evd-exp001-rust-001-013) | test_report | [RUN-exp001-rust-001](execution-register.md#run-exp001-rust-001) | [VAL-012 r5](validation-coverage.md#val-012) |
+| [EVD-exp001-rust-001-014](evidence-register.md#evd-exp001-rust-001-014) | test_report | [RUN-exp001-rust-001](execution-register.md#run-exp001-rust-001) | [VAL-012 r5](validation-coverage.md#val-012) |
+| [EVD-exp001-rust-001-015](evidence-register.md#evd-exp001-rust-001-015) | test_report | [RUN-exp001-rust-001](execution-register.md#run-exp001-rust-001) | [VAL-012 r5](validation-coverage.md#val-012) |
+| [EVD-exp001-rust-001-016](evidence-register.md#evd-exp001-rust-001-016) | test_report | [RUN-exp001-rust-001](execution-register.md#run-exp001-rust-001) | [VAL-012 r5](validation-coverage.md#val-012) |
 
 ## EVD-exp001-local-001-001 { #evd-exp001-local-001-001 }
 
@@ -342,5 +358,325 @@ Structured outcomes and reproduction metadata; review required
 **Claim scope**
 
 - VAL-012 r4: Structured outcomes and reproduction metadata; review required
+
+**Supersedes:** None.
+
+## EVD-exp001-rust-001-001 { #evd-exp001-rust-001-001 }
+
+**Kind:** other. **Source version:** 298f62a699518aa5202dcbf34f6b866f2f355acc. **Retrieved (UTC):** 2026-10-15T13:24:09.846642Z.
+
+Exact predeclared capture plan; not a technical conclusion
+
+**Artifact reference:** repo://validation/artifacts/sha256/b555681fb16202cefce5a27e73d482b763fe66a3cd125faa743b320f58e93b25
+
+**Recorded SHA-256:** `b555681fb16202cefce5a27e73d482b763fe66a3cd125faa743b320f58e93b25`
+
+**Size:** 3562 bytes. **Media type:** text/plain.
+
+**Retention:** Repository content-addressed artifact. **Access:** Repository checkout.
+
+**Claim scope**
+
+- VAL-012 r5: Exact predeclared capture plan; not a technical conclusion
+
+**Supersedes:** None.
+
+## EVD-exp001-rust-001-002 { #evd-exp001-rust-001-002 }
+
+**Kind:** other. **Source version:** 298f62a699518aa5202dcbf34f6b866f2f355acc. **Retrieved (UTC):** 2026-10-15T13:24:10.032216Z.
+
+Actual toolchain command output
+
+**Artifact reference:** repo://validation/artifacts/sha256/169b5adf9d8dfdf89e8845dad9b54856277023c4791f6bcb5b6a235716a5b205
+
+**Recorded SHA-256:** `169b5adf9d8dfdf89e8845dad9b54856277023c4791f6bcb5b6a235716a5b205`
+
+**Size:** 586 bytes. **Media type:** text/plain.
+
+**Retention:** Repository content-addressed artifact. **Access:** Repository checkout.
+
+**Claim scope**
+
+- VAL-012 r5: Actual toolchain command output
+
+**Supersedes:** None.
+
+## EVD-exp001-rust-001-003 { #evd-exp001-rust-001-003 }
+
+**Kind:** other. **Source version:** 298f62a699518aa5202dcbf34f6b866f2f355acc. **Retrieved (UTC):** 2026-10-15T13:24:10.034492Z.
+
+Actual toolchain command error output
+
+**Artifact reference:** repo://validation/artifacts/sha256/91c8434e1a5cd46188527ac1613b962f1a5c785e2d48ad0f1980db964f128b0f
+
+**Recorded SHA-256:** `91c8434e1a5cd46188527ac1613b962f1a5c785e2d48ad0f1980db964f128b0f`
+
+**Size:** 130 bytes. **Media type:** text/plain.
+
+**Retention:** Repository content-addressed artifact. **Access:** Repository checkout.
+
+**Claim scope**
+
+- VAL-012 r5: Actual toolchain command error output
+
+**Supersedes:** None.
+
+## EVD-exp001-rust-001-004 { #evd-exp001-rust-001-004 }
+
+**Kind:** test_report. **Source version:** 298f62a699518aa5202dcbf34f6b866f2f355acc. **Retrieved (UTC):** 2026-10-15T13:24:10.210611Z.
+
+TST-001 standard output; observation, not automatic closure evidence
+
+**Artifact reference:** repo://validation/artifacts/sha256/dc796a6dbb4f4de6794004f70595a03dd16530cfbebb33f80e40907c0d2d03e3
+
+**Recorded SHA-256:** `dc796a6dbb4f4de6794004f70595a03dd16530cfbebb33f80e40907c0d2d03e3`
+
+**Size:** 420 bytes. **Media type:** text/plain.
+
+**Retention:** Repository content-addressed artifact. **Access:** Repository checkout.
+
+**Claim scope**
+
+- VAL-012 r5: TST-001 standard output; observation, not automatic closure evidence
+
+**Supersedes:** None.
+
+## EVD-exp001-rust-001-005 { #evd-exp001-rust-001-005 }
+
+**Kind:** test_report. **Source version:** 298f62a699518aa5202dcbf34f6b866f2f355acc. **Retrieved (UTC):** 2026-10-15T13:24:10.212421Z.
+
+TST-001 standard error
+
+**Artifact reference:** repo://validation/artifacts/sha256/f315dd9a0204c4335c6dc5518e5d626b66dec4d52a525a773521bc94dcf87edc
+
+**Recorded SHA-256:** `f315dd9a0204c4335c6dc5518e5d626b66dec4d52a525a773521bc94dcf87edc`
+
+**Size:** 226 bytes. **Media type:** text/plain.
+
+**Retention:** Repository content-addressed artifact. **Access:** Repository checkout.
+
+**Claim scope**
+
+- VAL-012 r5: TST-001 standard error
+
+**Supersedes:** None.
+
+## EVD-exp001-rust-001-006 { #evd-exp001-rust-001-006 }
+
+**Kind:** test_report. **Source version:** 298f62a699518aa5202dcbf34f6b866f2f355acc. **Retrieved (UTC):** 2026-10-15T13:24:10.216548Z.
+
+TST-001 declared output target/validation-reports/TST-001.txt
+
+**Artifact reference:** repo://validation/artifacts/sha256/340926e8d5520b727d149429392f46da5ff1be002e8a643315d84a38439a9f84
+
+**Recorded SHA-256:** `340926e8d5520b727d149429392f46da5ff1be002e8a643315d84a38439a9f84`
+
+**Size:** 15832 bytes. **Media type:** application/octet-stream.
+
+**Retention:** Repository content-addressed artifact. **Access:** Repository checkout.
+
+**Claim scope**
+
+- VAL-012 r5: TST-001 declared output target/validation-reports/TST-001.txt
+
+**Supersedes:** None.
+
+## EVD-exp001-rust-001-007 { #evd-exp001-rust-001-007 }
+
+**Kind:** test_report. **Source version:** 298f62a699518aa5202dcbf34f6b866f2f355acc. **Retrieved (UTC):** 2026-10-15T13:24:10.402221Z.
+
+TST-002 standard output; observation, not automatic closure evidence
+
+**Artifact reference:** repo://validation/artifacts/sha256/be462c20d2523ba1f704a580b25e2c55a8ec3cdb40585b994cef7b0ac9379aaf
+
+**Recorded SHA-256:** `be462c20d2523ba1f704a580b25e2c55a8ec3cdb40585b994cef7b0ac9379aaf`
+
+**Size:** 428 bytes. **Media type:** text/plain.
+
+**Retention:** Repository content-addressed artifact. **Access:** Repository checkout.
+
+**Claim scope**
+
+- VAL-012 r5: TST-002 standard output; observation, not automatic closure evidence
+
+**Supersedes:** None.
+
+## EVD-exp001-rust-001-008 { #evd-exp001-rust-001-008 }
+
+**Kind:** test_report. **Source version:** 298f62a699518aa5202dcbf34f6b866f2f355acc. **Retrieved (UTC):** 2026-10-15T13:24:10.404175Z.
+
+TST-002 standard error
+
+**Artifact reference:** repo://validation/artifacts/sha256/97f39b135f1a4dea61eed564abe7de4d17580a6657dae2f7f37ad6a246e43799
+
+**Recorded SHA-256:** `97f39b135f1a4dea61eed564abe7de4d17580a6657dae2f7f37ad6a246e43799`
+
+**Size:** 230 bytes. **Media type:** text/plain.
+
+**Retention:** Repository content-addressed artifact. **Access:** Repository checkout.
+
+**Claim scope**
+
+- VAL-012 r5: TST-002 standard error
+
+**Supersedes:** None.
+
+## EVD-exp001-rust-001-009 { #evd-exp001-rust-001-009 }
+
+**Kind:** test_report. **Source version:** 298f62a699518aa5202dcbf34f6b866f2f355acc. **Retrieved (UTC):** 2026-10-15T13:24:10.407637Z.
+
+TST-002 declared output target/validation-reports/TST-002.txt
+
+**Artifact reference:** repo://validation/artifacts/sha256/9d0842c018c6a5be9b1edf38c21229ccc2bf850756b676811918047d11a8f213
+
+**Recorded SHA-256:** `9d0842c018c6a5be9b1edf38c21229ccc2bf850756b676811918047d11a8f213`
+
+**Size:** 10462 bytes. **Media type:** application/octet-stream.
+
+**Retention:** Repository content-addressed artifact. **Access:** Repository checkout.
+
+**Claim scope**
+
+- VAL-012 r5: TST-002 declared output target/validation-reports/TST-002.txt
+
+**Supersedes:** None.
+
+## EVD-exp001-rust-001-010 { #evd-exp001-rust-001-010 }
+
+**Kind:** test_report. **Source version:** 298f62a699518aa5202dcbf34f6b866f2f355acc. **Retrieved (UTC):** 2026-10-15T13:24:10.626224Z.
+
+TST-003 standard output; observation, not automatic closure evidence
+
+**Artifact reference:** repo://validation/artifacts/sha256/47d243b72e8f2f5b71f4a604df41493ef61eaa88b6730fee1e3a9e895c83e5ee
+
+**Recorded SHA-256:** `47d243b72e8f2f5b71f4a604df41493ef61eaa88b6730fee1e3a9e895c83e5ee`
+
+**Size:** 436 bytes. **Media type:** text/plain.
+
+**Retention:** Repository content-addressed artifact. **Access:** Repository checkout.
+
+**Claim scope**
+
+- VAL-012 r5: TST-003 standard output; observation, not automatic closure evidence
+
+**Supersedes:** None.
+
+## EVD-exp001-rust-001-011 { #evd-exp001-rust-001-011 }
+
+**Kind:** test_report. **Source version:** 298f62a699518aa5202dcbf34f6b866f2f355acc. **Retrieved (UTC):** 2026-10-15T13:24:10.628762Z.
+
+TST-003 standard error
+
+**Artifact reference:** repo://validation/artifacts/sha256/5803b71143c279a498b6fb9ea2ebe49fd606ed13139f198882ca6c40ecaaa02b
+
+**Recorded SHA-256:** `5803b71143c279a498b6fb9ea2ebe49fd606ed13139f198882ca6c40ecaaa02b`
+
+**Size:** 234 bytes. **Media type:** text/plain.
+
+**Retention:** Repository content-addressed artifact. **Access:** Repository checkout.
+
+**Claim scope**
+
+- VAL-012 r5: TST-003 standard error
+
+**Supersedes:** None.
+
+## EVD-exp001-rust-001-012 { #evd-exp001-rust-001-012 }
+
+**Kind:** test_report. **Source version:** 298f62a699518aa5202dcbf34f6b866f2f355acc. **Retrieved (UTC):** 2026-10-15T13:24:10.650439Z.
+
+TST-003 declared output target/validation-reports/TST-003.txt
+
+**Artifact reference:** repo://validation/artifacts/sha256/0c62f27a666ef16ad90fab40d0f377c1d9eccc82f62869c7745703fa520cc45b
+
+**Recorded SHA-256:** `0c62f27a666ef16ad90fab40d0f377c1d9eccc82f62869c7745703fa520cc45b`
+
+**Size:** 140918 bytes. **Media type:** application/octet-stream.
+
+**Retention:** Repository content-addressed artifact. **Access:** Repository checkout.
+
+**Claim scope**
+
+- VAL-012 r5: TST-003 declared output target/validation-reports/TST-003.txt
+
+**Supersedes:** None.
+
+## EVD-exp001-rust-001-013 { #evd-exp001-rust-001-013 }
+
+**Kind:** test_report. **Source version:** 298f62a699518aa5202dcbf34f6b866f2f355acc. **Retrieved (UTC):** 2026-10-15T13:24:10.839378Z.
+
+TST-004 standard output; observation, not automatic closure evidence
+
+**Artifact reference:** repo://validation/artifacts/sha256/039c057a4abf99adce9e2f3f2145fc7c7b242ca9008ed9b40d22d5ec846406cb
+
+**Recorded SHA-256:** `039c057a4abf99adce9e2f3f2145fc7c7b242ca9008ed9b40d22d5ec846406cb`
+
+**Size:** 430 bytes. **Media type:** text/plain.
+
+**Retention:** Repository content-addressed artifact. **Access:** Repository checkout.
+
+**Claim scope**
+
+- VAL-012 r5: TST-004 standard output; observation, not automatic closure evidence
+
+**Supersedes:** None.
+
+## EVD-exp001-rust-001-014 { #evd-exp001-rust-001-014 }
+
+**Kind:** test_report. **Source version:** 298f62a699518aa5202dcbf34f6b866f2f355acc. **Retrieved (UTC):** 2026-10-15T13:24:10.841272Z.
+
+TST-004 standard error
+
+**Artifact reference:** repo://validation/artifacts/sha256/02e4e52297386f120c5d1e5747dbc5cf778c2bd95d622c7ee76e21c9486a86f7
+
+**Recorded SHA-256:** `02e4e52297386f120c5d1e5747dbc5cf778c2bd95d622c7ee76e21c9486a86f7`
+
+**Size:** 231 bytes. **Media type:** text/plain.
+
+**Retention:** Repository content-addressed artifact. **Access:** Repository checkout.
+
+**Claim scope**
+
+- VAL-012 r5: TST-004 standard error
+
+**Supersedes:** None.
+
+## EVD-exp001-rust-001-015 { #evd-exp001-rust-001-015 }
+
+**Kind:** test_report. **Source version:** 298f62a699518aa5202dcbf34f6b866f2f355acc. **Retrieved (UTC):** 2026-10-15T13:24:10.843638Z.
+
+TST-004 declared output target/validation-reports/TST-004.txt
+
+**Artifact reference:** repo://validation/artifacts/sha256/9f23bf76a8f11a99f1cb2c0dc0cf3ac71aff51ce2914adb5287522a799db0ff6
+
+**Recorded SHA-256:** `9f23bf76a8f11a99f1cb2c0dc0cf3ac71aff51ce2914adb5287522a799db0ff6`
+
+**Size:** 869 bytes. **Media type:** application/octet-stream.
+
+**Retention:** Repository content-addressed artifact. **Access:** Repository checkout.
+
+**Claim scope**
+
+- VAL-012 r5: TST-004 declared output target/validation-reports/TST-004.txt
+
+**Supersedes:** None.
+
+## EVD-exp001-rust-001-016 { #evd-exp001-rust-001-016 }
+
+**Kind:** test_report. **Source version:** 298f62a699518aa5202dcbf34f6b866f2f355acc. **Retrieved (UTC):** 2026-10-15T13:24:10.880955Z.
+
+Structured outcomes and reproduction metadata; review required
+
+**Artifact reference:** repo://validation/artifacts/sha256/6028f16ceefd326c7d5e29dbd165607d5e8d2b6ba92d12cd548ef63f9b6bb9af
+
+**Recorded SHA-256:** `6028f16ceefd326c7d5e29dbd165607d5e8d2b6ba92d12cd548ef63f9b6bb9af`
+
+**Size:** 11591 bytes. **Media type:** application/json.
+
+**Retention:** Repository content-addressed artifact. **Access:** Repository checkout.
+
+**Claim scope**
+
+- VAL-012 r5: Structured outcomes and reproduction metadata; review required
 
 **Supersedes:** None.

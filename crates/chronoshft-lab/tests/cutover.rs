@@ -98,3 +98,29 @@ fn the_native_plan_matches_all_current_bindings_and_preserves_prior_definitions(
         );
     }
 }
+
+#[test]
+fn native_cutover_observation_is_clean_and_passes_exactly_the_four_bound_cases() {
+    let root = root();
+    let run =
+        registry::read_yaml(&root.join("validation/executions/RUN-exp001-rust-001.yaml")).unwrap();
+    assert_eq!(run["outcome"], "passed");
+    assert_eq!(run["experiment"]["revision"], 4);
+    assert_eq!(run["source"]["dirty"], false);
+    assert_eq!(run["tests"].as_array().unwrap().len(), 4);
+    assert_eq!(run["evidence_ids"].as_array().unwrap().len(), 16);
+    for case in run["tests"].as_array().unwrap() {
+        assert_eq!(case["outcome"], "passed");
+        assert_eq!(case["exit_code"], 0);
+        assert_eq!(case["test"]["revision"], 3);
+        assert_eq!(case["command"][0], "cargo");
+        assert_eq!(case["command"][8], "run-case");
+    }
+    let old =
+        registry::read_yaml(&root.join("validation/executions/RUN-exp001-local-001.yaml")).unwrap();
+    assert_eq!(old["tests"][0]["command"][0], "python3");
+    assert_ne!(
+        old["source"]["implementation_commit"],
+        run["source"]["implementation_commit"]
+    );
+}

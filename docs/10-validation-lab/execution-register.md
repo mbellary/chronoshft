@@ -9,6 +9,7 @@ Runs record observations for pinned experiment/test definitions. Failed, skipped
 | Run | Experiment revision | Started (UTC) | Recorded outcome | Test outcomes | Evidence |
 | --- | --- | --- | --- | --- | --- |
 | [RUN-exp001-local-001](execution-register.md#run-exp001-local-001) | [EXP-001](experiments/EXP-001.md) r3 | 2026-10-15T09:50:47.417537Z | passed | 4 | [EVD-exp001-local-001-001](evidence-register.md#evd-exp001-local-001-001), [EVD-exp001-local-001-002](evidence-register.md#evd-exp001-local-001-002), [EVD-exp001-local-001-003](evidence-register.md#evd-exp001-local-001-003), [EVD-exp001-local-001-004](evidence-register.md#evd-exp001-local-001-004), [EVD-exp001-local-001-005](evidence-register.md#evd-exp001-local-001-005), [EVD-exp001-local-001-006](evidence-register.md#evd-exp001-local-001-006), [EVD-exp001-local-001-007](evidence-register.md#evd-exp001-local-001-007), [EVD-exp001-local-001-008](evidence-register.md#evd-exp001-local-001-008), [EVD-exp001-local-001-009](evidence-register.md#evd-exp001-local-001-009), [EVD-exp001-local-001-010](evidence-register.md#evd-exp001-local-001-010), [EVD-exp001-local-001-011](evidence-register.md#evd-exp001-local-001-011), [EVD-exp001-local-001-012](evidence-register.md#evd-exp001-local-001-012), [EVD-exp001-local-001-013](evidence-register.md#evd-exp001-local-001-013), [EVD-exp001-local-001-014](evidence-register.md#evd-exp001-local-001-014), [EVD-exp001-local-001-015](evidence-register.md#evd-exp001-local-001-015), [EVD-exp001-local-001-016](evidence-register.md#evd-exp001-local-001-016) |
+| [RUN-exp001-rust-001](execution-register.md#run-exp001-rust-001) | [EXP-001](experiments/EXP-001.md) r4 | 2026-10-15T13:24:09.842867Z | passed | 4 | [EVD-exp001-rust-001-001](evidence-register.md#evd-exp001-rust-001-001), [EVD-exp001-rust-001-002](evidence-register.md#evd-exp001-rust-001-002), [EVD-exp001-rust-001-003](evidence-register.md#evd-exp001-rust-001-003), [EVD-exp001-rust-001-004](evidence-register.md#evd-exp001-rust-001-004), [EVD-exp001-rust-001-005](evidence-register.md#evd-exp001-rust-001-005), [EVD-exp001-rust-001-006](evidence-register.md#evd-exp001-rust-001-006), [EVD-exp001-rust-001-007](evidence-register.md#evd-exp001-rust-001-007), [EVD-exp001-rust-001-008](evidence-register.md#evd-exp001-rust-001-008), [EVD-exp001-rust-001-009](evidence-register.md#evd-exp001-rust-001-009), [EVD-exp001-rust-001-010](evidence-register.md#evd-exp001-rust-001-010), [EVD-exp001-rust-001-011](evidence-register.md#evd-exp001-rust-001-011), [EVD-exp001-rust-001-012](evidence-register.md#evd-exp001-rust-001-012), [EVD-exp001-rust-001-013](evidence-register.md#evd-exp001-rust-001-013), [EVD-exp001-rust-001-014](evidence-register.md#evd-exp001-rust-001-014), [EVD-exp001-rust-001-015](evidence-register.md#evd-exp001-rust-001-015), [EVD-exp001-rust-001-016](evidence-register.md#evd-exp001-rust-001-016) |
 
 ## RUN-exp001-local-001 { #run-exp001-local-001 }
 
@@ -50,6 +51,65 @@ Runs record observations for pinned experiment/test definitions. Failed, skipped
 **Dependency lockfiles**
 
 - experiments/Cargo.lock · SHA-256 `edd5197e4537ca278f8077801c589fdee0b24c034efdcd50939ea069c631cb9a`
+
+**Seeds:** 24301.
+
+**Instrumentation:** Rust assertions, independent VecDeque/identity ledgers, per-operation text reports, captured stdout/stderr and actual rustc/cargo versions.
+
+**Failures**
+
+None recorded.
+
+**Skips**
+
+None recorded.
+
+**Tool errors**
+
+None recorded.
+
+**Supersedes:** None. Originals remain retained.
+
+## RUN-exp001-rust-001 { #run-exp001-rust-001 }
+
+**Recorded outcome:** passed. **Time:** 2026-10-15T13:24:09.842867Z to 2026-10-15T13:24:10.871790Z.
+
+**Registry commit:** `298f62a699518aa5202dcbf34f6b866f2f355acc`. **Implementation commit:** `298f62a699518aa5202dcbf34f6b866f2f355acc`. **Dirty:** false.
+
+**Working directory:** .. **Source/input changed during run:** false.
+
+**Exact recorded procedure**
+
+- Working directory: .
+- Toolchain probe: cargo run --offline --locked -p chronoshft-lab -- toolchain show
+- cargo run --offline --locked -p chronoshft-lab -- experiment run-case fifo_exactly_once
+- cargo run --offline --locked -p chronoshft-lab -- experiment run-case capacity_before_write
+- cargo run --offline --locked -p chronoshft-lab -- experiment run-case wraparound_partial_drains
+- cargo run --offline --locked -p chronoshft-lab -- experiment run-case capacity_configuration
+
+| Test revision | Recorded outcome | Exit | Duration (s) | Details | Evidence |
+| --- | --- | --- | --- | --- | --- |
+| [TST-001](experiments/EXP-001.md#tst-001) r3 | passed | 0 | 0.162893 | Bound process exited with code 0 | [EVD-exp001-rust-001-004](evidence-register.md#evd-exp001-rust-001-004), [EVD-exp001-rust-001-005](evidence-register.md#evd-exp001-rust-001-005), [EVD-exp001-rust-001-006](evidence-register.md#evd-exp001-rust-001-006) |
+| [TST-002](experiments/EXP-001.md#tst-002) r3 | passed | 0 | 0.163136 | Bound process exited with code 0 | [EVD-exp001-rust-001-007](evidence-register.md#evd-exp001-rust-001-007), [EVD-exp001-rust-001-008](evidence-register.md#evd-exp001-rust-001-008), [EVD-exp001-rust-001-009](evidence-register.md#evd-exp001-rust-001-009) |
+| [TST-003](experiments/EXP-001.md#tst-003) r3 | passed | 0 | 0.203976 | Bound process exited with code 0 | [EVD-exp001-rust-001-010](evidence-register.md#evd-exp001-rust-001-010), [EVD-exp001-rust-001-011](evidence-register.md#evd-exp001-rust-001-011), [EVD-exp001-rust-001-012](evidence-register.md#evd-exp001-rust-001-012) |
+| [TST-004](experiments/EXP-001.md#tst-004) r3 | passed | 0 | 0.163856 | Bound process exited with code 0 | [EVD-exp001-rust-001-013](evidence-register.md#evd-exp001-rust-001-013), [EVD-exp001-rust-001-014](evidence-register.md#evd-exp001-rust-001-014), [EVD-exp001-rust-001-015](evidence-register.md#evd-exp001-rust-001-015) |
+
+**Case commands**
+
+- TST-001: ["cargo", "run", "--offline", "--locked", "-p", "chronoshft-lab", "--", "experiment", "run-case", "fifo_exactly_once"]
+- TST-002: ["cargo", "run", "--offline", "--locked", "-p", "chronoshft-lab", "--", "experiment", "run-case", "capacity_before_write"]
+- TST-003: ["cargo", "run", "--offline", "--locked", "-p", "chronoshft-lab", "--", "experiment", "run-case", "wraparound_partial_drains"]
+- TST-004: ["cargo", "run", "--offline", "--locked", "-p", "chronoshft-lab", "--", "experiment", "run-case", "capacity_configuration"]
+
+**Inputs**
+
+- prototype contract: repo://experiments/exp-001-spsc-queue/README.md · SHA-256 `ea426215825552bf58da7691930185a301f12064fd228742033dee95a0cf4993`
+- independent model and schedules: repo://experiments/exp-001-spsc-queue/tests/queue_contracts.rs · SHA-256 `aae3f0fc31f0a4395cf6c05fa954103f370f9e4d76ea523f9642b6f4474df0e6`
+- build and single-case runner: repo://crates/chronoshft-lab/src/experiment.rs · SHA-256 `2dac94a752844c0368d00bb5f3d7feec1a37c02facde9aaba8f3bbfb680f912f`
+
+**Dependency lockfiles**
+
+- Cargo.lock · SHA-256 `891a0be0d91c77f28dfb0eb787820b46e091a1f6e2f2f8e45fe0e8e57a637e29`
 
 **Seeds:** 24301.
 

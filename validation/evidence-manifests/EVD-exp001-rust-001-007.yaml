@@ -1,0 +1,30 @@
+{
+  "artifact": {
+    "access": "Repository checkout",
+    "media_type": "text/plain",
+    "retention_location": "Repository content-addressed artifact",
+    "sha256": "be462c20d2523ba1f704a580b25e2c55a8ec3cdb40585b994cef7b0ac9379aaf",
+    "size_bytes": 428,
+    "uri": "repo://validation/artifacts/sha256/be462c20d2523ba1f704a580b25e2c55a8ec3cdb40585b994cef7b0ac9379aaf"
+  },
+  "id": "EVD-exp001-rust-001-007",
+  "kind": "test_report",
+  "provenance": {
+    "description": "TST-002 standard output; observation, not automatic closure evidence",
+    "execution_id": "RUN-exp001-rust-001",
+    "retrieved_at": "2026-10-15T13:24:10.402221Z",
+    "source_version": "298f62a699518aa5202dcbf34f6b866f2f355acc"
+  },
+  "schema_version": 1,
+  "supersedes": null,
+  "supports": [
+    {
+      "scope": "TST-002 standard output; observation, not automatic closure evidence",
+      "validation": {
+        "id": "VAL-012",
+        "registry_commit": "298f62a699518aa5202dcbf34f6b866f2f355acc",
+        "revision": 5
+      }
+    }
+  ]
+}

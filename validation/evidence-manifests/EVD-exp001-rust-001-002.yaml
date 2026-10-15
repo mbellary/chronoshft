@@ -1,0 +1,30 @@
+{
+  "artifact": {
+    "access": "Repository checkout",
+    "media_type": "text/plain",
+    "retention_location": "Repository content-addressed artifact",
+    "sha256": "169b5adf9d8dfdf89e8845dad9b54856277023c4791f6bcb5b6a235716a5b205",
+    "size_bytes": 586,
+    "uri": "repo://validation/artifacts/sha256/169b5adf9d8dfdf89e8845dad9b54856277023c4791f6bcb5b6a235716a5b205"
+  },
+  "id": "EVD-exp001-rust-001-002",
+  "kind": "other",
+  "provenance": {
+    "description": "Actual toolchain command output",
+    "execution_id": "RUN-exp001-rust-001",
+    "retrieved_at": "2026-10-15T13:24:10.032216Z",
+    "source_version": "298f62a699518aa5202dcbf34f6b866f2f355acc"
+  },
+  "schema_version": 1,
+  "supersedes": null,
+  "supports": [
+    {
+      "scope": "Actual toolchain command output",
+      "validation": {
+        "id": "VAL-012",
+        "registry_commit": "298f62a699518aa5202dcbf34f6b866f2f355acc",
+        "revision": 5
+      }
+    }
+  ]
+}

@@ -1,10 +1,11 @@
 # chronoshft-lab
 
-Rust tooling for the Technical Validation Lab migration. Stages 2–7 provide native
+Rust tooling for the Technical Validation Lab migration. Stages 2–8 provide native
 registry, Git-history and retained-evidence verification, Markdown/navigation
 generation, rendered-link checks, execution capture/import, experiment helpers,
 reviewer workflows and the shared `cargo lab check` gate, including strict MkDocs.
-CI retains Python reference regressions and legacy plan bindings until Stage 8.
+Custom Python tools and regression modules are retired. Native plan bindings use
+the shared root Cargo workspace/lockfile; MkDocs retains Python/uv.
 
 From the repository root:
 
@@ -45,7 +46,7 @@ leaving lifecycle and current-decision selection for explicit record edits. Hist
 The [migration contract](../../docs/10-validation-lab/rust-migration.md) explains
 YAML/schema compatibility, frozen fixtures, module mapping and stage boundaries.
 MkDocs and its Python documentation dependencies remain supported. The experiment
-workspace remains independent until the versioned command/binding cutover.
+and tooling now share the root workspace and lockfile.
 Native capture supports Unix process groups, retained failure/aborted observations
 and identical publication recovery; see the contract for platform limits.
 

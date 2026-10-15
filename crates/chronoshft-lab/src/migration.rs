@@ -44,7 +44,7 @@ pub const STAGES: &[Stage] = &[
     Stage {
         number: 8,
         title: "Cutover and Python tooling retirement",
-        state: "pending",
+        state: "implemented",
     },
 ];
 

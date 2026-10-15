@@ -65,8 +65,16 @@ concurrent publication remain separate pending investigations.
 
 ## Cutover completion
 
-Final verification and the committed-source native capture are pending while the
-cutover changes are being checked. No hosted CI or Pages deployment is asserted.
+The clean committed-source capture `RUN-exp001-rust-001` passed all four cases
+against `298f62a699518aa5202dcbf34f6b866f2f355acc`, adding 16 EVD manifests and
+11 new content-addressed artifact blobs (identical content reuses existing blobs).
+Native evidence verification accepts both runs and all 32 manifests, with zero
+reviewer decisions. The original run and artifacts remain unchanged. Validation
+and architecture acceptance remain pending.
+
+Reproduce the full native regression, history/evidence, generated-content, strict
+MkDocs and rendered-link checks with `cargo lab check`. Formatting and Clippy use
+the workspace commands above. No hosted CI or Pages deployment is asserted.
 
 ## Stage 1 deliverables
 
