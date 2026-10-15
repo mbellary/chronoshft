@@ -1,0 +1,49 @@
+schema_version: 1
+id: TST-028
+revision: 1
+title: Complete example compilation
+experiment:
+  id: EXP-010
+  revision: 2
+validations:
+- id: VAL-017
+  revision: 3
+hypothesis_ids:
+- HYP-001
+classification: compatibility
+execution_type: automated
+mandatory: true
+preconditions:
+- Complete example sources, manifests, toolchain and dependency pins available; repairs distinguished
+  from original snippets.
+- Bind the exact input/source/configuration revisions and execution or review method before running;
+  unresolved prerequisites are not a pass.
+procedure:
+- Build every declared example from its manifest in a clean environment.
+- Check missing schema()/row_count() APIs and unresolved dependencies explicitly.
+expected:
+- Every supported complete example builds against the pinned dependency set.
+- Repairs and exclusions are recorded; missing examples are not counted as passing builds.
+oracle:
+  kind: independent_reference_comparison
+  description: An external inventory of required example artifacts and API contracts defines build
+    coverage independently of files discovered by the build itself.
+execution_method: Planned automated procedure for Complete example compilation; bind the exact command
+  or review checklist and applicable source/fixture revisions before execution.
+execution_binding:
+  state: unbound
+  implementation_path: null
+  entrypoint: null
+required_evidence:
+- Per-case test outcomes including failures, skips and tool errors
+- Registry/test revision and implementation or documentary source revision
+- Exact execution command or review procedure; input/configuration hashes and applicable environment/toolchain
+- Retained artifact references with SHA-256 digests
+- Example inventory and manifest hashes
+- Build diagnostics and repair references
+revision_history:
+- revision: 1
+  date: '2026-10-15'
+  actor: codex
+  reason: Stage 5 pre-execution test specification; execution binding, implementation, inputs and
+    approvals remain pending.

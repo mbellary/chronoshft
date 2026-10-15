@@ -1,0 +1,48 @@
+schema_version: 1
+id: TST-047
+revision: 1
+title: Signaling event identity and publication
+experiment:
+  id: EXP-016
+  revision: 2
+validations:
+- id: VAL-022
+  revision: 3
+hypothesis_ids:
+- HYP-001
+classification: correctness
+execution_type: automated
+mandatory: true
+preconditions:
+- Supported wait strategies and event-publication contract fixed; distinctive payload fixtures available.
+- Bind the exact input/source/configuration revisions and execution or review method before running;
+  unresolved prerequisites are not a pass.
+procedure:
+- Publish/consume numbered events under yields, stalls and wraparound for each strategy.
+- Compare initialization, identity and order against the published-input ledger.
+expected:
+- No consumer observes an uninitialized/corrupted event or unexplained duplicate/gap.
+- Every executed schedule satisfies the declared publication/order contract.
+oracle:
+  kind: independent_reference_comparison
+  description: Externally generated event checksums and an independent published-event ledger define
+    expected payloads and order.
+execution_method: Planned automated procedure for Signaling event identity and publication; bind
+  the exact command or review checklist and applicable source/fixture revisions before execution.
+execution_binding:
+  state: unbound
+  implementation_path: null
+  entrypoint: null
+required_evidence:
+- Per-case test outcomes including failures, skips and tool errors
+- Registry/test revision and implementation or documentary source revision
+- Exact execution command or review procedure; input/configuration hashes and applicable environment/toolchain
+- Retained artifact references with SHA-256 digests
+- Strategy/schedule manifest
+- Published/consumed event comparisons
+revision_history:
+- revision: 1
+  date: '2026-10-15'
+  actor: codex
+  reason: Stage 5 pre-execution test specification; execution binding, implementation, inputs and
+    approvals remain pending.

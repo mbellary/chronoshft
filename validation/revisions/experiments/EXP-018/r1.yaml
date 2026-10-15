@@ -1,0 +1,50 @@
+schema_version: 1
+id: EXP-018
+revision: 1
+title: Timestamp correctness
+validates:
+- id: VAL-010
+  revision: 2
+objective: Establish bounded timestamp arithmetic and approved epoch/timezone round trips.
+hypotheses:
+- id: HYP-001
+  statement: Supported signed-nanosecond boundary values round-trip exactly under the declared epoch
+    and timezone policy.
+- id: HYP-002
+  statement: Overflow and unsupported conversions produce the declared error behavior without silent
+    wrap or precision loss.
+scope: 'VAL-010: minimum/maximum representable values, negative epochs, timezone conversion and overflow
+  handling.'
+exclusions:
+- Unit resolution does not establish clock accuracy.
+- Timestamp arithmetic does not establish feed ordering.
+method:
+  kind: executable
+  procedure: Use independent timestamp fixtures and checked-arithmetic oracles to exercise signed
+    boundaries, units, timezone transitions and invalid conversions.
+  implementation_path: null
+dependencies:
+- Approved epoch, timezone, precision and overflow policy (DEC-007).
+tests: []
+completion_criteria:
+- Define versioned test specifications with independent oracles and predeclared acceptance criteria
+  before execution.
+- Execute the defined mandatory investigation and retain outcomes, provenance and integrity-checked
+  evidence, including negative and inconclusive results.
+- Review hypothesis conclusions and coverage limitations; link a separate validation decision without
+  inferring acceptance from experiment completion.
+lifecycle:
+  state: proposed
+  history:
+  - from: null
+    to: proposed
+    date: '2026-10-15'
+    actor: codex
+    reason: Stage 4 investigation definition; test decomposition, prerequisites and execution remain
+      pending.
+revision_history:
+- revision: 1
+  date: '2026-10-15'
+  actor: codex
+  reason: Stage 4 initial experiment definition and validation coverage assignment; no implementation
+    or approval asserted.

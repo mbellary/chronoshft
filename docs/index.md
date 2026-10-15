@@ -65,7 +65,15 @@ The documentation workspace for a proposed Rust financial time-series database a
 
     [Fundamentals](04-rust/fundamentals.md) · [Ownership & lifetimes](04-rust/ownership-and-lifetimes.md) · [Idioms & error handling](04-rust/idioms-and-errors.md) · [Engine design patterns](04-rust/engine-design-patterns.md) · [Atomics & memory ordering](04-rust/atomics-and-memory-ordering.md) · [Lock-free patterns](04-rust/lock-free-patterns.md) · [Concurrency patterns](04-rust/concurrency-patterns.md) · [Memory management](04-rust/memory-management.md) · [FDAP integration](04-rust/fdap-integration.md) · [Reference exercises](04-rust/reference-exercises.md)
 
--   **F · Financial domain**
+-   **F · Technical Validation Lab**
+
+    ---
+
+    Follow technical questions through experiment plans, independent test specifications, recorded executions, evidence and reviewed decisions.
+
+    [Lab overview](10-validation-lab/index.md) · [Methodology](10-validation-lab/methodology.md) · [Validation coverage](10-validation-lab/validation-coverage.md) · [Experiments](10-validation-lab/experiment-register.md) · [Tests](10-validation-lab/test-register.md) · [Validation results](10-validation-lab/validation-results.md)
+
+-   **G · Financial domain**
 
     ---
 
@@ -73,7 +81,7 @@ The documentation workspace for a proposed Rust financial time-series database a
 
     [Market data protocols](05-financial-domain/market-data-protocols.md) · [Timestamps & sequencing](05-financial-domain/timestamps-and-sequencing.md) · [Order book reconstruction](05-financial-domain/order-book-reconstruction.md) · [Financial query semantics](05-financial-domain/financial-query-semantics.md)
 
--   **G · Benchmarking & validation**
+-   **H · Benchmarking & validation**
 
     ---
 
@@ -81,7 +89,7 @@ The documentation workspace for a proposed Rust financial time-series database a
 
     [Benchmark methodology](06-benchmarking/benchmark-methodology.md) · [Workload definitions](06-benchmarking/workload-definitions.md) · [Test strategy](06-benchmarking/test-strategy.md) · [Hardware setup](06-benchmarking/hardware-setup.md) · [Acceptance criteria](06-benchmarking/acceptance-criteria.md) · [Evidence & traceability](06-benchmarking/evidence-and-traceability.md)
 
--   **H · Operations**
+-   **I · Operations**
 
     ---
 
@@ -89,7 +97,7 @@ The documentation workspace for a proposed Rust financial time-series database a
 
     [Deployment](07-operations/deployment.md) · [Observability](07-operations/observability.md) · [Security](07-operations/security.md) · [Recovery](07-operations/recovery.md) · [Capacity & overload planning](07-operations/capacity-planning.md) · [Readiness & traceability](07-operations/readiness-and-traceability.md)
 
--   **I · Architecture decisions**
+-   **J · Architecture decisions**
 
     ---
 
@@ -97,7 +105,7 @@ The documentation workspace for a proposed Rust financial time-series database a
 
     [ADR-0001: Product boundary](08-decisions/ADR-0001-product-boundary.md)
 
--   **J · Roadmap**
+-   **K · Roadmap**
 
     ---
 
@@ -116,6 +124,7 @@ The documentation workspace for a proposed Rust financial time-series database a
 | 02 · Architecture | Runtime topology, interfaces and data flow | [System architecture](02-architecture/system-architecture.md) |
 | 03 · Engineering | Algorithms, invariants and subsystem design | [Engineering requirements](03-engineering/engineering-requirements.md) |
 | 04 · Rust | Language concepts and implementation patterns | [Rust fundamentals](04-rust/fundamentals.md) |
+| 10 · Validation Lab | Experiment plans, tests, execution records, evidence and decisions | [Technical Validation Lab](10-validation-lab/index.md) |
 | 05 · Financial domain | Protocols, sequencing, order books and query semantics | [Market data protocols](05-financial-domain/market-data-protocols.md) |
 | 06 · Benchmarking | Workloads, tests, hardware and acceptance gates | [Benchmark methodology](06-benchmarking/benchmark-methodology.md) |
 | 07 · Operations | Deployment, observability, security and recovery | [Deployment](07-operations/deployment.md) |

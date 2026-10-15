@@ -1,0 +1,51 @@
+schema_version: 1
+id: EXP-011
+revision: 1
+title: Bibliography reconciliation
+validates:
+- id: VAL-028
+  revision: 2
+objective: Resolve numeric citations or explicitly mark the affected assertions unsupported.
+hypotheses:
+- id: HYP-001
+  statement: Every in-scope numeric citation resolves to an identifiable source and the claim location
+    it supports.
+- id: HYP-002
+  statement: Each unresolved or unsupported attribution is explicitly recorded and excluded from
+    supported technical conclusions.
+scope: 'VAL-028: source resolution, attribution and unsupported-claim inventory for RES-063 and affected
+  assertions.'
+exclusions:
+- Unrecoverable references remain unresolved; do not invent citations.
+- Finding a source does not establish implementation correctness.
+method:
+  kind: documentary
+  procedure: Inventory citations and claim locations, recover references where possible, archive
+    source/version details, and review whether each source supports the attributed claim.
+  implementation_path: null
+dependencies:
+- Preserved BASE-001 and extraction matrix.
+- Recoverable bibliography or author-supplied source information where available.
+tests: []
+completion_criteria:
+- Define versioned test specifications with independent oracles and predeclared acceptance criteria
+  before execution.
+- Execute the defined mandatory investigation and retain outcomes, provenance and integrity-checked
+  evidence, including negative and inconclusive results.
+- Review hypothesis conclusions and coverage limitations; link a separate validation decision without
+  inferring acceptance from experiment completion.
+lifecycle:
+  state: proposed
+  history:
+  - from: null
+    to: proposed
+    date: '2026-10-15'
+    actor: codex
+    reason: Stage 4 investigation definition; test decomposition, prerequisites and execution remain
+      pending.
+revision_history:
+- revision: 1
+  date: '2026-10-15'
+  actor: codex
+  reason: Stage 4 initial experiment definition and validation coverage assignment; no implementation
+    or approval asserted.

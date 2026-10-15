@@ -1,0 +1,49 @@
+schema_version: 1
+id: TST-064
+revision: 1
+title: Repeated snapshot scans
+experiment:
+  id: EXP-022
+  revision: 2
+validations:
+- id: VAL-015
+  revision: 3
+hypothesis_ids:
+- HYP-001
+classification: correctness
+execution_type: automated
+mandatory: true
+preconditions:
+- Retained immutable snapshot contract and fixed row identities available.
+- Bind the exact input/source/configuration revisions and execution or review method before running;
+  unresolved prerequisites are not a pass.
+procedure:
+- Capture a snapshot and execute the same scan repeatedly before/after new ingestion.
+- Compare row identities and values for the captured snapshot and check ingestion-output accounting.
+expected:
+- All scans of the same snapshot return identical declared rows without consuming shared ingestion
+  output.
+- New ingestion affects only snapshots whose capture boundary includes it.
+oracle:
+  kind: independent_reference_comparison
+  description: A separate snapshot-to-identity fixture map defines membership without polling the
+    production queue.
+execution_method: Planned automated procedure for Repeated snapshot scans; bind the exact command
+  or review checklist and applicable source/fixture revisions before execution.
+execution_binding:
+  state: unbound
+  implementation_path: null
+  entrypoint: null
+required_evidence:
+- Per-case test outcomes including failures, skips and tool errors
+- Registry/test revision and implementation or documentary source revision
+- Exact execution command or review procedure; input/configuration hashes and applicable environment/toolchain
+- Retained artifact references with SHA-256 digests
+- Snapshot IDs and capture boundaries
+- Repeated scan membership/results
+revision_history:
+- revision: 1
+  date: '2026-10-15'
+  actor: codex
+  reason: Stage 5 pre-execution test specification; execution binding, implementation, inputs and
+    approvals remain pending.

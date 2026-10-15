@@ -1,0 +1,62 @@
+schema_version: 1
+id: EXP-010
+revision: 2
+title: Compilation compatibility matrix
+validates:
+- id: VAL-017
+  revision: 3
+objective: Establish that complete reference examples compile and execute with pinned dependencies
+  and defined APIs.
+hypotheses:
+- id: HYP-001
+  statement: Each in-scope reference example compiles from its complete manifest without missing
+    methods or undeclared dependencies.
+- id: HYP-002
+  statement: Executing each compiled example produces its specified schema, row-count and control-flow
+    results.
+scope: 'VAL-017: complete examples, including schema()/row_count() call sites, manifests and dependency
+  pins.'
+exclusions:
+- Compilation does not establish memory safety or production readiness.
+method:
+  kind: executable
+  procedure: Collect complete examples, record any repairs separately from original snippets, pin
+    toolchains/dependencies, and compile and execute a declared example matrix.
+  implementation_path: null
+dependencies:
+- Source example inventory tied to RES-055/060.
+- Pinned Rust and FDAP dependency set (DEC-010).
+tests:
+- id: TST-028
+  revision: 1
+- id: TST-029
+  revision: 1
+- id: TST-030
+  revision: 1
+completion_criteria:
+- Define versioned test specifications with independent oracles and predeclared acceptance criteria
+  before execution.
+- Execute the defined mandatory investigation and retain outcomes, provenance and integrity-checked
+  evidence, including negative and inconclusive results.
+- Review hypothesis conclusions and coverage limitations; link a separate validation decision without
+  inferring acceptance from experiment completion.
+lifecycle:
+  state: proposed
+  history:
+  - from: null
+    to: proposed
+    date: '2026-10-15'
+    actor: codex
+    reason: Stage 4 investigation definition; test decomposition, prerequisites and execution remain
+      pending.
+revision_history:
+- revision: 1
+  date: '2026-10-15'
+  actor: codex
+  reason: Stage 4 initial experiment definition and validation coverage assignment; no implementation
+    or approval asserted.
+- revision: 2
+  date: '2026-10-15'
+  actor: codex
+  reason: Stage 5 declares hypothesis-linked test specifications; experiment remains proposed until
+    bindings and prerequisites are ready.

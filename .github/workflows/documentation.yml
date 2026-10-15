@@ -6,23 +6,31 @@ on:
     paths:
       - "docs/**"
       - "research/**"
+      - "validation/**"
+      - "scripts/**"
+      - "tests/**"
       - "mkdocs.yml"
       - "pyproject.toml"
       - "uv.lock"
       - ".python-version"
       - "README.md"
       - ".github/workflows/documentation.yml"
+      - ".github/workflows/validation-experiments.yml"
   pull_request:
     branches: [main]
     paths:
       - "docs/**"
       - "research/**"
+      - "validation/**"
+      - "scripts/**"
+      - "tests/**"
       - "mkdocs.yml"
       - "pyproject.toml"
       - "uv.lock"
       - ".python-version"
       - "README.md"
       - ".github/workflows/documentation.yml"
+      - ".github/workflows/validation-experiments.yml"
   workflow_dispatch:
 
 permissions:
@@ -36,9 +44,12 @@ jobs:
   build:
     name: Validate and build documentation
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     steps:
       - name: Checkout repository
         uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
       - name: Set up uv
         uses: astral-sh/setup-uv@c771a70e6277c0a99b617c7a806ffedaca235ff9 # v9.0.0
         with:
@@ -47,10 +58,10 @@ jobs:
           cache-dependency-glob: uv.lock
       - name: Set up Python
         run: uv python install
-      - name: Install documentation dependencies
-        run: uv sync --locked --extra docs
-      - name: Build documentation with strict validation
-        run: uv run --locked --extra docs mkdocs build --strict
+      - name: Install locked documentation and validation dependencies
+        run: uv sync --locked --extra docs --extra validation
+      - name: Check registries, generated documentation, regressions and rendered links
+        run: uv run --locked --extra docs --extra validation python scripts/check_documentation.py
       - name: Upload GitHub Pages artifact
         if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
         uses: actions/upload-pages-artifact@v4

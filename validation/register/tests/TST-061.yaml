@@ -1,0 +1,50 @@
+schema_version: 1
+id: TST-061
+revision: 1
+title: Pinned builder source and reclamation design audit
+experiment:
+  id: EXP-021
+  revision: 2
+validations:
+- id: VAL-014
+  revision: 3
+hypothesis_ids:
+- HYP-001
+- HYP-002
+classification: documentary
+execution_type: manual
+mandatory: true
+preconditions:
+- Pinned Arrow builder source and proposed pool/reclamation design available.
+- Bind the exact input/source/configuration revisions and execution or review method before running;
+  unresolved prerequisites are not a pass.
+procedure:
+- Trace append, finish, mem::take/replacement, array ownership and drop paths.
+- Identify who allocates, reserves and reclaims storage in the proposed lifecycle.
+expected:
+- Every retained capacity/reuse claim follows the inspected implementation and explicit ownership
+  design.
+- Array drop is not credited with invoking the source reserve loop without evidence.
+oracle:
+  kind: independent_review
+  description: Versioned upstream source and an independently drawn ownership/allocator lifecycle
+    graph define expected responsibilities.
+execution_method: Planned manual procedure for Pinned builder source and reclamation design audit;
+  bind the exact command or review checklist and applicable source/fixture revisions before execution.
+execution_binding:
+  state: unbound
+  implementation_path: null
+  entrypoint: null
+required_evidence:
+- Review checklist, findings and named reviewer/date
+- Registry/test revision and implementation or documentary source revision
+- Exact execution command or review procedure; input/configuration hashes and applicable environment/toolchain
+- Retained artifact references with SHA-256 digests
+- Source-location ownership graph
+- Reuse/pool design findings
+revision_history:
+- revision: 1
+  date: '2026-10-15'
+  actor: codex
+  reason: Stage 5 pre-execution test specification; execution binding, implementation, inputs and
+    approvals remain pending.

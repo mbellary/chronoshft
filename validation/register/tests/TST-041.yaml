@@ -1,0 +1,50 @@
+schema_version: 1
+id: TST-041
+revision: 1
+title: Memory-channel and DIMM population plan
+experiment:
+  id: EXP-014
+  revision: 2
+validations:
+- id: VAL-008
+  revision: 3
+hypothesis_ids:
+- HYP-001
+- HYP-002
+classification: documentary
+execution_type: manual
+mandatory: true
+preconditions:
+- Exact board population rules, CPU memory channels and candidate DIMM placement known.
+- Bind the exact input/source/configuration revisions and execution or review method before running;
+  unresolved prerequisites are not a pass.
+procedure:
+- Map every populated slot to its controller/channel and compare population order with board rules.
+- Recompute occupied channels, DIMM counts and usable capacity from the layout.
+expected:
+- The plan satisfies the exact board/CPU constraints and reports occupied versus supported channels
+  correctly.
+- A fully-populated claim is retained only when the declared topology meets that definition.
+oracle:
+  kind: independent_review
+  description: A separately prepared channel/slot worksheet derives topology from vendor diagrams
+    rather than the original six-DIMM wording.
+execution_method: Planned manual procedure for Memory-channel and DIMM population plan; bind the
+  exact command or review checklist and applicable source/fixture revisions before execution.
+execution_binding:
+  state: unbound
+  implementation_path: null
+  entrypoint: null
+required_evidence:
+- Review checklist, findings and named reviewer/date
+- Registry/test revision and implementation or documentary source revision
+- Exact execution command or review procedure; input/configuration hashes and applicable environment/toolchain
+- Retained artifact references with SHA-256 digests
+- Channel/slot worksheet
+- Corrected population diagram and capacity calculation
+revision_history:
+- revision: 1
+  date: '2026-10-15'
+  actor: codex
+  reason: Stage 5 pre-execution test specification; execution binding, implementation, inputs and
+    approvals remain pending.

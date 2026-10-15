@@ -1,0 +1,49 @@
+schema_version: 1
+id: TST-038
+revision: 1
+title: Seeded workload and result reproducibility
+experiment:
+  id: EXP-013
+  revision: 2
+validations:
+- id: VAL-006
+  revision: 3
+hypothesis_ids:
+- HYP-001
+classification: correctness
+execution_type: automated
+mandatory: true
+preconditions:
+- Pinned generator/harness, seed, workload, build and controlled environment manifests fixed.
+- Bind the exact input/source/configuration revisions and execution or review method before running;
+  unresolved prerequisites are not a pass.
+procedure:
+- Repeat each selected deterministic input generation and correctness workload from recorded commands.
+- Compare input hashes and expected identity/query results; report measurement variation separately.
+expected:
+- Repeated deterministic inputs and correctness results match exactly.
+- Performance variation is reported against the declared repeatability rule, without requiring identical
+  raw timing samples.
+oracle:
+  kind: independent_reference_comparison
+  description: Independent fixture digests and expected identities/query results define deterministic
+    equality; a separately specified variation rule evaluates timing repeatability.
+execution_method: Planned automated procedure for Seeded workload and result reproducibility; bind
+  the exact command or review checklist and applicable source/fixture revisions before execution.
+execution_binding:
+  state: unbound
+  implementation_path: null
+  entrypoint: null
+required_evidence:
+- Per-case test outcomes including failures, skips and tool errors
+- Registry/test revision and implementation or documentary source revision
+- Exact execution command or review procedure; input/configuration hashes and applicable environment/toolchain
+- Retained artifact references with SHA-256 digests
+- Repeated input hashes and result comparisons
+- Commands/manifests and timing variation report
+revision_history:
+- revision: 1
+  date: '2026-10-15'
+  actor: codex
+  reason: Stage 5 pre-execution test specification; execution binding, implementation, inputs and
+    approvals remain pending.

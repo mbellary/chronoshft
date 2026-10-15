@@ -1,0 +1,52 @@
+schema_version: 1
+id: EXP-029
+revision: 1
+title: Financial SQL conformance
+validates:
+- id: VAL-026
+  revision: 2
+objective: Establish a precise supported SQL dialect and financial operator semantics with an independent
+  conformance oracle.
+hypotheses:
+- id: HYP-001
+  statement: Every advertised SQL/financial operation has a versioned supported contract or an explicit
+    unsupported disposition.
+- id: HYP-002
+  statement: Supported queries, including in-scope ASOF and OHLCV operations, match independent expected
+    results for boundary, null, ordering and correction fixtures.
+scope: 'VAL-026: approved SQL subset, function definitions, temporal/tie rules and financial result
+  precision.'
+exclusions:
+- No unqualified ANSI SQL claim from a few query examples.
+- Out-of-scope operators require explicit disposition, not silent omission.
+method:
+  kind: mixed
+  procedure: Inventory supported syntax/functions and exclusions, define independent expected results,
+    and execute conformance queries against pinned engine versions.
+  implementation_path: null
+dependencies:
+- Approved financial scope, dialect and operator semantics (DEC-001/014).
+- Canonical schema, precision and temporal fixtures.
+tests: []
+completion_criteria:
+- Define versioned test specifications with independent oracles and predeclared acceptance criteria
+  before execution.
+- Execute the defined mandatory investigation and retain outcomes, provenance and integrity-checked
+  evidence, including negative and inconclusive results.
+- Review hypothesis conclusions and coverage limitations; link a separate validation decision without
+  inferring acceptance from experiment completion.
+lifecycle:
+  state: proposed
+  history:
+  - from: null
+    to: proposed
+    date: '2026-10-15'
+    actor: codex
+    reason: Stage 4 investigation definition; test decomposition, prerequisites and execution remain
+      pending.
+revision_history:
+- revision: 1
+  date: '2026-10-15'
+  actor: codex
+  reason: Stage 4 initial experiment definition and validation coverage assignment; no implementation
+    or approval asserted.

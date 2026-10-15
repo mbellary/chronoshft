@@ -1,0 +1,49 @@
+schema_version: 1
+id: TST-020
+revision: 1
+title: Lossless encoding round trips
+experiment:
+  id: EXP-007
+  revision: 2
+validations:
+- id: VAL-003
+  revision: 3
+hypothesis_ids:
+- HYP-001
+classification: correctness
+execution_type: automated
+mandatory: true
+preconditions:
+- Approved schema and pinned encoding configurations; edge values, nulls and representative distributions
+  fixed.
+- Bind the exact input/source/configuration revisions and execution or review method before running;
+  unresolved prerequisites are not a pass.
+procedure:
+- Encode/decode each fixture through every supported configuration.
+- Compare every typed value and relevant schema attribute with the original fixture.
+expected:
+- All supported values round-trip exactly, including null placement, precision and timestamps.
+- Corrupt or unsupported inputs fail according to the declared policy.
+oracle:
+  kind: independent_reference_comparison
+  description: Original canonical fixture values and an independent comparison implementation define
+    equality; decoded output is not compared with itself.
+execution_method: Planned automated procedure for Lossless encoding round trips; bind the exact command
+  or review checklist and applicable source/fixture revisions before execution.
+execution_binding:
+  state: unbound
+  implementation_path: null
+  entrypoint: null
+required_evidence:
+- Per-case test outcomes including failures, skips and tool errors
+- Registry/test revision and implementation or documentary source revision
+- Exact execution command or review procedure; input/configuration hashes and applicable environment/toolchain
+- Retained artifact references with SHA-256 digests
+- Fixture/configuration hashes
+- Exact round-trip differences and error cases
+revision_history:
+- revision: 1
+  date: '2026-10-15'
+  actor: codex
+  reason: Stage 5 pre-execution test specification; execution binding, implementation, inputs and
+    approvals remain pending.

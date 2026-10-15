@@ -1,0 +1,48 @@
+schema_version: 1
+id: TST-066
+revision: 1
+title: Delayed reader snapshot retention
+experiment:
+  id: EXP-022
+  revision: 2
+validations:
+- id: VAL-015
+  revision: 3
+hypothesis_ids:
+- HYP-002
+classification: safety
+execution_type: automated
+mandatory: true
+preconditions:
+- Reader lease and retirement contract fixed; pressure/rotation schedule bounded.
+- Bind the exact input/source/configuration revisions and execution or review method before running;
+  unresolved prerequisites are not a pass.
+procedure:
+- Pause a reader after snapshot capture while ingestion and other scans advance.
+- Resume it after multiple rotations and verify contents before releasing its final lease.
+expected:
+- The retained snapshot remains complete and immutable until its last reader releases it.
+- Retirement/reuse occurs only at the declared lease boundary; exhaustion follows the resource policy.
+oracle:
+  kind: independent_reference_comparison
+  description: External snapshot checksums and a separately maintained reader-lease ledger determine
+    content and earliest legal retirement.
+execution_method: Planned automated procedure for Delayed reader snapshot retention; bind the exact
+  command or review checklist and applicable source/fixture revisions before execution.
+execution_binding:
+  state: unbound
+  implementation_path: null
+  entrypoint: null
+required_evidence:
+- Per-case test outcomes including failures, skips and tool errors
+- Registry/test revision and implementation or documentary source revision
+- Exact execution command or review procedure; input/configuration hashes and applicable environment/toolchain
+- Retained artifact references with SHA-256 digests
+- Delayed-reader lease timeline
+- Snapshot checksums and retirement observations
+revision_history:
+- revision: 1
+  date: '2026-10-15'
+  actor: codex
+  reason: Stage 5 pre-execution test specification; execution binding, implementation, inputs and
+    approvals remain pending.

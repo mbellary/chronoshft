@@ -1,0 +1,241 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ChronosHFT execution capture plan v1",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "run_id": {
+      "type": "string",
+      "pattern": "^RUN-[A-Za-z0-9]+(?:-[A-Za-z0-9]+)*$"
+    },
+    "experiment": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^EXP-[0-9]{3,}$"
+        },
+        "revision": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "registry_commit": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^[0-9a-f]{40}$"
+            },
+            {
+              "const": "HEAD"
+            }
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "revision",
+        "registry_commit"
+      ],
+      "additionalProperties": false
+    },
+    "implementation_commit": {
+      "anyOf": [
+        {
+          "type": "string",
+          "pattern": "^[0-9a-f]{40}$"
+        },
+        {
+          "const": "HEAD"
+        }
+      ]
+    },
+    "working_directory": {
+      "type": "string",
+      "minLength": 1
+    },
+    "toolchain_command": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "minItems": 1,
+      "uniqueItems": false
+    },
+    "configuration": {
+      "type": "string",
+      "minLength": 1
+    },
+    "deviations": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "minItems": 0,
+      "uniqueItems": true
+    },
+    "inputs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "path": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "name",
+          "path"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 0,
+      "uniqueItems": true
+    },
+    "dependency_lockfiles": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "minItems": 0,
+      "uniqueItems": true
+    },
+    "random_seeds": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "minItems": 0,
+      "uniqueItems": true
+    },
+    "instrumentation": {
+      "type": "string",
+      "minLength": 1
+    },
+    "timeout_seconds": {
+      "type": "number",
+      "exclusiveMinimum": 0
+    },
+    "retention": {
+      "enum": [
+        "repository",
+        "bundle"
+      ]
+    },
+    "max_repository_artifact_bytes": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "tests": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^TST-[0-9]{3,}$"
+          },
+          "revision": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "command": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "minItems": 1,
+            "uniqueItems": false
+          },
+          "failure_exit_codes": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "minItems": 1,
+            "uniqueItems": true
+          },
+          "artifacts": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "path": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "kind": {
+                  "enum": [
+                    "test_report",
+                    "model_check",
+                    "benchmark",
+                    "source_audit",
+                    "architecture_review",
+                    "documentary",
+                    "source_patch",
+                    "other"
+                  ]
+                }
+              },
+              "required": [
+                "path",
+                "kind"
+              ],
+              "additionalProperties": false
+            },
+            "minItems": 0,
+            "uniqueItems": true
+          }
+        },
+        "required": [
+          "id",
+          "revision",
+          "command",
+          "failure_exit_codes",
+          "artifacts"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "environment_variables": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      }
+    }
+  },
+  "required": [
+    "schema_version",
+    "run_id",
+    "experiment",
+    "implementation_commit",
+    "working_directory",
+    "toolchain_command",
+    "configuration",
+    "deviations",
+    "inputs",
+    "dependency_lockfiles",
+    "random_seeds",
+    "instrumentation",
+    "timeout_seconds",
+    "retention",
+    "max_repository_artifact_bytes",
+    "tests",
+    "environment_variables"
+  ],
+  "additionalProperties": false
+}

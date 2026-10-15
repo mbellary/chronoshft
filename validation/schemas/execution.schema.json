@@ -1,0 +1,393 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ChronosHFT execution record v1",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^RUN-[A-Za-z0-9]+(?:-[A-Za-z0-9]+)*$"
+    },
+    "started_at": {
+      "type": "string",
+      "format": "date-time",
+      "pattern": "Z$"
+    },
+    "ended_at": {
+      "type": "string",
+      "format": "date-time",
+      "pattern": "Z$"
+    },
+    "experiment": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^EXP-[0-9]{3,}$"
+        },
+        "revision": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "registry_commit": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{40}$"
+        }
+      },
+      "required": [
+        "id",
+        "revision",
+        "registry_commit"
+      ],
+      "additionalProperties": false
+    },
+    "tests": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "test": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "pattern": "^TST-[0-9]{3,}$"
+              },
+              "revision": {
+                "type": "integer",
+                "minimum": 1
+              },
+              "registry_commit": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{40}$"
+              }
+            },
+            "required": [
+              "id",
+              "revision",
+              "registry_commit"
+            ],
+            "additionalProperties": false
+          },
+          "outcome": {
+            "enum": [
+              "passed",
+              "failed",
+              "skipped",
+              "error"
+            ]
+          },
+          "details": {
+            "type": "string",
+            "minLength": 1
+          },
+          "command": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "minItems": 0,
+            "uniqueItems": false
+          },
+          "exit_code": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "duration_seconds": {
+            "type": "number",
+            "minimum": 0
+          },
+          "evidence_ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^EVD-[A-Za-z0-9]+(?:-[A-Za-z0-9]+)*$"
+            },
+            "minItems": 0,
+            "uniqueItems": true
+          }
+        },
+        "required": [
+          "test",
+          "outcome",
+          "details",
+          "command",
+          "exit_code",
+          "duration_seconds",
+          "evidence_ids"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 0,
+      "uniqueItems": true
+    },
+    "outcome": {
+      "enum": [
+        "passed",
+        "failed",
+        "error",
+        "incomplete",
+        "aborted"
+      ]
+    },
+    "procedure": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "minItems": 1,
+      "uniqueItems": false
+    },
+    "source": {
+      "type": "object",
+      "properties": {
+        "implementation_commit": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{40}$"
+        },
+        "registry_commit": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{40}$"
+        },
+        "dirty": {
+          "type": "boolean"
+        },
+        "patch_evidence_id": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^EVD-[A-Za-z0-9]+(?:-[A-Za-z0-9]+)*$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "dependency_lockfiles": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "path": {
+                "type": "string",
+                "minLength": 1
+              },
+              "sha256": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{64}$"
+              }
+            },
+            "required": [
+              "path",
+              "sha256"
+            ],
+            "additionalProperties": false
+          },
+          "minItems": 0,
+          "uniqueItems": true
+        },
+        "changed_during_run": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "implementation_commit",
+        "registry_commit",
+        "dirty",
+        "patch_evidence_id",
+        "dependency_lockfiles",
+        "changed_during_run"
+      ],
+      "additionalProperties": false
+    },
+    "environment": {
+      "type": "object",
+      "properties": {
+        "toolchain": {
+          "type": "string",
+          "minLength": 1
+        },
+        "os": {
+          "type": "string",
+          "minLength": 1
+        },
+        "cpu": {
+          "type": "string",
+          "minLength": 1
+        },
+        "configuration": {
+          "type": "string",
+          "minLength": 1
+        },
+        "deviations": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 0,
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "toolchain",
+        "os",
+        "cpu",
+        "configuration",
+        "deviations"
+      ],
+      "additionalProperties": false
+    },
+    "inputs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "sha256": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          },
+          "reference": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "name",
+          "sha256",
+          "reference"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 0,
+      "uniqueItems": true
+    },
+    "random_seeds": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "minItems": 0,
+      "uniqueItems": true
+    },
+    "instrumentation": {
+      "type": "string",
+      "minLength": 1
+    },
+    "evidence_ids": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^EVD-[A-Za-z0-9]+(?:-[A-Za-z0-9]+)*$"
+      },
+      "minItems": 0,
+      "uniqueItems": true
+    },
+    "failures": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "minItems": 0,
+      "uniqueItems": true
+    },
+    "skips": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "minItems": 0,
+      "uniqueItems": true
+    },
+    "tool_errors": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "minItems": 0,
+      "uniqueItems": true
+    },
+    "supersedes": {
+      "anyOf": [
+        {
+          "type": "string",
+          "pattern": "^RUN-[A-Za-z0-9]+(?:-[A-Za-z0-9]+)*$"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "working_directory": {
+      "type": "string",
+      "minLength": 1
+    }
+  },
+  "required": [
+    "schema_version",
+    "id",
+    "started_at",
+    "ended_at",
+    "experiment",
+    "tests",
+    "outcome",
+    "procedure",
+    "source",
+    "environment",
+    "inputs",
+    "random_seeds",
+    "instrumentation",
+    "evidence_ids",
+    "failures",
+    "skips",
+    "tool_errors",
+    "supersedes",
+    "working_directory"
+  ],
+  "additionalProperties": false,
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "source": {
+            "properties": {
+              "dirty": {
+                "const": true
+              }
+            }
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "source": {
+            "properties": {
+              "patch_evidence_id": {
+                "type": "string",
+                "pattern": "^EVD-[A-Za-z0-9]+(?:-[A-Za-z0-9]+)*$"
+              }
+            }
+          }
+        }
+      }
+    }
+  ]
+}

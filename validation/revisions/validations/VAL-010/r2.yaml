@@ -1,0 +1,54 @@
+schema_version: 1
+id: VAL-010
+revision: 2
+title: Timestamp boundaries and round trips
+origin:
+  assessment_id: CHRONOS-P0-001
+  assessment_version: '1.0'
+  assessment_date: '2026-10-13'
+  baseline_path: docs/00-governance/technical-validation.md
+  source_refs: RES-040,042
+  source_status: Validated (bounded arithmetic)
+  finding: Signed 64-bit ns is eight bytes and roughly ±292 years around epoch; unit precision is
+    not clock accuracy
+  required_closure_evidence: Boundary/overflow/timezone round-trip tests
+objective: 'Establish the closure evidence required for VAL-010: Boundary/overflow/timezone round-trip
+  tests.'
+category: null
+priority: null
+required_evidence:
+- Boundary/overflow/timezone round-trip tests
+coverage:
+  status: mapped
+  experiments:
+  - id: EXP-018
+    revision: 1
+    mandatory: true
+  tests: []
+lifecycle:
+  state: planned
+  history:
+  - from: null
+    to: identified
+    date: '2026-10-15'
+    actor: registry-migration
+    reason: Imported existing research question; engineering investigation remains unplanned.
+  - from: identified
+    to: planned
+    date: '2026-10-15'
+    actor: codex
+    reason: Stage 4 declares mandatory experiment coverage; detailed tests and execution prerequisites
+      remain pending.
+current_decision_id: null
+prior_decision_ids: []
+revision_history:
+- revision: 1
+  date: '2026-10-15'
+  actor: registry-migration
+  reason: Lossless baseline import; title and objective are engineering metadata; category and priority
+    remain unassigned.
+- revision: 2
+  date: '2026-10-15'
+  actor: codex
+  reason: Declare reciprocal experiment coverage; preserve original findings and closure requirements
+    unchanged.

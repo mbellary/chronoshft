@@ -1,0 +1,62 @@
+schema_version: 1
+id: EXP-027
+revision: 2
+title: Hot/cold visibility and corrections
+validates:
+- id: VAL-023
+  revision: 3
+objective: Establish consistent hot/cold handoff and declared late/corrected/as-known query semantics.
+hypotheses:
+- id: HYP-001
+  statement: Queries at handoff boundaries observe the declared logical dataset without missing or
+    duplicate identities.
+- id: HYP-002
+  statement: Late arrivals, corrections and historical knowledge queries match an independent versioned-state
+    oracle.
+scope: 'VAL-023: publication/catalog boundaries, late-data policy, correction versions, duplicates
+  and as-known visibility.'
+exclusions:
+- Visibility correctness alone does not establish durable acknowledgment.
+- Micro-sort alone is not a correction/version policy.
+method:
+  kind: mixed
+  procedure: Specify the visibility/version model and oracle; interleave ingestion, flush/catalog
+    changes and queries around handoff boundaries and correction histories.
+  implementation_path: null
+dependencies:
+- Approved hot/cold catalog and knowledge-time policies (DEC-004/009).
+- Canonical identity, ordering and correction fixtures.
+tests:
+- id: TST-079
+  revision: 1
+- id: TST-080
+  revision: 1
+- id: TST-081
+  revision: 1
+completion_criteria:
+- Define versioned test specifications with independent oracles and predeclared acceptance criteria
+  before execution.
+- Execute the defined mandatory investigation and retain outcomes, provenance and integrity-checked
+  evidence, including negative and inconclusive results.
+- Review hypothesis conclusions and coverage limitations; link a separate validation decision without
+  inferring acceptance from experiment completion.
+lifecycle:
+  state: proposed
+  history:
+  - from: null
+    to: proposed
+    date: '2026-10-15'
+    actor: codex
+    reason: Stage 4 investigation definition; test decomposition, prerequisites and execution remain
+      pending.
+revision_history:
+- revision: 1
+  date: '2026-10-15'
+  actor: codex
+  reason: Stage 4 initial experiment definition and validation coverage assignment; no implementation
+    or approval asserted.
+- revision: 2
+  date: '2026-10-15'
+  actor: codex
+  reason: Stage 5 declares hypothesis-linked test specifications; experiment remains proposed until
+    bindings and prerequisites are ready.

@@ -1,0 +1,52 @@
+schema_version: 1
+id: EXP-026
+revision: 1
+title: Asynchronous query lifetime
+validates:
+- id: VAL-021
+  revision: 2
+objective: Establish that buffer retirement follows actual query completion and cancellation, not
+  merely callback return.
+hypotheses:
+- id: HYP-001
+  statement: Buffers handed to asynchronous queries remain valid until all query consumers complete
+    or release their leases.
+- id: HYP-002
+  statement: Cancellation, failure and delayed-consumer schedules release or retain leases according
+    to the declared retirement protocol without premature reuse.
+scope: 'VAL-021: handoff-to-query lifetime boundary, slow readers, cancellation, failure and retirement
+  barriers.'
+exclusions:
+- Callback completion is not assumed to mean query completion.
+- Does not establish the signaling latency target.
+method:
+  kind: mixed
+  procedure: Instrument leases across callback handoff, asynchronous execution and cancellation;
+    drive delayed-reader schedules and inspect retirement against query-lifetime oracles.
+  implementation_path: null
+dependencies:
+- Approved query lease/retirement contract (DEC-003).
+- Pinned DataFusion asynchronous execution/cancellation APIs.
+tests: []
+completion_criteria:
+- Define versioned test specifications with independent oracles and predeclared acceptance criteria
+  before execution.
+- Execute the defined mandatory investigation and retain outcomes, provenance and integrity-checked
+  evidence, including negative and inconclusive results.
+- Review hypothesis conclusions and coverage limitations; link a separate validation decision without
+  inferring acceptance from experiment completion.
+lifecycle:
+  state: proposed
+  history:
+  - from: null
+    to: proposed
+    date: '2026-10-15'
+    actor: codex
+    reason: Stage 4 investigation definition; test decomposition, prerequisites and execution remain
+      pending.
+revision_history:
+- revision: 1
+  date: '2026-10-15'
+  actor: codex
+  reason: Stage 4 initial experiment definition and validation coverage assignment; no implementation
+    or approval asserted.

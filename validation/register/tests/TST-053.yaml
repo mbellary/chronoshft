@@ -1,0 +1,50 @@
+schema_version: 1
+id: TST-053
+revision: 1
+title: Checked timestamp overflow and invalid conversions
+experiment:
+  id: EXP-018
+  revision: 2
+validations:
+- id: VAL-010
+  revision: 3
+hypothesis_ids:
+- HYP-002
+classification: correctness
+execution_type: automated
+mandatory: true
+preconditions:
+- Arithmetic/conversion overflow policy and supported range fixed.
+- Bind the exact input/source/configuration revisions and execution or review method before running;
+  unresolved prerequisites are not a pass.
+procedure:
+- Attempt operations one unit beyond each representable boundary and conversions with unsupported
+  units/precision.
+- Exercise positive/negative offsets whose intermediate arithmetic could overflow.
+expected:
+- Every unsupported result produces the declared explicit error with no silent wrap, truncation or
+  incorrect instant.
+- Supported nearby values continue to match exact arithmetic.
+oracle:
+  kind: independent_reference_comparison
+  description: Arbitrary-precision reference calculations classify overflow before narrowing, independently
+    of implementation checked-arithmetic helpers.
+execution_method: Planned automated procedure for Checked timestamp overflow and invalid conversions;
+  bind the exact command or review checklist and applicable source/fixture revisions before execution.
+execution_binding:
+  state: unbound
+  implementation_path: null
+  entrypoint: null
+required_evidence:
+- Per-case test outcomes including failures, skips and tool errors
+- Registry/test revision and implementation or documentary source revision
+- Exact execution command or review procedure; input/configuration hashes and applicable environment/toolchain
+- Retained artifact references with SHA-256 digests
+- Arithmetic input/result matrix
+- Error-kind and no-wrap assertions
+revision_history:
+- revision: 1
+  date: '2026-10-15'
+  actor: codex
+  reason: Stage 5 pre-execution test specification; execution binding, implementation, inputs and
+    approvals remain pending.

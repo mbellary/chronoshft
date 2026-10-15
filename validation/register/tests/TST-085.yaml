@@ -1,0 +1,50 @@
+schema_version: 1
+id: TST-085
+revision: 1
+title: Supported SQL and financial operator contract
+experiment:
+  id: EXP-029
+  revision: 2
+validations:
+- id: VAL-026
+  revision: 3
+hypothesis_ids:
+- HYP-001
+- HYP-002
+classification: documentary
+execution_type: manual
+mandatory: true
+preconditions:
+- Proposed dialect/version, supported functions and financial scope available.
+- Bind the exact input/source/configuration revisions and execution or review method before running;
+  unresolved prerequisites are not a pass.
+procedure:
+- Inventory syntax/functions and specify ASOF ties/tolerances, OHLCV windows, nulls, corrections
+  and numeric precision where in scope.
+- Record unsupported/deferred operations explicitly against advertised claims.
+expected:
+- Every advertised operation has a precise supported contract or explicit unsupported disposition.
+- A broad ANSI SQL claim cannot stand in for the enumerated supported subset.
+oracle:
+  kind: independent_review
+  description: An independently authored language/operator checklist and financial domain requirements
+    define required semantics.
+execution_method: Planned manual procedure for Supported SQL and financial operator contract; bind
+  the exact command or review checklist and applicable source/fixture revisions before execution.
+execution_binding:
+  state: unbound
+  implementation_path: null
+  entrypoint: null
+required_evidence:
+- Review checklist, findings and named reviewer/date
+- Registry/test revision and implementation or documentary source revision
+- Exact execution command or review procedure; input/configuration hashes and applicable environment/toolchain
+- Retained artifact references with SHA-256 digests
+- Dialect/function inventory
+- Operator truth tables and unsupported dispositions
+revision_history:
+- revision: 1
+  date: '2026-10-15'
+  actor: codex
+  reason: Stage 5 pre-execution test specification; execution binding, implementation, inputs and
+    approvals remain pending.

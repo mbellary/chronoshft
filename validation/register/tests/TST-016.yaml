@@ -1,0 +1,49 @@
+schema_version: 1
+id: TST-016
+revision: 1
+title: Pinned FDAP build and interface matrix
+experiment:
+  id: EXP-006
+  revision: 2
+validations:
+- id: VAL-002
+  revision: 3
+hypothesis_ids:
+- HYP-001
+classification: compatibility
+execution_type: automated
+mandatory: true
+preconditions:
+- Rust/Arrow/DataFusion/Flight/Parquet versions, client matrix and lockfiles fixed.
+- Bind the exact input/source/configuration revisions and execution or review method before running;
+  unresolved prerequisites are not a pass.
+procedure:
+- Build the declared client/server and storage/query combinations from the pinned inputs.
+- Perform a minimal schema exchange and query for each supported matrix entry.
+expected:
+- Each declared supported combination builds and completes the specified exchange.
+- Unsupported combinations fail explicitly and are excluded rather than counted as passing supported
+  entries.
+oracle:
+  kind: independent_reference_comparison
+  description: A separately versioned support matrix enumerates expected combinations and an external
+    fixture specifies the expected response schema/values.
+execution_method: Planned automated procedure for Pinned FDAP build and interface matrix; bind the
+  exact command or review checklist and applicable source/fixture revisions before execution.
+execution_binding:
+  state: unbound
+  implementation_path: null
+  entrypoint: null
+required_evidence:
+- Per-case test outcomes including failures, skips and tool errors
+- Registry/test revision and implementation or documentary source revision
+- Exact execution command or review procedure; input/configuration hashes and applicable environment/toolchain
+- Retained artifact references with SHA-256 digests
+- Dependency and lockfile hashes
+- Matrix build/exchange report
+revision_history:
+- revision: 1
+  date: '2026-10-15'
+  actor: codex
+  reason: Stage 5 pre-execution test specification; execution binding, implementation, inputs and
+    approvals remain pending.

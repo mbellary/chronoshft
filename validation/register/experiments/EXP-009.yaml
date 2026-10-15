@@ -1,0 +1,63 @@
+schema_version: 1
+id: EXP-009
+revision: 2
+title: Competitor claim verification
+validates:
+- id: VAL-007
+  revision: 3
+objective: Qualify competitor feature and performance comparisons against versioned sources and matched
+  workloads.
+hypotheses:
+- id: HYP-001
+  statement: Every retained feature comparison is supported for explicitly named product versions
+    and configurations.
+- id: HYP-002
+  statement: Any retained performance comparison uses equivalent workload semantics and reports correctness,
+    resources and material limitations for each system.
+scope: 'VAL-007: documentary feature audit; executable comparisons only for performance claims that
+  remain in scope.'
+exclusions:
+- No categorical product ranking from a single workload.
+- Documentary review alone cannot verify latency/loading comparisons.
+method:
+  kind: mixed
+  procedure: Build a dated claim/source/version matrix; mark unresolved claims unsupported; reproduce
+    retained quantitative comparisons under a declared fair workload contract.
+  implementation_path: null
+dependencies:
+- Named products, editions, versions and source snapshots.
+- Comparable workload semantics and benchmark access for retained numeric claims.
+tests:
+- id: TST-025
+  revision: 1
+- id: TST-026
+  revision: 1
+- id: TST-027
+  revision: 1
+completion_criteria:
+- Define versioned test specifications with independent oracles and predeclared acceptance criteria
+  before execution.
+- Execute the defined mandatory investigation and retain outcomes, provenance and integrity-checked
+  evidence, including negative and inconclusive results.
+- Review hypothesis conclusions and coverage limitations; link a separate validation decision without
+  inferring acceptance from experiment completion.
+lifecycle:
+  state: proposed
+  history:
+  - from: null
+    to: proposed
+    date: '2026-10-15'
+    actor: codex
+    reason: Stage 4 investigation definition; test decomposition, prerequisites and execution remain
+      pending.
+revision_history:
+- revision: 1
+  date: '2026-10-15'
+  actor: codex
+  reason: Stage 4 initial experiment definition and validation coverage assignment; no implementation
+    or approval asserted.
+- revision: 2
+  date: '2026-10-15'
+  actor: codex
+  reason: Stage 5 declares hypothesis-linked test specifications; experiment remains proposed until
+    bindings and prerequisites are ready.

@@ -1,0 +1,50 @@
+schema_version: 1
+id: TST-090
+revision: 1
+title: Gaps duplicates and snapshot recovery
+experiment:
+  id: EXP-030
+  revision: 2
+validations:
+- id: VAL-027
+  revision: 3
+hypothesis_ids:
+- HYP-002
+classification: reliability
+execution_type: automated
+mandatory: true
+preconditions:
+- Approved invalid-book/recovery policy, snapshot watermark and delta replay fixtures fixed.
+- Bind the exact input/source/configuration revisions and execution or review method before running;
+  unresolved prerequisites are not a pass.
+procedure:
+- Inject missing/duplicate events, reconnect overlap and snapshot/delta boundary races.
+- Apply recovery or explicit invalid-book behavior and compare resulting sequence/state.
+expected:
+- Every fault is detected and handled according to the venue policy.
+- Recovered state matches the independent snapshot-plus-delta oracle, or remains explicitly invalid
+  instead of exposing a silently incorrect book.
+oracle:
+  kind: independent_reference_comparison
+  description: A separately reconciled snapshot/watermark/event ledger defines required recovered
+    membership and validity state.
+execution_method: Planned automated procedure for Gaps duplicates and snapshot recovery; bind the
+  exact command or review checklist and applicable source/fixture revisions before execution.
+execution_binding:
+  state: unbound
+  implementation_path: null
+  entrypoint: null
+required_evidence:
+- Per-case test outcomes including failures, skips and tool errors
+- Registry/test revision and implementation or documentary source revision
+- Exact execution command or review procedure; input/configuration hashes and applicable environment/toolchain
+- Retained artifact references with SHA-256 digests
+- Fault/reconnect schedules
+- Snapshot/delta reconciliation
+- Book validity and state comparisons
+revision_history:
+- revision: 1
+  date: '2026-10-15'
+  actor: codex
+  reason: Stage 5 pre-execution test specification; execution binding, implementation, inputs and
+    approvals remain pending.

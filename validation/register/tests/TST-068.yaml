@@ -1,0 +1,48 @@
+schema_version: 1
+id: TST-068
+revision: 1
+title: Projection planning and schema agreement
+experiment:
+  id: EXP-023
+  revision: 2
+validations:
+- id: VAL-016
+  revision: 3
+hypothesis_ids:
+- HYP-002
+classification: compatibility
+execution_type: automated
+mandatory: true
+preconditions:
+- Supported API version, provider contract and nontrivial projection list fixed.
+- Bind the exact input/source/configuration revisions and execution or review method before running;
+  unresolved prerequisites are not a pass.
+procedure:
+- Capture logical/provider/physical projection and schema boundaries.
+- Run each projected plan and check every batch schema against the declared output schema.
+expected:
+- Projection application and schema propagation follow the pinned API contract.
+- Every emitted batch matches the execution schema without duplicate indexing or field mismatch.
+oracle:
+  kind: independent_reference_comparison
+  description: A separately specified provider/exec boundary contract and expected schema fixture
+    check each plan stage.
+execution_method: Planned automated procedure for Projection planning and schema agreement; bind
+  the exact command or review checklist and applicable source/fixture revisions before execution.
+execution_binding:
+  state: unbound
+  implementation_path: null
+  entrypoint: null
+required_evidence:
+- Per-case test outcomes including failures, skips and tool errors
+- Registry/test revision and implementation or documentary source revision
+- Exact execution command or review procedure; input/configuration hashes and applicable environment/toolchain
+- Retained artifact references with SHA-256 digests
+- Pinned API manifest
+- Plan/batch schema trace and comparisons
+revision_history:
+- revision: 1
+  date: '2026-10-15'
+  actor: codex
+  reason: Stage 5 pre-execution test specification; execution binding, implementation, inputs and
+    approvals remain pending.

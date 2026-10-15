@@ -1,0 +1,50 @@
+schema_version: 1
+id: TST-015
+revision: 1
+title: Unsupported readiness wording disposition
+experiment:
+  id: EXP-005
+  revision: 2
+validations:
+- id: VAL-001
+  revision: 3
+hypothesis_ids:
+- HYP-002
+classification: documentary
+execution_type: manual
+mandatory: true
+preconditions:
+- Audited evidence gaps and all public/in-scope readiness wording available.
+- Bind the exact input/source/configuration revisions and execution or review method before running;
+  unresolved prerequisites are not a pass.
+procedure:
+- Review each unsupported assertion against its documented gap.
+- Verify retained wording is supported or explicitly qualified and that follow-up actions identify
+  missing evidence.
+expected:
+- No unsupported unqualified production-readiness wording remains in the reviewed scope.
+- Every qualification identifies the unproven capability; audit completion is not presented as production
+  certification.
+oracle:
+  kind: independent_review
+  description: A gap-to-wording comparison uses the audited claim inventory as an independent checklist
+    and examines actual document revisions.
+execution_method: Planned manual procedure for Unsupported readiness wording disposition; bind the
+  exact command or review checklist and applicable source/fixture revisions before execution.
+execution_binding:
+  state: unbound
+  implementation_path: null
+  entrypoint: null
+required_evidence:
+- Review checklist, findings and named reviewer/date
+- Registry/test revision and implementation or documentary source revision
+- Exact execution command or review procedure; input/configuration hashes and applicable environment/toolchain
+- Retained artifact references with SHA-256 digests
+- Before/after wording references
+- Unsupported-claim dispositions and follow-up actions
+revision_history:
+- revision: 1
+  date: '2026-10-15'
+  actor: codex
+  reason: Stage 5 pre-execution test specification; execution binding, implementation, inputs and
+    approvals remain pending.

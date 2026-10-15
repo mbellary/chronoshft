@@ -1,0 +1,50 @@
+schema_version: 1
+id: TST-040
+revision: 1
+title: Exact hardware identity and specification audit
+experiment:
+  id: EXP-014
+  revision: 2
+validations:
+- id: VAL-008
+  revision: 3
+hypothesis_ids:
+- HYP-001
+classification: documentary
+execution_type: manual
+mandatory: true
+preconditions:
+- Proposed or installed CPU/board/DIMM identities and board revisions declared; vendor specification
+  snapshots available.
+- Bind the exact input/source/configuration revisions and execution or review method before running;
+  unresolved prerequisites are not a pass.
+procedure:
+- Resolve each part and firmware/platform constraint to primary documentation.
+- Distinguish the proposed BOM from physical inventory and record unknown identities.
+expected:
+- Every retained hardware capability claim applies to the exact declared parts/revisions.
+- Proposed hardware is not reported as physically installed; unresolved identities prevent topology
+  acceptance.
+oracle:
+  kind: independent_review
+  description: Archived vendor part/board documentation and, for installed claims, independently
+    captured inventory records define hardware identity.
+execution_method: Planned manual procedure for Exact hardware identity and specification audit; bind
+  the exact command or review checklist and applicable source/fixture revisions before execution.
+execution_binding:
+  state: unbound
+  implementation_path: null
+  entrypoint: null
+required_evidence:
+- Review checklist, findings and named reviewer/date
+- Registry/test revision and implementation or documentary source revision
+- Exact execution command or review procedure; input/configuration hashes and applicable environment/toolchain
+- Retained artifact references with SHA-256 digests
+- BOM/inventory ledger
+- Versioned vendor references and identity findings
+revision_history:
+- revision: 1
+  date: '2026-10-15'
+  actor: codex
+  reason: Stage 5 pre-execution test specification; execution binding, implementation, inputs and
+    approvals remain pending.

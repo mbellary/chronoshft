@@ -1,0 +1,50 @@
+schema_version: 1
+id: TST-045
+revision: 1
+title: Interference and jitter envelope
+experiment:
+  id: EXP-015
+  revision: 2
+validations:
+- id: VAL-009
+  revision: 3
+hypothesis_ids:
+- HYP-002
+classification: performance
+execution_type: automated
+mandatory: true
+preconditions:
+- Controlled baseline, IRQ/flusher/query/background schedules and numeric jitter/resource budgets
+  fixed.
+- Bind the exact input/source/configuration revisions and execution or review method before running;
+  unresolved prerequisites are not a pass.
+procedure:
+- Repeat the workload with each interference source independently and in required combinations.
+- Record tail latency, scheduler/IRQ activity, backlog and errors through recovery.
+expected:
+- All adopted jitter/resource limits hold for the declared workload combinations.
+- Violating sources remain explicit limitations; incomplete trials do not support isolation claims.
+oracle:
+  kind: independent_reference_comparison
+  description: External endpoint timings and independently configured interference schedules attribute
+    changes against the controlled baseline.
+execution_method: Planned automated procedure for Interference and jitter envelope; bind the exact
+  command or review checklist and applicable source/fixture revisions before execution.
+execution_binding:
+  state: unbound
+  implementation_path: null
+  entrypoint: null
+required_evidence:
+- Per-case test outcomes including failures, skips and tool errors
+- Registry/test revision and implementation or documentary source revision
+- Exact execution command or review procedure; input/configuration hashes and applicable environment/toolchain
+- Retained artifact references with SHA-256 digests
+- Raw latency and interference traces
+- Resource/backlog timeline
+- Budget comparison
+revision_history:
+- revision: 1
+  date: '2026-10-15'
+  actor: codex
+  reason: Stage 5 pre-execution test specification; execution binding, implementation, inputs and
+    approvals remain pending.

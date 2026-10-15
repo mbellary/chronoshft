@@ -1,0 +1,52 @@
+schema_version: 1
+id: EXP-025
+revision: 1
+title: Builder transfer and buffer reclamation
+validates:
+- id: VAL-020
+  revision: 2
+objective: Establish how immutable array storage is transferred and safely reclaimed under delayed
+  readers.
+hypotheses:
+- id: HYP-001
+  statement: Published arrays retain valid immutable storage until their last reader releases it,
+    even after builder replacement or rotation.
+- id: HYP-002
+  statement: The declared transfer/reuse strategy accounts for allocations and blocks unsafe reuse
+    when readers outlive the normal rotation cycle.
+scope: 'VAL-020: storage ownership, transfer versus sharing, allocation accounting, delayed-reader
+  retention and bounded-resource policy.'
+exclusions:
+- Does not assume queries read mutable builder memory.
+- No no-allocation guarantee inferred from a buffer flip.
+method:
+  kind: mixed
+  procedure: Trace storage ownership and allocations across transfer/reuse schedules; hold reader
+    references across rotations and compare lifetime/reclamation behavior with the explicit model.
+  implementation_path: null
+dependencies:
+- EXP-021 pinned builder lifecycle observations.
+- Approved transfer/pool model and slow-reader resource policy (DEC-003/006).
+tests: []
+completion_criteria:
+- Define versioned test specifications with independent oracles and predeclared acceptance criteria
+  before execution.
+- Execute the defined mandatory investigation and retain outcomes, provenance and integrity-checked
+  evidence, including negative and inconclusive results.
+- Review hypothesis conclusions and coverage limitations; link a separate validation decision without
+  inferring acceptance from experiment completion.
+lifecycle:
+  state: proposed
+  history:
+  - from: null
+    to: proposed
+    date: '2026-10-15'
+    actor: codex
+    reason: Stage 4 investigation definition; test decomposition, prerequisites and execution remain
+      pending.
+revision_history:
+- revision: 1
+  date: '2026-10-15'
+  actor: codex
+  reason: Stage 4 initial experiment definition and validation coverage assignment; no implementation
+    or approval asserted.

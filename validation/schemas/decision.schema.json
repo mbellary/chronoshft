@@ -1,0 +1,309 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ChronosHFT decision record v1",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^VDEC-[0-9]{3,}$"
+    },
+    "validation": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^VAL-[0-9]{3,}$"
+        },
+        "revision": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "registry_commit": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{40}$"
+        }
+      },
+      "required": [
+        "id",
+        "revision",
+        "registry_commit"
+      ],
+      "additionalProperties": false
+    },
+    "disposition": {
+      "enum": [
+        "accepted",
+        "rejected",
+        "conditional",
+        "inconclusive"
+      ]
+    },
+    "rationale": {
+      "type": "string",
+      "minLength": 1
+    },
+    "execution_ids": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^RUN-[A-Za-z0-9]+(?:-[A-Za-z0-9]+)*$"
+      },
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "evidence_ids": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^EVD-[A-Za-z0-9]+(?:-[A-Za-z0-9]+)*$"
+      },
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "coverage_assessment": {
+      "type": "string",
+      "minLength": 1
+    },
+    "unresolved_findings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "description": {
+            "type": "string",
+            "minLength": 1
+          },
+          "severity": {
+            "enum": [
+              "critical",
+              "high",
+              "medium",
+              "low"
+            ]
+          },
+          "invalidates_conclusion": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "description",
+          "severity",
+          "invalidates_conclusion"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 0,
+      "uniqueItems": true
+    },
+    "applicability": {
+      "type": "object",
+      "properties": {
+        "implementation_commit": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{40}$"
+        },
+        "workload": {
+          "type": "string",
+          "minLength": 1
+        },
+        "hardware": {
+          "type": "string",
+          "minLength": 1
+        },
+        "dependencies": {
+          "type": "string",
+          "minLength": 1
+        },
+        "exclusions": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 0,
+          "uniqueItems": true
+        },
+        "limitations": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 0,
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "implementation_commit",
+        "workload",
+        "hardware",
+        "dependencies",
+        "exclusions",
+        "limitations"
+      ],
+      "additionalProperties": false
+    },
+    "reviewer": {
+      "type": "string",
+      "minLength": 1
+    },
+    "reviewed_at": {
+      "type": "string",
+      "format": "date-time",
+      "pattern": "Z$"
+    },
+    "architecture_spec_actions": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "follow_up": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "string",
+            "minLength": 1
+          },
+          "owner": {
+            "type": "string",
+            "minLength": 1
+          },
+          "review_condition": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "action",
+          "owner",
+          "review_condition"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 0,
+      "uniqueItems": true
+    },
+    "supersedes": {
+      "anyOf": [
+        {
+          "type": "string",
+          "pattern": "^VDEC-[0-9]{3,}$"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "evidence_assessment": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "requirement": {
+            "type": "string",
+            "minLength": 1
+          },
+          "evidence_ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^EVD-[A-Za-z0-9]+(?:-[A-Za-z0-9]+)*$"
+            },
+            "minItems": 1,
+            "uniqueItems": true
+          },
+          "rationale": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "requirement",
+          "evidence_ids",
+          "rationale"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 0,
+      "uniqueItems": true
+    }
+  },
+  "required": [
+    "schema_version",
+    "id",
+    "validation",
+    "disposition",
+    "rationale",
+    "execution_ids",
+    "evidence_ids",
+    "coverage_assessment",
+    "unresolved_findings",
+    "applicability",
+    "reviewer",
+    "reviewed_at",
+    "architecture_spec_actions",
+    "follow_up",
+    "supersedes",
+    "evidence_assessment"
+  ],
+  "additionalProperties": false,
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "disposition": {
+            "const": "conditional"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "follow_up": {
+            "minItems": 1
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "disposition": {
+            "const": "rejected"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "follow_up": {
+            "minItems": 1
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "disposition": {
+            "const": "inconclusive"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "follow_up": {
+            "minItems": 1
+          }
+        }
+      }
+    }
+  ]
+}

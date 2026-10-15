@@ -1,0 +1,62 @@
+schema_version: 1
+id: EXP-005
+revision: 2
+title: Production-readiness claim audit
+validates:
+- id: VAL-001
+  revision: 3
+objective: Qualify production-readiness wording against scoped reliability, security and correctness
+  evidence.
+hypotheses:
+- id: HYP-001
+  statement: Every retained readiness claim has identified reliability, security and correctness
+    evidence applicable to its stated scope.
+- id: HYP-002
+  statement: Claims without sufficient evidence are explicitly qualified or removed from the readiness
+    conclusion.
+scope: 'VAL-001: claim inventory, evidence gaps and wording disposition; a documentary package cannot
+  substitute for missing operational evidence.'
+exclusions:
+- Does not certify production readiness merely because the audit is complete.
+method:
+  kind: documentary
+  procedure: Inventory readiness claims by source revision, map each to evidence and its limitations,
+    and record unsupported wording plus required follow-up in a review package.
+  implementation_path: null
+dependencies:
+- Approved product boundary and readiness criteria (DEC-001/002).
+- Versioned reliability/security/correctness evidence inventory.
+tests:
+- id: TST-013
+  revision: 1
+- id: TST-014
+  revision: 1
+- id: TST-015
+  revision: 1
+completion_criteria:
+- Define versioned test specifications with independent oracles and predeclared acceptance criteria
+  before execution.
+- Execute the defined mandatory investigation and retain outcomes, provenance and integrity-checked
+  evidence, including negative and inconclusive results.
+- Review hypothesis conclusions and coverage limitations; link a separate validation decision without
+  inferring acceptance from experiment completion.
+lifecycle:
+  state: proposed
+  history:
+  - from: null
+    to: proposed
+    date: '2026-10-15'
+    actor: codex
+    reason: Stage 4 investigation definition; test decomposition, prerequisites and execution remain
+      pending.
+revision_history:
+- revision: 1
+  date: '2026-10-15'
+  actor: codex
+  reason: Stage 4 initial experiment definition and validation coverage assignment; no implementation
+    or approval asserted.
+- revision: 2
+  date: '2026-10-15'
+  actor: codex
+  reason: Stage 5 declares hypothesis-linked test specifications; experiment remains proposed until
+    bindings and prerequisites are ready.

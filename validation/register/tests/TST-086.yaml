@@ -1,0 +1,50 @@
+schema_version: 1
+id: TST-086
+revision: 1
+title: Supported SQL results and rejection behavior
+experiment:
+  id: EXP-029
+  revision: 2
+validations:
+- id: VAL-026
+  revision: 3
+hypothesis_ids:
+- HYP-001
+- HYP-002
+classification: correctness
+execution_type: automated
+mandatory: true
+preconditions:
+- Approved dialect subset and small canonical relational fixtures available.
+- Bind the exact input/source/configuration revisions and execution or review method before running;
+  unresolved prerequisites are not a pass.
+procedure:
+- Execute supported projection/filter/aggregate/ordering queries plus unsupported or invalid syntax
+  cases.
+- Compare typed results, null/error behavior and cardinality with independent expected tables.
+expected:
+- Supported queries match the declared exact/tolerance rules and schema/cardinality.
+- Unsupported requests fail explicitly without silently substituting semantics.
+oracle:
+  kind: independent_reference_comparison
+  description: Hand-computed relational fixture results or a separately authored reference evaluator
+    implement the approved subset without reusing production planner/expression code.
+execution_method: Planned automated procedure for Supported SQL results and rejection behavior; bind
+  the exact command or review checklist and applicable source/fixture revisions before execution.
+execution_binding:
+  state: unbound
+  implementation_path: null
+  entrypoint: null
+required_evidence:
+- Per-case test outcomes including failures, skips and tool errors
+- Registry/test revision and implementation or documentary source revision
+- Exact execution command or review procedure; input/configuration hashes and applicable environment/toolchain
+- Retained artifact references with SHA-256 digests
+- SQL fixture/result/error matrix
+- Typed result and tolerance comparisons
+revision_history:
+- revision: 1
+  date: '2026-10-15'
+  actor: codex
+  reason: Stage 5 pre-execution test specification; execution binding, implementation, inputs and
+    approvals remain pending.

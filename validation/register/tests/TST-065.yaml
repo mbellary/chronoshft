@@ -1,0 +1,48 @@
+schema_version: 1
+id: TST-065
+revision: 1
+title: Concurrent independent scans
+experiment:
+  id: EXP-022
+  revision: 2
+validations:
+- id: VAL-015
+  revision: 3
+hypothesis_ids:
+- HYP-002
+classification: correctness
+execution_type: automated
+mandatory: true
+preconditions:
+- Concurrent scan semantics, captured snapshots and independent row oracle fixed.
+- Bind the exact input/source/configuration revisions and execution or review method before running;
+  unresolved prerequisites are not a pass.
+procedure:
+- Start overlapping scans with varied scheduling and new ingestion between capture points.
+- Compare each scan against its own snapshot rather than combining disjoint scan outputs.
+expected:
+- Every scan independently returns the complete dataset declared for its snapshot.
+- Concurrent scans do not destructively divide data or alter another scan result.
+oracle:
+  kind: independent_reference_comparison
+  description: An immutable external map from capture boundary to expected row identities checks
+    each scan separately.
+execution_method: Planned automated procedure for Concurrent independent scans; bind the exact command
+  or review checklist and applicable source/fixture revisions before execution.
+execution_binding:
+  state: unbound
+  implementation_path: null
+  entrypoint: null
+required_evidence:
+- Per-case test outcomes including failures, skips and tool errors
+- Registry/test revision and implementation or documentary source revision
+- Exact execution command or review procedure; input/configuration hashes and applicable environment/toolchain
+- Retained artifact references with SHA-256 digests
+- Per-query capture/schedule trace
+- Independent membership/result comparisons
+revision_history:
+- revision: 1
+  date: '2026-10-15'
+  actor: codex
+  reason: Stage 5 pre-execution test specification; execution binding, implementation, inputs and
+    approvals remain pending.

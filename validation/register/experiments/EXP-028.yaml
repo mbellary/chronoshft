@@ -1,0 +1,64 @@
+schema_version: 1
+id: EXP-028
+revision: 2
+title: Durable commit and recovery
+validates:
+- id: VAL-024
+  revision: 3
+objective: Establish crash-consistent acknowledgment and restart behavior under a declared failure
+  model.
+hypotheses:
+- id: HYP-001
+  statement: Every acknowledged write within the approved durability boundary remains recoverable
+    after each in-scope injected crash point.
+- id: HYP-002
+  statement: Restart, retries and catalog recovery produce the declared committed dataset without
+    phantom, duplicate or missing committed identities.
+scope: 'VAL-024: acknowledgment/commit/catalog protocol, fault injection, disk-full/retry behavior
+  and restart reconciliation.'
+exclusions:
+- Parquet format or background writes alone do not establish durability.
+- Failure classes outside the declared model remain unsupported.
+method:
+  kind: mixed
+  procedure: Review the failure and commit model; inject failures around write, sync, rename/catalog
+    and acknowledgment boundaries; restart and compare recovered identities with an independent commit
+    ledger.
+  implementation_path: null
+dependencies:
+- Approved durability mode, acknowledgment and failure model (DEC-008).
+- Declared filesystem/storage assumptions and crash-injection environment.
+tests:
+- id: TST-082
+  revision: 1
+- id: TST-083
+  revision: 1
+- id: TST-084
+  revision: 1
+completion_criteria:
+- Define versioned test specifications with independent oracles and predeclared acceptance criteria
+  before execution.
+- Execute the defined mandatory investigation and retain outcomes, provenance and integrity-checked
+  evidence, including negative and inconclusive results.
+- Review hypothesis conclusions and coverage limitations; link a separate validation decision without
+  inferring acceptance from experiment completion.
+lifecycle:
+  state: proposed
+  history:
+  - from: null
+    to: proposed
+    date: '2026-10-15'
+    actor: codex
+    reason: Stage 4 investigation definition; test decomposition, prerequisites and execution remain
+      pending.
+revision_history:
+- revision: 1
+  date: '2026-10-15'
+  actor: codex
+  reason: Stage 4 initial experiment definition and validation coverage assignment; no implementation
+    or approval asserted.
+- revision: 2
+  date: '2026-10-15'
+  actor: codex
+  reason: Stage 5 declares hypothesis-linked test specifications; experiment remains proposed until
+    bindings and prerequisites are ready.

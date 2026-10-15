@@ -1,0 +1,51 @@
+schema_version: 1
+id: TST-035
+revision: 1
+title: Allocation destruction and paging counts
+experiment:
+  id: EXP-012
+  revision: 2
+validations:
+- id: VAL-005
+  revision: 3
+hypothesis_ids:
+- HYP-001
+classification: performance
+execution_type: automated
+mandatory: true
+preconditions:
+- Instrumented implementation, approved count budgets, warmup interval and workload fixed.
+- Bind the exact input/source/configuration revisions and execution or review method before running;
+  unresolved prerequisites are not a pass.
+procedure:
+- Count allocations, deallocations, destruction and page faults across the declared path/interval.
+- Run positive/negative controls that deliberately allocate/free or fault pages within the measured
+  boundary.
+expected:
+- Counters detect the controls and report their overhead.
+- All adopted count budgets are met for the declared workload; warmup and out-of-boundary costs remain
+  separately visible.
+oracle:
+  kind: independent_reference_comparison
+  description: Independent allocator event logs and OS page-fault observations are reconciled with
+    the configured operations and controls.
+execution_method: Planned automated procedure for Allocation destruction and paging counts; bind
+  the exact command or review checklist and applicable source/fixture revisions before execution.
+execution_binding:
+  state: unbound
+  implementation_path: null
+  entrypoint: null
+required_evidence:
+- Per-case test outcomes including failures, skips and tool errors
+- Registry/test revision and implementation or documentary source revision
+- Exact execution command or review procedure; input/configuration hashes and applicable environment/toolchain
+- Retained artifact references with SHA-256 digests
+- Allocation/deallocation trace
+- Page-fault observations
+- Instrumentation controls and interval manifest
+revision_history:
+- revision: 1
+  date: '2026-10-15'
+  actor: codex
+  reason: Stage 5 pre-execution test specification; execution binding, implementation, inputs and
+    approvals remain pending.

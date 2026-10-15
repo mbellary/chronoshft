@@ -1,0 +1,54 @@
+schema_version: 1
+id: EXP-003
+revision: 1
+title: SPSC ownership and publication protocol
+validates:
+- id: VAL-012
+  revision: 2
+- id: VAL-013
+  revision: 2
+objective: Establish enforced single-producer/single-consumer ownership and a publication protocol
+  that preserves the bounded queue invariants.
+hypotheses:
+- id: HYP-001
+  statement: The safe public API cannot create concurrent producer aliases or concurrent consumer
+    aliases for the same queue.
+- id: HYP-002
+  statement: For the declared memory model and supported interleavings, publication and reclamation
+    expose only initialized entries and never permit overwrite before consumption.
+scope: 'VAL-013: handle restrictions, caller exclusion and publication invariants. VAL-012: concurrent
+  capacity/publication protocol proof supplementing EXP-001/002.'
+exclusions:
+- Stress success is not a proof of soundness.
+- No conclusions about buffer pools or asynchronous query retirement.
+method:
+  kind: mixed
+  procedure: Review handle ownership and unsafe invariants; specify compile-fail misuse cases, model-check
+    relevant interleavings and use stress schedules as supplementary evidence.
+  implementation_path: null
+dependencies:
+- Approved ownership alternative and supported concurrent-call contract (DEC-003).
+- EXP-001 queue invariants and declared atomic ordering.
+tests: []
+completion_criteria:
+- Define versioned test specifications with independent oracles and predeclared acceptance criteria
+  before execution.
+- Execute the defined mandatory investigation and retain outcomes, provenance and integrity-checked
+  evidence, including negative and inconclusive results.
+- Review hypothesis conclusions and coverage limitations; link a separate validation decision without
+  inferring acceptance from experiment completion.
+lifecycle:
+  state: proposed
+  history:
+  - from: null
+    to: proposed
+    date: '2026-10-15'
+    actor: codex
+    reason: Stage 4 investigation definition; test decomposition, prerequisites and execution remain
+      pending.
+revision_history:
+- revision: 1
+  date: '2026-10-15'
+  actor: codex
+  reason: Stage 4 initial experiment definition and validation coverage assignment; no implementation
+    or approval asserted.

@@ -1,0 +1,50 @@
+schema_version: 1
+id: TST-063
+revision: 1
+title: Explicit pool reuse and delayed release
+experiment:
+  id: EXP-021
+  revision: 2
+validations:
+- id: VAL-014
+  revision: 3
+hypothesis_ids:
+- HYP-002
+classification: correctness
+execution_type: automated
+mandatory: true
+preconditions:
+- Chosen pool/reclamation strategy, reader ownership and resource bounds fixed.
+- Bind the exact input/source/configuration revisions and execution or review method before running;
+  unresolved prerequisites are not a pass.
+procedure:
+- Hold immutable arrays across repeated finish/rotation operations and release readers in different
+  orders.
+- Track when storage is returned/reallocated and compare with the explicit pool policy.
+expected:
+- Live arrays retain unchanged values and storage is reused only after the policy permits it.
+- Allocation/reuse behavior and exhaustion outcomes match the declared design without an implicit
+  no-allocation guarantee.
+oracle:
+  kind: independent_reference_comparison
+  description: An independent lease/storage ledger predicts earliest legal reuse and expected immutable
+    contents.
+execution_method: Planned automated procedure for Explicit pool reuse and delayed release; bind the
+  exact command or review checklist and applicable source/fixture revisions before execution.
+execution_binding:
+  state: unbound
+  implementation_path: null
+  entrypoint: null
+required_evidence:
+- Per-case test outcomes including failures, skips and tool errors
+- Registry/test revision and implementation or documentary source revision
+- Exact execution command or review procedure; input/configuration hashes and applicable environment/toolchain
+- Retained artifact references with SHA-256 digests
+- Reader/storage lifetime ledger
+- Reuse/allocation/exhaustion observations
+revision_history:
+- revision: 1
+  date: '2026-10-15'
+  actor: codex
+  reason: Stage 5 pre-execution test specification; execution binding, implementation, inputs and
+    approvals remain pending.

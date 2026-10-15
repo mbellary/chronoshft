@@ -6,3 +6,6 @@ __pycache__/
 *.egg-info/
 build/
 dist/
+# Retained execution bundles are uploaded separately; manifests and small
+# content-addressed artifacts under validation/ remain tracked.
+evidence/

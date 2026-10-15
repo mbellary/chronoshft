@@ -1,0 +1,49 @@
+schema_version: 1
+id: TST-072
+revision: 1
+title: Concurrent-call misuse and delayed readers
+experiment:
+  id: EXP-024
+  revision: 2
+validations:
+- id: VAL-019
+  revision: 3
+hypothesis_ids:
+- HYP-001
+- HYP-002
+classification: safety
+execution_type: automated
+mandatory: true
+preconditions:
+- Public API restrictions, delayed-reader fixtures and resource exhaustion policy fixed.
+- Bind the exact input/source/configuration revisions and execution or review method before running;
+  unresolved prerequisites are not a pass.
+procedure:
+- Attempt prohibited concurrent append/flush callers through safe API usage fixtures.
+- Exercise allowed schedules with readers held across multiple publication/reuse opportunities.
+expected:
+- Prohibited callers are rejected by the declared compile-time or runtime contract.
+- Allowed calls preserve immutable reader contents and block early reuse; exhaustion is explicit.
+oracle:
+  kind: independent_reference_comparison
+  description: Positive/negative API fixtures plus an independent lease/content ledger define allowed
+    calls and earliest legal reuse.
+execution_method: Planned automated procedure for Concurrent-call misuse and delayed readers; bind
+  the exact command or review checklist and applicable source/fixture revisions before execution.
+execution_binding:
+  state: unbound
+  implementation_path: null
+  entrypoint: null
+required_evidence:
+- Per-case test outcomes including failures, skips and tool errors
+- Registry/test revision and implementation or documentary source revision
+- Exact execution command or review procedure; input/configuration hashes and applicable environment/toolchain
+- Retained artifact references with SHA-256 digests
+- API misuse diagnostics/results
+- Reader-content and lease/reuse timeline
+revision_history:
+- revision: 1
+  date: '2026-10-15'
+  actor: codex
+  reason: Stage 5 pre-execution test specification; execution binding, implementation, inputs and
+    approvals remain pending.

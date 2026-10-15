@@ -1,0 +1,48 @@
+schema_version: 1
+id: TST-042
+revision: 1
+title: BOM and published wording reconciliation
+experiment:
+  id: EXP-014
+  revision: 2
+validations:
+- id: VAL-008
+  revision: 3
+hypothesis_ids:
+- HYP-002
+classification: documentary
+execution_type: manual
+mandatory: true
+preconditions:
+- Audited population plan and all in-scope topology/capacity wording available.
+- Bind the exact input/source/configuration revisions and execution or review method before running;
+  unresolved prerequisites are not a pass.
+procedure:
+- Compare hardware tables and fully-populated statements against the audited layout.
+- Record corrections and remaining uncertainties with exact source/document revisions.
+expected:
+- All retained population claims match the audited proposal or installed inventory.
+- Bandwidth/jitter performance is not asserted from documentary topology alone.
+oracle:
+  kind: independent_review
+  description: The audited channel/slot worksheet is checked against actual wording independently
+    of the edited BOM narrative.
+execution_method: Planned manual procedure for BOM and published wording reconciliation; bind the
+  exact command or review checklist and applicable source/fixture revisions before execution.
+execution_binding:
+  state: unbound
+  implementation_path: null
+  entrypoint: null
+required_evidence:
+- Review checklist, findings and named reviewer/date
+- Registry/test revision and implementation or documentary source revision
+- Exact execution command or review procedure; input/configuration hashes and applicable environment/toolchain
+- Retained artifact references with SHA-256 digests
+- Before/after claim references
+- Reconciled BOM and review disposition
+revision_history:
+- revision: 1
+  date: '2026-10-15'
+  actor: codex
+  reason: Stage 5 pre-execution test specification; execution binding, implementation, inputs and
+    approvals remain pending.

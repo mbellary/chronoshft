@@ -1,0 +1,51 @@
+schema_version: 1
+id: EXP-023
+revision: 1
+title: DataFusion projection semantics
+validates:
+- id: VAL-016
+  revision: 2
+objective: Establish correct projection planning and schema/results for pinned DataFusion APIs.
+hypotheses:
+- id: HYP-001
+  statement: Reordered and partial projections produce exactly the requested columns, values and
+    schema in the requested order.
+- id: HYP-002
+  statement: Projection is applied according to the pinned provider/execution contract without duplicate
+    projection or original-schema mismatch.
+scope: 'VAL-016: nontrivial projections, MemoryExec/provider schema agreement and version-dependent
+  API behavior.'
+exclusions:
+- No unqualified assertion that every API version has the same bug.
+- Projection correctness does not prove full SQL conformance.
+method:
+  kind: executable
+  procedure: Compare projected queries and plans against an independent column-selection oracle for
+    reordered, partial and supported edge-case projections.
+  implementation_path: null
+dependencies:
+- Pinned DataFusion API version and complete provider implementation.
+- Declared schema and supported projection cases.
+tests: []
+completion_criteria:
+- Define versioned test specifications with independent oracles and predeclared acceptance criteria
+  before execution.
+- Execute the defined mandatory investigation and retain outcomes, provenance and integrity-checked
+  evidence, including negative and inconclusive results.
+- Review hypothesis conclusions and coverage limitations; link a separate validation decision without
+  inferring acceptance from experiment completion.
+lifecycle:
+  state: proposed
+  history:
+  - from: null
+    to: proposed
+    date: '2026-10-15'
+    actor: codex
+    reason: Stage 4 investigation definition; test decomposition, prerequisites and execution remain
+      pending.
+revision_history:
+- revision: 1
+  date: '2026-10-15'
+  actor: codex
+  reason: Stage 4 initial experiment definition and validation coverage assignment; no implementation
+    or approval asserted.

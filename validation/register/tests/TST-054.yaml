@@ -1,0 +1,50 @@
+schema_version: 1
+id: TST-054
+revision: 1
+title: Timezone and epoch round trips
+experiment:
+  id: EXP-018
+  revision: 2
+validations:
+- id: VAL-010
+  revision: 3
+hypothesis_ids:
+- HYP-001
+- HYP-002
+classification: correctness
+execution_type: automated
+mandatory: true
+preconditions:
+- Timezone/epoch policy, pinned timezone rules and ambiguous/nonexistent-local-time behavior fixed.
+- Bind the exact input/source/configuration revisions and execution or review method before running;
+  unresolved prerequisites are not a pass.
+procedure:
+- Round-trip UTC, offset, pre-epoch and daylight-transition fixtures through supported conversions.
+- Exercise ambiguous/nonexistent local times and invalid timezone inputs.
+expected:
+- Supported conversions preserve the intended instant and declared timezone metadata.
+- Ambiguity/error handling matches policy; nanosecond resolution is not reported as clock synchronization
+  accuracy.
+oracle:
+  kind: independent_reference_comparison
+  description: Independently authored instant/offset fixtures and pinned timezone rule data define
+    conversion expectations.
+execution_method: Planned automated procedure for Timezone and epoch round trips; bind the exact
+  command or review checklist and applicable source/fixture revisions before execution.
+execution_binding:
+  state: unbound
+  implementation_path: null
+  entrypoint: null
+required_evidence:
+- Per-case test outcomes including failures, skips and tool errors
+- Registry/test revision and implementation or documentary source revision
+- Exact execution command or review procedure; input/configuration hashes and applicable environment/toolchain
+- Retained artifact references with SHA-256 digests
+- Timezone rule/version manifest
+- Instant/metadata and error comparisons
+revision_history:
+- revision: 1
+  date: '2026-10-15'
+  actor: codex
+  reason: Stage 5 pre-execution test specification; execution binding, implementation, inputs and
+    approvals remain pending.

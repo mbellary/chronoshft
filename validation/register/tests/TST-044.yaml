@@ -1,0 +1,50 @@
+schema_version: 1
+id: TST-044
+revision: 1
+title: Locality and memory-placement probes
+experiment:
+  id: EXP-015
+  revision: 2
+validations:
+- id: VAL-009
+  revision: 3
+hypothesis_ids:
+- HYP-001
+classification: performance
+execution_type: automated
+mandatory: true
+preconditions:
+- NUMA topology, first-touch/allocation rules, controlled local/remote probes and expected placement
+  fixed.
+- Bind the exact input/source/configuration revisions and execution or review method before running;
+  unresolved prerequisites are not a pass.
+procedure:
+- Allocate and access declared buffers under specified CPU/memory bindings.
+- Record actual memory node placement and compare local/remote control observations.
+expected:
+- Observed allocation and thread placement match the declared locality contract.
+- Control probes expose misplacement; locality claims are limited to observed memory and workload
+  conditions.
+oracle:
+  kind: independent_reference_comparison
+  description: OS placement counters and an independent address/allocation map check actual residency;
+    local/remote controls validate the probe sensitivity.
+execution_method: Planned automated procedure for Locality and memory-placement probes; bind the
+  exact command or review checklist and applicable source/fixture revisions before execution.
+execution_binding:
+  state: unbound
+  implementation_path: null
+  entrypoint: null
+required_evidence:
+- Per-case test outcomes including failures, skips and tool errors
+- Registry/test revision and implementation or documentary source revision
+- Exact execution command or review procedure; input/configuration hashes and applicable environment/toolchain
+- Retained artifact references with SHA-256 digests
+- Residency and affinity observations
+- Local/remote control samples
+revision_history:
+- revision: 1
+  date: '2026-10-15'
+  actor: codex
+  reason: Stage 5 pre-execution test specification; execution binding, implementation, inputs and
+    approvals remain pending.

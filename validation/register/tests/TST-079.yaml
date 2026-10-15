@@ -1,0 +1,51 @@
+schema_version: 1
+id: TST-079
+revision: 1
+title: Visibility correction and knowledge-time model review
+experiment:
+  id: EXP-027
+  revision: 2
+validations:
+- id: VAL-023
+  revision: 3
+hypothesis_ids:
+- HYP-001
+- HYP-002
+classification: documentary
+execution_type: manual
+mandatory: true
+preconditions:
+- Proposed identity, hot/cold catalog, late/correction and as-known contracts available.
+- Bind the exact input/source/configuration revisions and execution or review method before running;
+  unresolved prerequisites are not a pass.
+procedure:
+- Define logical visibility at publication, durable commit, catalog handoff and correction-version
+  boundaries.
+- Specify expected query results for late arrivals and historical knowledge cutoffs.
+expected:
+- Every supported boundary/version case has a deterministic membership/value rule.
+- Unresolved knowledge-time or correction policies remain explicit prerequisites rather than inferred
+  micro-sort behavior.
+oracle:
+  kind: independent_review
+  description: An independently authored versioned relational model and boundary truth table specify
+    logical visibility.
+execution_method: Planned manual procedure for Visibility correction and knowledge-time model review;
+  bind the exact command or review checklist and applicable source/fixture revisions before execution.
+execution_binding:
+  state: unbound
+  implementation_path: null
+  entrypoint: null
+required_evidence:
+- Review checklist, findings and named reviewer/date
+- Registry/test revision and implementation or documentary source revision
+- Exact execution command or review procedure; input/configuration hashes and applicable environment/toolchain
+- Retained artifact references with SHA-256 digests
+- Visibility/version truth table
+- Contract review and exclusions
+revision_history:
+- revision: 1
+  date: '2026-10-15'
+  actor: codex
+  reason: Stage 5 pre-execution test specification; execution binding, implementation, inputs and
+    approvals remain pending.

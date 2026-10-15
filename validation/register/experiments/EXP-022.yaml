@@ -1,0 +1,62 @@
+schema_version: 1
+id: EXP-022
+revision: 2
+title: Non-destructive TableProvider
+validates:
+- id: VAL-015
+  revision: 3
+objective: Establish repeatable, non-destructive scans over retained snapshots.
+hypotheses:
+- id: HYP-001
+  statement: Repeated scans of the same captured table snapshot return identical rows without consuming
+    ingestion output.
+- id: HYP-002
+  statement: Concurrent scans each observe their declared snapshot and preserve retained data until
+    all readers release it.
+scope: 'VAL-015: repeat and concurrent scan behavior, snapshot capture boundary and retained registry
+  semantics.'
+exclusions:
+- Does not by itself establish full hot/cold visibility or durability.
+- A destructive ingestion drain cannot serve as the retained-table oracle.
+method:
+  kind: executable
+  procedure: Run repeated and concurrent queries against an immutable row oracle while ingestion
+    advances; delay readers and verify snapshot membership and retention.
+  implementation_path: null
+dependencies:
+- Approved snapshot registry and capture boundary (DEC-003).
+- Pinned DataFusion provider APIs and explicit reader leases.
+tests:
+- id: TST-064
+  revision: 1
+- id: TST-065
+  revision: 1
+- id: TST-066
+  revision: 1
+completion_criteria:
+- Define versioned test specifications with independent oracles and predeclared acceptance criteria
+  before execution.
+- Execute the defined mandatory investigation and retain outcomes, provenance and integrity-checked
+  evidence, including negative and inconclusive results.
+- Review hypothesis conclusions and coverage limitations; link a separate validation decision without
+  inferring acceptance from experiment completion.
+lifecycle:
+  state: proposed
+  history:
+  - from: null
+    to: proposed
+    date: '2026-10-15'
+    actor: codex
+    reason: Stage 4 investigation definition; test decomposition, prerequisites and execution remain
+      pending.
+revision_history:
+- revision: 1
+  date: '2026-10-15'
+  actor: codex
+  reason: Stage 4 initial experiment definition and validation coverage assignment; no implementation
+    or approval asserted.
+- revision: 2
+  date: '2026-10-15'
+  actor: codex
+  reason: Stage 5 declares hypothesis-linked test specifications; experiment remains proposed until
+    bindings and prerequisites are ready.

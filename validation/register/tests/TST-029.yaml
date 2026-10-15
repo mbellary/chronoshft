@@ -1,0 +1,48 @@
+schema_version: 1
+id: TST-029
+revision: 1
+title: Example runtime behavior
+experiment:
+  id: EXP-010
+  revision: 2
+validations:
+- id: VAL-017
+  revision: 3
+hypothesis_ids:
+- HYP-002
+classification: correctness
+execution_type: automated
+mandatory: true
+preconditions:
+- Compiled examples and fixed expected row/schema/control-flow results available.
+- Bind the exact input/source/configuration revisions and execution or review method before running;
+  unresolved prerequisites are not a pass.
+procedure:
+- Execute each example with deterministic fixtures and bounded completion time.
+- Compare schema, row count and emitted/retained values with independent expected results.
+expected:
+- Each example returns the declared schema/count/value results and completion behavior.
+- Panic, timeout and missing output are explicit non-passes.
+oracle:
+  kind: independent_reference_comparison
+  description: Hand-authored expected schemas and small independent input/result fixtures avoid deriving
+    expectations from example output.
+execution_method: Planned automated procedure for Example runtime behavior; bind the exact command
+  or review checklist and applicable source/fixture revisions before execution.
+execution_binding:
+  state: unbound
+  implementation_path: null
+  entrypoint: null
+required_evidence:
+- Per-case test outcomes including failures, skips and tool errors
+- Registry/test revision and implementation or documentary source revision
+- Exact execution command or review procedure; input/configuration hashes and applicable environment/toolchain
+- Retained artifact references with SHA-256 digests
+- Execution logs
+- Expected/actual schema and result comparisons
+revision_history:
+- revision: 1
+  date: '2026-10-15'
+  actor: codex
+  reason: Stage 5 pre-execution test specification; execution binding, implementation, inputs and
+    approvals remain pending.

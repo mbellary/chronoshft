@@ -1,0 +1,49 @@
+schema_version: 1
+id: TST-078
+revision: 1
+title: Cancellation failure and final-release schedules
+experiment:
+  id: EXP-026
+  revision: 2
+validations:
+- id: VAL-021
+  revision: 3
+hypothesis_ids:
+- HYP-002
+classification: reliability
+execution_type: automated
+mandatory: true
+preconditions:
+- Declared cancellation/partial-error semantics and resource-release deadline fixed.
+- Bind the exact input/source/configuration revisions and execution or review method before running;
+  unresolved prerequisites are not a pass.
+procedure:
+- Cancel before/after handoff and during partial query consumption; inject terminal failures.
+- Track all reader leases until release or declared retention and attempt bounded reuse afterward.
+expected:
+- No cancellation/error path permits access after premature retirement.
+- Leases and resources follow the declared release policy without unexplained leaks or permanently
+  blocked reuse.
+oracle:
+  kind: independent_reference_comparison
+  description: An external task/lease ledger plus independently triggered cancellation points defines
+    expected ownership at each terminal state.
+execution_method: Planned automated procedure for Cancellation failure and final-release schedules;
+  bind the exact command or review checklist and applicable source/fixture revisions before execution.
+execution_binding:
+  state: unbound
+  implementation_path: null
+  entrypoint: null
+required_evidence:
+- Per-case test outcomes including failures, skips and tool errors
+- Registry/test revision and implementation or documentary source revision
+- Exact execution command or review procedure; input/configuration hashes and applicable environment/toolchain
+- Retained artifact references with SHA-256 digests
+- Cancellation/failure schedules
+- Lease/resource final-state reconciliation
+revision_history:
+- revision: 1
+  date: '2026-10-15'
+  actor: codex
+  reason: Stage 5 pre-execution test specification; execution binding, implementation, inputs and
+    approvals remain pending.

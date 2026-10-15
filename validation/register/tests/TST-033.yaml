@@ -1,0 +1,48 @@
+schema_version: 1
+id: TST-033
+revision: 1
+title: Unresolved assertion disposition
+experiment:
+  id: EXP-011
+  revision: 2
+validations:
+- id: VAL-028
+  revision: 3
+hypothesis_ids:
+- HYP-002
+classification: documentary
+execution_type: manual
+mandatory: true
+preconditions:
+- Citation ledger and all affected technical assertions enumerated.
+- Bind the exact input/source/configuration revisions and execution or review method before running;
+  unresolved prerequisites are not a pass.
+procedure:
+- Trace unresolved/unsupported citations to every in-scope assertion.
+- Verify each assertion is qualified, removed or explicitly labeled unsupported with a follow-up.
+expected:
+- All unresolved assertions retain an explicit evidence limitation.
+- No validation conclusion relies on an unresolved source as if verified.
+oracle:
+  kind: independent_review
+  description: The independent unresolved-claim ledger is checked against actual document and decision
+    references.
+execution_method: Planned manual procedure for Unresolved assertion disposition; bind the exact command
+  or review checklist and applicable source/fixture revisions before execution.
+execution_binding:
+  state: unbound
+  implementation_path: null
+  entrypoint: null
+required_evidence:
+- Review checklist, findings and named reviewer/date
+- Registry/test revision and implementation or documentary source revision
+- Exact execution command or review procedure; input/configuration hashes and applicable environment/toolchain
+- Retained artifact references with SHA-256 digests
+- Assertion dispositions
+- Affected-document references and follow-up list
+revision_history:
+- revision: 1
+  date: '2026-10-15'
+  actor: codex
+  reason: Stage 5 pre-execution test specification; execution binding, implementation, inputs and
+    approvals remain pending.

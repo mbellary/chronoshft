@@ -1,0 +1,53 @@
+schema_version: 1
+id: TST-039
+revision: 1
+title: Timing generator and loss-accounting controls
+experiment:
+  id: EXP-013
+  revision: 2
+validations:
+- id: VAL-006
+  revision: 3
+hypothesis_ids:
+- HYP-002
+classification: correctness
+execution_type: automated
+mandatory: true
+preconditions:
+- Timing endpoints, percentile algorithm, eligible-event definitions, intended offered rate and control
+  fixtures fixed.
+- Bind the exact input/source/configuration revisions and execution or review method before running;
+  unresolved prerequisites are not a pass.
+procedure:
+- Feed known timestamp/duration samples and deliberately short-rate, dropped, duplicate, rejected
+  and timed-out cases to the harness.
+- Recompute distributions and reconcile offered, accepted, visible and, when in scope, durable identities
+  after drain.
+expected:
+- Reported percentiles and elapsed intervals match the independent control calculations.
+- Generator shortfall and any nonzero eligible-event loss are non-passes for the corresponding target;
+  no rounded percentage hides a missing identity.
+oracle:
+  kind: independent_reference_comparison
+  description: Hand-computed timing samples and an external identity/attempt ledger provide expected
+    metrics independently of the harness aggregation code.
+execution_method: Planned automated procedure for Timing generator and loss-accounting controls;
+  bind the exact command or review checklist and applicable source/fixture revisions before execution.
+execution_binding:
+  state: unbound
+  implementation_path: null
+  entrypoint: null
+required_evidence:
+- Per-case test outcomes including failures, skips and tool errors
+- Registry/test revision and implementation or documentary source revision
+- Exact execution command or review procedure; input/configuration hashes and applicable environment/toolchain
+- Retained artifact references with SHA-256 digests
+- Control input/output report
+- Raw timing and exact event reconciliation
+- Generator offered-rate evidence
+revision_history:
+- revision: 1
+  date: '2026-10-15'
+  actor: codex
+  reason: Stage 5 pre-execution test specification; execution binding, implementation, inputs and
+    approvals remain pending.

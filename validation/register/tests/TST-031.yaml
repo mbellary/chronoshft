@@ -1,0 +1,49 @@
+schema_version: 1
+id: TST-031
+revision: 1
+title: Citation inventory and source resolution
+experiment:
+  id: EXP-011
+  revision: 2
+validations:
+- id: VAL-028
+  revision: 3
+hypothesis_ids:
+- HYP-001
+classification: documentary
+execution_type: manual
+mandatory: true
+preconditions:
+- Preserved research PDF and extraction matrix available with physical page references.
+- Bind the exact input/source/configuration revisions and execution or review method before running;
+  unresolved prerequisites are not a pass.
+procedure:
+- Inventory every numeric citation and associated claim location.
+- Resolve recoverable references to identifiable editions/versions and archive source metadata.
+expected:
+- Every citation is either resolved to an identifiable source or explicitly unresolved with its affected
+  claims.
+- No inferred or invented bibliography entry is treated as recovered evidence.
+oracle:
+  kind: independent_review
+  description: A page-by-page independent citation ledger is reconciled with the preserved PDF rather
+    than only the existing reference list.
+execution_method: Planned manual procedure for Citation inventory and source resolution; bind the
+  exact command or review checklist and applicable source/fixture revisions before execution.
+execution_binding:
+  state: unbound
+  implementation_path: null
+  entrypoint: null
+required_evidence:
+- Review checklist, findings and named reviewer/date
+- Registry/test revision and implementation or documentary source revision
+- Exact execution command or review procedure; input/configuration hashes and applicable environment/toolchain
+- Retained artifact references with SHA-256 digests
+- Citation/page/claim ledger
+- Resolved source metadata and unresolved list
+revision_history:
+- revision: 1
+  date: '2026-10-15'
+  actor: codex
+  reason: Stage 5 pre-execution test specification; execution binding, implementation, inputs and
+    approvals remain pending.

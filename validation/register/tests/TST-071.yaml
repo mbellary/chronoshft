@@ -1,0 +1,51 @@
+schema_version: 1
+id: TST-071
+revision: 1
+title: Publication and lease state model
+experiment:
+  id: EXP-024
+  revision: 2
+validations:
+- id: VAL-019
+  revision: 3
+hypothesis_ids:
+- HYP-001
+- HYP-002
+classification: safety
+execution_type: automated
+mandatory: true
+preconditions:
+- Bounded state model and declared supported schedules fixed; unsafe-memory/model tools selected
+  for applicability.
+- Bind the exact input/source/configuration revisions and execution or review method before running;
+  unresolved prerequisites are not a pass.
+procedure:
+- Explore append, flush, publish, lease acquisition/release and reuse interleavings.
+- Introduce deliberate concurrent-mutation and early-retirement negative controls.
+expected:
+- Explored supported schedules preserve exclusive mutation, initialized reads and lease-protected
+  reuse.
+- Negative controls expose the expected violations; bounded model scope is explicitly reported.
+oracle:
+  kind: independent_reference_comparison
+  description: Independent ownership/lease transition rules define legal states without calling production
+    transition helpers.
+execution_method: Planned automated procedure for Publication and lease state model; bind the exact
+  command or review checklist and applicable source/fixture revisions before execution.
+execution_binding:
+  state: unbound
+  implementation_path: null
+  entrypoint: null
+required_evidence:
+- Per-case test outcomes including failures, skips and tool errors
+- Registry/test revision and implementation or documentary source revision
+- Exact execution command or review procedure; input/configuration hashes and applicable environment/toolchain
+- Retained artifact references with SHA-256 digests
+- Model bounds/source
+- Schedule results and negative-control counterexamples
+revision_history:
+- revision: 1
+  date: '2026-10-15'
+  actor: codex
+  reason: Stage 5 pre-execution test specification; execution binding, implementation, inputs and
+    approvals remain pending.

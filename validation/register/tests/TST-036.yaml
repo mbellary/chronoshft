@@ -1,0 +1,49 @@
+schema_version: 1
+id: TST-036
+revision: 1
+title: Latency under destruction and interference
+experiment:
+  id: EXP-012
+  revision: 2
+validations:
+- id: VAL-005
+  revision: 3
+hypothesis_ids:
+- HYP-002
+classification: performance
+execution_type: automated
+mandatory: true
+preconditions:
+- Controlled platform, workload, duration, sample count, interference schedule and adopted latency
+  budgets fixed.
+- Bind the exact input/source/configuration revisions and execution or review method before running;
+  unresolved prerequisites are not a pass.
+procedure:
+- Measure the full declared interval with destruction and configured scheduler/I/O interference.
+- Compare baseline and interference trials while retaining timeouts, errors and raw distributions.
+expected:
+- Each retained latency claim satisfies its adopted distribution threshold under all required conditions.
+- Slow/error cases are included; deferred cleanup and instrumentation costs are disclosed.
+oracle:
+  kind: independent_reference_comparison
+  description: External monotonic endpoint timestamps and separately recomputed percentiles from
+    raw samples validate latency accounting.
+execution_method: Planned automated procedure for Latency under destruction and interference; bind
+  the exact command or review checklist and applicable source/fixture revisions before execution.
+execution_binding:
+  state: unbound
+  implementation_path: null
+  entrypoint: null
+required_evidence:
+- Per-case test outcomes including failures, skips and tool errors
+- Registry/test revision and implementation or documentary source revision
+- Exact execution command or review procedure; input/configuration hashes and applicable environment/toolchain
+- Retained artifact references with SHA-256 digests
+- Raw latency and scheduler/I/O observations
+- Percentile calculation and error accounting
+revision_history:
+- revision: 1
+  date: '2026-10-15'
+  actor: codex
+  reason: Stage 5 pre-execution test specification; execution binding, implementation, inputs and
+    approvals remain pending.

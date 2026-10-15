@@ -1,0 +1,48 @@
+schema_version: 1
+id: TST-074
+revision: 1
+title: Delayed reader transfer integrity
+experiment:
+  id: EXP-025
+  revision: 2
+validations:
+- id: VAL-020
+  revision: 3
+hypothesis_ids:
+- HYP-001
+classification: safety
+execution_type: automated
+mandatory: true
+preconditions:
+- Implemented transfer model, distinct immutable payload fixtures and delayed-reader schedule fixed.
+- Bind the exact input/source/configuration revisions and execution or review method before running;
+  unresolved prerequisites are not a pass.
+procedure:
+- Publish arrays, retain selected readers and replace/rotate builders repeatedly.
+- Verify retained payloads before releasing readers in different orders.
+expected:
+- Published values remain unchanged and readable for each active reader lease.
+- No builder replacement or index rotation permits mutation/reuse of still-live storage.
+oracle:
+  kind: independent_reference_comparison
+  description: Externally retained canonical payloads/checksums and an independent lease/storage
+    map determine expected contents and ownership.
+execution_method: Planned automated procedure for Delayed reader transfer integrity; bind the exact
+  command or review checklist and applicable source/fixture revisions before execution.
+execution_binding:
+  state: unbound
+  implementation_path: null
+  entrypoint: null
+required_evidence:
+- Per-case test outcomes including failures, skips and tool errors
+- Registry/test revision and implementation or documentary source revision
+- Exact execution command or review procedure; input/configuration hashes and applicable environment/toolchain
+- Retained artifact references with SHA-256 digests
+- Storage/reader identity trace
+- Payload integrity comparisons
+revision_history:
+- revision: 1
+  date: '2026-10-15'
+  actor: codex
+  reason: Stage 5 pre-execution test specification; execution binding, implementation, inputs and
+    approvals remain pending.

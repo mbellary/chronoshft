@@ -1,0 +1,50 @@
+schema_version: 1
+id: TST-026
+revision: 1
+title: Matched comparison contract review
+experiment:
+  id: EXP-009
+  revision: 2
+validations:
+- id: VAL-007
+  revision: 3
+hypothesis_ids:
+- HYP-002
+classification: documentary
+execution_type: manual
+mandatory: true
+preconditions:
+- Candidate numeric comparisons and both systems configured for review.
+- Bind the exact input/source/configuration revisions and execution or review method before running;
+  unresolved prerequisites are not a pass.
+procedure:
+- Compare schemas, queries, data sizes, cache state, hardware, concurrency, durability and result
+  correctness requirements.
+- Document differences that prevent equivalence before executing performance comparisons.
+expected:
+- Retained numeric comparisons use equivalent semantics and disclose material resource/configuration
+  differences.
+- An unmatched or unexecutable comparison cannot support a numeric superiority claim.
+oracle:
+  kind: independent_review
+  description: A system-neutral workload/semantics checklist and independently specified expected
+    result establish comparison eligibility.
+execution_method: Planned manual procedure for Matched comparison contract review; bind the exact
+  command or review checklist and applicable source/fixture revisions before execution.
+execution_binding:
+  state: unbound
+  implementation_path: null
+  entrypoint: null
+required_evidence:
+- Review checklist, findings and named reviewer/date
+- Registry/test revision and implementation or documentary source revision
+- Exact execution command or review procedure; input/configuration hashes and applicable environment/toolchain
+- Retained artifact references with SHA-256 digests
+- Paired workload contract
+- Configuration differences and review disposition
+revision_history:
+- revision: 1
+  date: '2026-10-15'
+  actor: codex
+  reason: Stage 5 pre-execution test specification; execution binding, implementation, inputs and
+    approvals remain pending.

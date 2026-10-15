@@ -1,0 +1,51 @@
+schema_version: 1
+id: TST-050
+revision: 1
+title: Transport framing and decoder correctness
+experiment:
+  id: EXP-017
+  revision: 2
+validations:
+- id: VAL-025
+  revision: 3
+hypothesis_ids:
+- HYP-001
+classification: correctness
+execution_type: automated
+mandatory: true
+preconditions:
+- Approved message/TLS/framing contract; independent valid, fragmented, malformed and reconnect fixtures
+  fixed.
+- Bind the exact input/source/configuration revisions and execution or review method before running;
+  unresolved prerequisites are not a pass.
+procedure:
+- Replay message splits/coalescing, TLS/application boundaries, malformed payloads and reconnect
+  sequences.
+- Compare decoded identities/values and error states with expected application messages.
+expected:
+- All supported valid messages decode exactly once with correct values across transport fragmentation.
+- Malformed/unsupported inputs produce the declared bounded error/recovery behavior without silent
+  corruption.
+oracle:
+  kind: independent_reference_comparison
+  description: Predecoded canonical messages and a protocol-level fixture ledger define expectations
+    independently of the adapter parser.
+execution_method: Planned automated procedure for Transport framing and decoder correctness; bind
+  the exact command or review checklist and applicable source/fixture revisions before execution.
+execution_binding:
+  state: unbound
+  implementation_path: null
+  entrypoint: null
+required_evidence:
+- Per-case test outcomes including failures, skips and tool errors
+- Registry/test revision and implementation or documentary source revision
+- Exact execution command or review procedure; input/configuration hashes and applicable environment/toolchain
+- Retained artifact references with SHA-256 digests
+- Wire/application fixture hashes
+- Decoded/error/reconnect comparisons
+revision_history:
+- revision: 1
+  date: '2026-10-15'
+  actor: codex
+  reason: Stage 5 pre-execution test specification; execution binding, implementation, inputs and
+    approvals remain pending.

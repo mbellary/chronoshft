@@ -1,0 +1,51 @@
+schema_version: 1
+id: TST-004
+revision: 1
+title: Invalid and boundary capacity configuration
+experiment:
+  id: EXP-001
+  revision: 2
+validations:
+- id: VAL-012
+  revision: 3
+hypothesis_ids:
+- HYP-001
+classification: correctness
+execution_type: automated
+mandatory: true
+preconditions:
+- Constructor contract specifies zero, minimum, maximum and any power-of-two restrictions; allocation
+  limits are fixed.
+- Bind the exact input/source/configuration revisions and execution or review method before running;
+  unresolved prerequisites are not a pass.
+procedure:
+- Request zero, minimum valid, invalid nonconforming and maximum-supported capacities using bounded
+  fixtures.
+- Fill each valid queue to its declared usable capacity and exercise one extra insertion.
+expected:
+- Invalid capacities fail with the declared error without overflow or uncontrolled allocation.
+- Every accepted configuration reports and enforces its exact usable capacity; arithmetic is checked
+  at size boundaries.
+oracle:
+  kind: independent_reference_comparison
+  description: A standalone checked-integer capacity calculation and constructor contract classify
+    each input independently of implementation validation helpers.
+execution_method: Planned automated procedure for Invalid and boundary capacity configuration; bind
+  the exact command or review checklist and applicable source/fixture revisions before execution.
+execution_binding:
+  state: unbound
+  implementation_path: null
+  entrypoint: null
+required_evidence:
+- Per-case test outcomes including failures, skips and tool errors
+- Registry/test revision and implementation or documentary source revision
+- Exact execution command or review procedure; input/configuration hashes and applicable environment/toolchain
+- Retained artifact references with SHA-256 digests
+- Constructor outcome matrix
+- Size/arithmetic boundary assertions
+revision_history:
+- revision: 1
+  date: '2026-10-15'
+  actor: codex
+  reason: Stage 5 pre-execution test specification; execution binding, implementation, inputs and
+    approvals remain pending.

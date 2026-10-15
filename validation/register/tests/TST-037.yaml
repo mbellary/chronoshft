@@ -1,0 +1,50 @@
+schema_version: 1
+id: TST-037
+revision: 1
+title: Harness manifest and profile contract audit
+experiment:
+  id: EXP-013
+  revision: 2
+validations:
+- id: VAL-006
+  revision: 3
+hypothesis_ids:
+- HYP-001
+- HYP-002
+classification: documentary
+execution_type: manual
+mandatory: true
+preconditions:
+- Candidate harness, profile ledger and run/evidence format available.
+- Bind the exact input/source/configuration revisions and execution or review method before running;
+  unresolved prerequisites are not a pass.
+procedure:
+- Verify commands, input/seed hashes, dependency revisions, topology, timing endpoints and accounting
+  boundaries for each selected profile.
+- Keep MVP, reference, burst, local/remote dataframe and additional 5M/s profiles distinct.
+expected:
+- Each selected profile is reproducible from a complete declared contract and retained inputs.
+- Missing duration, workload, correctness or retention inputs prevent readiness for that profile.
+oracle:
+  kind: independent_review
+  description: The independent workload ledger and evidence-bundle checklist determine required metadata;
+    harness defaults are not treated as requirements.
+execution_method: Planned manual procedure for Harness manifest and profile contract audit; bind
+  the exact command or review checklist and applicable source/fixture revisions before execution.
+execution_binding:
+  state: unbound
+  implementation_path: null
+  entrypoint: null
+required_evidence:
+- Review checklist, findings and named reviewer/date
+- Registry/test revision and implementation or documentary source revision
+- Exact execution command or review procedure; input/configuration hashes and applicable environment/toolchain
+- Retained artifact references with SHA-256 digests
+- Profile/manifest completeness matrix
+- Missing-input and retention findings
+revision_history:
+- revision: 1
+  date: '2026-10-15'
+  actor: codex
+  reason: Stage 5 pre-execution test specification; execution binding, implementation, inputs and
+    approvals remain pending.

@@ -1,0 +1,49 @@
+schema_version: 1
+id: TST-052
+revision: 1
+title: Signed nanosecond boundaries and units
+experiment:
+  id: EXP-018
+  revision: 2
+validations:
+- id: VAL-010
+  revision: 3
+hypothesis_ids:
+- HYP-001
+classification: correctness
+execution_type: automated
+mandatory: true
+preconditions:
+- Signed-64-bit nanosecond epoch/unit contract fixed; canonical minimum/maximum/negative/zero fixtures
+  available.
+- Bind the exact input/source/configuration revisions and execution or review method before running;
+  unresolved prerequisites are not a pass.
+procedure:
+- Convert supported boundary and unit fixtures into and out of the declared representation.
+- Compare signed values and represented instants exactly.
+expected:
+- All supported boundary values round-trip exactly without silent unit scaling or sign errors.
+- Representation limits are reported independently of clock accuracy.
+oracle:
+  kind: independent_reference_comparison
+  description: Arbitrary-precision integer arithmetic and precomputed epoch-relative fixtures independently
+    define representable values.
+execution_method: Planned automated procedure for Signed nanosecond boundaries and units; bind the
+  exact command or review checklist and applicable source/fixture revisions before execution.
+execution_binding:
+  state: unbound
+  implementation_path: null
+  entrypoint: null
+required_evidence:
+- Per-case test outcomes including failures, skips and tool errors
+- Registry/test revision and implementation or documentary source revision
+- Exact execution command or review procedure; input/configuration hashes and applicable environment/toolchain
+- Retained artifact references with SHA-256 digests
+- Boundary fixture set
+- Exact conversion comparisons
+revision_history:
+- revision: 1
+  date: '2026-10-15'
+  actor: codex
+  reason: Stage 5 pre-execution test specification; execution binding, implementation, inputs and
+    approvals remain pending.

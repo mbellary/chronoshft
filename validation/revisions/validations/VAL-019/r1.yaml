@@ -1,0 +1,40 @@
+schema_version: 1
+id: VAL-019
+revision: 1
+title: Exclusive buffer publication
+origin:
+  assessment_id: CHRONOS-P0-001
+  assessment_version: '1.0'
+  assessment_date: '2026-10-13'
+  baseline_path: docs/00-governance/technical-validation.md
+  source_refs: RES-058
+  source_status: Incomplete (safety)
+  finding: Atomic index flip does not enforce exclusive append/flush access or track safe reuse.
+    No reader lease/retirement protocol is shown
+  required_closure_evidence: Ownership state machine; concurrent-call tests; memory model review
+objective: 'Establish the closure evidence required for VAL-019: Ownership state machine; concurrent-call
+  tests; memory model review.'
+category: null
+priority: null
+required_evidence:
+- Ownership state machine; concurrent-call tests; memory model review
+coverage:
+  status: unmapped
+  experiments: []
+  tests: []
+lifecycle:
+  state: identified
+  history:
+  - from: null
+    to: identified
+    date: '2026-10-15'
+    actor: registry-migration
+    reason: Imported existing research question; engineering investigation remains unplanned.
+current_decision_id: null
+prior_decision_ids: []
+revision_history:
+- revision: 1
+  date: '2026-10-15'
+  actor: registry-migration
+  reason: Lossless baseline import; title and objective are engineering metadata; category and priority
+    remain unassigned.

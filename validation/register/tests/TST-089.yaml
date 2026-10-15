@@ -1,0 +1,48 @@
+schema_version: 1
+id: TST-089
+revision: 1
+title: Deterministic reference-trace reconstruction
+experiment:
+  id: EXP-030
+  revision: 2
+validations:
+- id: VAL-027
+  revision: 3
+hypothesis_ids:
+- HYP-001
+classification: correctness
+execution_type: automated
+mandatory: true
+preconditions:
+- Approved venue model and canonical traces with independent expected per-step book states available.
+- Bind the exact input/source/configuration revisions and execution or review method before running;
+  unresolved prerequisites are not a pass.
+procedure:
+- Replay normal and boundary update traces, including equal-time sequence cases.
+- Compare each intermediate/final book state and repeat replay from the same initial snapshot.
+expected:
+- All supported updates produce the expected book state at every checked step.
+- Repeated replay yields identical state under the declared ordering rules.
+oracle:
+  kind: independent_reference_comparison
+  description: A simple separately authored venue-state reference implementation or hand-verified
+    per-step trace table supplies expected book levels/orders.
+execution_method: Planned automated procedure for Deterministic reference-trace reconstruction; bind
+  the exact command or review checklist and applicable source/fixture revisions before execution.
+execution_binding:
+  state: unbound
+  implementation_path: null
+  entrypoint: null
+required_evidence:
+- Per-case test outcomes including failures, skips and tool errors
+- Registry/test revision and implementation or documentary source revision
+- Exact execution command or review procedure; input/configuration hashes and applicable environment/toolchain
+- Retained artifact references with SHA-256 digests
+- Trace/source hashes
+- Per-step expected/actual book states
+revision_history:
+- revision: 1
+  date: '2026-10-15'
+  actor: codex
+  reason: Stage 5 pre-execution test specification; execution binding, implementation, inputs and
+    approvals remain pending.

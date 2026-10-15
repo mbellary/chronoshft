@@ -1,0 +1,49 @@
+schema_version: 1
+id: TST-069
+revision: 1
+title: Projection edge cases and invalid indexes
+experiment:
+  id: EXP-023
+  revision: 2
+validations:
+- id: VAL-016
+  revision: 3
+hypothesis_ids:
+- HYP-001
+- HYP-002
+classification: correctness
+execution_type: automated
+mandatory: true
+preconditions:
+- Policies for empty/duplicate projections and invalid indexes fixed for the supported API.
+- Bind the exact input/source/configuration revisions and execution or review method before running;
+  unresolved prerequisites are not a pass.
+procedure:
+- Exercise single-column, empty, repeated-column where supported, and invalid projection cases.
+- Compare success/error behavior and row cardinality with the declared policy.
+expected:
+- Supported edge projections preserve correct cardinality/schema/values.
+- Invalid requests return explicit declared errors without panic or silently selecting another column.
+oracle:
+  kind: independent_reference_comparison
+  description: An independent projection specification classifies each fixture and computes successful
+    outputs directly from canonical rows.
+execution_method: Planned automated procedure for Projection edge cases and invalid indexes; bind
+  the exact command or review checklist and applicable source/fixture revisions before execution.
+execution_binding:
+  state: unbound
+  implementation_path: null
+  entrypoint: null
+required_evidence:
+- Per-case test outcomes including failures, skips and tool errors
+- Registry/test revision and implementation or documentary source revision
+- Exact execution command or review procedure; input/configuration hashes and applicable environment/toolchain
+- Retained artifact references with SHA-256 digests
+- Edge-case projection matrix
+- Errors and result/schema comparisons
+revision_history:
+- revision: 1
+  date: '2026-10-15'
+  actor: codex
+  reason: Stage 5 pre-execution test specification; execution binding, implementation, inputs and
+    approvals remain pending.

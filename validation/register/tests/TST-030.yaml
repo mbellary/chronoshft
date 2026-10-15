@@ -1,0 +1,49 @@
+schema_version: 1
+id: TST-030
+revision: 1
+title: Pinned build reproducibility
+experiment:
+  id: EXP-010
+  revision: 2
+validations:
+- id: VAL-017
+  revision: 3
+hypothesis_ids:
+- HYP-001
+- HYP-002
+classification: compatibility
+execution_type: automated
+mandatory: true
+preconditions:
+- Declared supported toolchain/dependency matrix and lockfile hashes fixed.
+- Bind the exact input/source/configuration revisions and execution or review method before running;
+  unresolved prerequisites are not a pass.
+procedure:
+- Rebuild and execute the complete example set for every supported matrix entry from clean inputs.
+- Compare dependency resolution and runtime fixture outcomes across repetitions.
+expected:
+- Each supported entry uses the pinned dependency inputs and reproduces the expected results.
+- An untested or incompatible entry is reported without extending support claims.
+oracle:
+  kind: independent_reference_comparison
+  description: The declared matrix, lockfile digests and independently fixed runtime fixtures define
+    reproducibility expectations.
+execution_method: Planned automated procedure for Pinned build reproducibility; bind the exact command
+  or review checklist and applicable source/fixture revisions before execution.
+execution_binding:
+  state: unbound
+  implementation_path: null
+  entrypoint: null
+required_evidence:
+- Per-case test outcomes including failures, skips and tool errors
+- Registry/test revision and implementation or documentary source revision
+- Exact execution command or review procedure; input/configuration hashes and applicable environment/toolchain
+- Retained artifact references with SHA-256 digests
+- Toolchain/matrix manifests
+- Repeated build and fixture reports
+revision_history:
+- revision: 1
+  date: '2026-10-15'
+  actor: codex
+  reason: Stage 5 pre-execution test specification; execution binding, implementation, inputs and
+    approvals remain pending.

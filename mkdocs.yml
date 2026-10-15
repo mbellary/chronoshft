@@ -72,6 +72,8 @@ nav:
       - "Research assessment": 00-governance/research-assessment.md
       - "Research extraction matrix": 00-governance/research-extraction.md
       - "Technical validation": 00-governance/technical-validation.md
+      - "Validation framework": 00-governance/validation-framework.md
+      - "Validation registry & migration": 00-governance/validation-registry.md
       - "Performance profiles": 00-governance/performance-profiles.md
       - "Assumptions & gaps": 00-governance/assumptions-and-gaps.md
       - "Decision register": 00-governance/decision-register.md
@@ -117,6 +119,50 @@ nav:
       - "Memory management": 04-rust/memory-management.md
       - "FDAP integration": 04-rust/fdap-integration.md
       - "Reference exercises": 04-rust/reference-exercises.md
+  # BEGIN GENERATED VALIDATION LAB NAV
+  - Technical Validation Lab:
+      - Overview: 10-validation-lab/index.md
+      - Methodology: 10-validation-lab/methodology.md
+      - Validation coverage: 10-validation-lab/validation-coverage.md
+      - Experiment register: 10-validation-lab/experiment-register.md
+      - Test register: 10-validation-lab/test-register.md
+      - Execution register: 10-validation-lab/execution-register.md
+      - Evidence register: 10-validation-lab/evidence-register.md
+      - Validation results: 10-validation-lab/validation-results.md
+      - Environment profiles: 10-validation-lab/environment-profiles.md
+      - Automation and CI: 10-validation-lab/automation-and-ci.md
+      - Execution and evidence: 10-validation-lab/execution-and-evidence.md
+      - Experiments:
+          - "EXP-001 — Bounded SPSC queue": 10-validation-lab/experiments/EXP-001.md
+          - "EXP-002 — Queue overload policy": 10-validation-lab/experiments/EXP-002.md
+          - "EXP-003 — SPSC ownership and publication protocol": 10-validation-lab/experiments/EXP-003.md
+          - "EXP-005 — Production-readiness claim audit": 10-validation-lab/experiments/EXP-005.md
+          - "EXP-006 — FDAP compatibility integration": 10-validation-lab/experiments/EXP-006.md
+          - "EXP-007 — Encoding and compression evaluation": 10-validation-lab/experiments/EXP-007.md
+          - "EXP-008 — Flight boundary-cost analysis": 10-validation-lab/experiments/EXP-008.md
+          - "EXP-009 — Competitor claim verification": 10-validation-lab/experiments/EXP-009.md
+          - "EXP-010 — Compilation compatibility matrix": 10-validation-lab/experiments/EXP-010.md
+          - "EXP-011 — Bibliography reconciliation": 10-validation-lab/experiments/EXP-011.md
+          - "EXP-012 — Hot-path allocation and latency budget": 10-validation-lab/experiments/EXP-012.md
+          - "EXP-013 — Reproducible benchmark harness": 10-validation-lab/experiments/EXP-013.md
+          - "EXP-014 — Hardware topology verification": 10-validation-lab/experiments/EXP-014.md
+          - "EXP-015 — NUMA and interference evaluation": 10-validation-lab/experiments/EXP-015.md
+          - "EXP-016 — Disruptor signaling evaluation": 10-validation-lab/experiments/EXP-016.md
+          - "EXP-017 — Ingress adapter boundary evaluation": 10-validation-lab/experiments/EXP-017.md
+          - "EXP-018 — Timestamp correctness": 10-validation-lab/experiments/EXP-018.md
+          - "EXP-019 — Sequence and ordering semantics": 10-validation-lab/experiments/EXP-019.md
+          - "EXP-020 — Canonical Arrow event schema": 10-validation-lab/experiments/EXP-020.md
+          - "EXP-021 — Arrow builder allocation lifecycle": 10-validation-lab/experiments/EXP-021.md
+          - "EXP-022 — Non-destructive TableProvider": 10-validation-lab/experiments/EXP-022.md
+          - "EXP-023 — DataFusion projection semantics": 10-validation-lab/experiments/EXP-023.md
+          - "EXP-024 — Exclusive buffer publication": 10-validation-lab/experiments/EXP-024.md
+          - "EXP-025 — Builder transfer and buffer reclamation": 10-validation-lab/experiments/EXP-025.md
+          - "EXP-026 — Asynchronous query lifetime": 10-validation-lab/experiments/EXP-026.md
+          - "EXP-027 — Hot/cold visibility and corrections": 10-validation-lab/experiments/EXP-027.md
+          - "EXP-028 — Durable commit and recovery": 10-validation-lab/experiments/EXP-028.md
+          - "EXP-029 — Financial SQL conformance": 10-validation-lab/experiments/EXP-029.md
+          - "EXP-030 — Order-book reconstruction": 10-validation-lab/experiments/EXP-030.md
+  # END GENERATED VALIDATION LAB NAV
   - Financial domain:
       - "Market data protocols": 05-financial-domain/market-data-protocols.md
       - "Timestamps & sequencing": 05-financial-domain/timestamps-and-sequencing.md

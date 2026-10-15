@@ -1,0 +1,63 @@
+schema_version: 1
+id: EXP-015
+revision: 2
+title: NUMA and interference evaluation
+validates:
+- id: VAL-009
+  revision: 3
+objective: Establish measured locality and isolation behavior for a declared BIOS/NUMA/SMT/IRQ/affinity
+  plan.
+hypotheses:
+- id: HYP-001
+  statement: The recorded runtime topology and allocation/affinity placement match the declared locality
+    plan.
+- id: HYP-002
+  statement: Query, flusher, IRQ and background interference stay within predeclared jitter and resource
+    budgets for the supported workload.
+scope: 'VAL-009: recorded BIOS/topology, placement verification and interference measurements, including
+  OS/flusher sharing.'
+exclusions:
+- Single-socket or pinning alone is not evidence of locality.
+- Shared-runner timings cannot establish controlled acceptance.
+method:
+  kind: mixed
+  procedure: Capture firmware and OS topology, verify actual placement, and compare controlled workloads
+    with and without each declared interference source.
+  implementation_path: null
+dependencies:
+- EXP-014 hardware topology audit.
+- Controlled machine and approved placement/jitter budgets (DEC-005/011).
+tests:
+- id: TST-043
+  revision: 1
+- id: TST-044
+  revision: 1
+- id: TST-045
+  revision: 1
+completion_criteria:
+- Define versioned test specifications with independent oracles and predeclared acceptance criteria
+  before execution.
+- Execute the defined mandatory investigation and retain outcomes, provenance and integrity-checked
+  evidence, including negative and inconclusive results.
+- Review hypothesis conclusions and coverage limitations; link a separate validation decision without
+  inferring acceptance from experiment completion.
+lifecycle:
+  state: proposed
+  history:
+  - from: null
+    to: proposed
+    date: '2026-10-15'
+    actor: codex
+    reason: Stage 4 investigation definition; test decomposition, prerequisites and execution remain
+      pending.
+revision_history:
+- revision: 1
+  date: '2026-10-15'
+  actor: codex
+  reason: Stage 4 initial experiment definition and validation coverage assignment; no implementation
+    or approval asserted.
+- revision: 2
+  date: '2026-10-15'
+  actor: codex
+  reason: Stage 5 declares hypothesis-linked test specifications; experiment remains proposed until
+    bindings and prerequisites are ready.

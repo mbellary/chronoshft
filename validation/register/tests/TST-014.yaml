@@ -1,0 +1,49 @@
+schema_version: 1
+id: TST-014
+revision: 1
+title: Reliability security and correctness evidence audit
+experiment:
+  id: EXP-005
+  revision: 2
+validations:
+- id: VAL-001
+  revision: 3
+hypothesis_ids:
+- HYP-001
+classification: documentary
+execution_type: manual
+mandatory: true
+preconditions:
+- Claim/evidence inventory prepared; underlying reports and their source/environment boundaries accessible.
+- Bind the exact input/source/configuration revisions and execution or review method before running;
+  unresolved prerequisites are not a pass.
+procedure:
+- Inspect evidence provenance, failure cases, exclusions and implementation applicability for all
+  three readiness dimensions.
+- Check that unexecuted plans and documentation builds are not counted as runtime evidence.
+expected:
+- Each supporting artifact is relevant, retrievable and bounded to the claimed revision/environment.
+- Known invalidating findings are disclosed and prevent unqualified readiness acceptance.
+oracle:
+  kind: independent_review
+  description: An independently maintained evidence-quality checklist covers provenance, completeness,
+    negative results and applicability for each readiness dimension.
+execution_method: Planned manual procedure for Reliability security and correctness evidence audit;
+  bind the exact command or review checklist and applicable source/fixture revisions before execution.
+execution_binding:
+  state: unbound
+  implementation_path: null
+  entrypoint: null
+required_evidence:
+- Review checklist, findings and named reviewer/date
+- Registry/test revision and implementation or documentary source revision
+- Exact execution command or review procedure; input/configuration hashes and applicable environment/toolchain
+- Retained artifact references with SHA-256 digests
+- Artifact applicability audit
+- Invalidating findings and reviewer rationale
+revision_history:
+- revision: 1
+  date: '2026-10-15'
+  actor: codex
+  reason: Stage 5 pre-execution test specification; execution binding, implementation, inputs and
+    approvals remain pending.

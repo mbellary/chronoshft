@@ -1,0 +1,382 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ChronosHFT validation record v1",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^VAL-[0-9]{3,}$"
+    },
+    "revision": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1
+    },
+    "origin": {
+      "type": "object",
+      "properties": {
+        "assessment_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "assessment_version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "assessment_date": {
+          "type": "string",
+          "format": "date"
+        },
+        "baseline_path": {
+          "type": "string",
+          "minLength": 1
+        },
+        "source_refs": {
+          "type": "string",
+          "minLength": 1
+        },
+        "source_status": {
+          "type": "string",
+          "minLength": 1
+        },
+        "finding": {
+          "type": "string",
+          "minLength": 1
+        },
+        "required_closure_evidence": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "assessment_id",
+        "assessment_version",
+        "assessment_date",
+        "baseline_path",
+        "source_refs",
+        "source_status",
+        "finding",
+        "required_closure_evidence"
+      ],
+      "additionalProperties": false
+    },
+    "objective": {
+      "type": "string",
+      "minLength": 1
+    },
+    "category": {
+      "anyOf": [
+        {
+          "enum": [
+            "correctness",
+            "safety",
+            "performance",
+            "compatibility",
+            "documentary",
+            "reliability"
+          ]
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "priority": {
+      "anyOf": [
+        {
+          "enum": [
+            "critical",
+            "high",
+            "medium",
+            "low"
+          ]
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "required_evidence": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "coverage": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "enum": [
+            "unmapped",
+            "mapped"
+          ]
+        },
+        "experiments": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "pattern": "^EXP-[0-9]{3,}$"
+              },
+              "revision": {
+                "type": "integer",
+                "minimum": 1
+              },
+              "mandatory": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "id",
+              "revision",
+              "mandatory"
+            ],
+            "additionalProperties": false
+          },
+          "minItems": 0,
+          "uniqueItems": true
+        },
+        "tests": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "pattern": "^TST-[0-9]{3,}$"
+              },
+              "revision": {
+                "type": "integer",
+                "minimum": 1
+              },
+              "mandatory": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "id",
+              "revision",
+              "mandatory"
+            ],
+            "additionalProperties": false
+          },
+          "minItems": 0,
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "status",
+        "experiments",
+        "tests"
+      ],
+      "additionalProperties": false
+    },
+    "lifecycle": {
+      "type": "object",
+      "properties": {
+        "state": {
+          "enum": [
+            "identified",
+            "planned",
+            "ready",
+            "running",
+            "reviewing",
+            "closed",
+            "reopened"
+          ]
+        },
+        "history": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "from": {
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "to": {
+                "type": "string",
+                "minLength": 1
+              },
+              "date": {
+                "type": "string",
+                "format": "date"
+              },
+              "actor": {
+                "type": "string",
+                "minLength": 1
+              },
+              "reason": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "from",
+              "to",
+              "date",
+              "actor",
+              "reason"
+            ],
+            "additionalProperties": false
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "state",
+        "history"
+      ],
+      "additionalProperties": false
+    },
+    "current_decision_id": {
+      "anyOf": [
+        {
+          "type": "string",
+          "pattern": "^VDEC-[0-9]{3,}$"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "prior_decision_ids": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^VDEC-[0-9]{3,}$"
+      },
+      "minItems": 0,
+      "uniqueItems": true
+    },
+    "revision_history": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "revision": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "date": {
+            "type": "string",
+            "format": "date"
+          },
+          "actor": {
+            "type": "string",
+            "minLength": 1
+          },
+          "reason": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "revision",
+          "date",
+          "actor",
+          "reason"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 1,
+      "uniqueItems": true
+    }
+  },
+  "required": [
+    "schema_version",
+    "id",
+    "revision",
+    "title",
+    "origin",
+    "objective",
+    "category",
+    "priority",
+    "required_evidence",
+    "coverage",
+    "lifecycle",
+    "current_decision_id",
+    "prior_decision_ids",
+    "revision_history"
+  ],
+  "additionalProperties": false,
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "coverage": {
+            "properties": {
+              "status": {
+                "const": "unmapped"
+              }
+            }
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "coverage": {
+            "properties": {
+              "experiments": {
+                "maxItems": 0
+              },
+              "tests": {
+                "maxItems": 0
+              }
+            }
+          },
+          "lifecycle": {
+            "properties": {
+              "state": {
+                "enum": [
+                  "identified",
+                  "reopened"
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "lifecycle": {
+            "properties": {
+              "state": {
+                "const": "closed"
+              }
+            }
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "current_decision_id": {
+            "type": "string",
+            "pattern": "^VDEC-[0-9]{3,}$"
+          }
+        }
+      }
+    }
+  ]
+}

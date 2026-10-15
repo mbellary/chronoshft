@@ -1,0 +1,50 @@
+schema_version: 1
+id: TST-060
+revision: 1
+title: Flight and client schema fidelity
+experiment:
+  id: EXP-020
+  revision: 2
+validations:
+- id: VAL-018
+  revision: 3
+hypothesis_ids:
+- HYP-002
+classification: compatibility
+execution_type: automated
+mandatory: true
+preconditions:
+- Approved schema, supported clients and transport versions fixed.
+- Bind the exact input/source/configuration revisions and execution or review method before running;
+  unresolved prerequisites are not a pass.
+procedure:
+- Transport edge fixtures over Flight and materialize each client result.
+- Compare unit/timezone, decimal precision, nullability and field ordering through every supported
+  conversion.
+expected:
+- Every supported client observes the declared typed values and schema semantics.
+- Unsupported conversion is an explicit error/disposition and does not count as a successful semantic
+  round trip.
+oracle:
+  kind: independent_reference_comparison
+  description: Client-neutral canonical values plus independently specified client mappings determine
+    expected representations.
+execution_method: Planned automated procedure for Flight and client schema fidelity; bind the exact
+  command or review checklist and applicable source/fixture revisions before execution.
+execution_binding:
+  state: unbound
+  implementation_path: null
+  entrypoint: null
+required_evidence:
+- Per-case test outcomes including failures, skips and tool errors
+- Registry/test revision and implementation or documentary source revision
+- Exact execution command or review procedure; input/configuration hashes and applicable environment/toolchain
+- Retained artifact references with SHA-256 digests
+- Client/transport matrix
+- Typed schema/value conversion report
+revision_history:
+- revision: 1
+  date: '2026-10-15'
+  actor: codex
+  reason: Stage 5 pre-execution test specification; execution binding, implementation, inputs and
+    approvals remain pending.

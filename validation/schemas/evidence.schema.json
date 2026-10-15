@@ -1,0 +1,163 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ChronosHFT evidence record v1",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^EVD-[A-Za-z0-9]+(?:-[A-Za-z0-9]+)*$"
+    },
+    "kind": {
+      "enum": [
+        "test_report",
+        "model_check",
+        "benchmark",
+        "source_audit",
+        "architecture_review",
+        "documentary",
+        "source_patch",
+        "other"
+      ]
+    },
+    "provenance": {
+      "type": "object",
+      "properties": {
+        "execution_id": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^RUN-[A-Za-z0-9]+(?:-[A-Za-z0-9]+)*$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "description": {
+          "type": "string",
+          "minLength": 1
+        },
+        "source_version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "retrieved_at": {
+          "type": "string",
+          "format": "date-time",
+          "pattern": "Z$"
+        }
+      },
+      "required": [
+        "execution_id",
+        "description",
+        "source_version",
+        "retrieved_at"
+      ],
+      "additionalProperties": false
+    },
+    "artifact": {
+      "type": "object",
+      "properties": {
+        "uri": {
+          "type": "string",
+          "minLength": 1
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "size_bytes": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "media_type": {
+          "type": "string",
+          "minLength": 1
+        },
+        "retention_location": {
+          "type": "string",
+          "minLength": 1
+        },
+        "access": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "uri",
+        "sha256",
+        "size_bytes",
+        "media_type",
+        "retention_location",
+        "access"
+      ],
+      "additionalProperties": false
+    },
+    "supports": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "validation": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "pattern": "^VAL-[0-9]{3,}$"
+              },
+              "revision": {
+                "type": "integer",
+                "minimum": 1
+              },
+              "registry_commit": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{40}$"
+              }
+            },
+            "required": [
+              "id",
+              "revision",
+              "registry_commit"
+            ],
+            "additionalProperties": false
+          },
+          "scope": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "validation",
+          "scope"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "supersedes": {
+      "anyOf": [
+        {
+          "type": "string",
+          "pattern": "^EVD-[A-Za-z0-9]+(?:-[A-Za-z0-9]+)*$"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    }
+  },
+  "required": [
+    "schema_version",
+    "id",
+    "kind",
+    "provenance",
+    "artifact",
+    "supports",
+    "supersedes"
+  ],
+  "additionalProperties": false
+}

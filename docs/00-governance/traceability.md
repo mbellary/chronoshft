@@ -52,6 +52,8 @@ flowchart LR
 
 IDs are stable and never reused. Use physical PDF references such as `BASE-001 pp. 29–32`. Later requirements, designs, tests and evidence must retain originating RES IDs and reciprocal links. The DOC destinations describe responsibilities; they do not certify that the downstream draft pages are complete. No future requirement, test result or approval record is invented by this mapping.
 
+The [validation framework](validation-framework.md#identity-and-revision-rules) specifies EXP, TST, RUN, EVD and VDEC identities and experiment-scoped hypotheses. The [coverage plan](../10-validation-lab/validation-coverage.md) registers EXP-001–EXP-003 and EXP-005–EXP-030; EXP-004 remains unallocated. Stage 5 registers TST-001–TST-090 with reciprocal experiment, hypothesis and applicable validation references in the [test catalog](../10-validation-lab/test-register.md). RUN, EVD and VDEC registries remain empty. VDEC identifies a validation conclusion and remains distinct from the architecture DEC/ADR records above.
+
 ## Source and related records
 
 - [Unified Phase 0 assessment](../assets/research/ChronosHFT-Phase-0-Research-Baseline-Assessment.md) — preserved supplied document.

@@ -1,0 +1,63 @@
+schema_version: 1
+id: EXP-019
+revision: 2
+title: Sequence and ordering semantics
+validates:
+- id: VAL-011
+  revision: 3
+objective: Establish deterministic feed ordering, partition ties, gap/duplicate handling and replay
+  rules.
+hypotheses:
+- id: HYP-001
+  statement: Equal-timestamp and cross-partition fixtures produce the order specified by approved
+    sequence/tie-break rules.
+- id: HYP-002
+  statement: Gaps, duplicates and reconnect/replay schedules produce declared accounting and deterministic
+    recovered results.
+scope: 'VAL-011: sequence/partition/tie-break rules and replay behavior, including cases that disprove
+  timestamp-only ordering.'
+exclusions:
+- No total-order guarantee inferred from nanosecond timestamps.
+- Venue-specific rules are not universal feed rules.
+method:
+  kind: mixed
+  procedure: Formalize the ordering contract and independent ordered-event oracle; replay equal-time,
+    gap, duplicate and partition-interleaving fixtures.
+  implementation_path: null
+dependencies:
+- Approved feed/partition identity and sequencing policy (DEC-007/014).
+- Venue sequence/replay fixtures.
+tests:
+- id: TST-055
+  revision: 1
+- id: TST-056
+  revision: 1
+- id: TST-057
+  revision: 1
+completion_criteria:
+- Define versioned test specifications with independent oracles and predeclared acceptance criteria
+  before execution.
+- Execute the defined mandatory investigation and retain outcomes, provenance and integrity-checked
+  evidence, including negative and inconclusive results.
+- Review hypothesis conclusions and coverage limitations; link a separate validation decision without
+  inferring acceptance from experiment completion.
+lifecycle:
+  state: proposed
+  history:
+  - from: null
+    to: proposed
+    date: '2026-10-15'
+    actor: codex
+    reason: Stage 4 investigation definition; test decomposition, prerequisites and execution remain
+      pending.
+revision_history:
+- revision: 1
+  date: '2026-10-15'
+  actor: codex
+  reason: Stage 4 initial experiment definition and validation coverage assignment; no implementation
+    or approval asserted.
+- revision: 2
+  date: '2026-10-15'
+  actor: codex
+  reason: Stage 5 declares hypothesis-linked test specifications; experiment remains proposed until
+    bindings and prerequisites are ready.

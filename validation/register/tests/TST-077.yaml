@@ -1,0 +1,49 @@
+schema_version: 1
+id: TST-077
+revision: 1
+title: Slow asynchronous query across rotations
+experiment:
+  id: EXP-026
+  revision: 2
+validations:
+- id: VAL-021
+  revision: 3
+hypothesis_ids:
+- HYP-001
+classification: safety
+execution_type: automated
+mandatory: true
+preconditions:
+- Pinned async query implementation, lease instrumentation and controlled slow-consumer schedules
+  available.
+- Bind the exact input/source/configuration revisions and execution or review method before running;
+  unresolved prerequisites are not a pass.
+procedure:
+- Return from the producer callback while a query still retains batch data.
+- Rotate/publish subsequent buffers before allowing the slow consumer to finish.
+expected:
+- The slow query retains complete immutable values until its last access.
+- No buffer retires merely because callback/event processing finished.
+oracle:
+  kind: independent_reference_comparison
+  description: Independent query-completion markers, lease identities and canonical payloads establish
+    the earliest safe retirement point.
+execution_method: Planned automated procedure for Slow asynchronous query across rotations; bind
+  the exact command or review checklist and applicable source/fixture revisions before execution.
+execution_binding:
+  state: unbound
+  implementation_path: null
+  entrypoint: null
+required_evidence:
+- Per-case test outcomes including failures, skips and tool errors
+- Registry/test revision and implementation or documentary source revision
+- Exact execution command or review procedure; input/configuration hashes and applicable environment/toolchain
+- Retained artifact references with SHA-256 digests
+- Callback/query/lease timeline
+- Slow-reader content and retirement assertions
+revision_history:
+- revision: 1
+  date: '2026-10-15'
+  actor: codex
+  reason: Stage 5 pre-execution test specification; execution binding, implementation, inputs and
+    approvals remain pending.

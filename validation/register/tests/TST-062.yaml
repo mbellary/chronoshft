@@ -1,0 +1,49 @@
+schema_version: 1
+id: TST-062
+revision: 1
+title: Append finish and release allocation trace
+experiment:
+  id: EXP-021
+  revision: 2
+validations:
+- id: VAL-014
+  revision: 3
+hypothesis_ids:
+- HYP-001
+classification: performance
+execution_type: automated
+mandatory: true
+preconditions:
+- Pinned builder, fixed capacities/fixtures and instrumented allocator with negative controls available.
+- Bind the exact input/source/configuration revisions and execution or review method before running;
+  unresolved prerequisites are not a pass.
+procedure:
+- Trace allocations and storage ownership across append, finish, new appends and array release.
+- Compare pointer/storage identities and counts with the audited lifecycle.
+expected:
+- Observed transfers/replacements and allocations match the declared source behavior.
+- Any deviation or retained-capacity claim is supported by actual trace data; controls demonstrate
+  instrumentation sensitivity.
+oracle:
+  kind: independent_reference_comparison
+  description: External allocator logs and separately recorded storage identities are reconciled
+    with the source-derived lifecycle model.
+execution_method: Planned automated procedure for Append finish and release allocation trace; bind
+  the exact command or review checklist and applicable source/fixture revisions before execution.
+execution_binding:
+  state: unbound
+  implementation_path: null
+  entrypoint: null
+required_evidence:
+- Per-case test outcomes including failures, skips and tool errors
+- Registry/test revision and implementation or documentary source revision
+- Exact execution command or review procedure; input/configuration hashes and applicable environment/toolchain
+- Retained artifact references with SHA-256 digests
+- Allocation/pointer lifecycle trace
+- Negative-control and source comparison
+revision_history:
+- revision: 1
+  date: '2026-10-15'
+  actor: codex
+  reason: Stage 5 pre-execution test specification; execution binding, implementation, inputs and
+    approvals remain pending.

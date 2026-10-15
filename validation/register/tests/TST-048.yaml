@@ -1,0 +1,49 @@
+schema_version: 1
+id: TST-048
+revision: 1
+title: Signaling tail latency and CPU tradeoffs
+experiment:
+  id: EXP-016
+  revision: 2
+validations:
+- id: VAL-022
+  revision: 3
+hypothesis_ids:
+- HYP-002
+classification: performance
+execution_type: automated
+mandatory: true
+preconditions:
+- Controlled target, wait-strategy matrix, warmup/duration and numeric signaling/CPU budgets fixed.
+- Bind the exact input/source/configuration revisions and execution or review method before running;
+  unresolved prerequisites are not a pass.
+procedure:
+- Measure isolated signaling endpoints and CPU utilization for each strategy under declared load/idle
+  schedules.
+- Record raw tails, background interference and instrument overhead.
+expected:
+- Retained latency and CPU claims meet adopted limits for each supported strategy/workload.
+- Idle spin cost and tail/error samples are included; signaling time is not labeled query latency.
+oracle:
+  kind: independent_reference_comparison
+  description: Independent endpoint timestamps, OS CPU accounting and separately recomputed percentiles
+    validate the measurements.
+execution_method: Planned automated procedure for Signaling tail latency and CPU tradeoffs; bind
+  the exact command or review checklist and applicable source/fixture revisions before execution.
+execution_binding:
+  state: unbound
+  implementation_path: null
+  entrypoint: null
+required_evidence:
+- Per-case test outcomes including failures, skips and tool errors
+- Registry/test revision and implementation or documentary source revision
+- Exact execution command or review procedure; input/configuration hashes and applicable environment/toolchain
+- Retained artifact references with SHA-256 digests
+- Raw signaling timestamps and CPU samples
+- Strategy/budget comparison and overhead controls
+revision_history:
+- revision: 1
+  date: '2026-10-15'
+  actor: codex
+  reason: Stage 5 pre-execution test specification; execution binding, implementation, inputs and
+    approvals remain pending.

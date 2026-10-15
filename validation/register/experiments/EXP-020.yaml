@@ -1,0 +1,63 @@
+schema_version: 1
+id: EXP-020
+revision: 2
+title: Canonical Arrow event schema
+validates:
+- id: VAL-018
+  revision: 3
+objective: Establish an approved canonical event schema and value-preserving Arrow/Parquet/Flight
+  representations.
+hypotheses:
+- id: HYP-001
+  statement: The approved Arrow schema encodes timestamp unit/timezone, nullability and financial
+    value types explicitly.
+- id: HYP-002
+  statement: Supported values and schema metadata round-trip through declared Arrow, Parquet and
+    Flight paths without semantic loss.
+scope: 'VAL-018: canonical timestamp types, epoch/timezone semantics, nullability and format transport
+  fidelity.'
+exclusions:
+- Int64 storage alone does not establish Arrow Timestamp semantics.
+- No compatibility conclusion outside the declared versions.
+method:
+  kind: mixed
+  procedure: Review schema definitions, then compare edge-value fixtures and schema metadata across
+    each pinned storage/transport path.
+  implementation_path: null
+dependencies:
+- Approved canonical schema and financial precision policy (DEC-007/014).
+- Pinned Arrow/Parquet/Flight versions and client matrix.
+tests:
+- id: TST-058
+  revision: 1
+- id: TST-059
+  revision: 1
+- id: TST-060
+  revision: 1
+completion_criteria:
+- Define versioned test specifications with independent oracles and predeclared acceptance criteria
+  before execution.
+- Execute the defined mandatory investigation and retain outcomes, provenance and integrity-checked
+  evidence, including negative and inconclusive results.
+- Review hypothesis conclusions and coverage limitations; link a separate validation decision without
+  inferring acceptance from experiment completion.
+lifecycle:
+  state: proposed
+  history:
+  - from: null
+    to: proposed
+    date: '2026-10-15'
+    actor: codex
+    reason: Stage 4 investigation definition; test decomposition, prerequisites and execution remain
+      pending.
+revision_history:
+- revision: 1
+  date: '2026-10-15'
+  actor: codex
+  reason: Stage 4 initial experiment definition and validation coverage assignment; no implementation
+    or approval asserted.
+- revision: 2
+  date: '2026-10-15'
+  actor: codex
+  reason: Stage 5 declares hypothesis-linked test specifications; experiment remains proposed until
+    bindings and prerequisites are ready.

@@ -1,0 +1,51 @@
+schema_version: 1
+id: TST-084
+revision: 1
+title: Disk-full retry and catalog reconciliation
+experiment:
+  id: EXP-028
+  revision: 2
+validations:
+- id: VAL-024
+  revision: 3
+hypothesis_ids:
+- HYP-002
+classification: reliability
+execution_type: automated
+mandatory: true
+preconditions:
+- Disk-full/write-error behavior, retry identity and catalog recovery rules fixed.
+- Bind the exact input/source/configuration revisions and execution or review method before running;
+  unresolved prerequisites are not a pass.
+procedure:
+- Inject disk-full, partial write and catalog update failures; retry according to policy.
+- Restart repeatedly and compare committed dataset and catalog consistency with the independent commit
+  ledger.
+expected:
+- Errors never produce a false durable acknowledgment.
+- Recovered committed data/catalog are consistent and idempotent across retries with no unexplained
+  duplicate or missing committed identities.
+oracle:
+  kind: independent_reference_comparison
+  description: A separate commit/attempt ledger and catalog integrity specification classify each
+    recovered object and logical identity.
+execution_method: Planned automated procedure for Disk-full retry and catalog reconciliation; bind
+  the exact command or review checklist and applicable source/fixture revisions before execution.
+execution_binding:
+  state: unbound
+  implementation_path: null
+  entrypoint: null
+required_evidence:
+- Per-case test outcomes including failures, skips and tool errors
+- Registry/test revision and implementation or documentary source revision
+- Exact execution command or review procedure; input/configuration hashes and applicable environment/toolchain
+- Retained artifact references with SHA-256 digests
+- Fault/retry traces
+- Catalog/object reconciliation
+- Acknowledgment correctness report
+revision_history:
+- revision: 1
+  date: '2026-10-15'
+  actor: codex
+  reason: Stage 5 pre-execution test specification; execution binding, implementation, inputs and
+    approvals remain pending.

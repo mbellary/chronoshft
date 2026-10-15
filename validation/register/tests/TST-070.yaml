@@ -1,0 +1,49 @@
+schema_version: 1
+id: TST-070
+revision: 1
+title: Ownership state-machine and unsafe review
+experiment:
+  id: EXP-024
+  revision: 2
+validations:
+- id: VAL-019
+  revision: 3
+hypothesis_ids:
+- HYP-001
+- HYP-002
+classification: documentary
+execution_type: manual
+mandatory: true
+preconditions:
+- Chosen buffer state machine, safe/unsafe API and atomic orderings documented.
+- Bind the exact input/source/configuration revisions and execution or review method before running;
+  unresolved prerequisites are not a pass.
+procedure:
+- Map writer/flush/reader permissions and every unsafe access to legal state transitions.
+- Review early reuse, concurrent callers and atomic publication against the explicit ownership proof.
+expected:
+- Every supported mutation/read path has a valid exclusion, publication and lifetime argument.
+- Missing caller exclusion or lease transitions block a positive safety conclusion.
+oracle:
+  kind: independent_review
+  description: An independently authored ownership/permission table and Rust memory-model obligations
+    are checked against exact source locations.
+execution_method: Planned manual procedure for Ownership state-machine and unsafe review; bind the
+  exact command or review checklist and applicable source/fixture revisions before execution.
+execution_binding:
+  state: unbound
+  implementation_path: null
+  entrypoint: null
+required_evidence:
+- Review checklist, findings and named reviewer/date
+- Registry/test revision and implementation or documentary source revision
+- Exact execution command or review procedure; input/configuration hashes and applicable environment/toolchain
+- Retained artifact references with SHA-256 digests
+- State/permission graph and invariant audit
+- Unresolved safety findings
+revision_history:
+- revision: 1
+  date: '2026-10-15'
+  actor: codex
+  reason: Stage 5 pre-execution test specification; execution binding, implementation, inputs and
+    approvals remain pending.

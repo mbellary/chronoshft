@@ -1,0 +1,48 @@
+name: Validation experiment capture
+
+on:
+  workflow_dispatch:
+    inputs:
+      plan:
+        description: Committed capture plan under validation/execution-plans (automated correctness only)
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  capture:
+    name: Capture declared experiment observations
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout pinned source and history
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+      - name: Set up uv
+        uses: astral-sh/setup-uv@c771a70e6277c0a99b617c7a806ffedaca235ff9 # v9.0.0
+        with:
+          version: "0.13.0"
+      - name: Set up Python
+        run: uv python install
+      - name: Install locked validation dependencies
+        run: uv sync --locked --extra validation
+      - name: Capture bound automated observations
+        env:
+          VALIDATION_PLAN: ${{ inputs.plan }}
+        run: >-
+          uv run --locked --extra validation python scripts/capture_execution.py
+          --plan "$VALIDATION_PLAN" --committed-plan --shared-ci
+          --run-id "RUN-ci-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}"
+      - name: Retain run bundles and content-addressed artifacts, including failures
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: validation-run-${{ github.run_id }}-${{ github.run_attempt }}
+          path: |
+            evidence/
+            validation/artifacts/
+          if-no-files-found: warn
+          retention-days: 90

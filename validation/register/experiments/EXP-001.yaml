@@ -1,0 +1,65 @@
+schema_version: 1
+id: EXP-001
+revision: 2
+title: Bounded SPSC queue
+validates:
+- id: VAL-012
+  revision: 3
+objective: Establish capacity enforcement, FIFO behavior and safe wraparound for an explicitly bounded
+  queue.
+hypotheses:
+- id: HYP-001
+  statement: For capacity N, attempts beyond N unread entries return full before any unread entry
+    is modified.
+- id: HYP-002
+  statement: Every accepted event is consumed once in accepted FIFO order across empty/full and wraparound
+    transitions.
+scope: 'VAL-012: sequential queue invariants, exact capacity and admission-before-write behavior.
+  Concurrent publication proof is assigned to EXP-003; sustained saturation policy to EXP-002.'
+exclusions:
+- Sequential tests alone do not establish concurrency safety.
+- No latency or zero-allocation guarantee.
+method:
+  kind: executable
+  procedure: Build a correctness-first bounded queue and compare accepted/consumed identities against
+    an independent sequence model over boundary and wraparound schedules.
+  implementation_path: null
+dependencies:
+- Define whether N counts events or batches and the exact usable capacity.
+- Approved queue admission boundary and full-result contract (DEC-003/006).
+tests:
+- id: TST-001
+  revision: 1
+- id: TST-002
+  revision: 1
+- id: TST-003
+  revision: 1
+- id: TST-004
+  revision: 1
+completion_criteria:
+- Define versioned test specifications with independent oracles and predeclared acceptance criteria
+  before execution.
+- Execute the defined mandatory investigation and retain outcomes, provenance and integrity-checked
+  evidence, including negative and inconclusive results.
+- Review hypothesis conclusions and coverage limitations; link a separate validation decision without
+  inferring acceptance from experiment completion.
+lifecycle:
+  state: proposed
+  history:
+  - from: null
+    to: proposed
+    date: '2026-10-15'
+    actor: codex
+    reason: Stage 4 investigation definition; test decomposition, prerequisites and execution remain
+      pending.
+revision_history:
+- revision: 1
+  date: '2026-10-15'
+  actor: codex
+  reason: Stage 4 initial experiment definition and validation coverage assignment; no implementation
+    or approval asserted.
+- revision: 2
+  date: '2026-10-15'
+  actor: codex
+  reason: Stage 5 declares hypothesis-linked test specifications; experiment remains proposed until
+    bindings and prerequisites are ready.

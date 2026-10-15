@@ -1,0 +1,49 @@
+schema_version: 1
+id: TST-017
+revision: 1
+title: Cross-component value fidelity
+experiment:
+  id: EXP-006
+  revision: 2
+validations:
+- id: VAL-002
+  revision: 3
+hypothesis_ids:
+- HYP-002
+classification: correctness
+execution_type: automated
+mandatory: true
+preconditions:
+- Canonical schema and edge-value fixtures with independent expected values fixed.
+- Bind the exact input/source/configuration revisions and execution or review method before running;
+  unresolved prerequisites are not a pass.
+procedure:
+- Ingest fixtures, query in memory, persist/read Parquet and transport the selected results through
+  Flight.
+- Compare typed values and nulls at every boundary.
+expected:
+- Supported values, precision, nullability and timestamp metadata match the fixture at every boundary.
+- No implicit unsupported cast or semantic schema loss is accepted.
+oracle:
+  kind: independent_reference_comparison
+  description: A precomputed typed fixture and independent exact-value comparison avoid using the
+    system serializer as its own expected-output generator.
+execution_method: Planned automated procedure for Cross-component value fidelity; bind the exact
+  command or review checklist and applicable source/fixture revisions before execution.
+execution_binding:
+  state: unbound
+  implementation_path: null
+  entrypoint: null
+required_evidence:
+- Per-case test outcomes including failures, skips and tool errors
+- Registry/test revision and implementation or documentary source revision
+- Exact execution command or review procedure; input/configuration hashes and applicable environment/toolchain
+- Retained artifact references with SHA-256 digests
+- Input hashes
+- Boundary-by-boundary schema/value differences
+revision_history:
+- revision: 1
+  date: '2026-10-15'
+  actor: codex
+  reason: Stage 5 pre-execution test specification; execution binding, implementation, inputs and
+    approvals remain pending.

@@ -1,0 +1,48 @@
+schema_version: 1
+id: TST-059
+revision: 1
+title: Arrow and Parquet schema/value round trips
+experiment:
+  id: EXP-020
+  revision: 2
+validations:
+- id: VAL-018
+  revision: 3
+hypothesis_ids:
+- HYP-002
+classification: correctness
+execution_type: automated
+mandatory: true
+preconditions:
+- Approved schema and fixtures covering timestamp bounds, decimals, nulls and empty batches fixed.
+- Bind the exact input/source/configuration revisions and execution or review method before running;
+  unresolved prerequisites are not a pass.
+procedure:
+- Encode/decode fixtures through Arrow and Parquet using supported configurations.
+- Compare field types/order/metadata and typed values with the canonical fixture.
+expected:
+- All supported schema semantics and values survive the declared paths exactly.
+- Unsupported evolution/type changes are rejected explicitly rather than silently reinterpreted.
+oracle:
+  kind: independent_reference_comparison
+  description: Canonical typed fixtures and a separate schema comparator define exact expected values
+    and metadata.
+execution_method: Planned automated procedure for Arrow and Parquet schema/value round trips; bind
+  the exact command or review checklist and applicable source/fixture revisions before execution.
+execution_binding:
+  state: unbound
+  implementation_path: null
+  entrypoint: null
+required_evidence:
+- Per-case test outcomes including failures, skips and tool errors
+- Registry/test revision and implementation or documentary source revision
+- Exact execution command or review procedure; input/configuration hashes and applicable environment/toolchain
+- Retained artifact references with SHA-256 digests
+- Format/version/fixture hashes
+- Schema and value comparisons
+revision_history:
+- revision: 1
+  date: '2026-10-15'
+  actor: codex
+  reason: Stage 5 pre-execution test specification; execution binding, implementation, inputs and
+    approvals remain pending.

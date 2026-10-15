@@ -1,0 +1,63 @@
+schema_version: 1
+id: EXP-006
+revision: 2
+title: FDAP compatibility integration
+validates:
+- id: VAL-002
+  revision: 3
+objective: Establish end-to-end compatibility for a pinned Arrow, DataFusion, Flight and Parquet
+  dependency/client set.
+hypotheses:
+- id: HYP-001
+  statement: The pinned dependency set builds and exchanges the declared Arrow schemas across the
+    supported Flight client/server matrix.
+- id: HYP-002
+  statement: Declared representative values survive ingestion, query, persistence and transport without
+    unsupported conversion or schema loss.
+scope: 'VAL-002: actual integration for a declared dependency and client matrix, beyond research-level
+  component roles.'
+exclusions:
+- Compatibility applies only to the pinned matrix.
+- No boundary-cost or compression guarantee.
+method:
+  kind: executable
+  procedure: Pin a compatible dependency set and lockfile; exercise schema transport and representative
+    values across supported integration paths and client versions.
+  implementation_path: null
+dependencies:
+- Pin supported FDAP/Rust/Python versions (DEC-010/013).
+- Approved canonical schemas and client type contract (DEC-007/014).
+tests:
+- id: TST-016
+  revision: 1
+- id: TST-017
+  revision: 1
+- id: TST-018
+  revision: 1
+completion_criteria:
+- Define versioned test specifications with independent oracles and predeclared acceptance criteria
+  before execution.
+- Execute the defined mandatory investigation and retain outcomes, provenance and integrity-checked
+  evidence, including negative and inconclusive results.
+- Review hypothesis conclusions and coverage limitations; link a separate validation decision without
+  inferring acceptance from experiment completion.
+lifecycle:
+  state: proposed
+  history:
+  - from: null
+    to: proposed
+    date: '2026-10-15'
+    actor: codex
+    reason: Stage 4 investigation definition; test decomposition, prerequisites and execution remain
+      pending.
+revision_history:
+- revision: 1
+  date: '2026-10-15'
+  actor: codex
+  reason: Stage 4 initial experiment definition and validation coverage assignment; no implementation
+    or approval asserted.
+- revision: 2
+  date: '2026-10-15'
+  actor: codex
+  reason: Stage 5 declares hypothesis-linked test specifications; experiment remains proposed until
+    bindings and prerequisites are ready.

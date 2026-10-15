@@ -1,0 +1,51 @@
+schema_version: 1
+id: EXP-030
+revision: 1
+title: Order-book reconstruction
+validates:
+- id: VAL-027
+  revision: 2
+objective: Establish venue-specific deterministic order-book replay and snapshot/recovery behavior.
+hypotheses:
+- id: HYP-001
+  statement: For each supported venue/feed version, event traces reconstruct the expected book state
+    under approved update and ordering rules.
+- id: HYP-002
+  statement: Gaps, duplicates, reconnect and snapshot/delta recovery yield the declared recovered
+    state or explicit invalid-book status.
+scope: 'VAL-027: venue event/state rules, deterministic reconstruction oracle and snapshot/recovery
+  policy.'
+exclusions:
+- No venue-independent order-book semantics.
+- Scope deferral must be explicit and cannot be represented as a passed validation.
+method:
+  kind: mixed
+  procedure: Review venue/feed rules, pin trace fixtures with independent expected book states, and
+    replay ordinary and fault/recovery sequences.
+  implementation_path: null
+dependencies:
+- Approved venue/feed scope and book model (DEC-002/014).
+- Versioned venue event documentation and reference traces.
+tests: []
+completion_criteria:
+- Define versioned test specifications with independent oracles and predeclared acceptance criteria
+  before execution.
+- Execute the defined mandatory investigation and retain outcomes, provenance and integrity-checked
+  evidence, including negative and inconclusive results.
+- Review hypothesis conclusions and coverage limitations; link a separate validation decision without
+  inferring acceptance from experiment completion.
+lifecycle:
+  state: proposed
+  history:
+  - from: null
+    to: proposed
+    date: '2026-10-15'
+    actor: codex
+    reason: Stage 4 investigation definition; test decomposition, prerequisites and execution remain
+      pending.
+revision_history:
+- revision: 1
+  date: '2026-10-15'
+  actor: codex
+  reason: Stage 4 initial experiment definition and validation coverage assignment; no implementation
+    or approval asserted.

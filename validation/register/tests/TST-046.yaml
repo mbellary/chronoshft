@@ -1,0 +1,48 @@
+schema_version: 1
+id: TST-046
+revision: 1
+title: Pinned signaling layout and publication audit
+experiment:
+  id: EXP-016
+  revision: 2
+validations:
+- id: VAL-022
+  revision: 3
+hypothesis_ids:
+- HYP-001
+classification: documentary
+execution_type: manual
+mandatory: true
+preconditions:
+- Exact signaling crate/source, compiler features and target architecture pinned.
+- Bind the exact input/source/configuration revisions and execution or review method before running;
+  unresolved prerequisites are not a pass.
+procedure:
+- Inspect event publication rules and actual field alignment/layout under the target build.
+- Map retained layout and ordering claims to source and target-specific evidence.
+expected:
+- Every retained publication/alignment claim matches the pinned implementation and target.
+- No unsupported platform-independent layout guarantee remains.
+oracle:
+  kind: independent_review
+  description: Versioned source plus independently produced target layout observations are evaluated
+    against the publication contract.
+execution_method: Planned manual procedure for Pinned signaling layout and publication audit; bind
+  the exact command or review checklist and applicable source/fixture revisions before execution.
+execution_binding:
+  state: unbound
+  implementation_path: null
+  entrypoint: null
+required_evidence:
+- Review checklist, findings and named reviewer/date
+- Registry/test revision and implementation or documentary source revision
+- Exact execution command or review procedure; input/configuration hashes and applicable environment/toolchain
+- Retained artifact references with SHA-256 digests
+- Source/layout review
+- Target/features manifest and unresolved claims
+revision_history:
+- revision: 1
+  date: '2026-10-15'
+  actor: codex
+  reason: Stage 5 pre-execution test specification; execution binding, implementation, inputs and
+    approvals remain pending.

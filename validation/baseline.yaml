@@ -1,0 +1,39 @@
+schema_version: 1
+assessment_id: CHRONOS-P0-001
+assessment_version: '1.0'
+assessment_date: '2026-10-13'
+baseline_path: docs/00-governance/technical-validation.md
+source_document:
+  path: docs/assets/research/ChronosHFT-Phase-0-Research-Baseline-Assessment.md
+  sha256: 63ac390cf56abbe9d3b5da004795780bc5277e2f92e324fa0ec0d20d005eae8b
+record_count: 28
+rows_sha256: 046390ae72860c3ec1715a6404072037181a870d93313647683eda110564dd68
+validation_ids:
+- VAL-001
+- VAL-002
+- VAL-003
+- VAL-004
+- VAL-005
+- VAL-006
+- VAL-007
+- VAL-008
+- VAL-009
+- VAL-010
+- VAL-011
+- VAL-012
+- VAL-013
+- VAL-014
+- VAL-015
+- VAL-016
+- VAL-017
+- VAL-018
+- VAL-019
+- VAL-020
+- VAL-021
+- VAL-022
+- VAL-023
+- VAL-024
+- VAL-025
+- VAL-026
+- VAL-027
+- VAL-028

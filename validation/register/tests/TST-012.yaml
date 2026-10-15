@@ -1,0 +1,54 @@
+schema_version: 1
+id: TST-012
+revision: 1
+title: Threaded delivery and stall schedules
+experiment:
+  id: EXP-003
+  revision: 2
+validations:
+- id: VAL-012
+  revision: 3
+- id: VAL-013
+  revision: 3
+hypothesis_ids:
+- HYP-002
+classification: safety
+execution_type: automated
+mandatory: true
+preconditions:
+- Restricted producer/consumer implementation exists; seeds, iteration counts and supported targets
+  fixed; stress is supplementary to the protocol proof.
+- Bind the exact input/source/configuration revisions and execution or review method before running;
+  unresolved prerequisites are not a pass.
+procedure:
+- Send distinctive initialized payloads across two threads with seeded yields and producer/consumer
+  stalls.
+- Exercise full/empty/wrap transitions and retain the accepted and consumed ledgers.
+expected:
+- No payload corruption, unexplained loss, duplication or order violation occurs in executed schedules.
+- Each full result preserves unread entries; the report limits conclusions to executed schedules
+  and does not claim a soundness proof.
+oracle:
+  kind: independent_reference_comparison
+  description: Externally generated payload checksums and an accepted-sequence ledger validate identity
+    and initialization independently of queue internals.
+execution_method: Planned automated procedure for Threaded delivery and stall schedules; bind the
+  exact command or review checklist and applicable source/fixture revisions before execution.
+execution_binding:
+  state: unbound
+  implementation_path: null
+  entrypoint: null
+required_evidence:
+- Per-case test outcomes including failures, skips and tool errors
+- Registry/test revision and implementation or documentary source revision
+- Exact execution command or review procedure; input/configuration hashes and applicable environment/toolchain
+- Retained artifact references with SHA-256 digests
+- Target/toolchain/seed manifest
+- Accepted/consumed payload ledgers
+- Stress duration and schedule limits
+revision_history:
+- revision: 1
+  date: '2026-10-15'
+  actor: codex
+  reason: Stage 5 pre-execution test specification; execution binding, implementation, inputs and
+    approvals remain pending.

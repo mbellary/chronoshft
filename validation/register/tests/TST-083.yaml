@@ -1,0 +1,50 @@
+schema_version: 1
+id: TST-083
+revision: 1
+title: Crash-point acknowledged-write preservation
+experiment:
+  id: EXP-028
+  revision: 2
+validations:
+- id: VAL-024
+  revision: 3
+hypothesis_ids:
+- HYP-001
+classification: reliability
+execution_type: automated
+mandatory: true
+preconditions:
+- Approved protocol, fault-injection environment and independent acknowledgment ledger available.
+- Bind the exact input/source/configuration revisions and execution or review method before running;
+  unresolved prerequisites are not a pass.
+procedure:
+- Inject every declared crash point around data, sync, catalog and acknowledgment actions.
+- Restart and compare recovered identities/versions with recorded acknowledgments and permissible
+  unacknowledged outcomes.
+expected:
+- Every in-scope acknowledged write is recoverable with the promised content.
+- Unacknowledged writes follow the declared atomicity/replay policy; missing or phantom committed
+  data is a failure.
+oracle:
+  kind: independent_reference_comparison
+  description: An external acknowledgment/commit ledger survives the injected process failure and
+    independently defines required recovery membership.
+execution_method: Planned automated procedure for Crash-point acknowledged-write preservation; bind
+  the exact command or review checklist and applicable source/fixture revisions before execution.
+execution_binding:
+  state: unbound
+  implementation_path: null
+  entrypoint: null
+required_evidence:
+- Per-case test outcomes including failures, skips and tool errors
+- Registry/test revision and implementation or documentary source revision
+- Exact execution command or review procedure; input/configuration hashes and applicable environment/toolchain
+- Retained artifact references with SHA-256 digests
+- Crash schedules and acknowledgment ledger
+- Restart logs and recovered identity comparison
+revision_history:
+- revision: 1
+  date: '2026-10-15'
+  actor: codex
+  reason: Stage 5 pre-execution test specification; execution binding, implementation, inputs and
+    approvals remain pending.

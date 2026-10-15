@@ -1,0 +1,48 @@
+schema_version: 1
+id: TST-025
+revision: 1
+title: Versioned competitor feature audit
+experiment:
+  id: EXP-009
+  revision: 2
+validations:
+- id: VAL-007
+  revision: 3
+hypothesis_ids:
+- HYP-001
+classification: documentary
+execution_type: manual
+mandatory: true
+preconditions:
+- Named products, editions, versions and exact feature claims fixed; primary source snapshots accessible.
+- Bind the exact input/source/configuration revisions and execution or review method before running;
+  unresolved prerequisites are not a pass.
+procedure:
+- Resolve each feature claim to versioned documentation or a reproducible feature probe.
+- Record unsupported, ambiguous and edition-dependent claims explicitly.
+expected:
+- Every retained feature comparison is supported for the named versions and editions.
+- Unsupported categorical shortcomings are qualified or removed from retained conclusions.
+oracle:
+  kind: independent_review
+  description: A claim-to-primary-source/version checklist is reviewed independently of marketing
+    comparisons in the research notes.
+execution_method: Planned manual procedure for Versioned competitor feature audit; bind the exact
+  command or review checklist and applicable source/fixture revisions before execution.
+execution_binding:
+  state: unbound
+  implementation_path: null
+  entrypoint: null
+required_evidence:
+- Review checklist, findings and named reviewer/date
+- Registry/test revision and implementation or documentary source revision
+- Exact execution command or review procedure; input/configuration hashes and applicable environment/toolchain
+- Retained artifact references with SHA-256 digests
+- Feature/source/version matrix
+- Claim qualifications and exclusions
+revision_history:
+- revision: 1
+  date: '2026-10-15'
+  actor: codex
+  reason: Stage 5 pre-execution test specification; execution binding, implementation, inputs and
+    approvals remain pending.

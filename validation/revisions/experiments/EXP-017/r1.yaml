@@ -1,0 +1,52 @@
+schema_version: 1
+id: EXP-017
+revision: 1
+title: Ingress adapter boundary evaluation
+validates:
+- id: VAL-025
+  revision: 2
+objective: Establish adapter-specific transport, framing, TLS, decoding and allocation boundaries
+  before selecting ingress mechanisms.
+hypotheses:
+- id: HYP-001
+  statement: Each declared adapter reconstructs application messages correctly across fragmentation,
+    reconnect and malformed-input cases within its contract.
+- id: HYP-002
+  statement: Transport/TLS/framing/decoding costs and any bypass suitability conclusion are supported
+    by adapter-specific evidence.
+scope: 'VAL-025: separate packet ingress from WebSocket/application decoding; compare ordinary sockets
+  and bypass only where integration is defined.'
+exclusions:
+- No inference that packet bypass implements WebSocket or TLS semantics.
+- No default requirement to implement DPDK.
+method:
+  kind: mixed
+  procedure: Review transport layers per adapter, replay framed/TLS/fragmented fixtures through supported
+    boundaries, and measure resource costs before assessing DPDK suitability.
+  implementation_path: null
+dependencies:
+- Approved venue/feed and transport matrix (DEC-002/011).
+- Adapter-specific security, framing and allocation contracts.
+tests: []
+completion_criteria:
+- Define versioned test specifications with independent oracles and predeclared acceptance criteria
+  before execution.
+- Execute the defined mandatory investigation and retain outcomes, provenance and integrity-checked
+  evidence, including negative and inconclusive results.
+- Review hypothesis conclusions and coverage limitations; link a separate validation decision without
+  inferring acceptance from experiment completion.
+lifecycle:
+  state: proposed
+  history:
+  - from: null
+    to: proposed
+    date: '2026-10-15'
+    actor: codex
+    reason: Stage 4 investigation definition; test decomposition, prerequisites and execution remain
+      pending.
+revision_history:
+- revision: 1
+  date: '2026-10-15'
+  actor: codex
+  reason: Stage 4 initial experiment definition and validation coverage assignment; no implementation
+    or approval asserted.

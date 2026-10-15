@@ -1,0 +1,50 @@
+schema_version: 1
+id: TST-076
+revision: 1
+title: Query completion and cancellation contract review
+experiment:
+  id: EXP-026
+  revision: 2
+validations:
+- id: VAL-021
+  revision: 3
+hypothesis_ids:
+- HYP-001
+- HYP-002
+classification: documentary
+execution_type: manual
+mandatory: true
+preconditions:
+- Callback handoff, asynchronous query API and cancellation/error paths documented.
+- Bind the exact input/source/configuration revisions and execution or review method before running;
+  unresolved prerequisites are not a pass.
+procedure:
+- Define which owners retain batches from callback return through final query consumption.
+- Review lease release on successful completion, cancellation, failure and partial consumption.
+expected:
+- Retirement is tied to actual consumer lease completion rather than callback return.
+- Every supported terminal path has a specified release/retention rule and unresolved paths block
+  acceptance.
+oracle:
+  kind: independent_review
+  description: An independently drawn asynchronous ownership/lifetime graph and pinned API contracts
+    define required retirement barriers.
+execution_method: Planned manual procedure for Query completion and cancellation contract review;
+  bind the exact command or review checklist and applicable source/fixture revisions before execution.
+execution_binding:
+  state: unbound
+  implementation_path: null
+  entrypoint: null
+required_evidence:
+- Review checklist, findings and named reviewer/date
+- Registry/test revision and implementation or documentary source revision
+- Exact execution command or review procedure; input/configuration hashes and applicable environment/toolchain
+- Retained artifact references with SHA-256 digests
+- Query/lease lifetime graph
+- Terminal-path and unresolved-case review
+revision_history:
+- revision: 1
+  date: '2026-10-15'
+  actor: codex
+  reason: Stage 5 pre-execution test specification; execution binding, implementation, inputs and
+    approvals remain pending.

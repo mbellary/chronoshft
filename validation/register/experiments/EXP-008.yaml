@@ -1,0 +1,62 @@
+schema_version: 1
+id: EXP-008
+revision: 2
+title: Flight boundary-cost analysis
+validates:
+- id: VAL-004
+  revision: 3
+objective: Measure copy, serialization and transport costs at named Flight client/server boundaries.
+hypotheses:
+- id: HYP-001
+  statement: Every retained copy/serialization claim is consistent with an inspected and instrumented
+    boundary trace for each supported client.
+- id: HYP-002
+  statement: Measured wire bytes and client conversion costs remain within the predeclared boundary-specific
+    budget, where such a budget is adopted.
+scope: 'VAL-004: Arrow IPC/gRPC and client conversion paths, copy counts, wire bytes and serialization
+  costs; separate local and remote boundaries.'
+exclusions:
+- No universal no-serialization or no-network-parsing claim.
+- No inference from local sharing to remote transport.
+method:
+  kind: mixed
+  procedure: Trace and instrument representative transfers by client/version, validate returned values,
+    and correlate copies, serialization, wire volume and end-to-end timings.
+  implementation_path: null
+dependencies:
+- Pinned Flight/client matrix (DEC-013).
+- Declared boundary definitions, datasets and measurement budgets.
+tests:
+- id: TST-022
+  revision: 1
+- id: TST-023
+  revision: 1
+- id: TST-024
+  revision: 1
+completion_criteria:
+- Define versioned test specifications with independent oracles and predeclared acceptance criteria
+  before execution.
+- Execute the defined mandatory investigation and retain outcomes, provenance and integrity-checked
+  evidence, including negative and inconclusive results.
+- Review hypothesis conclusions and coverage limitations; link a separate validation decision without
+  inferring acceptance from experiment completion.
+lifecycle:
+  state: proposed
+  history:
+  - from: null
+    to: proposed
+    date: '2026-10-15'
+    actor: codex
+    reason: Stage 4 investigation definition; test decomposition, prerequisites and execution remain
+      pending.
+revision_history:
+- revision: 1
+  date: '2026-10-15'
+  actor: codex
+  reason: Stage 4 initial experiment definition and validation coverage assignment; no implementation
+    or approval asserted.
+- revision: 2
+  date: '2026-10-15'
+  actor: codex
+  reason: Stage 5 declares hypothesis-linked test specifications; experiment remains proposed until
+    bindings and prerequisites are ready.

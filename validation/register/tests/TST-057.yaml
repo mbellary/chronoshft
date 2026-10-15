@@ -1,0 +1,48 @@
+schema_version: 1
+id: TST-057
+revision: 1
+title: Gaps duplicates and replay recovery
+experiment:
+  id: EXP-019
+  revision: 2
+validations:
+- id: VAL-011
+  revision: 3
+hypothesis_ids:
+- HYP-002
+classification: reliability
+execution_type: automated
+mandatory: true
+preconditions:
+- Gap detection, deduplication, reconnect/replay and partition recovery policies fixed.
+- Bind the exact input/source/configuration revisions and execution or review method before running;
+  unresolved prerequisites are not a pass.
+procedure:
+- Inject missing sequences, duplicates, reconnect overlap and delayed partition events.
+- Complete recovery or declare invalid state according to policy, then reconcile identities.
+expected:
+- Gaps/duplicates and recovery outcomes match the explicit policy without silent eligible-event loss.
+- Recovered state and event accounting equal the independent replay ledger.
+oracle:
+  kind: independent_reference_comparison
+  description: A fixture-level sequence/identity ledger computes expected gap sets and post-recovery
+    membership independently of the sequencer.
+execution_method: Planned automated procedure for Gaps duplicates and replay recovery; bind the exact
+  command or review checklist and applicable source/fixture revisions before execution.
+execution_binding:
+  state: unbound
+  implementation_path: null
+  entrypoint: null
+required_evidence:
+- Per-case test outcomes including failures, skips and tool errors
+- Registry/test revision and implementation or documentary source revision
+- Exact execution command or review procedure; input/configuration hashes and applicable environment/toolchain
+- Retained artifact references with SHA-256 digests
+- Gap/duplicate/replay state trace
+- Recovered identity/accounting comparison
+revision_history:
+- revision: 1
+  date: '2026-10-15'
+  actor: codex
+  reason: Stage 5 pre-execution test specification; execution binding, implementation, inputs and
+    approvals remain pending.

@@ -3,7 +3,17 @@
 !!! info "Phase 0 assessment · 2026-10-13"
     Extracted from CHRONOS-P0-001 v1.0. Assessment complete; engineering decisions pending review. Source intent, reviewer findings and approvals remain distinct.
 
-| ID / related extraction | Status | Finding and evidence boundary | Required closure evidence |
+## Register authority and preservation
+
+This register is the authoritative record of the Phase 0 research findings for VAL-001–VAL-028. Each record retains its identity, related RES references, original assessment status, finding, evidence boundary and required closure evidence. The assessment date above applies to those findings; later engineering work does not rewrite that historical assessment.
+
+New experiments and evidence must reference the existing VAL IDs. Preserve the original assessment when recording a subsequent result, including when an implementation corrects an identified issue. If a research finding needs correction, record a dated amendment with its reason and supporting evidence rather than silently replacing the original finding. Keep the [supplied Phase 0 assessment](../assets/research/ChronosHFT-Phase-0-Research-Baseline-Assessment.md) unchanged as the source baseline.
+
+## Research assessment baseline
+
+The status column below describes the original research assessment, not current implementation readiness or validation acceptance. In particular, the bounded findings for VAL-002 and VAL-010 do not establish that the ChronosHFT integration or timestamp implementation has passed validation.
+
+| ID / related extraction | Research assessment status | Finding and evidence boundary | Required closure evidence |
 | --- | --- | --- | --- |
 | VAL-001 / RES-001 | Unverified | Fast assembly of primitives does not establish production readiness | Reliability/security/correctness evidence; qualify commercial wording |
 | VAL-002 / RES-002 | Validated (role only) | FDAP roles are consistent with the source and Flight/Arrow primary documentation [EXT-01/02]; Chronos integration untested | Pin compatible versions and integration tests |
@@ -33,6 +43,22 @@
 | VAL-026 / RES-028 | Incomplete | “ANSI SQL” and financial functions lack a supported subset and precise semantics | Dialect/version and function conformance suite |
 | VAL-027 / RES-021 | Incomplete | Order-book reconstruction lacks venue event/state rules and recovery policy | Venue-specific reference traces and deterministic oracle |
 | VAL-028 / RES-063 | Incomplete | Numeric citations cannot be resolved to references from the PDF | Recover bibliography or mark each affected assertion unsupported |
+
+## Engineering progress and validation decisions
+
+Track subsequent work separately from the research assessment:
+
+| Record dimension | Purpose | Relationship to this baseline |
+| --- | --- | --- |
+| Research assessment | Preserve what Phase 0 established and the limits of that finding | The 28 records above remain the authoritative historical findings |
+| Engineering progress | Record preparation, implementation, execution and evidence review for each validation | Reference the VAL ID without changing its research assessment status |
+| Validation decision | Record what reviewed evidence establishes, with its scope, limitations and approval | Link the VAL ID, supporting evidence and applicable implementation revision |
+
+The [Stage 3 registry migration](validation-registry.md) initializes each validation's engineering record at revision 1 with lifecycle `identified`, coverage `unmapped` and no decision. Current engineering metadata is maintained in `validation/register/validations/`; the table above preserves the historical assessment. No new executions, evidence, reviewer approvals or closures are recorded by that migration. Existing research statuses remain unchanged; engineering acceptance remains pending.
+
+The [coverage plan](../10-validation-lab/validation-coverage.md) records the Stage 4 transition to `planned`. Stage 5 adds the [test specifications](../10-validation-lab/test-register.md), validation revision 3 and experiment revision 2, preserving prior definitions as snapshots. Experiments remain `proposed` and execution bindings remain unbound. Progress updates must not imply technical acceptance. A passing test supports only the behavior and environment it exercised. A validation decision must identify its evidence and review boundary, and any related architecture approval must remain explicit in the [decision register](decision-register.md). Documentation completion alone does not close a validation.
+
+The [validation framework contract](validation-framework.md) defines identities, relationships, lifecycle states, evidence and decision rules. The [registry migration](validation-registry.md#authority-boundary) defines the checked authority boundary. The [Technical Validation Lab](../10-validation-lab/index.md) presents generated coverage, test specifications and separate execution/evidence/results views. Stage 8 adds the [capture and review tools](../10-validation-lab/execution-and-evidence.md) without registering a real run or advancing a validation. Generated views retain access to this historical baseline and distinguish it from current engineering progress and decisions.
 
 ## Critical prototype interpretation
 

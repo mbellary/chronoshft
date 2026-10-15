@@ -1,0 +1,62 @@
+schema_version: 1
+id: EXP-013
+revision: 2
+title: Reproducible benchmark harness
+validates:
+- id: VAL-006
+  revision: 3
+objective: Establish repeatable, workload-qualified benchmark execution and complete result provenance.
+hypotheses:
+- id: HYP-001
+  statement: A recorded run can be reproduced from its pinned source, inputs, command, dependency
+    and environment manifests.
+- id: HYP-002
+  statement: The harness reports correct latency/throughput timing boundaries, raw observations and
+    event accounting, including failures and generator shortfalls.
+scope: 'VAL-006: harness, workload repeatability, hardware manifests, raw artifacts and valid measurement
+  accounting for separately defined profiles.'
+exclusions:
+- A working harness does not demonstrate any product performance target.
+- Keep MVP, reference, burst and additional 5M/s profiles distinct.
+method:
+  kind: mixed
+  procedure: Specify harness inputs and timing/accounting boundaries; check clocks and generators
+    with controls; repeat seeded workloads and retain raw observations plus complete provenance.
+  implementation_path: null
+dependencies:
+- Approved profile-specific workload contracts (DEC-005).
+- Controlled hardware manifest and raw artifact retention plan.
+tests:
+- id: TST-037
+  revision: 1
+- id: TST-038
+  revision: 1
+- id: TST-039
+  revision: 1
+completion_criteria:
+- Define versioned test specifications with independent oracles and predeclared acceptance criteria
+  before execution.
+- Execute the defined mandatory investigation and retain outcomes, provenance and integrity-checked
+  evidence, including negative and inconclusive results.
+- Review hypothesis conclusions and coverage limitations; link a separate validation decision without
+  inferring acceptance from experiment completion.
+lifecycle:
+  state: proposed
+  history:
+  - from: null
+    to: proposed
+    date: '2026-10-15'
+    actor: codex
+    reason: Stage 4 investigation definition; test decomposition, prerequisites and execution remain
+      pending.
+revision_history:
+- revision: 1
+  date: '2026-10-15'
+  actor: codex
+  reason: Stage 4 initial experiment definition and validation coverage assignment; no implementation
+    or approval asserted.
+- revision: 2
+  date: '2026-10-15'
+  actor: codex
+  reason: Stage 5 declares hypothesis-linked test specifications; experiment remains proposed until
+    bindings and prerequisites are ready.

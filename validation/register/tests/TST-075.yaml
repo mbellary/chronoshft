@@ -1,0 +1,49 @@
+schema_version: 1
+id: TST-075
+revision: 1
+title: Reclamation allocation and exhaustion accounting
+experiment:
+  id: EXP-025
+  revision: 2
+validations:
+- id: VAL-020
+  revision: 3
+hypothesis_ids:
+- HYP-002
+classification: performance
+execution_type: automated
+mandatory: true
+preconditions:
+- Pool size, allocation budget, reader retention schedule and exhaustion policy fixed.
+- Bind the exact input/source/configuration revisions and execution or review method before running;
+  unresolved prerequisites are not a pass.
+procedure:
+- Force delayed readers past normal reuse cycles and observe allocation/reclamation.
+- Release readers, drain work and compare reclaimed storage and resource counts with the policy.
+expected:
+- Storage reuse occurs only after its final protected reader releases it.
+- Allocation, memory and exhaustion outcomes meet declared bounds; excess retained memory is not
+  hidden.
+oracle:
+  kind: independent_reference_comparison
+  description: An independent live-storage/lease ledger predicts legal reclamation; external allocator/RSS
+    observations validate resource accounting.
+execution_method: Planned automated procedure for Reclamation allocation and exhaustion accounting;
+  bind the exact command or review checklist and applicable source/fixture revisions before execution.
+execution_binding:
+  state: unbound
+  implementation_path: null
+  entrypoint: null
+required_evidence:
+- Per-case test outcomes including failures, skips and tool errors
+- Registry/test revision and implementation or documentary source revision
+- Exact execution command or review procedure; input/configuration hashes and applicable environment/toolchain
+- Retained artifact references with SHA-256 digests
+- Allocation/RSS and reclamation traces
+- Exhaustion outcomes and post-release reconciliation
+revision_history:
+- revision: 1
+  date: '2026-10-15'
+  actor: codex
+  reason: Stage 5 pre-execution test specification; execution binding, implementation, inputs and
+    approvals remain pending.

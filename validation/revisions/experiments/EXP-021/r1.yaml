@@ -1,0 +1,52 @@
+schema_version: 1
+id: EXP-021
+revision: 1
+title: Arrow builder allocation lifecycle
+validates:
+- id: VAL-014
+  revision: 2
+objective: Establish version-pinned append/finish/release allocation behavior and an explicit pool/reclamation
+  model.
+hypotheses:
+- id: HYP-001
+  statement: Observed builder/array ownership and allocation behavior across append, finish and release
+    matches the pinned implementation analysis.
+- id: HYP-002
+  statement: Any retained capacity-reuse claim is supported by the explicit pool/reclamation design
+    and allocation tracing, including a negative control.
+scope: 'VAL-014: storage transfer on finish, builder replacement/reserve behavior and actual reclamation
+  responsibilities.'
+exclusions:
+- No inference that array drop invokes the source reserve loop.
+- Allocation observations alone do not prove concurrency safety.
+method:
+  kind: mixed
+  procedure: Inspect pinned builder code, trace allocations and pointer ownership across lifecycle
+    operations, and compare any proposed pool with the observed storage transfer behavior.
+  implementation_path: null
+dependencies:
+- Pinned Arrow builder implementation.
+- Explicit proposed reuse/pool ownership contract (DEC-003).
+tests: []
+completion_criteria:
+- Define versioned test specifications with independent oracles and predeclared acceptance criteria
+  before execution.
+- Execute the defined mandatory investigation and retain outcomes, provenance and integrity-checked
+  evidence, including negative and inconclusive results.
+- Review hypothesis conclusions and coverage limitations; link a separate validation decision without
+  inferring acceptance from experiment completion.
+lifecycle:
+  state: proposed
+  history:
+  - from: null
+    to: proposed
+    date: '2026-10-15'
+    actor: codex
+    reason: Stage 4 investigation definition; test decomposition, prerequisites and execution remain
+      pending.
+revision_history:
+- revision: 1
+  date: '2026-10-15'
+  actor: codex
+  reason: Stage 4 initial experiment definition and validation coverage assignment; no implementation
+    or approval asserted.

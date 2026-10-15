@@ -1,0 +1,90 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ChronosHFT historical migration baseline v1",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "assessment_id": {
+      "const": "CHRONOS-P0-001"
+    },
+    "assessment_version": {
+      "const": "1.0"
+    },
+    "assessment_date": {
+      "const": "2026-10-13"
+    },
+    "baseline_path": {
+      "const": "docs/00-governance/technical-validation.md"
+    },
+    "source_document": {
+      "type": "object",
+      "properties": {
+        "path": {
+          "const": "docs/assets/research/ChronosHFT-Phase-0-Research-Baseline-Assessment.md"
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        }
+      },
+      "required": [
+        "path",
+        "sha256"
+      ],
+      "additionalProperties": false
+    },
+    "record_count": {
+      "const": 28
+    },
+    "rows_sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "validation_ids": {
+      "const": [
+        "VAL-001",
+        "VAL-002",
+        "VAL-003",
+        "VAL-004",
+        "VAL-005",
+        "VAL-006",
+        "VAL-007",
+        "VAL-008",
+        "VAL-009",
+        "VAL-010",
+        "VAL-011",
+        "VAL-012",
+        "VAL-013",
+        "VAL-014",
+        "VAL-015",
+        "VAL-016",
+        "VAL-017",
+        "VAL-018",
+        "VAL-019",
+        "VAL-020",
+        "VAL-021",
+        "VAL-022",
+        "VAL-023",
+        "VAL-024",
+        "VAL-025",
+        "VAL-026",
+        "VAL-027",
+        "VAL-028"
+      ]
+    }
+  },
+  "required": [
+    "schema_version",
+    "assessment_id",
+    "assessment_version",
+    "assessment_date",
+    "baseline_path",
+    "source_document",
+    "record_count",
+    "rows_sha256",
+    "validation_ids"
+  ],
+  "additionalProperties": false
+}

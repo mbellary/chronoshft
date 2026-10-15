@@ -1,0 +1,52 @@
+schema_version: 1
+id: EXP-016
+revision: 1
+title: Disruptor signaling evaluation
+validates:
+- id: VAL-022
+  revision: 2
+objective: Establish version-specific publication/alignment behavior and workload-qualified signaling
+  costs.
+hypotheses:
+- id: HYP-001
+  statement: Inspected source layout and publication semantics match the documented contract for
+    the pinned crate and target architecture.
+- id: HYP-002
+  statement: Measured signaling tail latency and CPU utilization meet declared budgets for selected
+    wait strategies and workloads.
+scope: 'VAL-022: version-pinned source/layout review, event publication and signaling measurements
+  across chosen wait strategies.'
+exclusions:
+- No platform-independent alignment or busy-spin latency claim.
+- Signaling completion does not prove query completion.
+method:
+  kind: mixed
+  procedure: Inspect crate implementation and target layout; validate event identity/order; compare
+    wait strategies using controlled latency, CPU and interference measurements.
+  implementation_path: null
+dependencies:
+- Pinned signaling crate/version and publication boundary.
+- Controlled platform and approved wait-strategy workload budgets (DEC-005/011).
+tests: []
+completion_criteria:
+- Define versioned test specifications with independent oracles and predeclared acceptance criteria
+  before execution.
+- Execute the defined mandatory investigation and retain outcomes, provenance and integrity-checked
+  evidence, including negative and inconclusive results.
+- Review hypothesis conclusions and coverage limitations; link a separate validation decision without
+  inferring acceptance from experiment completion.
+lifecycle:
+  state: proposed
+  history:
+  - from: null
+    to: proposed
+    date: '2026-10-15'
+    actor: codex
+    reason: Stage 4 investigation definition; test decomposition, prerequisites and execution remain
+      pending.
+revision_history:
+- revision: 1
+  date: '2026-10-15'
+  actor: codex
+  reason: Stage 4 initial experiment definition and validation coverage assignment; no implementation
+    or approval asserted.

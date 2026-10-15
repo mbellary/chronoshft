@@ -1,0 +1,49 @@
+schema_version: 1
+id: TST-043
+revision: 1
+title: Placement and runtime topology audit
+experiment:
+  id: EXP-015
+  revision: 2
+validations:
+- id: VAL-009
+  revision: 3
+hypothesis_ids:
+- HYP-001
+classification: documentary
+execution_type: manual
+mandatory: true
+preconditions:
+- Controlled machine and declared BIOS/NUMA/SMT/IRQ/affinity/memory placement plan available.
+- Bind the exact input/source/configuration revisions and execution or review method before running;
+  unresolved prerequisites are not a pass.
+procedure:
+- Capture actual firmware, OS topology, CPU/IRQ affinity and memory placement.
+- Compare intended locality with observed placement for ingestion, queries, flushers and background
+  work.
+expected:
+- Observed placement matches the declared plan or deviations are explicitly identified.
+- Single-socket/pinning wording alone does not support locality acceptance.
+oracle:
+  kind: independent_review
+  description: Independent OS/firmware topology and placement observations are compared with a separately
+    documented deployment map.
+execution_method: Planned manual procedure for Placement and runtime topology audit; bind the exact
+  command or review checklist and applicable source/fixture revisions before execution.
+execution_binding:
+  state: unbound
+  implementation_path: null
+  entrypoint: null
+required_evidence:
+- Review checklist, findings and named reviewer/date
+- Registry/test revision and implementation or documentary source revision
+- Exact execution command or review procedure; input/configuration hashes and applicable environment/toolchain
+- Retained artifact references with SHA-256 digests
+- Topology/firmware and placement manifest
+- Plan/deviation review
+revision_history:
+- revision: 1
+  date: '2026-10-15'
+  actor: codex
+  reason: Stage 5 pre-execution test specification; execution binding, implementation, inputs and
+    approvals remain pending.

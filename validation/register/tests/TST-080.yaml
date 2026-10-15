@@ -1,0 +1,49 @@
+schema_version: 1
+id: TST-080
+revision: 1
+title: Hot cold handoff and duplicate boundaries
+experiment:
+  id: EXP-027
+  revision: 2
+validations:
+- id: VAL-023
+  revision: 3
+hypothesis_ids:
+- HYP-001
+classification: correctness
+execution_type: automated
+mandatory: true
+preconditions:
+- Approved visibility model, exact identity fixtures and interleavable flush/catalog/compaction points
+  fixed.
+- Bind the exact input/source/configuration revisions and execution or review method before running;
+  unresolved prerequisites are not a pass.
+procedure:
+- Query before, during and after each handoff/compaction boundary while ingestion continues.
+- Compare membership and aggregates with the independent logical dataset at each capture point.
+expected:
+- Every eligible visible identity contributes exactly once at the declared query boundary.
+- No transient tier gap or duplicate changes the promised logical result.
+oracle:
+  kind: independent_reference_comparison
+  description: A tier-independent versioned event ledger computes expected logical rows without querying
+    either hot or cold implementation.
+execution_method: Planned automated procedure for Hot cold handoff and duplicate boundaries; bind
+  the exact command or review checklist and applicable source/fixture revisions before execution.
+execution_binding:
+  state: unbound
+  implementation_path: null
+  entrypoint: null
+required_evidence:
+- Per-case test outcomes including failures, skips and tool errors
+- Registry/test revision and implementation or documentary source revision
+- Exact execution command or review procedure; input/configuration hashes and applicable environment/toolchain
+- Retained artifact references with SHA-256 digests
+- Handoff/query schedule
+- Identity and aggregate comparisons
+revision_history:
+- revision: 1
+  date: '2026-10-15'
+  actor: codex
+  reason: Stage 5 pre-execution test specification; execution binding, implementation, inputs and
+    approvals remain pending.

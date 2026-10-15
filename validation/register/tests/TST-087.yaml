@@ -1,0 +1,51 @@
+schema_version: 1
+id: TST-087
+revision: 1
+title: ASOF and OHLCV financial edge cases
+experiment:
+  id: EXP-029
+  revision: 2
+validations:
+- id: VAL-026
+  revision: 3
+hypothesis_ids:
+- HYP-002
+classification: correctness
+execution_type: automated
+mandatory: true
+preconditions:
+- Approved in-scope temporal/operator rules, fixed precision and boundary/correction fixtures available.
+- Bind the exact input/source/configuration revisions and execution or review method before running;
+  unresolved prerequisites are not a pass.
+procedure:
+- Execute ASOF tie/tolerance, empty-window, boundary timestamp, null, volume and correction cases
+  for supported operators.
+- Compare financial values and output membership with the independent operator oracle.
+expected:
+- Every supported financial case matches declared temporal/tie/window/precision semantics.
+- Deferred operators are reported as unexecuted scope limitations and cannot be counted as passed
+  conformance.
+oracle:
+  kind: independent_reference_comparison
+  description: An independently authored row-wise ASOF and window aggregation evaluator computes
+    expected results from canonical decimal/time fixtures.
+execution_method: Planned automated procedure for ASOF and OHLCV financial edge cases; bind the exact
+  command or review checklist and applicable source/fixture revisions before execution.
+execution_binding:
+  state: unbound
+  implementation_path: null
+  entrypoint: null
+required_evidence:
+- Per-case test outcomes including failures, skips and tool errors
+- Registry/test revision and implementation or documentary source revision
+- Exact execution command or review procedure; input/configuration hashes and applicable environment/toolchain
+- Retained artifact references with SHA-256 digests
+- Financial edge-case SQL and fixtures
+- Reference result/tolerance comparisons
+- Explicit scope exclusions
+revision_history:
+- revision: 1
+  date: '2026-10-15'
+  actor: codex
+  reason: Stage 5 pre-execution test specification; execution binding, implementation, inputs and
+    approvals remain pending.

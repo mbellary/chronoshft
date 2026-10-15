@@ -1,0 +1,50 @@
+schema_version: 1
+id: TST-018
+revision: 1
+title: Supported client interoperability
+experiment:
+  id: EXP-006
+  revision: 2
+validations:
+- id: VAL-002
+  revision: 3
+hypothesis_ids:
+- HYP-001
+- HYP-002
+classification: compatibility
+execution_type: automated
+mandatory: true
+preconditions:
+- Supported client/version combinations and null/decimal/timestamp conversions explicitly declared.
+- Bind the exact input/source/configuration revisions and execution or review method before running;
+  unresolved prerequisites are not a pass.
+procedure:
+- Request the same fixture through each supported client/server pair.
+- Materialize results and compare client-visible schema, row count, order where promised and typed
+  values.
+expected:
+- All supported pairs yield the declared values/types without silent truncation or dropped rows.
+- Conversion errors are explicit for unsupported values and do not masquerade as empty success.
+oracle:
+  kind: independent_reference_comparison
+  description: Client-neutral canonical values and an independent conversion contract define expectations
+    for each client representation.
+execution_method: Planned automated procedure for Supported client interoperability; bind the exact
+  command or review checklist and applicable source/fixture revisions before execution.
+execution_binding:
+  state: unbound
+  implementation_path: null
+  entrypoint: null
+required_evidence:
+- Per-case test outcomes including failures, skips and tool errors
+- Registry/test revision and implementation or documentary source revision
+- Exact execution command or review procedure; input/configuration hashes and applicable environment/toolchain
+- Retained artifact references with SHA-256 digests
+- Client/server matrix
+- Materialized result and conversion report
+revision_history:
+- revision: 1
+  date: '2026-10-15'
+  actor: codex
+  reason: Stage 5 pre-execution test specification; execution binding, implementation, inputs and
+    approvals remain pending.

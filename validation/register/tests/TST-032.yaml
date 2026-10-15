@@ -1,0 +1,48 @@
+schema_version: 1
+id: TST-032
+revision: 1
+title: Source support and attribution review
+experiment:
+  id: EXP-011
+  revision: 2
+validations:
+- id: VAL-028
+  revision: 3
+hypothesis_ids:
+- HYP-001
+classification: documentary
+execution_type: manual
+mandatory: true
+preconditions:
+- Resolved source editions and cited claim text available.
+- Bind the exact input/source/configuration revisions and execution or review method before running;
+  unresolved prerequisites are not a pass.
+procedure:
+- Read the relevant source passage for each resolved citation.
+- Compare the actual supported scope with the assertion and identify overstatement or misattribution.
+expected:
+- Every retained attribution is supported by the referenced edition/passage within its stated scope.
+- Source existence alone cannot pass an unsupported claim.
+oracle:
+  kind: independent_review
+  description: The archived original source passages and a separately maintained claim-support rubric
+    determine attribution validity.
+execution_method: Planned manual procedure for Source support and attribution review; bind the exact
+  command or review checklist and applicable source/fixture revisions before execution.
+execution_binding:
+  state: unbound
+  implementation_path: null
+  entrypoint: null
+required_evidence:
+- Review checklist, findings and named reviewer/date
+- Registry/test revision and implementation or documentary source revision
+- Exact execution command or review procedure; input/configuration hashes and applicable environment/toolchain
+- Retained artifact references with SHA-256 digests
+- Claim-to-passage review matrix
+- Unsupported or overstated attribution findings
+revision_history:
+- revision: 1
+  date: '2026-10-15'
+  actor: codex
+  reason: Stage 5 pre-execution test specification; execution binding, implementation, inputs and
+    approvals remain pending.

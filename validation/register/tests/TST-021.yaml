@@ -1,0 +1,51 @@
+schema_version: 1
+id: TST-021
+revision: 1
+title: Compression and CPU measurement
+experiment:
+  id: EXP-007
+  revision: 2
+validations:
+- id: VAL-003
+  revision: 3
+hypothesis_ids:
+- HYP-002
+classification: performance
+execution_type: automated
+mandatory: true
+preconditions:
+- Dataset sizes, codec settings, byte boundaries, CPU accounting, baseline and numeric claim thresholds
+  predeclared.
+- Bind the exact input/source/configuration revisions and execution or review method before running;
+  unresolved prerequisites are not a pass.
+procedure:
+- Measure encode/decode CPU and time plus input/output bytes over declared repetitions.
+- Retain raw samples and compute compression ratios and CPU deltas against the fixed baseline.
+expected:
+- Every retained numeric claim meets its declared comparison on all required workloads while round-trip
+  correctness holds.
+- Nonzero CPU costs, overhead and failed/short runs are reported; unsupported zero-CPU or ratio claims
+  are rejected.
+oracle:
+  kind: independent_reference_comparison
+  description: Independent raw-file byte counts and a separate analysis of OS CPU/timing observations
+    compute ratios and comparisons against the predeclared baseline.
+execution_method: Planned automated procedure for Compression and CPU measurement; bind the exact
+  command or review checklist and applicable source/fixture revisions before execution.
+execution_binding:
+  state: unbound
+  implementation_path: null
+  entrypoint: null
+required_evidence:
+- Per-case test outcomes including failures, skips and tool errors
+- Registry/test revision and implementation or documentary source revision
+- Exact execution command or review procedure; input/configuration hashes and applicable environment/toolchain
+- Retained artifact references with SHA-256 digests
+- Raw CPU/time samples and file sizes
+- Compression calculations and baseline configuration
+revision_history:
+- revision: 1
+  date: '2026-10-15'
+  actor: codex
+  reason: Stage 5 pre-execution test specification; execution binding, implementation, inputs and
+    approvals remain pending.

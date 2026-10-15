@@ -1,0 +1,53 @@
+schema_version: 1
+id: TST-023
+revision: 1
+title: Wire bytes and serialization costs
+experiment:
+  id: EXP-008
+  revision: 2
+validations:
+- id: VAL-004
+  revision: 3
+hypothesis_ids:
+- HYP-001
+- HYP-002
+classification: performance
+execution_type: automated
+mandatory: true
+preconditions:
+- Exact payload fixtures, wire measurement boundary, instrumentation overhead and adopted budgets
+  fixed.
+- Bind the exact input/source/configuration revisions and execution or review method before running;
+  unresolved prerequisites are not a pass.
+procedure:
+- Send representative batches over declared paths and record wire bytes, serialization/deserialization
+  timing and copy observations.
+- Run instrumentation controls and compare the measured boundary costs with adopted budgets.
+expected:
+- Measured wire volume and cost accounting include declared framing/protocol overhead.
+- Retained budget claims pass only for workloads meeting all adopted limits; nonzero costs remain
+  visible.
+oracle:
+  kind: independent_reference_comparison
+  description: An independent packet/transport byte counter and separately computed payload sizes
+    reconcile traffic; external timing/copy observations check instrumented counters.
+execution_method: Planned automated procedure for Wire bytes and serialization costs; bind the exact
+  command or review checklist and applicable source/fixture revisions before execution.
+execution_binding:
+  state: unbound
+  implementation_path: null
+  entrypoint: null
+required_evidence:
+- Per-case test outcomes including failures, skips and tool errors
+- Registry/test revision and implementation or documentary source revision
+- Exact execution command or review procedure; input/configuration hashes and applicable environment/toolchain
+- Retained artifact references with SHA-256 digests
+- Wire captures/counters
+- Serialization/copy raw samples
+- Instrumentation control measurements
+revision_history:
+- revision: 1
+  date: '2026-10-15'
+  actor: codex
+  reason: Stage 5 pre-execution test specification; execution binding, implementation, inputs and
+    approvals remain pending.

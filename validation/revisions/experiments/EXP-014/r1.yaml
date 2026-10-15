@@ -1,0 +1,51 @@
+schema_version: 1
+id: EXP-014
+revision: 1
+title: Hardware topology verification
+validates:
+- id: VAL-008
+  revision: 2
+objective: Establish a source-backed CPU/motherboard/DIMM topology and corrected population plan.
+hypotheses:
+- id: HYP-001
+  statement: The proposed BOM and DIMM layout conform to the exact CPU and motherboard documentation,
+    with occupied channels explicitly identified.
+- id: HYP-002
+  statement: Any fully-populated claim matches actual supported channel/slot population for the chosen
+    parts and firmware configuration.
+scope: 'VAL-008: corrected proposed BOM and motherboard population plan; distinguish proposed hardware
+  from installed hardware.'
+exclusions:
+- Documentary topology review does not measure bandwidth or jitter.
+- Do not describe proposed hardware as installed.
+method:
+  kind: documentary
+  procedure: Review vendor primary documentation for exact part/board revisions, map channels and
+    DIMM slots, and reconcile each BOM/population claim in a versioned audit.
+  implementation_path: null
+dependencies:
+- Exact CPU, motherboard and DIMM part numbers and board revision (DEC-011).
+- Archived vendor documentation and proposed population plan.
+tests: []
+completion_criteria:
+- Define versioned test specifications with independent oracles and predeclared acceptance criteria
+  before execution.
+- Execute the defined mandatory investigation and retain outcomes, provenance and integrity-checked
+  evidence, including negative and inconclusive results.
+- Review hypothesis conclusions and coverage limitations; link a separate validation decision without
+  inferring acceptance from experiment completion.
+lifecycle:
+  state: proposed
+  history:
+  - from: null
+    to: proposed
+    date: '2026-10-15'
+    actor: codex
+    reason: Stage 4 investigation definition; test decomposition, prerequisites and execution remain
+      pending.
+revision_history:
+- revision: 1
+  date: '2026-10-15'
+  actor: codex
+  reason: Stage 4 initial experiment definition and validation coverage assignment; no implementation
+    or approval asserted.

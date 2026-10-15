@@ -1,0 +1,52 @@
+schema_version: 1
+id: EXP-012
+revision: 1
+title: Hot-path allocation and latency budget
+validates:
+- id: VAL-005
+  revision: 2
+objective: Establish a bounded hot-path resource contract and measure allocation, destruction, paging
+  and scheduler costs.
+hypotheses:
+- id: HYP-001
+  statement: Within the declared hot-path boundary and warmed workload, allocation/deallocation and
+    page-fault counts meet predeclared budgets with effective negative controls.
+- id: HYP-002
+  statement: Observed latency distributions include destruction and relevant interference rather
+    than excluding those costs from the boundary.
+scope: 'VAL-005: bounded-path definition, allocation/deallocation/page-fault budgets and latency
+  effects of scheduling and I/O.'
+exclusions:
+- No latency bound inferred from absence of a tracing garbage collector.
+- No unmeasured zero-allocation guarantee.
+method:
+  kind: mixed
+  procedure: Review timing boundaries; instrument allocation and destruction with negative controls;
+    measure page faults, scheduling and I/O effects under declared workload conditions.
+  implementation_path: null
+dependencies:
+- Approved bounded-path and workload/resource budgets (DEC-003/005).
+- Controlled environment and instrument-overhead assessment.
+tests: []
+completion_criteria:
+- Define versioned test specifications with independent oracles and predeclared acceptance criteria
+  before execution.
+- Execute the defined mandatory investigation and retain outcomes, provenance and integrity-checked
+  evidence, including negative and inconclusive results.
+- Review hypothesis conclusions and coverage limitations; link a separate validation decision without
+  inferring acceptance from experiment completion.
+lifecycle:
+  state: proposed
+  history:
+  - from: null
+    to: proposed
+    date: '2026-10-15'
+    actor: codex
+    reason: Stage 4 investigation definition; test decomposition, prerequisites and execution remain
+      pending.
+revision_history:
+- revision: 1
+  date: '2026-10-15'
+  actor: codex
+  reason: Stage 4 initial experiment definition and validation coverage assignment; no implementation
+    or approval asserted.

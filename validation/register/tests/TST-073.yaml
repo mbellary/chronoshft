@@ -1,0 +1,49 @@
+schema_version: 1
+id: TST-073
+revision: 1
+title: Transfer reuse and resource policy review
+experiment:
+  id: EXP-025
+  revision: 2
+validations:
+- id: VAL-020
+  revision: 3
+hypothesis_ids:
+- HYP-001
+- HYP-002
+classification: documentary
+execution_type: manual
+mandatory: true
+preconditions:
+- Pinned builder lifecycle and proposed transfer/pool model available.
+- Bind the exact input/source/configuration revisions and execution or review method before running;
+  unresolved prerequisites are not a pass.
+procedure:
+- Trace ownership from builder storage into published arrays, readers and reclamation.
+- Specify allocation/reuse and slow-reader exhaustion behavior, including supported resource bounds.
+expected:
+- Every storage identity has an explicit owner/lease and a legal reclamation condition.
+- Any no-allocation or bounded-memory claim is conditional on a declared supported policy.
+oracle:
+  kind: independent_review
+  description: A separate storage-ownership graph and resource ledger constrain the design independently
+    of a buffer-index flip.
+execution_method: Planned manual procedure for Transfer reuse and resource policy review; bind the
+  exact command or review checklist and applicable source/fixture revisions before execution.
+execution_binding:
+  state: unbound
+  implementation_path: null
+  entrypoint: null
+required_evidence:
+- Review checklist, findings and named reviewer/date
+- Registry/test revision and implementation or documentary source revision
+- Exact execution command or review procedure; input/configuration hashes and applicable environment/toolchain
+- Retained artifact references with SHA-256 digests
+- Storage ownership graph
+- Allocation/reuse/exhaustion contract and review
+revision_history:
+- revision: 1
+  date: '2026-10-15'
+  actor: codex
+  reason: Stage 5 pre-execution test specification; execution binding, implementation, inputs and
+    approvals remain pending.

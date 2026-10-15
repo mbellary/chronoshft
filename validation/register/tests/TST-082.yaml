@@ -1,0 +1,49 @@
+schema_version: 1
+id: TST-082
+revision: 1
+title: Acknowledgment failure and commit protocol review
+experiment:
+  id: EXP-028
+  revision: 2
+validations:
+- id: VAL-024
+  revision: 3
+hypothesis_ids:
+- HYP-001
+- HYP-002
+classification: documentary
+execution_type: manual
+mandatory: true
+preconditions:
+- Chosen durability mode, storage/filesystem assumptions and in-scope failure classes documented.
+- Bind the exact input/source/configuration revisions and execution or review method before running;
+  unresolved prerequisites are not a pass.
+procedure:
+- Map write, flush/sync, rename/catalog commit and acknowledgment points.
+- Specify expected recovery outcomes for each crash/failure boundary and retry identity.
+expected:
+- Every acknowledgment has an explicit recoverability guarantee under the declared failure model.
+- No format/background-write assumption substitutes for a commit/catalog protocol.
+oracle:
+  kind: independent_review
+  description: An independently authored commit-state/failure truth table and durable-acknowledgment
+    contract define allowed recovery outcomes.
+execution_method: Planned manual procedure for Acknowledgment failure and commit protocol review;
+  bind the exact command or review checklist and applicable source/fixture revisions before execution.
+execution_binding:
+  state: unbound
+  implementation_path: null
+  entrypoint: null
+required_evidence:
+- Review checklist, findings and named reviewer/date
+- Registry/test revision and implementation or documentary source revision
+- Exact execution command or review procedure; input/configuration hashes and applicable environment/toolchain
+- Retained artifact references with SHA-256 digests
+- Commit/ack state graph
+- Crash-point outcome matrix and review
+revision_history:
+- revision: 1
+  date: '2026-10-15'
+  actor: codex
+  reason: Stage 5 pre-execution test specification; execution binding, implementation, inputs and
+    approvals remain pending.

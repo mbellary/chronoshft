@@ -6,6 +6,8 @@
 
 ## Evidence status
 
+The [Stage 5 test catalog](../10-validation-lab/test-register.md) now specifies the proposed VAL-linked procedures and independent oracles. Its TST records are specifications with unbound execution methods; the planned Rust files and evidence destinations below remain implementation work.
+
 Engineering documentation is populated; engineering approval and executable validation remain pending. This page provides a proposed evidence plan for DOC-06/07 using the existing [technical validation register](../00-governance/technical-validation.md), [decision register](../00-governance/decision-register.md) and [Product readiness](../01-product/product-readiness.md). No new VAL, GAP or DEC record is marked closed.
 
 ## Research-to-engineering map

@@ -1,0 +1,49 @@
+schema_version: 1
+id: TST-051
+revision: 1
+title: Ingress boundary resource accounting
+experiment:
+  id: EXP-017
+  revision: 2
+validations:
+- id: VAL-025
+  revision: 3
+hypothesis_ids:
+- HYP-002
+classification: performance
+execution_type: automated
+mandatory: true
+preconditions:
+- Exact adapter stack, load, resource budgets and supported ingress comparison paths fixed.
+- Bind the exact input/source/configuration revisions and execution or review method before running;
+  unresolved prerequisites are not a pass.
+procedure:
+- Measure allocations, CPU and timing separately for transport, TLS, framing and decoding.
+- Validate decoded outputs while comparing supported ingress configurations.
+expected:
+- Resource claims account for all declared layers and meet adopted budgets under correct decoding.
+- Unsupported bypass paths are explicitly excluded rather than given inferred performance results.
+oracle:
+  kind: independent_reference_comparison
+  description: Independent input/output identity checks and OS/allocation observations are reconciled
+    with separately instrumented layer boundaries.
+execution_method: Planned automated procedure for Ingress boundary resource accounting; bind the
+  exact command or review checklist and applicable source/fixture revisions before execution.
+execution_binding:
+  state: unbound
+  implementation_path: null
+  entrypoint: null
+required_evidence:
+- Per-case test outcomes including failures, skips and tool errors
+- Registry/test revision and implementation or documentary source revision
+- Exact execution command or review procedure; input/configuration hashes and applicable environment/toolchain
+- Retained artifact references with SHA-256 digests
+- Per-layer raw cost data
+- Decoded identity checks
+- Configuration and comparison limits
+revision_history:
+- revision: 1
+  date: '2026-10-15'
+  actor: codex
+  reason: Stage 5 pre-execution test specification; execution binding, implementation, inputs and
+    approvals remain pending.

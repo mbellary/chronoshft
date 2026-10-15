@@ -1,0 +1,51 @@
+schema_version: 1
+id: EXP-024
+revision: 1
+title: Exclusive buffer publication
+validates:
+- id: VAL-019
+  revision: 2
+objective: Establish writer exclusion, immutable publication and safe reuse transitions for active-memory
+  buffers.
+hypotheses:
+- id: HYP-001
+  statement: Every supported concurrent schedule enforces exclusive mutation before publication and
+    prevents append/flush aliasing.
+- id: HYP-002
+  statement: Buffer state transitions prevent reuse while any declared reader lease remains active.
+scope: 'VAL-019: ownership state machine, concurrent-call API restrictions, publication ordering
+  and lease/retirement rules.'
+exclusions:
+- An atomic index flip alone is not an ownership proof.
+- Performance is a separate measurement gate.
+method:
+  kind: mixed
+  procedure: Review state-machine and unsafe invariants, specify misuse/concurrent-call schedules,
+    and model-check publication/reuse transitions with delayed-reader controls.
+  implementation_path: null
+dependencies:
+- Approved ownership/state-machine alternative (DEC-003).
+- Explicit append/flush/reader API and atomic memory model.
+tests: []
+completion_criteria:
+- Define versioned test specifications with independent oracles and predeclared acceptance criteria
+  before execution.
+- Execute the defined mandatory investigation and retain outcomes, provenance and integrity-checked
+  evidence, including negative and inconclusive results.
+- Review hypothesis conclusions and coverage limitations; link a separate validation decision without
+  inferring acceptance from experiment completion.
+lifecycle:
+  state: proposed
+  history:
+  - from: null
+    to: proposed
+    date: '2026-10-15'
+    actor: codex
+    reason: Stage 4 investigation definition; test decomposition, prerequisites and execution remain
+      pending.
+revision_history:
+- revision: 1
+  date: '2026-10-15'
+  actor: codex
+  reason: Stage 4 initial experiment definition and validation coverage assignment; no implementation
+    or approval asserted.
